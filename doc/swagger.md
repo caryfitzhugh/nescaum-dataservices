@@ -1,0 +1,1 @@
+<table><tr><td>Path</td><td>Method</td><td>Summary</td></tr><tr><td>/resources</td><td>GET</td><td></td></tr><tr><td>/swagger_doc.json</td><td>GET</td><td>The swagger endpoint</td></tr><tr><td>/swagger_doc.json</td><td>OPTIONS</td><td>Option method for the swagger endpoint, useful for some CORS stuff</td></tr></table>
