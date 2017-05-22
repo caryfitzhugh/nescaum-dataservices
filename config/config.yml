@@ -1,0 +1,8 @@
+production:
+  postgres: postgres://<%= ENV["DATABASE_USERNAME"] %>:<%= ENV["DATABASE_PASSWORD"] %>@<%= ENV["DATABASE_HOST"] %>/nds
+
+development:
+  postgres: <%= ENV["POSTGRES_DB_URL"] || "postgres://nds:nds@localhost:5000/nds" %>
+
+test:
+  postgres: <%= ENV["POSTGRES_DB_URL"] || "postgres://nds:nds@localhost:5006/nds"
