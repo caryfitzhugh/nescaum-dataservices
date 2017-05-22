@@ -8,5 +8,6 @@ swagger:
 
 deps:
 	npm install -g swagger-to-md
+	pip install --upgrade --user awsebcli
 
 .PHONY: run
