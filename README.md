@@ -2,4 +2,4 @@
 Data services for Nescaum / regional data services.
 
 ## Spec
-The API spec is at [swagger_doc.json](./doc/swagger_doc.json)
+The API spec is at [swagger.md](./doc/swagger.md)
