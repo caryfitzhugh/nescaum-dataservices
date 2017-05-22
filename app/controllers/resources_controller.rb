@@ -1,10 +1,9 @@
-require 'sinatra/swagger-exposer/swagger-exposer'
-require 'json'
+require 'app/controllers/base'
 
 module Controllers
-  class ResourcesController < Sinatra::Application
-
+  class ResourcesController < Controllers::Base
     type 'Resources', {
+      required: [:name, :document_url],
       properties: {
         name: { type: String, example: "Document determining temperature change ..."},
         document_url: { type: String, example: "http://s3.document.com"},
@@ -12,10 +11,10 @@ module Controllers
     }
 
     endpoint description: "Lookup and manage resources",
-              responses: { 200 => ["Resources"]},
+              responses: { 200 => [["Resources"]]},
               tags: "Resources"
     get '/resources' do
-      json({name: "HI", document_url: "http://google.com/doc"})
+      json([{name: "HI", document_url: "http://google.com/doc"}])
     end
   end
 end

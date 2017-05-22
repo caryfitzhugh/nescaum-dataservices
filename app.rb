@@ -14,7 +14,7 @@ set :logger, Logger.new(STDOUT)
 
 class App < Sinatra::Application
   register Sinatra::SwaggerExposer
-  register Sinatra::Namespace
+
   general_info(
       {
           version: '0.0.1',
@@ -31,7 +31,5 @@ class App < Sinatra::Application
     redirect '/index.html'
   end
 
-  namespace "/api" do
-    use Controllers::ResourcesController
-  end
+  use Controllers::ResourcesController
 end
