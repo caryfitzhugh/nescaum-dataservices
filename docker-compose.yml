@@ -1,0 +1,16 @@
+version: '2'
+services:
+  postgres-service:
+    image: dadarek/wait-for-dependencies
+    depends_on:
+      - postgres
+    command: postgres:5432
+
+  postgres:
+    image: postgres:9.6
+    ports:
+      - "5000:5432"
+    environment:
+      - POSTGRES_PASSWORD=nds
+      - POSTGRES_USER=nds
+      - POSTGRES_DATABASE=nds

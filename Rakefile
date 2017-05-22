@@ -1,4 +1,12 @@
 require './app'
+
+
+namespace :db do
+  task :migrate do
+    DataMapper.auto_upgrade!
+  end
+end
+
 namespace :routes do
   desc "list defined routes"
   task :show do

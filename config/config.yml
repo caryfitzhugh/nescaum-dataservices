@@ -1,5 +1,5 @@
 production:
-  postgres: postgres://<%= ENV["DATABASE_USERNAME"] %>:<%= ENV["DATABASE_PASSWORD"] %>@<%= ENV["DATABASE_HOST"] %>/nds
+  postgres: postgres://<%= ENV['RDS_USERNAME'] %>:<%= ENV['RDS_PASSWORD'] %>@<%= ENV['RDS_HOSTNAME'] %>:<= ENV['RDS_PORT'] %>/<%= ENV['RDS_DB_NAME'] %>
 
 development:
   postgres: <%= ENV["POSTGRES_DB_URL"] || "postgres://nds:nds@localhost:5000/nds" %>
