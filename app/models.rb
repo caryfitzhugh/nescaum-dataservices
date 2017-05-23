@@ -5,8 +5,6 @@ DataMapper.finalize
 DataMapper::Logger.new($stdout, :debug)
 
 if CONFIG.postgres
-  puts ENV
-  puts CONFIG.postgres
   connected = false
   while !connected
     begin
