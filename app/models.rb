@@ -10,7 +10,7 @@ if CONFIG.postgres
   while !connected
     begin
       args = {
-        adapter: "postgresql",
+        adapter: "postgres",
         database: ENV['RDS_DB_NAME'],
         username: ENV['RDS_USERNAME'],
         password: ENV['RDS_PASSWORD'],
