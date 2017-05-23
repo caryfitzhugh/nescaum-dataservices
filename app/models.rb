@@ -2,10 +2,9 @@ require 'app/models/resource'
 require 'lib/config'
 DataMapper.finalize
 
-DataMapper::Logger.new($stdout, :info)
+DataMapper::Logger.new($stdout, :debug)
 
 if CONFIG.postgres
-
   connected = false
   while !connected
     begin
@@ -16,9 +15,8 @@ if CONFIG.postgres
         password: ENV['RDS_PASSWORD'],
         host: ENV["RDS_HOSTNAME"]
       }
-      require 'pp'; pp args
-      #DataMapper.setup(:default, CONFIG.postgres)
-      DataMapper.setup(:default, args )
+      DataMapper.setup(:default, CONFIG.postgres)
+      #DataMapper.setup(:default, args )
       connected = true
     rescue DataObjects::ConnectionError => e
       connected = false
