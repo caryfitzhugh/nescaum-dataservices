@@ -8,15 +8,7 @@ if CONFIG.postgres
   connected = false
   while !connected
     begin
-      args = {
-        adapter: "postgres",
-        database: ENV['RDS_DB_NAME'],
-        username: ENV['RDS_USERNAME'],
-        password: ENV['RDS_PASSWORD'],
-        host: ENV["RDS_HOSTNAME"]
-      }
       DataMapper.setup(:default, CONFIG.postgres)
-      #DataMapper.setup(:default, args )
       connected = true
     rescue DataObjects::ConnectionError => e
       connected = false

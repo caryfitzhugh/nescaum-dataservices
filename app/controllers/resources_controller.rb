@@ -18,7 +18,7 @@ module Controllers
 
     get '/resources' do
       resources = Models::Resource.find()
-      json([{name: "HI", document_url: "http://google.com/doc"}])
+      json(resources)
     end
   end
 end
