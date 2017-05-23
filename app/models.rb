@@ -5,6 +5,7 @@ DataMapper.finalize
 DataMapper::Logger.new($stdout, :debug)
 
 if CONFIG.postgres
+  puts ENV["RDS_PASSWORD"]
   connected = false
   while !connected
     begin
