@@ -10,7 +10,6 @@ module Models
     property :name, String
     property :password, BCryptHash, required: true
     property :roles, PgArray
-    #validates_within :roles, ROLES
 
     def is_admin?
       self.roles.any? {|r| r == "admin"}

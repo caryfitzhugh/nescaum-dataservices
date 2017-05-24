@@ -4,6 +4,7 @@ module Models
     property :id, Serial
     property :name, String
     property :document_url, String
+    belongs_to :sector
 
     def self.find
       Resource.all

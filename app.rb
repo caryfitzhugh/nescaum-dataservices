@@ -8,7 +8,10 @@ require 'logger'
 require 'colorize'
 
 require 'sinatra/swagger-exposer/swagger-exposer'
-require 'app/controllers'
+require 'app/controllers/api/resources_controller'
+require 'app/controllers/curation/home_controller'
+require 'app/controllers/curation/sectors_controller'
+require 'app/controllers/authentication_controller'
 require 'app/helpers'
 
 set :logger, Logger.new(STDOUT)
@@ -34,9 +37,10 @@ class App < Sinatra::Application
   )
   helpers Helpers::Authentication
 
-  use Controllers::APIController
+  use Controllers::API::ResourcesController
   use Controllers::AuthenticationController
-  use Controllers::CurationController
+  use Controllers::Curation::HomeController
+  use Controllers::Curation::SectorsController
 
   get '/', :no_swagger => true do
     redirect Paths.swagger_root_path
