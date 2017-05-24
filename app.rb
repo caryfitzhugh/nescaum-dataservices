@@ -8,13 +8,19 @@ require 'logger'
 require 'colorize'
 
 require 'sinatra/swagger-exposer/swagger-exposer'
-require 'app/controllers/resources_controller'
+require 'app/controllers'
+require 'app/helpers'
 
 set :logger, Logger.new(STDOUT)
+set :views, Proc.new { File.join(root, "app", "views") }
+set :method_override, true
 
 class App < Sinatra::Application
   register Sinatra::SwaggerExposer
-
+  use Rack::Session::Cookie, :key => 'rack.session',
+                           :expire_after => 2592000,
+                           :secret => ENV["SESSION_SECRET"],
+                           :old_secret => ENV["OLD_SESSION_SECRET"]
   general_info(
       {
           version: '0.0.1',
@@ -26,10 +32,13 @@ class App < Sinatra::Application
           }
       }
   )
+  helpers Helpers::Authentication
+
+  use Controllers::APIController
+  use Controllers::AuthenticationController
+  use Controllers::CurationController
 
   get '/', :no_swagger => true do
-    redirect '/index.html'
+    redirect Paths.swagger_root_path
   end
-
-  use Controllers::ResourcesController
 end

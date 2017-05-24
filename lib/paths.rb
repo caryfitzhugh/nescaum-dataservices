@@ -2,9 +2,19 @@ require 'uri'
 
 module Paths
   class << self
-    def root_path(params ={})
-      add_q("/", params)
+    {root: "/",
+     resources: "/api/resources",
+     sign_in: "/sign_in",
+     sign_out: "/sign_out",
+     curation_home: "/curation",
+     swagger_root: "/index.html",
+    }.each_pair do |key, val|
+      define_method((key.to_s + "_path").to_sym) do |params = {}|
+        add_q(val, params)
+      end
     end
+
+    private
 
     def add_q(path, params)
       uri = URI.parse(path)

@@ -1,7 +1,7 @@
 require 'app/controllers/base'
 require 'app/models'
 
-module Controllers
+module Controllers::API
   class ResourcesController < Controllers::Base
     type 'Resources', {
       required: [:name, :document_url],
@@ -16,7 +16,7 @@ module Controllers
               responses: { 200 => [["Resources"]]},
               tags: "Resources"
 
-    get '/resources' do
+    get Paths.resources_path do
       resources = Models::Resource.find()
       json(resources)
     end

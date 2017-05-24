@@ -1,4 +1,10 @@
+require 'data_mapper'
+require 'dm-postgres-types'
+
+require 'app/models/sector'
 require 'app/models/resource'
+require 'app/models/user'
+
 require 'lib/config'
 DataMapper.finalize
 
