@@ -3,5 +3,5 @@ require 'bundler'
 
 Bundler.require
 
-require './app'
-run App
+require './nds_app'
+run NDSApp

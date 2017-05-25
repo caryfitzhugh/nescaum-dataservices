@@ -1,7 +1,7 @@
 require 'app/controllers/base'
 require 'app/models'
 
-module Controllers::API
+module Controllers
   class ResourcesController < Controllers::Base
     type 'Resources', {
       required: [:name, :document_url],

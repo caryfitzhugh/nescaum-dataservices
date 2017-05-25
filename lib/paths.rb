@@ -3,12 +3,13 @@ require 'uri'
 module Paths
   class << self
     {root: "/",
-     resources: "/api/resources",
+     resources: "/resources",
+     resource: "/resources/:id",
      sign_in: "/sign_in",
      sign_out: "/sign_out",
      curation_home: "/curation",
-     curation_sectors: "/curation/sectors",
-     curation_sector: "/curation/sector/:id",
+     sectors: "/sectors",
+     sector: "/sector/:id",
      swagger_root: "/index.html",
     }.each_pair do |key, val|
       define_method((key.to_s + "_path").to_sym) do |params = {}|

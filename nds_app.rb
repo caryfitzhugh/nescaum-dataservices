@@ -8,9 +8,9 @@ require 'logger'
 require 'colorize'
 
 require 'sinatra/swagger-exposer/swagger-exposer'
-require 'app/controllers/api/resources_controller'
-require 'app/controllers/curation/home_controller'
-require 'app/controllers/curation/sectors_controller'
+require 'app/controllers/resources_controller'
+require 'app/controllers/curation_controller'
+require 'app/controllers/sectors_controller'
 require 'app/controllers/authentication_controller'
 require 'app/helpers'
 
@@ -18,7 +18,7 @@ set :logger, Logger.new(STDOUT)
 set :views, Proc.new { File.join(root, "app", "views") }
 set :method_override, true
 
-class App < Sinatra::Application
+class NDSApp < Sinatra::Application
   register Sinatra::SwaggerExposer
   use Rack::Session::Cookie, :key => 'rack.session',
                            :expire_after => 2592000,
@@ -37,10 +37,10 @@ class App < Sinatra::Application
   )
   helpers Helpers::Authentication
 
-  use Controllers::API::ResourcesController
+  use Controllers::ResourcesController
   use Controllers::AuthenticationController
-  use Controllers::Curation::HomeController
-  use Controllers::Curation::SectorsController
+  use Controllers::CurationController
+  use Controllers::SectorsController
 
   get '/', :no_swagger => true do
     redirect Paths.swagger_root_path

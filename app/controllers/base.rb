@@ -12,7 +12,8 @@ module Controllers
     def self.require_role(role)
       condition do
         unless current_user && (current_user.is_admin? || current_user.is_curator?)
-          redirect Paths.root_path
+          require 'pry'; binding.pry
+          redirect Paths.sign_in_path(return_to: request.fullpath)
         end
       end
     end

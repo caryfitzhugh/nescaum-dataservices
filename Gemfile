@@ -20,5 +20,8 @@ group :development do
 end
 
 group :test do
+  gem 'test-unit'
+  gem 'webrat'
   gem 'database_cleaner'
+  gem 'mocha'
 end
