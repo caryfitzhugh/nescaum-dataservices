@@ -4,7 +4,8 @@ require './nds_app'
 
 require 'webrat'
 require 'database_cleaner'
-DatabaseCleaner.strategy = :transaction
+DatabaseCleaner.strategy = :truncation
+
 require 'rack/test'
 require 'test/unit'
 require 'mocha/test_unit'

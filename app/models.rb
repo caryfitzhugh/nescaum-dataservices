@@ -8,7 +8,7 @@ require 'app/models/user'
 require 'lib/config'
 DataMapper.finalize
 
-DataMapper::Logger.new($stdout, :debug)
+DataMapper::Logger.new($stdout, :info)
 
 if CONFIG.postgres
   connected = false

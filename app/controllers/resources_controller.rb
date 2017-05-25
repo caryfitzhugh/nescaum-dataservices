@@ -1,21 +1,17 @@
 require 'app/controllers/base'
-require 'app/controllers/sectors_controller'
-require 'app/models'
-
 module Controllers
   class ResourcesController < Controllers::Base
     type 'Resource', {
-      required: [:name, :document_url],
+      #required: [:title],
       properties: {
-        id: {type: Integer, example: "1"},
-        name: { type: String, example: "Document determining temperature change ..."},
-        document_url: { type: String, example: "http://s3.document.com"},
+        title: { type: String, example: "To be determined, the data abstracts needed for a search result page"},
       }
     }
 
     endpoint description: "Lookup and manage resources",
               responses: standard_errors( 200 => [["Resource"]]),
               parameters: {
+                "facet_sector": ["Set of sector values to filter against", :query, false, [Integer]],
                 "page": ["Page of records to return", :query, false, Integer, :minimum => 1],
                 "per_page": ["Number of records to return", :query, false, Integer, {:minimum => 1, :maximum => 100}],
               },
@@ -24,7 +20,7 @@ module Controllers
     get "/resources" do
       per_page = params[:per_page] || 50
       page = params[:page] || 1
-      resources = Models::Resource.all(offset: page - 1, limit: per_page)
+      resources = []
       json(resources.to_a)
     end
   end

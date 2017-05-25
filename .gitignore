@@ -52,3 +52,4 @@ build-iPhoneSimulator/
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+webrat.log

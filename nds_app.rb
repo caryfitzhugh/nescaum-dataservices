@@ -11,6 +11,7 @@ require 'sinatra/swagger-exposer/swagger-exposer'
 require 'app/controllers/resources_controller'
 require 'app/controllers/curation_controller'
 require 'app/controllers/sectors_controller'
+require 'app/controllers/documents_controller'
 require 'app/controllers/authentication_controller'
 require 'app/helpers'
 
@@ -41,6 +42,7 @@ class NDSApp < Sinatra::Application
   use Controllers::AuthenticationController
   use Controllers::CurationController
   use Controllers::SectorsController
+  use Controllers::DocumentsController
 
   get "/", :no_swagger => true do
     redirect '/index.html'
