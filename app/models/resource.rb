@@ -6,10 +6,6 @@ module Models
     property :document_url, String
     belongs_to :sector
 
-    def self.find
-      Resource.all
-    end
-
     def to_hash
       self.attributes.slice(:name, :id, :document_url)
     end

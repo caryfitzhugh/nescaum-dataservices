@@ -16,4 +16,13 @@ deps:
 	npm install -g swagger-to-md
 	pip install --upgrade --user awsebcli
 
+test: test-db-up
+	bundle exec rake test
+
+test-db-up:
+	docker-compose -p nds_test-persist -f docker-compose-test.yml up postgres-service
+
+test-db-down:
+	docker-compose -p nds_test-persist -f docker-compose-test.yml down -v
+
 .PHONY: run

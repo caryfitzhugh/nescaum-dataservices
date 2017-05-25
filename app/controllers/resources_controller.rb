@@ -1,9 +1,10 @@
 require 'app/controllers/base'
+require 'app/controllers/sectors_controller'
 require 'app/models'
 
 module Controllers
   class ResourcesController < Controllers::Base
-    type 'Resources', {
+    type 'Resource', {
       required: [:name, :document_url],
       properties: {
         id: {type: Integer, example: "1"},
@@ -13,12 +14,18 @@ module Controllers
     }
 
     endpoint description: "Lookup and manage resources",
-              responses: { 200 => [["Resources"]]},
-              tags: "Resources"
+              responses: standard_errors( 200 => [["Resource"]]),
+              parameters: {
+                "page": ["Page of records to return", :query, false, Integer, :minimum => 1],
+                "per_page": ["Number of records to return", :query, false, Integer, {:minimum => 1, :maximum => 100}],
+              },
+              tags: ["Resources", "Public"]
 
-    get Paths.resources_path do
-      resources = Models::Resource.find()
-      json(resources)
+    get "/resources" do
+      per_page = params[:per_page] || 50
+      page = params[:page] || 1
+      resources = Models::Resource.all(offset: page - 1, limit: per_page)
+      json(resources.to_a)
     end
   end
 end

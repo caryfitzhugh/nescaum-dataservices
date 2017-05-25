@@ -42,7 +42,7 @@ class NDSApp < Sinatra::Application
   use Controllers::CurationController
   use Controllers::SectorsController
 
-  get '/', :no_swagger => true do
-    redirect Paths.swagger_root_path
+  get "/", :no_swagger => true do
+    redirect '/index.html'
   end
 end

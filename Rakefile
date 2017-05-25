@@ -1,4 +1,4 @@
-require './app'
+require './nds_app'
 require 'inquirer'
 
 namespace :db do
