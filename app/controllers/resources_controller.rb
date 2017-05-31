@@ -1,13 +1,6 @@
 require 'app/controllers/base'
 module Controllers
   class ResourcesController < Controllers::Base
-    type 'Facet', {
-      required: [:name, :count],
-      properties: {
-        name: { type: String },
-        count: {type: Integer },
-      }
-    }
     type 'NewResource', {
       properties: {
         actions:  { type: [String], example: ["Emissions Reduction::multiple emissions reduction actions"]},
@@ -30,7 +23,30 @@ module Controllers
       }
     }
 
-    type 'SearchResourceResult', {
+    type 'Facet', {
+      properties: {
+        value: {type: String, description: "Value for the facet"},
+        count: {type: Integer, description: "Number of records that match with this facet"},
+      }
+    }
+
+    type 'Facets', {
+      properties: {
+        actions:  { type: ['Facet'], example: [{name: "ny", count: 3}, {name: "vt", checked: true,count: 55}]},
+        authors:  { type: ['Facet'], example: [{name: "ny", count: 3}, {name: "vt", checked: true,count: 55}]},
+        climate_changes:  { type: ['Facet'], example: [{name: "ny", count: 3}, {name: "vt", checked: true,count: 55}]},
+        effects:  { type: ['Facet'], example: [{name: "ny", count: 3}, {name: "vt", checked: true,count: 55}]},
+        formats:  { type: ['Facet'], example: [{name: "ny", count: 3}, {name: "vt", checked: true,count: 55}]},
+        geofocus:  { type: ['Facet'], example: [{name: "ny", count: 3}, {name: "vt", checked: true,count: 55}]},
+        keywords:  { type: ['Facet'], example: [{name: "ny", count: 3}, {name: "vt", checked: true,count: 55}]},
+        publishers:  { type: ['Facet'], example: [{name: "ny", count: 3}, {name: "vt", checked: true,count: 55}]},
+        sectors:  { type: ['Facet'], example: [{name: "ny", count: 3}, {name: "vt", checked: true,count: 55}]},
+        strategies:  { type: ['Facet'], example: [{name: "ny", count: 3}, {name: "vt", checked: true,count: 55}]},
+        states:  { type: ['Facet'], example: [{name: "ny", count: 3}, {name: "vt", checked: true,count: 55}]},
+      }
+    }
+
+    type 'ResourceSearchResult', {
       required: [:title, :docid],
       properties: {
         actions:  { type: [String], example: ["Emissions Reduction", "Emissions Reduction::multiple emissions reduction actions"]},
@@ -51,30 +67,60 @@ module Controllers
         strategies: { type: [String], example: ["Adaptation"]},
         title: { type: String, example: "To be determined, the data abstracts needed for a search result page"},
         subtitle: {type: String, example: "Sub-title example"},
+        uat: { type: Integer, example: Time.now.to_i, description: "Epoch timestamp when this document was indexed"},
       }
     }
 
-    type 'QueryFacet', {
+    type 'SearchFilters', {
       properties: {
-        name:  { type: String, example: "actions"},
-        values:  { type: [String], example: ["run", "hide"]},
+        actions:  { type: [String], example: ["Emissions Reduction", "Emissions Reduction::multiple emissions reduction actions"]},
+        authors:  { type: [String], example: ["C.S. Lewis", "Northeast Regional Climate Center (NRCC)"]},
+        climate_changes:  { type: [String], example: ["Precipitation", "Precipitation::Heavy Precipitation Events"]},
+        effects: { type: [String], example: ["Specific Vulnerability", "Specific Vulnerability::Coastal Property Damage"]},
+        formats: { type: [String], example: ["Documents", "Documents::Report"]},
+        geofocus: { type: [String], example: ["Ulster County, NY", "Westchester County, NY", "Maine Coastland"]},
+        keywords: { type: [String], example: ["dams", "floods", "land cover change"]},
+        publishers: { type: [String], example: ["NOAA", "NESCAUM", "The Disney Corporation"]},
+        sectors: { type: [String], example: ["Ecosystems", "Water Resources"]},
+        states:    { type: [String], example: ["NY", "MA"]},
+        strategies: { type: [String], example: ["Adaptation"]},
+      }
+    }
+
+    type 'SearchRequestParameters', {
+      properties: {
+        page: { type: Integer, description: "Page of results being returned"},
+        per_page: { type: Integer, description: "Number of results being returned"},
+        query: {type: String, description: "The original search query"},
+        published_on_end: {type: String, example: Date.today.to_s},
+        published_on_start: {type: String, example: Date.today.to_s},
+        filters: {type: "SearchFilters", description: "The filters used in this search"}
+      }
+    }
+
+    type 'SearchResponse', {
+      properties: {
+        hits: { type: Integer, description: "Total number of records"},
+        params: { type: 'SearchRequestParameters', description: "The incoming search parameters"},
+        resources: { type: ["ResourceSearchResult"], description: "Results"},
+        facets: { type: "Facets", description: "All the facets for searching"},
       }
     }
 
     endpoint description: "Search for resources",
-              responses: standard_errors( 200 => [["SearchResourceResult"]]),
+              responses: standard_errors( 200 => "SearchResponse"),
               parameters: {
-                "actions": ["Facet values AND, separate with a ,", :query, false, String],
-                "authors": ["Facet values AND, separate with a ,", :query, false, String],
-                "climate_changes": ["Facet values AND, separate with a ,", :query, false, String],
-                "effects": ["Facet values AND, separate with a ,", :query, false, String],
-                "formats": ["Facet values AND, separate with a ,", :query, false, String],
-                "geofocus": ["Facet values AND, separate with a ,", :query, false, String],
-                "keywords": ["Facet values AND, separate with a ,", :query, false, String],
-                "publishers": ["Facet values AND, separate with a ,", :query, false, String],
-                "sectors": ["Facet values AND, separate with a ,", :query, false, String],
-                "strategies": ["Facet values AND, separate with a ,", :query, false, String],
-                "states": ["Facet values AND, separate with a ,", :query, false, String],
+                "actions": ["Filter values AND, separate with a ,", :query, false, String],
+                "authors": ["Filter values AND, separate with a ,", :query, false, String],
+                "climate_changes": ["Filter values AND, separate with a ,", :query, false, String],
+                "effects": ["Filter values AND, separate with a ,", :query, false, String],
+                "formats": ["Filter values AND, separate with a ,", :query, false, String],
+                "geofocus": ["Filter values AND, separate with a ,", :query, false, String],
+                "keywords": ["Filter values AND, separate with a ,", :query, false, String],
+                "publishers": ["Filter values AND, separate with a ,", :query, false, String],
+                "sectors": ["Filter values AND, separate with a ,", :query, false, String],
+                "strategies": ["Filter values AND, separate with a ,", :query, false, String],
+                "states": ["Filter values AND, separate with a ,", :query, false, String],
                 "query": ["Query string to search for", :query, false, String],
                 "published_on_end": ["Limit to resources publish dates to <= this publish end date", :query, false, String, :format => :date],
                 "published_on_start": ["Limit to resources publish dates to >= this publish start date", :query, false, String, :format => :date],
@@ -86,19 +132,44 @@ module Controllers
     get "/resources" do
       per_page = params[:per_page] || 50
       page = params[:page] || 1
-      facets = {}
+      query = params[:query]
+      filters = {}
 
-      [:actions, :authors, :climate_changes, :effects, :formats, :geofocus, :keywords, :publishers, :sectors, :strategies, :states].each do |facet|
-        facets[facet] = params[facet].split(",") if params[facet]
+      Cloudsearch::FILTERS.each do |filter|
+        filters[filter] = params[filter].split(",") if params[filter]
       end
 
-      resources = Cloudsearch.search(query: params[:query],
-                                     facets: facets,
-                                     page: page,
-                                     per_page: per_page,
-                                     pub_dates: [params[:published_on_start] ? Date.parse(params[:published_on_start]) : nil,
-                                                 params[:published_on_end] ? Date.parse(params[:published_on_end]) : nil])
-      json(resources.to_a)
+      result = Cloudsearch.search(query: query,
+                                  filters: filters,
+                                  page: page,
+                                  per_page: per_page,
+                                  pub_dates: [params[:published_on_start] ? Date.parse(params[:published_on_start]) : nil,
+                                              params[:published_on_end] ? Date.parse(params[:published_on_end]) : nil])
+
+      facets = result.facets.reduce({}) do |memo, (key, val)|
+        memo[key] = val.buckets.map do |bucket|
+          {value: bucket.value, count: bucket.count}
+        end
+        memo
+      end
+
+      json({
+        hits: result.hits.found,
+        params: {
+          page: page,
+          per_page: per_page,
+          query: query,
+          published_on_end: params[:published_on_end],
+          published_on_start: params[:published_on_start],
+          filters: filters,
+        },
+        resources: result.hits.hit.map do |hit|
+          fields = hit["fields"]
+          fields["uat"] = fields["uat"].flatten.first
+          fields
+        end,
+        facets: facets,
+      })
     end
 
     endpoint description: "Search for all facets",
@@ -114,7 +185,7 @@ module Controllers
     end
 
     endpoint description: "Create a resource",
-              responses: standard_errors( 200 => ["Resource"]),
+              responses: standard_errors( 200 => ["ResourceSearchResult"]),
               parameters: {
                 "resource": ["Resource data", :body, true, "NewResource"],
               },
@@ -122,10 +193,50 @@ module Controllers
 
     post "/resources/", require_role: :curator do
       doc = Models::Resource.new(params[:parsed_body][:resource])
+
       if doc.save
-        json(
-require 'pry'; binding.pry
-      json([])
+        Cloudsearch.add_documents([doc.to_search_document])
+        json(doc.to_search_document(search_terms: false))
+      else
+        err(400, doc.errors.full_messages.join("\n"))
+      end
+    end
+
+    endpoint description: "Update a resource",
+              responses: standard_errors( 200 => ["ResourceSearchResult"]),
+              parameters: {
+                "resource": ["Resource data", :body, true, "NewResource"],
+                "docid": ["Resource docid", :path, true, String],
+              },
+              tags: ["Resources", "Curator"]
+
+    put "/resources/:docid", require_role: :curator do
+      doc = Models::Resource.get_by_docid(params[:docid])
+      doc.attributes = doc.attributes.merge(params[:parsed_body][:resource])
+
+      if doc.save
+        Cloudsearch.add_documents([doc.to_search_document])
+        json(doc.to_search_document(search_terms: false))
+      else
+        err(400, doc.errors.full_messages.join("\n"))
+      end
+    end
+
+    endpoint description: "Lookup a resource by docid",
+              responses: standard_errors( 200 => ["ResourceSearchResult"]),
+              parameters: {
+                "docid": ["Doc id data", :path, true, String],
+              },
+              tags: ["Resources", "Public"]
+
+    get "/resources/:docid" do
+      doc = Models::Resource.get_by_docid(params[:docid])
+
+      if doc
+        json(doc.to_search_document(search_terms: false))
+      else
+        not_found("resource", params[:docid])
+      end
     end
   end
 end

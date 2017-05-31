@@ -21,11 +21,16 @@ module Models
     property :subtitle, String
     property :title, String, required: true
 
+    def self.get_by_docid(did)
+      id = did.split("::").last.to_i
+      Models::Resource.get(id)
+    end
+
     def docid
       "#{self.class.name.downcase}::#{self.id}"
     end
 
-    def to_search_document
+    def to_search_document(search_terms: true)
       attributes = {
         actions: self.actions || [],
         authors: self.authors || [],
@@ -44,6 +49,7 @@ module Models
         states: self.states || [],
         strategies: self.strategies || [],
         title: self.title,
+        subtitle: self.subtitle,
       }
       attributes[:docid] = self.docid
 
@@ -62,7 +68,9 @@ module Models
         attributes[key] = to_cs_date(attributes[key]) if attributes[key]
       end
 
-      attributes[:search_terms] = JSON.generate(attributes).gsub(/\W+/, " ")
+      if search_terms
+        attributes[:search_terms] = JSON.generate(attributes).gsub(/\W+/, " ")
+      end
 
       attributes
     end
