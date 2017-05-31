@@ -1,8 +1,28 @@
 production:
   postgres: postgres://<%= ENV['RDS_USERNAME'] %>:<%= ENV['RDS_PASSWORD'] %>@<%= ENV['RDS_HOSTNAME'] %>:<%= ENV['RDS_PORT'] %>/<%= ENV['RDS_DB_NAME'] %>
+  cs:
+    env: <%= ENV["CLOUDSEARCH_ENV"] %>
+    search_endpoint: <%= ENV["CLOUDSEARCH_SEARCH_ENDPOINT"] %>
+    doc_endpoint: <%= ENV["CLOUDSEARCH_DOC_ENDPOINT"] %>
+    access_key: <%= ENV["CLOUDSEARCH_ACCESS_KEY"] %>
+    secret_key: <%= ENV["CLOUDSEARCH_SECRET_KEY"] %>
 
 development:
   postgres: <%= ENV["POSTGRES_DB_URL"] || "postgres://nds:nds@localhost:5000/nds" %>
+  cs:
+    env: development
+    search_endpoint: "https://search-nds-resources-22fi3bt2o7vt5wllh64qck52a4.us-east-1.cloudsearch.amazonaws.com"
+    doc_endpoint: "https://doc-nds-resources-22fi3bt2o7vt5wllh64qck52a4.us-east-1.cloudsearch.amazonaws.com"
+    #access_key: <%= ENV["CLOUDSEARCH_ACCESS_KEY"] %>
+    #secret_key: <%= ENV["CLOUDSEARCH_SECRET_KEY"] %>
 
 test:
   postgres: <%= ENV["POSTGRES_DB_URL"] || "postgres://nds:nds@localhost:5006/nds" %>
+  cs:
+    env: test
+    search_endpoint: "https://search-nds-resources-22fi3bt2o7vt5wllh64qck52a4.us-east-1.cloudsearch.amazonaws.com"
+    doc_endpoint: "https://doc-nds-resources-22fi3bt2o7vt5wllh64qck52a4.us-east-1.cloudsearch.amazonaws.com"
+    access_key: AKIAIYOO7UC662PTAQLQ
+    secret_key: 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
+    #access_key: <%= ENV["CLOUDSEARCH_ACCESS_KEY"] %>
+    #secret_key: <%= ENV["CLOUDSEARCH_SECRET_KEY"] %>

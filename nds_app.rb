@@ -1,4 +1,5 @@
 File.expand_path(File.dirname(__FILE__)).tap {|pwd| $LOAD_PATH.unshift(pwd) unless $LOAD_PATH.include?(pwd)}
+require 'lib/utils'
 autoload :CONFIG, 'lib/config'
 autoload :Paths, 'lib/paths'
 autoload :OpenStruct, 'ostruct'
@@ -11,9 +12,10 @@ require 'sinatra/swagger-exposer/swagger-exposer'
 require 'app/controllers/resources_controller'
 require 'app/controllers/curation_controller'
 require 'app/controllers/sectors_controller'
-require 'app/controllers/documents_controller'
 require 'app/controllers/authentication_controller'
 require 'app/helpers'
+
+require 'lib/cloudsearch'
 
 set :logger, Logger.new(STDOUT)
 set :views, Proc.new { File.join(root, "app", "views") }
@@ -42,7 +44,6 @@ class NDSApp < Sinatra::Application
   use Controllers::AuthenticationController
   use Controllers::CurationController
   use Controllers::SectorsController
-  use Controllers::DocumentsController
 
   get "/", :no_swagger => true do
     redirect '/index.html'
