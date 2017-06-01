@@ -17,7 +17,8 @@ class ResourceTest < NDSTestBase
     doc.content = "### Abstract"
     doc.authors = ["Cary FitzHugh", "Steve Signell"]
     doc.title = "Title"
-    doc.format = "document::report"
+    doc.subtitle = "Subtitle!"
+    doc.formats = ["document::report"]
     doc.geofocus = ["basin lake NY"]
     doc.external_data_links = [
       "pdf::http://google.com/pdf",
@@ -53,6 +54,7 @@ class ResourceTest < NDSTestBase
                   :sectors=>["root", "root2::", "root2::leaf"],
                   :states=>["VT", "MA", "CT"],
                   :strategies=>["adaptation"],
+                  :subtitle => "Subtitle!",
                   :title=>"Title"}
     doc_result = doc.to_search_document
     # remove thes earch terms, it's a grab bag of text..

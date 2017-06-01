@@ -1,6 +1,5 @@
 require 'aws-sdk'
 module Cloudsearch
-  FILTERS = [:actions, :authors, :climate_changes, :effects, :formats, :geofocus, :keywords, :publishers, :sectors, :strategies, :states]
   class << self
     def add_documents(docs)
       cs_env = CONFIG.cs.env
@@ -33,47 +32,6 @@ module Cloudsearch
       results.hits.hit[0]
     end
 
-    def search(query:'', filters:{}, page:1, per_page:100, pub_dates: [nil,nil])
-      # We want facets for all the filters.
-      # Facets:  { "actions": [1,2,3,4]}
-      # Query: "tornado"
-      args = {
-        size: per_page,
-        start: (page - 1) * per_page,
-      }
-
-      if query == "" || query.nil?
-        args[:query] = "matchall"
-        args[:query_parser] = "structured"
-      else
-        args[:query] = query
-      end
-
-      ## Filters
-      filter_q = []
-
-      filters = (filters || []).reduce([]) do |all, (fname, fvals)|
-          [:or ].concat(fvals.map {|fval| "#{fname}:'#{fval.strip}'" })
-        end
-      filter_q.push(filters) unless filters.empty?
-
-      ## Pubdate (range - squeezer!)
-      filter_q.push([:and,"pubstart:['#{to_cs_date(pub_dates[0])}',]"]) if pub_dates[0]
-      filter_q.push([:and,"pubend:[,'#{to_cs_date(pub_dates[1])}']"]) if pub_dates[1]
-
-      # Scope to just our CS env
-      filter_q.push([:and,"env:'#{CONFIG.cs.env}'"])
-
-      args[:filter_query] = to_filter_query([:and].concat(filter_q))
-
-      # Return facets for things
-      args[:facet] = JSON.generate(FILTERS.reduce({}) do |memo, filter|
-        memo[filter] = {:sort => :count, :size => 100}
-        memo
-      end)
-      search_conn.search(args)
-    end
-
     def facet_list(name)
       #q=matchall&q.parser=structured
       result = search_conn.search(:query => "matchall", :query_parser => "structured", :facet => JSON.generate({ name => {:sort => :count}}))
@@ -95,8 +53,6 @@ module Cloudsearch
         filter_query: "(and env:'#{env_name}')",
       )
     end
-
-    private
 
     def sync_to_db!(start: 0, batch: 100)
       # You want to find all the docids in cloudsearch at the moment.
