@@ -29,20 +29,20 @@ module Controllers
     type 'Resource', {
       properties: Hash[Models::Resource.properties.map do |prop|
           # Case statement didn't work?
-          klass = if prop.class == DataMapper::Property::Serial
-            Integer
+          attrs = if prop.class == DataMapper::Property::Serial
+            {type: Integer}
           elsif prop.class == DataMapper::Property::PgArray
-            [String]
+            {type: [String]}
           elsif prop.class == DataMapper::Property::String
-            String
+            {type: String}
           elsif prop.class == DataMapper::Property::Date
-            Date
+            {type: String, example: Date.today.to_s}
           elsif prop.class == DataMapper::Property::Boolean
-            'boolean'
+            {type: 'boolean'}
           else
             raise "ACK #{prop.class}"
           end
-          [prop.name.to_s, {type: klass}]
+          [prop.name.to_s, attrs]
         end].merge("docid": {type: String})
     }
 
@@ -186,17 +186,34 @@ module Controllers
       end
     end
 
-    endpoint description: "Index or de-index a resource",
+    endpoint description: "Set a resource for indexing",
               responses: standard_errors( 200 => "Resource"),
               parameters: {
-                "index": ["Should index", :body, true, "boolean"],
                 "docid": ["Resource docid", :path, true, String],
               },
               tags: ["Resources", "Curator"]
 
     post "/resources/:docid/index", require_role: :curator do
       doc = Models::Resource.get_by_docid(params[:docid])
-      doc.indexed = params[:parsed_body][:index]
+      doc.indexed = true
+      if doc.save
+        doc.sync_index!
+        json(doc.to_resource)
+      else
+        err(400, doc.errors.full_messages.join("\n"))
+      end
+    end
+
+    endpoint description: "Remove a resource for indexing",
+              responses: standard_errors( 200 => "Resource"),
+              parameters: {
+                "docid": ["Resource docid", :path, true, String],
+              },
+              tags: ["Resources", "Curator"]
+
+    delete "/resources/:docid/index", require_role: :curator do
+      doc = Models::Resource.get_by_docid(params[:docid])
+      doc.indexed = false
       if doc.save
         doc.sync_index!
         json(doc.to_resource)

@@ -70,8 +70,8 @@ module Models
       filter_q.push(filters) unless filters.empty?
 
       ## Pubdate (range - squeezer!)
-      filter_q.push([:and,"pubstart:['#{to_cs_date(pub_dates[0])}',]"]) if pub_dates[0]
-      filter_q.push([:and,"pubend:[,'#{to_cs_date(pub_dates[1])}']"]) if pub_dates[1]
+      filter_q.push([:and,"pubstart:['#{to_cs_date(pub_dates[0])}',}"]) if pub_dates[0]
+      filter_q.push([:and,"pubend:{,'#{to_cs_date(pub_dates[1])}']"]) if pub_dates[1]
 
       # Scope to just our CS env
       filter_q.push([:and,"env:'#{CONFIG.cs.env}'"])
@@ -83,7 +83,7 @@ module Models
         memo[filter] = {:sort => :count, :size => 100}
         memo
       end)
-      search_conn.search(args)
+      Cloudsearch.search_conn.search(args)
     end
 
     def docid
@@ -112,16 +112,16 @@ module Models
           end
         end
 
-        case attrs[:type]
-        when String
+        if attrs[:type] == String
           val ||= ""
-        when Date
+        elsif attrs[:type] == Date
           val = to_cs_date(val) if val
-        when DataMapper::Property::PgArray
+        elsif attrs[:type] == DataMapper::Property::PgArray
           val ||= []
         end
 
         memo[attrs[:cs_name] || name] = val
+
         memo
       end
       attributes[:docid] = self.docid
