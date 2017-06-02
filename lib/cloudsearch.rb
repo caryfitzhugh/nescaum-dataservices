@@ -1,6 +1,44 @@
 require 'aws-sdk'
 module Cloudsearch
   class << self
+    def remove_documents(docids)
+      cs_env = CONFIG.cs.env
+      env_docs = docids.map do |docid|
+        {type: "delete",
+         id: "#{cs_env}::#{docid}",
+        }
+      end
+
+      resp = upload_conn.upload_documents(
+        documents: JSON.generate(env_docs),
+        content_type: "application/json"
+      )
+
+      logger.info("Deleted #{env_docs.length} documents")
+      (resp.warnings || []).each do |warn|
+        logger.warn(warn)
+      end
+      logger.info(resp.status)
+      resp
+    end
+    def remove_by_cs_id(csids)
+      env_docs = csids.map do |csid|
+        {type: "delete", id: csid }
+      end
+
+      resp = upload_conn.upload_documents(
+        documents: JSON.generate(env_docs),
+        content_type: "application/json"
+      )
+
+      logger.info("Deleted #{env_docs.length} documents")
+      (resp.warnings || []).each do |warn|
+        logger.warn(warn)
+      end
+      logger.info(resp.status)
+      resp
+    end
+
     def add_documents(docs)
       cs_env = CONFIG.cs.env
       env_docs = docs.map do |doc|
@@ -45,8 +83,8 @@ module Cloudsearch
 
     def find_by_env(env_name)
       docs_in_env = search_conn.search(
-        #return: "_no_fields",
-        size: 100,
+        return: "docid",
+        size: 1000,
         start: 0,
         query: "matchall",
         query_parser: "structured",

@@ -67,6 +67,38 @@ namespace :routes do
   end
 end
 
+namespace :cs do
+  desc "Cloudsearch"
+  task :sync, [:env] do |t, args|
+
+  end
+
+  task :truncate, [:env] do |t, args|
+    puts "This will remove all documents from the CS index for this environment (up to 1000)"
+    current = Cloudsearch.find_by_env(args.env)
+    if current.hits.found == 0
+      puts "There are no records in this environment."
+      exit 0
+    end
+
+    puts "There are #{current.hits.found} records active"
+
+    puts "This is non-recoverable.  Please confirm by entering the number of records that are active"
+
+    number = Ask.input "# of active records to delete"
+
+    if number.to_i == current.hits.found
+      cs_ids = current.hits.hit.map(&:id)
+      Cloudsearch.remove_by_cs_id(cs_ids)
+      cs_ids.each do |cs_id|
+        puts "  #{cs_id}"
+      end
+      puts "Scheduled for removal"
+    else
+      puts "Good idea. Aborting"
+    end
+  end
+end
 require "rake/testtask"
 
 Rake::TestTask.new(:test) do |t|

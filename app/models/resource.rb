@@ -90,6 +90,18 @@ module Models
       "#{self.class.name.downcase}::#{self.id}"
     end
 
+    def sync_index!
+      if self.indexed
+        Cloudsearch.add_documents([self.to_search_document])
+      else
+        Cloudsearch.remove_documents([self.docid])
+      end
+    end
+
+    def to_resource
+      self.attributes.merge(docid: self.docid)
+    end
+
     def to_search_document(search_terms: true)
       attributes = PROPERTIES.reduce({}) do |memo, (name, attrs)|
         val = self.send(name)

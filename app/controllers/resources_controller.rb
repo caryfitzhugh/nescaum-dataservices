@@ -186,8 +186,27 @@ module Controllers
       end
     end
 
+    endpoint description: "Index or de-index a resource",
+              responses: standard_errors( 200 => "Resource"),
+              parameters: {
+                "index": ["Should index", :body, true, "boolean"],
+                "docid": ["Resource docid", :path, true, String],
+              },
+              tags: ["Resources", "Curator"]
+
+    post "/resources/:docid/index", require_role: :curator do
+      doc = Models::Resource.get_by_docid(params[:docid])
+      doc.indexed = params[:parsed_body][:index]
+      if doc.save
+        doc.sync_index!
+        json(doc.to_resource)
+      else
+        err(400, doc.errors.full_messages.join("\n"))
+      end
+    end
+
     endpoint description: "Update a resource",
-              responses: standard_errors( 200 => ["ResourceSearchResult"]),
+              responses: standard_errors( 200 => "Resource"),
               parameters: {
                 "resource": ["Resource data", :body, true, "NewResource"],
                 "docid": ["Resource docid", :path, true, String],
@@ -199,8 +218,7 @@ module Controllers
       doc.attributes = doc.attributes.merge(params[:parsed_body][:resource])
 
       if doc.save
-        Cloudsearch.add_documents([doc.to_search_document])
-        json(doc.to_search_document(search_terms: false))
+        json(doc.to_resource)
       else
         err(400, doc.errors.full_messages.join("\n"))
       end
@@ -217,7 +235,7 @@ module Controllers
       doc = Models::Resource.get_by_docid(params[:docid])
 
       if doc
-        json(doc.attributes.merge(docid: doc.docid))
+        json(doc.to_resource)
       else
         not_found("resource", params[:docid])
       end
