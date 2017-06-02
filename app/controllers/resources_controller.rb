@@ -26,6 +26,26 @@ module Controllers
         end]
     }
 
+    type 'Resource', {
+      properties: Hash[Models::Resource.properties.map do |prop|
+          # Case statement didn't work?
+          klass = if prop.class == DataMapper::Property::Serial
+            Integer
+          elsif prop.class == DataMapper::Property::PgArray
+            [String]
+          elsif prop.class == DataMapper::Property::String
+            String
+          elsif prop.class == DataMapper::Property::Date
+            Date
+          elsif prop.class == DataMapper::Property::Boolean
+            'boolean'
+          else
+            raise "ACK #{prop.class}"
+          end
+          [prop.name.to_s, {type: klass}]
+        end].merge("docid": {type: String})
+    }
+
     type 'Facets', {
       properties:
         Hash[Models::Resource::FACETED_PROPERTIES.each_pair.map do |name, attrs|
@@ -160,7 +180,6 @@ module Controllers
       doc = Models::Resource.new(params[:parsed_body][:resource])
 
       if doc.save
-        Cloudsearch.add_documents([doc.to_search_document])
         json(doc.to_search_document(search_terms: false))
       else
         err(400, doc.errors.full_messages.join("\n"))
@@ -188,7 +207,7 @@ module Controllers
     end
 
     endpoint description: "Lookup a resource by docid",
-              responses: standard_errors( 200 => ["ResourceSearchResult"]),
+              responses: standard_errors( 200 => "Resource"),
               parameters: {
                 "docid": ["Doc id data", :path, true, String],
               },
@@ -198,7 +217,7 @@ module Controllers
       doc = Models::Resource.get_by_docid(params[:docid])
 
       if doc
-        json(doc.to_search_document(search_terms: false))
+        json(doc.attributes.merge(docid: doc.docid))
       else
         not_found("resource", params[:docid])
       end

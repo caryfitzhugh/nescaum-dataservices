@@ -3,6 +3,7 @@ module Models
     include DataMapper::Resource
 
     property :id, Serial
+    property :indexed, Boolean, default: false
 
     PROPERTIES = {
       actions:                {type: DataMapper::Property::PgArray, facet: true, expanded: true,  example: ["Emissions Reduction::multiple actions"]},
@@ -93,15 +94,19 @@ module Models
       attributes = PROPERTIES.reduce({}) do |memo, (name, attrs)|
         val = self.send(name)
         # Expand literals
-
         if attrs[:expanded]
           val = (val || []).reduce([]) do |memo, attr|
             memo.concat(Models::Resource.expand_literal(attr))
           end
         end
 
-        if attrs[:type] == Date && val
-          val = to_cs_date(val)
+        case attrs[:type]
+        when String
+          val ||= ""
+        when Date
+          val = to_cs_date(val) if val
+        when DataMapper::Property::PgArray
+          val ||= []
         end
 
         memo[attrs[:cs_name] || name] = val

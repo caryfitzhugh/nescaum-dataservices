@@ -12,7 +12,8 @@ module Controllers
     def self.require_role(role)
       condition do
         unless current_user && (current_user.is_admin? || current_user.is_curator?)
-          halt 403, "Not allowed to access this path"
+          content_type :json
+          halt 403, JSON.generate(code: 403, message:"Not allowed to access this path")
         end
       end
     end
@@ -42,7 +43,7 @@ module Controllers
     end
 
     def not_found(type, id)
-      err(404, "#{type} with #{id} Not Found")
+      err(404, "Record not found")
     end
 
     def err(code, message)
