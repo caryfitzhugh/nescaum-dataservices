@@ -10,7 +10,6 @@ require 'rack/test'
 require 'test/unit'
 require 'mocha/test_unit'
 require 'pry'
-
 DataMapper.auto_migrate!
 
 Webrat.configure do |config|
@@ -34,6 +33,7 @@ class NDSTestBase < Test::Unit::TestCase
   end
 
   def setup
+    cs_query_enable
     DatabaseCleaner.start
   end
 
@@ -42,7 +42,9 @@ class NDSTestBase < Test::Unit::TestCase
   end
 
   private
-
+  def cs_query_enable
+    Aws::Plugins::RequestSigner::Handler.any_instance.expects(:unsigned_request?).at_most(100).returns(true)
+  end
   def url_for(path, params = {})
     uri = URI.parse(path)
     unless (params.empty?)

@@ -1,6 +1,29 @@
 require 'test_helper'
 
 class ResourceTest < NDSTestBase
+  def test_cs_update
+    doc = Models::Resource.new
+    doc.content = "### Abstract"
+    doc.authors = ["Cary FitzHugh", "Steve Signell"]
+    doc.title = "Title"
+    doc.subtitle = "Subtitle!"
+    doc.formats = ["document::report"]
+    doc.geofocus = ["basin lake NY"]
+    doc.save!
+    binding.pry
+    doc.sync_index!
+
+    results = Models::Resource.search()
+    assert_equal results.hits.found, 0
+
+    doc.indexed = true
+    doc.save!
+    doc.sync_index!
+
+    results = Models::Resource.search()
+    assert_equal results.hits.found, 1
+  end
+
   def test_expand_literal
     [
       [['ok'], 'ok'],

@@ -1,0 +1,26 @@
+all-services:
+    image: dadarek/wait-for-dependencies
+    links:
+        - nozama
+        - genghis
+        - mongo
+    command: nozama:5000 genghis:5000 mongo:27017
+
+nozama:
+    build: .
+    ports:
+     - "8000:5000"
+    links:
+     - "mongo"
+     - "elasticsearch"
+mongo:
+    image: mongo:latest
+genghis:
+    image: aegypius/genghis
+    command: /usr/local/bundle/bin/genghisapp  --no-launch --foreground --port=5000 --servers mongo_1:27017
+    ports:
+     - "8001:5000"
+    links:
+     - "mongo"
+elasticsearch:
+    image: elasticsearch
