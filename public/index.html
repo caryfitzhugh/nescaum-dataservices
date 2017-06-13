@@ -1,8 +1,33 @@
 <html>
   <head>
+    <style>
+      .controls {
+        padding: 8px 30px;
+        width: 100%;
+        text-align: right;
+        box-sizing: border-box;
+        font-size: 20px;
+        color: white;
 
+      }
+      .controls a {
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+        background: #547f00;
+        font-family: Titillium Web,sans-serif;
+        padding: 4px 20px;
+        margin-left: 20px;
+      }
+    </style>
   </head>
   <body>
+    <div class='controls'>
+      <a href="/sign_in"> Login </a>
+      <a href="/curation"> Curation </a>
+      <a href="/create"> Create </a>
+    </div>
+    <hr/>
     <div id='swagger-ui'></div>
     <script src="/swagger-ui-3.0.12/dist/swagger-ui-bundle.js"> </script>
     <script src="/swagger-ui-3.0.12/dist/swagger-ui-standalone-preset.js"> </script>
