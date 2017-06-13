@@ -7,11 +7,13 @@ gem 'colorize'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-transactions'
+gem 'dm-chunked_query'
 gem 'sinatra-swagger-exposer', :git => 'https://github.com/caryfitzhugh/sinatra-swagger-exposer.git', :ref => "a3d196b"
 gem 'bcrypt'
 gem 'dm-postgres-types'
 gem 'inquirer', :git => "https://github.com/brbrady/inquirer.rb.git", :ref => "master"
 gem 'aws-sdk'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development do
   gem "rack-test"

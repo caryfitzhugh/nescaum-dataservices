@@ -1,5 +1,7 @@
 require 'data_mapper'
 require 'dm-postgres-types'
+require 'dm-chunked_query'
+require 'dm-timestamps'
 
 require 'app/models/sector'
 require 'app/models/resource'

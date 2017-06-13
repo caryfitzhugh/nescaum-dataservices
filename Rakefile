@@ -68,9 +68,46 @@ namespace :routes do
 end
 
 namespace :cs do
-  desc "Cloudsearch"
-  task :sync, [:env] do |t, args|
+  task :delete_from_cs do |t, args|
+    to_remove = []
+    res = Cloudsearch.iterate_all do |doc|
+      require 'pry'; binding.pry
+      docid = doc["fields"]["docid"][0]
+      resource = Models::Resource.get_by_docid(docid)
+      if resource.nil?
+        to_remove.push(docid)
+      end
+    end
+    if to_remove.length > 0
+      puts "Removing #{to_remove.length} records"
+      Cloudsearch.remove_documents(to_remove)
+    end
+  end
 
+  task :sync_to_cs do |t, args|
+    # We want to iterate over the records in the DB in batches of 200.
+    # Collect the list of docids to update
+
+    Models::Resource.all(indexed: true).each_chunk(100) do |chunk|
+      resources_to_submit = []
+      chunk.each do |resource|
+        cs_resource = Cloudsearch.find_by_docid(resource.docid)
+        if cs_resource.nil?
+          resources_to_submit.push(resource)
+        else
+          uat = Time.at(cs_resource['uat'][0].to_i)
+          muat = resource.updated_at
+
+          if muat > uat
+            resources_to_submit.push(resource)
+          end
+        end
+      end
+
+      unless resources_to_submit.empty?
+        Cloudsearch.add_documents(resources_to_submit.map(&:to_search_document))
+      end
+    end
   end
 
   task :truncate, [:env] do |t, args|

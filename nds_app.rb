@@ -7,6 +7,7 @@ require 'sinatra'
 require 'sinatra/base'
 require 'logger'
 require 'colorize'
+require 'rack/cors'
 
 require 'sinatra/swagger-exposer/swagger-exposer'
 require 'app/controllers/resources_controller'
@@ -23,9 +24,17 @@ set :method_override, true
 class NDSApp < Sinatra::Application
   register Sinatra::SwaggerExposer
   use Rack::Session::Cookie, :key => 'rack.session',
-                           :expire_after => 60 * 60 * 24, # 1 day
-                           :secret => ENV["SESSION_SECRET"],
-                           :old_secret => ENV["OLD_SESSION_SECRET"]
+                             :expire_after => 60 * 60 * 24, # 1 day
+                             :secret => ENV["SESSION_SECRET"],
+                             :old_secret => ENV["OLD_SESSION_SECRET"]
+
+  use Rack::Cors do
+    allow do
+      origins '*'
+      resource "*", methods: :any
+    end
+  end
+
   general_info(
     {
       version: '0.0.1',

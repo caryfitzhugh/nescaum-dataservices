@@ -4,6 +4,8 @@ module Models
 
     property :id, Serial
     property :indexed, Boolean, default: false
+    property :created_at, DateTime
+    property :updated_at, DateTime
 
     PROPERTIES = {
       actions:                {type: DataMapper::Property::PgArray, facet: true, expanded: true,  example: ["Emissions Reduction::multiple actions"]},
@@ -16,12 +18,12 @@ module Models
       formats:                {type: DataMapper::Property::PgArray, facet: true, expanded: true, required: true, example: ["Documents::Report"]},
       geofocus:               {type: DataMapper::Property::PgArray, facet: true, expanded: true, example: ["Ulster County, NY", "Westchester County, NY", "Maine Coastland"]},
       keywords:               {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["dams::noexpanded", "floods", "land cover change"]},
-      publishers:             {type: DataMapper::Property::PgArray, facet: true, expanded: true, example: ["NOAA", "NESCAUM", "The Disney Corporation"]},
+      publishers:             {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["NOAA", "NESCAUM", "The Disney Corporation"]},
       published_on_end:       {type: Date, cs_name: :pubend , example: "2017-01-31"},
       published_on_start:     {type: Date, cs_name: :pubstart, example: "2017-01-31" },
-      sectors:                {type: DataMapper::Property::PgArray, facet: true, expanded: true, example: ["Ecosystems", "Water Resources"]},
-      strategies:             {type: DataMapper::Property::PgArray, facet: true, expanded: true, example: ["Adaptation"]},
-      states:                 {type: DataMapper::Property::PgArray, facet: true, expanded: true, example: ["NY", "MA"]},
+      sectors:                {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["Ecosystems", "Water Resources"]},
+      strategies:             {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["Adaptation"]},
+      states:                 {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["NY", "MA"]},
       title:                  {type: String, required: true, example: "Title of the article"},
       subtitle:               {type: String, example: "A sub title of peace"},
     }

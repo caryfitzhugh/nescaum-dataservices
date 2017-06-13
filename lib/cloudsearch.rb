@@ -1,4 +1,5 @@
 require 'aws-sdk'
+
 module Cloudsearch
   class << self
     def remove_documents(docids)
@@ -81,11 +82,24 @@ module Cloudsearch
       end
     end
 
-    def find_by_env(env_name)
+    def iterate_all
+      res = find_by_env(CONFIG.cs.env, size: 1)
+      total = res.hits.found
+      size = 100
+      loops = (total / size) + 1
+      loops.times do |n|
+        res = find_by_env(CONFIG.cs.env, size: size, start: size * n)
+        res.hits.hit.each do |hit|
+          yield hit
+        end
+      end
+    end
+
+    def find_by_env(env_name, size: 1000, start: 0)
       docs_in_env = search_conn.search(
         return: "docid",
-        size: 1000,
-        start: 0,
+        size: size,
+        start: start,
         query: "matchall",
         query_parser: "structured",
         filter_query: "(and env:'#{env_name}')",

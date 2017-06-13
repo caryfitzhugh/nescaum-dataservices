@@ -39,6 +39,8 @@ module Controllers
             {type: String, example: Date.today.to_s}
           elsif prop.class == DataMapper::Property::Boolean
             {type: 'boolean'}
+          elsif prop.class == DataMapper::Property::DateTime
+            {type: String, format: 'datetime', example: DateTime.now.to_s}
           else
             raise "ACK #{prop.class}"
           end
@@ -141,8 +143,8 @@ module Controllers
       json({
         hits: result.hits.found,
         params: {
-          page: page,
-          per_page: per_page,
+          page: page.to_i,
+          per_page: per_page.to_i,
           query: query,
           published_on_end: params[:published_on_end],
           published_on_start: params[:published_on_start],

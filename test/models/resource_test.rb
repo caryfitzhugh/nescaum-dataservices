@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class ResourceTest < NDSTestBase
+  # /home/cfitzhugh/.rvm/gems/ruby-2.3.4@nescaum-dataservices/gems/aws-sdk-core-2.9.25/lib/aws-sdk-core/plugins/request_signer.rb : 89
   def test_cs_update
     doc = Models::Resource.new
     doc.content = "### Abstract"
