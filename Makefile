@@ -1,5 +1,5 @@
 run:
-	bundle exec shotgun config.ru --port 4000 --server thin
+	SESSION_SECRET=test bundle exec shotgun config.ru --port 4000 --server thin
 
 swagger:
 	rm -f doc/swagger_doc.json

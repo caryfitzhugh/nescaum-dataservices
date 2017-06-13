@@ -10,7 +10,7 @@ module Models
     PROPERTIES = {
       actions:                {type: DataMapper::Property::PgArray, facet: true, expanded: true,  example: ["Emissions Reduction::multiple actions"]},
       authors:                {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["C.S. Lewis", "Northeast Regional Climate Center (NRCC)"]},
-      content:                {type: String , description: "Markdown content describing the resource", example: "###Content"},
+      content:                {type: String, length: 5000, description: "Markdown content describing the resource", example: "###Content"},
       climate_changes:        {type: DataMapper::Property::PgArray, facet: true, expanded: true, example: ["Precipitation::Heavy Precipitation"]},
       # {type: "weblink", url: "url"} , ...]
       external_data_links:    {type: DataMapper::Property::PgArray, cs_name: :links, example: ["pdf::http://www.com/pdf", "weblink::http://google.com"]},
@@ -24,8 +24,8 @@ module Models
       sectors:                {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["Ecosystems", "Water Resources"]},
       strategies:             {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["Adaptation"]},
       states:                 {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["NY", "MA"]},
-      title:                  {type: String, required: true, example: "Title of the article"},
-      subtitle:               {type: String, example: "A sub title of peace"},
+      title:                  {type: String, length: 256, required: true, example: "Title of the article"},
+      subtitle:               {type: String, length: 256, example: "A sub title of peace"},
     }
     FACETED_PROPERTIES = Hash[(PROPERTIES.each_pair.select do |(k,v)|
                                   v[:facet]
@@ -39,7 +39,11 @@ module Models
                                   v[:type] == String
                                 end)]
     PROPERTIES.each_pair do |name, attrs|
-      property name, attrs[:type], required: !!attrs[:required]
+      args = {required: !!attrs[:required]}
+
+      args[:length] = attrs[:length] if attrs[:length]
+
+      property(name, attrs[:type], args)
     end
 
     def self.get_by_docid(did)
