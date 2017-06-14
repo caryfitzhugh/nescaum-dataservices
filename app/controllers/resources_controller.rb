@@ -8,6 +8,12 @@ module Controllers
         count: {type: Integer, description: "Number of records that match with this facet"},
       }
     }
+    type 'FacetGroup', {
+      properties: {
+        name:   {type: String, description: "Name for the facet"},
+        facets: {type: ["Facet"], description: "values for the facet"},
+      }
+    }
 
     type 'NewResource', {
       properties:
@@ -160,15 +166,18 @@ module Controllers
     end
 
     endpoint description: "Search for all facets",
-              responses: standard_errors( 200 => [["Facet"]]),
+              responses: standard_errors( 200 => [["FacetGroup"]]),
               parameters: {
-                "name": ["Name of the facet to get results for", :path, true, String],
+                "names": ["Name of the facet to get results for. split by ','", :path, true, String],
               },
               tags: ["Resources", "Public"]
 
-    get "/resources/facets/:name" do
-      facets = Cloudsearch.facet_list(params[:name])
-      json(facets.to_a)
+    get "/resources/facets" do
+      facets = params[:names].split(",").map(&:strip).reduce([]) do |memo, facet_name|
+        memo.push({name: facet_name, facets: Cloudsearch.facet_list(facet_name).to_a})
+        memo
+      end
+      json(facets)
     end
 
     endpoint description: "Create a resource",
@@ -178,7 +187,7 @@ module Controllers
               },
               tags: ["Resources", "Curator"]
 
-    post "/resources/", require_role: :curator do
+    post "/resources", require_role: :curator do
       doc = Models::Resource.new(params[:parsed_body][:resource])
 
       if doc.save
