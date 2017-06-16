@@ -16,6 +16,7 @@ module Controllers
     }
 
     type 'NewResource', {
+      required: Models::Resource::PROPERTIES.each_pair.map {|prop, attrs| attrs[:required] && prop}.compact,
       properties:
         Hash[Models::Resource::PROPERTIES.each_pair.map do |name, attrs|
           if attrs[:facet]

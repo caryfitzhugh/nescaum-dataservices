@@ -12,8 +12,11 @@ module Controllers
     def self.require_role(role)
       condition do
         unless current_user && (current_user.is_admin? || current_user.is_curator?)
-          content_type :json
-          halt 403, JSON.generate(code: 403, message:"Not allowed to access this path")
+          # CONFIG pretend_admin
+          unless CONFIG.pretend_admin
+            content_type :json
+            halt 403, JSON.generate(code: 403, message:"Not allowed to access this path")
+          end
         end
       end
     end

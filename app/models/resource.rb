@@ -19,8 +19,8 @@ module Models
       geofocus:               {type: DataMapper::Property::PgArray, facet: true, expanded: true, example: ["Ulster County, NY", "Westchester County, NY", "Maine Coastland"]},
       keywords:               {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["dams::noexpanded", "floods", "land cover change"]},
       publishers:             {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["NOAA", "NESCAUM", "The Disney Corporation"]},
-      published_on_end:       {type: Date, cs_name: :pubend , example: "2017-01-31"},
-      published_on_start:     {type: Date, cs_name: :pubstart, example: "2017-01-31" },
+      published_on_end:       {type: Date, cs_name: :pubend , example: "2017-01-31", required: true},
+      published_on_start:     {type: Date, cs_name: :pubstart, example: "2017-01-31", required: true },
       sectors:                {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["Ecosystems", "Water Resources"]},
       strategies:             {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["Adaptation"]},
       states:                 {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["NY", "MA"]},
@@ -133,7 +133,8 @@ module Models
       attributes[:docid] = self.docid
       attributes[:search_terms] = JSON.generate(attributes).gsub(/\W+/, " ")
 
-      attributes
+      # Remove any null / blank values
+      attributes.select {|k,v| v}
     end
 
     def self.expand_literal(literal)
