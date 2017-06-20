@@ -17,6 +17,7 @@ module Models
       effects:                {type: DataMapper::Property::PgArray, facet: true, expanded: true, example: ["Specific Vulnerability::Coastal Property Damage"]},
       formats:                {type: DataMapper::Property::PgArray, facet: true, expanded: true, required: true, example: ["Documents::Report"]},
       geofocus:               {type: DataMapper::Property::PgArray, facet: true, expanded: true, example: ["Ulster County, NY", "Westchester County, NY", "Maine Coastland"]},
+      image:                  {type: String, length: 1024, example: "http://s3.amazonaws.com/temp-bucket/img.png"},
       keywords:               {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["dams::noexpanded", "floods", "land cover change"]},
       publishers:             {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["NOAA", "NESCAUM", "The Disney Corporation"]},
       published_on_end:       {type: Date, cs_name: :pubend , example: "2017-01-31", required: true},
