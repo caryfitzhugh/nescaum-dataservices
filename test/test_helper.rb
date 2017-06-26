@@ -6,6 +6,7 @@ require 'webrat'
 require 'database_cleaner'
 DatabaseCleaner.strategy = :truncation
 
+require 'app/models'
 require 'rack/test'
 require 'test/unit'
 require 'mocha/test_unit'
@@ -22,7 +23,7 @@ class NDSTestBase < Test::Unit::TestCase
   include Webrat::Matchers
 
   def login_curator!
-    curator = Models::User.new(username: "curator", password: "password",
+    curator = User.new(username: "curator", password: "password",
                        name: "curator", email: "curator@cure.com",
                        roles: ['curator'])
     Controllers::Base.any_instance.expects(:current_user).at_least_once.returns(curator)
@@ -33,7 +34,13 @@ class NDSTestBase < Test::Unit::TestCase
   end
 
   def setup
-    cs_query_enable
+    current = Cloudsearch.find_by_env(CONFIG.cs.env)
+    if current.hits.found > 0
+      cs_ids = current.hits.hit.map(&:id)
+      Cloudsearch.remove_by_cs_id(cs_ids)
+      (puts '.' && sleep(1)) until Cloudsearch.find_by_env(CONFIG.cs.env).hits.found == 0
+    end
+
     DatabaseCleaner.start
   end
 
@@ -42,9 +49,13 @@ class NDSTestBase < Test::Unit::TestCase
   end
 
   private
-  def cs_query_enable
-    Aws::Plugins::RequestSigner::Handler.any_instance.expects(:unsigned_request?).at_most(100).returns(true)
+
+  def wait_for_cs_sync!()
+    tgt = Resource.all(indexed: true).count
+    (puts '.' && sleep(1)) until Cloudsearch.find_by_env(CONFIG.cs.env).hits.found == tgt
   end
+
+
   def url_for(path, params = {})
     uri = URI.parse(path)
     unless (params.empty?)

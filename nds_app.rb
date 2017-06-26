@@ -13,6 +13,7 @@ require 'sinatra/swagger-exposer/swagger-exposer'
 require 'app/controllers/resources_controller'
 require 'app/controllers/curation_controller'
 require 'app/controllers/authentication_controller'
+require 'app/controllers/geofocus_controller'
 require 'app/helpers'
 
 require 'lib/cloudsearch'
@@ -49,6 +50,7 @@ class NDSApp < Sinatra::Application
   helpers Helpers::Authentication
 
   use Controllers::ResourcesController
+  use Controllers::GeofocusController
   use Controllers::AuthenticationController
   use Controllers::CurationController
 

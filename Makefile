@@ -16,10 +16,7 @@ deps:
 	npm install -g swagger-to-md
 	pip install --upgrade --user awsebcli
 
-cs-up:
-	cd test/nozama-cloudsearch-docker-master && docker-compose up all-services
-
-test: test-db-up cs-up
+test: test-db-up
 	bundle exec rake test
 
 test-db-up:

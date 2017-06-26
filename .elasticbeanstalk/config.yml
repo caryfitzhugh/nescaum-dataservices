@@ -1,0 +1,11 @@
+branch-defaults:
+  master:
+    environment: nds-staging
+global:
+  application_name: nescaum-dataservices-dev
+  default_ec2_keyname: null
+  default_platform: 64bit Amazon Linux 2017.03 v2.4.0 running Ruby 2.3 (Passenger
+    Standalone)
+  default_region: null
+  profile: nescaum
+  sc: git

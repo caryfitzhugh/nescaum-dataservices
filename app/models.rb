@@ -3,10 +3,13 @@ require 'dm-postgres-types'
 require 'dm-chunked_query'
 require 'dm-timestamps'
 
+require 'app/models/geofocus'
+require 'app/models/geofocus_resource'
 require 'app/models/resource'
 require 'app/models/user'
 
 require 'lib/config'
+
 DataMapper.finalize
 
 DataMapper::Logger.new($stdout, :info)

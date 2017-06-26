@@ -9,7 +9,6 @@ module Cloudsearch
          id: "#{cs_env}::#{docid}",
         }
       end
-
       resp = upload_conn.upload_documents(
         documents: JSON.generate(env_docs),
         content_type: "application/json"

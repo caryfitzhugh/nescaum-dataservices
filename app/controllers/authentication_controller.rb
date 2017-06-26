@@ -11,7 +11,7 @@ module Controllers
     end
 
     post "/sign_in", no_swagger: true  do
-      user =  Models::User.first(:username => params[:username])
+      user =  User.first(:username => params[:username])
 
       if user && user.password == params[:password]
         session.clear

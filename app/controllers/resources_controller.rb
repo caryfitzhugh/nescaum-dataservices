@@ -16,9 +16,9 @@ module Controllers
     }
 
     type 'NewResource', {
-      required: Models::Resource::PROPERTIES.each_pair.map {|prop, attrs| attrs[:required] && prop}.compact,
+      required: Resource::PROPERTIES.each_pair.map {|prop, attrs| attrs[:required] && prop}.compact,
       properties:
-        Hash[Models::Resource::PROPERTIES.each_pair.map do |name, attrs|
+        Hash[Resource::PROPERTIES.each_pair.map do |name, attrs|
           if attrs[:facet]
             [name.to_s, {type: [String], example: attrs[:example], description: attrs[:description]}]
           elsif attrs[:type] == String
@@ -34,7 +34,7 @@ module Controllers
     }
 
     type 'Resource', {
-      properties: Hash[Models::Resource.properties.map do |prop|
+      properties: Hash[Resource.properties.map do |prop|
           # Case statement didn't work?
           attrs = if prop.class == DataMapper::Property::Serial
             {type: Integer}
@@ -57,7 +57,7 @@ module Controllers
 
     type 'Facets', {
       properties:
-        Hash[Models::Resource::FACETED_PROPERTIES.each_pair.map do |name, attrs|
+        Hash[Resource::FACETED_PROPERTIES.each_pair.map do |name, attrs|
             [name.to_s, {type: ['Facet'], example: [{ name: "f1", count: 1}, {name: "f2", count: 2}]}]
           end]
     }
@@ -67,9 +67,9 @@ module Controllers
       properties:{
         docid:  { type: String, example: "maps::44"},
       }.merge(
-        Hash[Models::Resource::PROPERTIES.each_pair.map do |name, attrs|
+        Hash[Resource::PROPERTIES.each_pair.map do |name, attrs|
           if attrs[:facet]
-            [name.to_s, {type: [String], example: (attrs[:expanded] ? Models::Resource.expand_literal(attrs[:example]) : attrs[:example]), description: attrs[:description]}]
+            [name.to_s, {type: [String], example: (attrs[:expanded] ? Resource.expand_literal(attrs[:example]) : attrs[:example]), description: attrs[:description]}]
           elsif attrs[:type] == String
             [name.to_s, {type: String, example: attrs[:example], description: attrs[:description]}]
           elsif attrs[:type] == Date
@@ -84,8 +84,8 @@ module Controllers
 
     type 'SearchFilters', {
       properties:
-        Hash[Models::Resource::FACETED_PROPERTIES.each_pair.map do |name, attrs|
-          [name.to_s, {type: [String], example: (attrs[:expanded] ? Models::Resource.expand_literal(attrs[:example]) : attrs[:example]), description: attrs[:description]}]
+        Hash[Resource::FACETED_PROPERTIES.each_pair.map do |name, attrs|
+          [name.to_s, {type: [String], example: (attrs[:expanded] ? Resource.expand_literal(attrs[:example]) : attrs[:example]), description: attrs[:description]}]
         end]
     }
 
@@ -117,7 +117,7 @@ module Controllers
                 "published_on_end": ["Limit to resources publish dates to <= this publish end date", :query, false, String, :format => :date],
                 "published_on_start": ["Limit to resources publish dates to >= this publish start date", :query, false, String, :format => :date],
               }.merge(
-                Hash[Models::Resource::FACETED_PROPERTIES.each_pair.map do |name, attrs|
+                Hash[Resource::FACETED_PROPERTIES.each_pair.map do |name, attrs|
                     [name.to_s, ["Filter. Separated by ,", :query, false, String]]
                   end]
               ),
@@ -129,11 +129,11 @@ module Controllers
       query = params[:query]
       filters = {}
 
-      Models::Resource::FACETED_PROPERTIES.each do |name, attrs|
+      Resource::FACETED_PROPERTIES.each do |name, attrs|
         filters[name] = params[name].split(",") if params[name]
       end
 
-      result = Models::Resource.search(query: query,
+      result = Resource.search(query: query,
                                   filters: filters,
                                   page: page,
                                   per_page: per_page,
@@ -189,7 +189,7 @@ module Controllers
               tags: ["Resources", "Curator"]
 
     post "/resources", require_role: :curator do
-      doc = Models::Resource.new(params[:parsed_body][:resource])
+      doc = Resource.new(params[:parsed_body][:resource])
 
       if doc.save
         json(doc.to_search_document(search_terms: false))
@@ -206,7 +206,7 @@ module Controllers
               tags: ["Resources", "Curator"]
 
     post "/resources/:docid/index", require_role: :curator do
-      doc = Models::Resource.get_by_docid(params[:docid])
+      doc = Resource.get_by_docid(params[:docid])
       doc.indexed = true
       if doc.save
         doc.sync_index!
@@ -224,7 +224,7 @@ module Controllers
               tags: ["Resources", "Curator"]
 
     delete "/resources/:docid/index", require_role: :curator do
-      doc = Models::Resource.get_by_docid(params[:docid])
+      doc = Resource.get_by_docid(params[:docid])
       doc.indexed = false
       if doc.save
         doc.sync_index!
@@ -243,7 +243,7 @@ module Controllers
               tags: ["Resources", "Curator"]
 
     put "/resources/:docid", require_role: :curator do
-      doc = Models::Resource.get_by_docid(params[:docid])
+      doc = Resource.get_by_docid(params[:docid])
       doc.attributes = doc.attributes.merge(params[:parsed_body][:resource])
 
       if doc.save
@@ -261,7 +261,7 @@ module Controllers
               tags: ["Resources", "Public"]
 
     get "/resources/:docid" do
-      doc = Models::Resource.get_by_docid(params[:docid])
+      doc = Resource.get_by_docid(params[:docid])
 
       if doc
         json(doc.to_resource)

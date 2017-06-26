@@ -11,14 +11,14 @@ namespace :db do
 
   namespace :users do
     task :list do
-      users = Models::User.find
+      users = User.find
       users.each do |user|
         puts user.attributes
       end
     end
 
     task :delete, [:id] do |t, args|
-      user = Models::User.get(args.id)
+      user = User.get(args.id)
       if user && user.destroy
         puts "Deleted user"
       else
@@ -28,12 +28,12 @@ namespace :db do
     end
 
     task :create do |t, args|
-      user = Models::User.new
+      user = User.new
       user.username = Ask.input "Username"
       user.password = Ask.input("Password", password: true)
       user.name     = Ask.input "Name"
       user.email    = Ask.input "Email"
-      user.roles    = [Models::User::ROLES[Ask.list("Role", Models::User::ROLES)]]
+      user.roles    = [User::ROLES[Ask.list("Role", User::ROLES)]]
 
       if user.save
         puts "Created user:"
@@ -73,7 +73,7 @@ namespace :cs do
     res = Cloudsearch.iterate_all do |doc|
       require 'pry'; binding.pry
       docid = doc["fields"]["docid"][0]
-      resource = Models::Resource.get_by_docid(docid)
+      resource = Resource.get_by_docid(docid)
       if resource.nil?
         to_remove.push(docid)
       end
@@ -88,7 +88,7 @@ namespace :cs do
     # We want to iterate over the records in the DB in batches of 200.
     # Collect the list of docids to update
 
-    Models::Resource.all(indexed: true).each_chunk(100) do |chunk|
+    Resource.all(indexed: true).each_chunk(100) do |chunk|
       resources_to_submit = []
       chunk.each do |resource|
         cs_resource = Cloudsearch.find_by_docid(resource.docid)
