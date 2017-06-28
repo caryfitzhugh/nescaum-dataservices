@@ -38,7 +38,7 @@ class NDSTestBase < Test::Unit::TestCase
     if current.hits.found > 0
       cs_ids = current.hits.hit.map(&:id)
       Cloudsearch.remove_by_cs_id(cs_ids)
-      (puts '.' && sleep(1)) until Cloudsearch.find_by_env(CONFIG.cs.env).hits.found == 0
+      (puts('.') && sleep(1)) until Cloudsearch.find_by_env(CONFIG.cs.env).hits.found == 0
     end
 
     DatabaseCleaner.start

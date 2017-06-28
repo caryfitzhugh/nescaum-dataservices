@@ -2,6 +2,12 @@ require 'app/controllers/base'
 require 'app/models'
 module Controllers
   class ResourcesController < Controllers::Base
+    type 'Geofocus', {
+      properties: {
+        name: {type: String, description: "Name of the geofocus"},
+        id: {type: Integer, description: "ID of the geofocus entry"}
+      }
+    }
     type 'Facet', {
       properties: {
         value: {type: String, description: "Value for the facet"},
@@ -30,7 +36,9 @@ module Controllers
           else
             throw "How to convert: #{name}"
           end
-        end]
+      end].merge({
+        "geofocus" => {type: [Integer], example: [1,2,3], description: "Geofocus ID to assign to this resource"}
+      }
     }
 
     type 'Resource', {
@@ -52,7 +60,8 @@ module Controllers
             raise "ACK #{prop.class}"
           end
           [prop.name.to_s, attrs]
-        end].merge("docid": {type: String})
+        end].merge("docid": {type: String},
+                  "geofocus": {type: ['Geofocus']})
     }
 
     type 'Facets', {

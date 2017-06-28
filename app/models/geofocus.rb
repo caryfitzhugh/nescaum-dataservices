@@ -7,4 +7,8 @@ class Geofocus
   def add_to!(resource)
     ResourceGeofocus.first_or_create(resource: resource, geofocus: self)
   end
+
+  def to_resource
+    self.attributes
+  end
 end

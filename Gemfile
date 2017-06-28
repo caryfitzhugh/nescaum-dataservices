@@ -16,6 +16,7 @@ gem 'aws-sdk'
 gem 'rack-cors', :require => 'rack/cors'
 
 group :development do
+  gem "rdf"
   gem "rack-test"
   gem 'shotgun'
   gem 'pry-byebug'
