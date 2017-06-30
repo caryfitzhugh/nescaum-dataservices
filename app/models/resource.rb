@@ -4,12 +4,25 @@ end
 
 class Resource
   include DataMapper::Resource
+  def self.custom_docid_prefix(prefix=:nil)
+    @custom_docid_prefix = prefix unless prefix == :nil
+    @custom_docid_prefix
+  end
+
   property :id, Serial
   property :indexed, Boolean, default: false
   property :created_at, DateTime
   property :updated_at, DateTime
 
   has n, :geofocuses, through: :geofocus_resources
+
+  def geofocuses=(newv)
+    #if newv is just an int, look it up
+    if newv.all? {|i| i.is_a?(Integer) }
+      newv = Geofocus.all(id: newv)
+    end
+    super(newv)
+  end
 
   PROPERTIES = {
     actions:                {type: DataMapper::Property::PgArray, facet: true, expanded: true,  example: ["Emissions Reduction::multiple actions"]},
@@ -49,12 +62,23 @@ class Resource
 
     property(name, attrs[:type], args)
   end
+
   def self.get_by_docid(did)
     id = did.split("::").last.to_i
     Resource.get(id)
   end
 
-  def self.search(query:'', filters:{}, page:1, per_page:100, pub_dates: [nil,nil])
+  def self.all_by_docids(dids)
+    ids = dids.map do |did|
+        did.split("::").last.to_i
+    end
+    resources = Resource.all(id: ids)
+    resources.sort_by do |resource|
+      ids.index(resource.id)
+    end
+  end
+
+  def self.search(query:'', filters:{}, geofocuses: [], page:1, per_page:100, pub_dates: [nil,nil])
     # We want facets for all the filters.
     # Facets:  { "actions": [1,2,3,4]}
     # Query: "tornado"
@@ -81,6 +105,7 @@ class Resource
     ## Pubdate (range - squeezer!)
     filter_q.push([:and,"pubstart:['#{to_cs_date(pub_dates[0])}',}"]) if pub_dates[0]
     filter_q.push([:and,"pubend:{,'#{to_cs_date(pub_dates[1])}']"]) if pub_dates[1]
+    filter_q.push([:or].concat(geofocuses.map {|gf| "geofocuses:#{gf}"})) unless geofocuses.empty?
 
     # Scope to just our CS env
     filter_q.push([:and,"env:'#{CONFIG.cs.env}'"])
@@ -92,11 +117,12 @@ class Resource
       memo[filter] = {:sort => :count, :size => 100}
       memo
     end)
+    self.logger.info "Args: #{args}"
     Cloudsearch.search_conn.search(args)
   end
 
   def docid
-    "#{self.class.name.downcase}::#{self.id}"
+    "#{Resource.custom_docid_prefix}#{self.class.name.downcase}::#{self.id}"
   end
 
   def sync_index!
@@ -108,7 +134,7 @@ class Resource
   end
 
   def to_resource
-    self.attributes.merge(docid: self.docid, geofocuses: self.geofocuses)
+    self.attributes.merge(docid: self.docid, geofocuses: self.geofocuses.map(&:to_resource))
   end
 
   def to_search_document(search_terms: true)
@@ -135,7 +161,7 @@ class Resource
     end
     attributes[:docid] = self.docid
     attributes[:search_terms] = JSON.generate(attributes).gsub(/\W+/, " ")
-    attributes[:geofocus] = self.geofocuses.map(&:name)
+    attributes[:geofocuses] = self.geofocuses.map(&:id)
 
     # Remove any null / blank values
     attributes.select {|k,v| v}
@@ -164,7 +190,7 @@ class Resource
 
   private
 
-  def logger
+  def self.logger
     @logger ||= Logger.new(STDOUT)
   end
 

@@ -17,6 +17,8 @@ gem 'rack-cors', :require => 'rack/cors'
 
 group :development do
   gem "rdf"
+  gem 'linkeddata'
+  gem 'spira'
   gem "rack-test"
   gem 'shotgun'
   gem 'pry-byebug'

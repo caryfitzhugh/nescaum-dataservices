@@ -2,12 +2,6 @@ require 'app/controllers/base'
 require 'app/models'
 module Controllers
   class ResourcesController < Controllers::Base
-    type 'Geofocus', {
-      properties: {
-        name: {type: String, description: "Name of the geofocus"},
-        id: {type: Integer, description: "ID of the geofocus entry"}
-      }
-    }
     type 'Facet', {
       properties: {
         value: {type: String, description: "Value for the facet"},
@@ -36,9 +30,10 @@ module Controllers
           else
             throw "How to convert: #{name}"
           end
-      end].merge({
+      end].merge(
         "geofocus" => {type: [Integer], example: [1,2,3], description: "Geofocus ID to assign to this resource"}
-      }
+      )
+
     }
 
     type 'Resource', {
@@ -61,7 +56,7 @@ module Controllers
           end
           [prop.name.to_s, attrs]
         end].merge("docid": {type: String},
-                  "geofocus": {type: ['Geofocus']})
+                   geofocuses: {type: ['Geofocus'], example: {name: "Jericho, VT", id: 5465}})
     }
 
     type 'Facets', {
@@ -69,26 +64,6 @@ module Controllers
         Hash[Resource::FACETED_PROPERTIES.each_pair.map do |name, attrs|
             [name.to_s, {type: ['Facet'], example: [{ name: "f1", count: 1}, {name: "f2", count: 2}]}]
           end]
-    }
-
-    type 'ResourceSearchResult', {
-      required: [:title, :docid],
-      properties:{
-        docid:  { type: String, example: "maps::44"},
-      }.merge(
-        Hash[Resource::PROPERTIES.each_pair.map do |name, attrs|
-          if attrs[:facet]
-            [name.to_s, {type: [String], example: (attrs[:expanded] ? Resource.expand_literal(attrs[:example]) : attrs[:example]), description: attrs[:description]}]
-          elsif attrs[:type] == String
-            [name.to_s, {type: String, example: attrs[:example], description: attrs[:description]}]
-          elsif attrs[:type] == Date
-            [name.to_s, {type: Date, example: attrs[:example], description: attrs[:description]}]
-          elsif attrs[:type] == DataMapper::Property::PgArray
-            [name.to_s, {type: [String], example: attrs[:example], description: attrs[:description]}]
-          else
-            throw "How to convert: #{name}"
-          end
-        end])
     }
 
     type 'SearchFilters', {
@@ -103,6 +78,7 @@ module Controllers
         page: { type: Integer, description: "Page of results being returned"},
         per_page: { type: Integer, description: "Number of results being returned"},
         query: {type: String, description: "The original search query"},
+        geofocuses: {type: [Integer], description: "Geofocus to filter on"},
         published_on_end: {type: String, example: Date.today.to_s},
         published_on_start: {type: String, example: Date.today.to_s},
         filters: {type: "SearchFilters", description: "The filters used in this search"}
@@ -113,7 +89,7 @@ module Controllers
       properties: {
         hits: { type: Integer, description: "Total number of records"},
         params: { type: 'SearchRequestParameters', description: "The incoming search parameters"},
-        resources: { type: ["ResourceSearchResult"], description: "Results"},
+        resources: { type: ["Resource"], description: "Results"},
         facets: { type: "Facets", description: "All the facets for searching"},
       }
     }
@@ -125,6 +101,7 @@ module Controllers
                 "per_page": ["Number of records to return", :query, false, Integer, {:minimum => 1, :maximum => 100}],
                 "published_on_end": ["Limit to resources publish dates to <= this publish end date", :query, false, String, :format => :date],
                 "published_on_start": ["Limit to resources publish dates to >= this publish start date", :query, false, String, :format => :date],
+                "geofocuses": ["Geofocuses to filter resources on, split by ','", :query, false, String]
               }.merge(
                 Hash[Resource::FACETED_PROPERTIES.each_pair.map do |name, attrs|
                     [name.to_s, ["Filter. Separated by ,", :query, false, String]]
@@ -136,6 +113,7 @@ module Controllers
       per_page = params[:per_page] || 50
       page = params[:page] || 1
       query = params[:query]
+      geofocuses = (params[:geofocuses] || "").split(',').map(&:to_i)
       filters = {}
 
       Resource::FACETED_PROPERTIES.each do |name, attrs|
@@ -145,6 +123,7 @@ module Controllers
       result = Resource.search(query: query,
                                   filters: filters,
                                   page: page,
+                                  geofocuses: geofocuses,
                                   per_page: per_page,
                                   pub_dates: [params[:published_on_start] ? Date.parse(params[:published_on_start]) : nil,
                                               params[:published_on_end] ? Date.parse(params[:published_on_end]) : nil])
@@ -156,21 +135,20 @@ module Controllers
         memo
       end
 
+      records = Resource.all_by_docids(result.hits.hit.map {|res| res.fields['docid'][0]}).map(&:to_resource)
+
       json({
         hits: result.hits.found,
         params: {
           page: page.to_i,
           per_page: per_page.to_i,
           query: query,
+          geofocuses: geofocuses,
           published_on_end: params[:published_on_end],
           published_on_start: params[:published_on_start],
           filters: filters,
         },
-        resources: result.hits.hit.map do |hit|
-          fields = hit["fields"]
-          fields["uat"] = fields["uat"].flatten.first
-          fields
-        end,
+        resources: records,
         facets: facets,
       })
     end
@@ -191,7 +169,7 @@ module Controllers
     end
 
     endpoint description: "Create a resource",
-              responses: standard_errors( 200 => ["ResourceSearchResult"]),
+              responses: standard_errors( 200 => ["Resource"]),
               parameters: {
                 "resource": ["Resource data", :body, true, "NewResource"],
               },
@@ -201,7 +179,7 @@ module Controllers
       doc = Resource.new(params[:parsed_body][:resource])
 
       if doc.save
-        json(doc.to_search_document(search_terms: false))
+        json(doc.to_resource)
       else
         err(400, doc.errors.full_messages.join("\n"))
       end

@@ -13,9 +13,8 @@ class ResourceTest < NDSTestBase
     doc.published_on_end = Date.today
     doc.geofocuses << Geofocus.first_or_create(name: "basin lake NY")
     doc.save!
-
+    # can we run this?
     doc.to_search_document
-    doc.sync_index!
   end
 
   def test_cs_update
@@ -89,7 +88,7 @@ class ResourceTest < NDSTestBase
                   :docid=>"resource::1",
                   :effects=>["root", "root2::", "root2::leaf"],
                   :formats=>["document::", "document::report"],
-                  :geofocus => ["basin lake NY"],
+                  :geofocus => [Geofocus.first_or_create(name: "basin lake NY").id],
                   :image => "",
                   :links=>["pdf::http://google.com/pdf", "weblink::http://google.com/weblink"],
                   :keywords=>["danger"],
@@ -110,5 +109,54 @@ class ResourceTest < NDSTestBase
 
   def test_filter_query
     assert_equal "(and (or 1 2 3))", to_filter_query([:and, [:or, 1, 2, 3]])
+  end
+
+  def test_geofocus_search
+    geofocus = Geofocus.create(name: "Test")
+    doc = Resource.create!(
+      title: "Title",
+      subtitle: "Subtitle",
+      formats: ["format::1"],
+      indexed: true,
+      published_on_end: Date.today.to_s,
+      published_on_start: Date.today.to_s,
+      geofocuses: [geofocus.id],
+    )
+    doc.sync_index!
+
+    # GF Doc 2 - has same fields but different GF
+    geofocus2 = Geofocus.create(name: "Test@")
+    doc2 = Resource.create!(
+      title: "Title",
+      subtitle: "Subtitle",
+      formats: ["format::1"],
+      indexed: true,
+      published_on_end: Date.today.to_s,
+      published_on_start: Date.today.to_s,
+      geofocuses: [geofocus2.id],
+    )
+
+    # GF Doc 3 - has same fields but no GF
+    doc2 = Resource.create!(
+      title: "Title",
+      subtitle: "Subtitle",
+      formats: ["format::1"],
+      indexed: true,
+      published_on_end: Date.today.to_s,
+      published_on_start: Date.today.to_s,
+      geofocuses: [],
+    )
+
+    wait_for_cs_sync!
+
+    # Now we make a few searches
+    results = Resource.search(geofocuses: [])
+    assert_equal 3, results.hits.found
+
+    results = Resource.search(geofocuses: [geofocus.id])
+    assert_equal 1, results.hits.found
+
+    results = Resource.search(geofocuses: [geofocus2.id])
+    assert_equal 1, results.hits.found
   end
 end

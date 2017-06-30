@@ -7,12 +7,6 @@ module Controllers
         name: {type: String, description: "Name of the geo-focus"},
       }
     }
-    type 'Geofocus', {
-      properties: {
-        name: {type: String, description: "Name of the geo-focus"},
-        id: { type: Integer, description: "ID of the geofocus"},
-      }
-    }
 
     endpoint description: "Create Geofocus",
               responses: standard_errors( 200 => ["Geofocus"]),

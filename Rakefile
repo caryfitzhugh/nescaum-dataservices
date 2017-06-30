@@ -67,6 +67,20 @@ namespace :routes do
   end
 end
 
+namespace :rdf do
+  task :import, [:path] do |t,args|
+    require 'rdf'
+    require 'linkeddata'
+    uri = RDF::URI.new(args.path)
+    graph = RDF::Repository.load(uri)
+    graph.each_statement do |statement|
+      puts statement
+    end
+    puts "graph: #{graph.statements.length}"
+    require 'pry'; binding.pry
+  end
+end
+
 namespace :cs do
   task :delete_from_cs do |t, args|
     to_remove = []
@@ -131,6 +145,10 @@ namespace :cs do
         puts "  #{cs_id}"
       end
       puts "Scheduled for removal"
+      until Cloudsearch.find_by_env(args.env).hits.found == 0 do
+        sleep 3
+      end
+      puts "Done"
     else
       puts "Good idea. Aborting"
     end

@@ -38,13 +38,18 @@ class NDSTestBase < Test::Unit::TestCase
     if current.hits.found > 0
       cs_ids = current.hits.hit.map(&:id)
       Cloudsearch.remove_by_cs_id(cs_ids)
-      (puts('.') && sleep(1)) until Cloudsearch.find_by_env(CONFIG.cs.env).hits.found == 0
+      print "clearing CS..."
+      sleep(2) until Cloudsearch.find_by_env(CONFIG.cs.env).hits.found == 0
+      puts " done"
     end
-
+    Resource.custom_docid_prefix Time.now.to_i.to_s
     DatabaseCleaner.start
   end
 
   def teardown
+    Resource.custom_docid_prefix nil
+    Cloudsearch.remove_documents(Resource.all.map(&:docid))
+    wait_for_cs_sync!
     DatabaseCleaner.clean
   end
 
@@ -52,7 +57,10 @@ class NDSTestBase < Test::Unit::TestCase
 
   def wait_for_cs_sync!()
     tgt = Resource.all(indexed: true).count
-    (puts '.' && sleep(1)) until Cloudsearch.find_by_env(CONFIG.cs.env).hits.found == tgt
+    Resource.all.each(&:sync_index!)
+    until Cloudsearch.find_by_env(CONFIG.cs.env).hits.found == tgt do
+      sleep 3
+    end
   end
 
 
@@ -67,6 +75,7 @@ class NDSTestBase < Test::Unit::TestCase
   def post_json(uri, body)
     post(uri, JSON.generate(body), { "CONTENT_TYPE" => "application/json" })
   end
+
   def json_response
     JSON.parse(last_response.body)
   end
