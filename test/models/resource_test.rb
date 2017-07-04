@@ -27,21 +27,24 @@ class ResourceTest < NDSTestBase
     doc.published_on_start = Date.today
     doc.published_on_end = Date.today
     doc.geofocuses << Geofocus.first_or_create(name: "basin lake NY")
-    doc.save!
-
-    doc.sync_index!
-    wait_for_cs_sync!
-
-    results = Resource.search()
-    assert_equal results.hits.found, 0
-
     doc.indexed = true
     doc.save!
+
+    doc.sync_index!
+    wait_for_cs_sync!
+
+    # THis is tricky.  Make sure you delete it after adding.
+    # If you add after a delete - it can get confused and borked
+    results = Resource.search()
+    assert_equal results.hits.found, 1
+
+    doc.indexed = false
+    doc.save!
     doc.sync_index!
 
     wait_for_cs_sync!
     results = Resource.search()
-    assert_equal results.hits.found, 1
+    assert_equal results.hits.found, 0
   end
 
   def test_expand_literal
@@ -85,10 +88,10 @@ class ResourceTest < NDSTestBase
                   :actions=>["root", "root2::", "root2::leaf"],
                   :authors=>["Cary FitzHugh", "Steve Signell"],
                   :climate_changes=>["root", "root2::", "root2::leaf"],
-                  :docid=>"resource::1",
+                  :docid=>doc.docid,
                   :effects=>["root", "root2::", "root2::leaf"],
                   :formats=>["document::", "document::report"],
-                  :geofocus => [Geofocus.first_or_create(name: "basin lake NY").id],
+                  :geofocuses => [Geofocus.first_or_create(name: "basin lake NY").id],
                   :image => "",
                   :links=>["pdf::http://google.com/pdf", "weblink::http://google.com/weblink"],
                   :keywords=>["danger"],

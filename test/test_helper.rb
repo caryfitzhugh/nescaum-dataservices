@@ -32,34 +32,42 @@ class NDSTestBase < Test::Unit::TestCase
   def app
     NDSApp.new
   end
-
   def setup
+    truncate_cs!
+    Resource.custom_docid_prefix Time.now.to_i.to_s
+    DatabaseCleaner.start
+  end
+
+  def teardown
+    truncate_cs!
+    Resource.custom_docid_prefix nil
+    DatabaseCleaner.clean
+  end
+
+  private
+
+  def truncate_cs!
     current = Cloudsearch.find_by_env(CONFIG.cs.env)
+    puts current.hits.hit.map(&:id)
     print "clearing CS..."
     until Cloudsearch.find_by_env(CONFIG.cs.env).hits.found == 0 do
       cs_ids = current.hits.hit.map(&:id)
       Cloudsearch.remove_by_cs_id(cs_ids)
       sleep 3
     end
-    Resource.custom_docid_prefix Time.now.to_i.to_s
-    DatabaseCleaner.start
   end
-
-  def teardown
-    Resource.custom_docid_prefix nil
-    if Resource.all.length > 0
-      Cloudsearch.remove_documents(Resource.all.map(&:docid))
-      wait_for_cs_sync!
-    end
-    DatabaseCleaner.clean
-  end
-
-  private
 
   def wait_for_cs_sync!()
     tgt = Resource.all(indexed: true).count
     Resource.all.each(&:sync_index!)
+    puts "Target: #{tgt}"
+
     until Cloudsearch.find_by_env(CONFIG.cs.env).hits.found == tgt do
+      Resource.all.each do |res|
+        res.sync_index!
+        puts res.docid
+      end
+      puts Cloudsearch.find_by_env(CONFIG.cs.env).hits.found
       sleep 3
     end
   end

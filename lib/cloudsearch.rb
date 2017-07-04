@@ -2,6 +2,7 @@ require 'aws-sdk'
 
 module Cloudsearch
   class << self
+
     def remove_documents(docids)
       cs_env = CONFIG.cs.env
       env_docs = docids.map do |docid|
@@ -14,13 +15,14 @@ module Cloudsearch
         content_type: "application/json"
       )
 
-      logger.info("Deleted #{env_docs.length} documents")
+      logger.info("Deleted #{env_docs.length} documents: #{docids.join(",")}")
       (resp.warnings || []).each do |warn|
         logger.warn(warn)
       end
       logger.info(resp.status)
       resp
     end
+
     def remove_by_cs_id(csids)
       env_docs = csids.map do |csid|
         {type: "delete", id: csid }
@@ -31,7 +33,7 @@ module Cloudsearch
         content_type: "application/json"
       )
 
-      logger.info("Deleted #{env_docs.length} documents")
+      logger.info("Deleted #{env_docs.length} documents: #{csids.join(",")}")
       (resp.warnings || []).each do |warn|
         logger.warn(warn)
       end
@@ -55,7 +57,7 @@ module Cloudsearch
         content_type: "application/json"
       )
 
-      logger.info("Uploaded #{env_docs.length} documents")
+      logger.info("Uploaded #{env_docs.length} documents: #{docs.map {|d| d[:docid]}}")
       (resp.warnings || []).each do |warn|
         logger.warn(warn)
       end

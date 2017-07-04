@@ -122,7 +122,9 @@ class Resource
   end
 
   def docid
-    "#{Resource.custom_docid_prefix}#{self.class.name.downcase}::#{self.id}"
+    docid = "#{Resource.custom_docid_prefix}#{self.class.name.downcase}::#{self.id}"
+    puts "DOCID: #{docid}"
+    docid
   end
 
   def sync_index!
