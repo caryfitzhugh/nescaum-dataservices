@@ -13,7 +13,7 @@ module Controllers
               parameters: {
                 "geofocus": ["New Geofocus", :body, true, "NewGeofocus"],
               },
-              tags: ["Geofocus", "Curation"]
+              tags: ["Geofocus", "Curator"]
 
     post "/geofocuses", require_role: :curator do
       gf = Geofocus.new(name: params[:parsed_body][:geofocus][:name])
@@ -29,7 +29,7 @@ module Controllers
               parameters: {
                 "id": ["ID of the geofocus to delete", :path, true, Integer],
               },
-              tags: ["Resources", "Curation"]
+              tags: ["Resources", "Curator"]
 
     delete "/geofocuses/:id", require_role: :curator do
       gf = Geofocus.first(id: params[:id])
@@ -48,7 +48,7 @@ module Controllers
     endpoint description: "Search against all geofocus entries",
               responses: standard_errors( 200 => [["Geofocus"]]),
               parameters: {
-                "q": ["Name of the geofocus to search for", :query, true, String],
+                "q": ["Name of the geofocus to search for", :query, false, String],
                 "page": ["Page of records to return", :query, false, Integer, :minimum => 1],
                 "per_page": ["Number of records to return", :query, false, Integer, {:minimum => 1, :maximum => 100}],
               },
@@ -58,7 +58,7 @@ module Controllers
       per_page = params[:per_page] || 50
       page = params[:page] || 1
 
-      gfs = Geofocus.all(:name.like => "%#{params[:q]}%")
+      gfs = Geofocus.all(:name.like => "%#{params[:q]}%", :order => [:name.asc])
       json(gfs.map(&:to_resource))
     end
   end

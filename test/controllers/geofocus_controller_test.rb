@@ -19,6 +19,10 @@ class GeofocusControllerTest < NDSTestBase
     Geofocus.create!(name: "Good")
     Geofocus.create!(name: "Bad")
 
+    get "/geofocuses"
+    assert response.ok?
+    assert_equal Geofocus.count, json_response.length
+
     get "/geofocuses", {"q" => "Fo"}
 
     assert response.ok?
