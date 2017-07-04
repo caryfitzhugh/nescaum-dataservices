@@ -35,12 +35,11 @@ class NDSTestBase < Test::Unit::TestCase
 
   def setup
     current = Cloudsearch.find_by_env(CONFIG.cs.env)
-    if current.hits.found > 0
+    print "clearing CS..."
+    until Cloudsearch.find_by_env(CONFIG.cs.env).hits.found == 0 do
       cs_ids = current.hits.hit.map(&:id)
       Cloudsearch.remove_by_cs_id(cs_ids)
-      print "clearing CS..."
-      sleep(2) until Cloudsearch.find_by_env(CONFIG.cs.env).hits.found == 0
-      puts " done"
+      sleep 3
     end
     Resource.custom_docid_prefix Time.now.to_i.to_s
     DatabaseCleaner.start
@@ -48,8 +47,10 @@ class NDSTestBase < Test::Unit::TestCase
 
   def teardown
     Resource.custom_docid_prefix nil
-    Cloudsearch.remove_documents(Resource.all.map(&:docid))
-    wait_for_cs_sync!
+    if Resource.all.length > 0
+      Cloudsearch.remove_documents(Resource.all.map(&:docid))
+      wait_for_cs_sync!
+    end
     DatabaseCleaner.clean
   end
 
@@ -62,7 +63,6 @@ class NDSTestBase < Test::Unit::TestCase
       sleep 3
     end
   end
-
 
   def url_for(path, params = {})
     uri = URI.parse(path)
