@@ -24,12 +24,29 @@ module Controllers
       end
     end
 
+    endpoint description: "Get a geofocus",
+              responses: standard_errors( 200 => ["Geofocus"]),
+              parameters: {
+                "id": ["ID of the geofocus to retrieve", :path, true, Integer],
+              },
+              tags: ["Geofocus", "Public"]
+
+    delete "/geofocuses/:id" do
+      gf = Geofocus.first(id: params[:id])
+
+      if gf
+        json(gf.to_resource)
+      else
+        not_found("Geofocus", params[:id])
+      end
+    end
+
     endpoint description: "Delete a geofocus",
               responses: standard_errors( 200 => ["Geofocus"]),
               parameters: {
                 "id": ["ID of the geofocus to delete", :path, true, Integer],
               },
-              tags: ["Resources", "Curator"]
+              tags: ["Geofocus", "Curator"]
 
     delete "/geofocuses/:id", require_role: :curator do
       gf = Geofocus.first(id: params[:id])
@@ -52,7 +69,7 @@ module Controllers
                 "page": ["Page of records to return", :query, false, Integer, :minimum => 1],
                 "per_page": ["Number of records to return", :query, false, Integer, {:minimum => 1, :maximum => 100}],
               },
-              tags: ["Resources", "Public"]
+              tags: ["Geofocus", "Public"]
 
     get "/geofocuses" do
       per_page = params[:per_page] || 50

@@ -84,6 +84,10 @@ class NDSTestBase < Test::Unit::TestCase
     post(uri, JSON.generate(body), { "CONTENT_TYPE" => "application/json" })
   end
 
+  def put_json(uri, body)
+    put(uri, JSON.generate(body), { "CONTENT_TYPE" => "application/json" })
+  end
+
   def json_response
     JSON.parse(last_response.body)
   end

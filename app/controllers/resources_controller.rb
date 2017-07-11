@@ -56,6 +56,7 @@ module Controllers
           end
           [prop.name.to_s, attrs]
         end].merge("docid": {type: String},
+                   image: {type: String, example: "http://s3.amazonaws.com/temp-bucket/img.png"},
                    geofocuses: {type: ['Geofocus'], example: {name: "Jericho, VT", id: 5465}})
     }
 

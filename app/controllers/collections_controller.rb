@@ -1,0 +1,97 @@
+require 'app/controllers/base'
+require 'app/models'
+module Controllers
+  class CollectionsController < Controllers::Base
+    type 'NewCollection', {
+      properties: {
+        name: {type: String, description: "Name of the collection"},
+        resources: {type: [String], description: "Docids of the collection"}
+      }
+    }
+
+    type 'Collection', {
+      properties: {
+        id: { type: Integer, description: "Collection ID"},
+        name: {type: String, description: "Name of the collection"},
+        resources: {type: [String], description: "Docids of the collection"}
+      }
+    }
+
+    endpoint description: "Create Collection",
+              responses: standard_errors( 200 => ["Collection"]),
+              parameters: {
+                "collection": ["New Collection", :body, true, "NewCollection"],
+              },
+              tags: ["Collection", "Curator"]
+
+    post "/collections", require_role: :curator do
+      collection = Collection.new(params[:parsed_body][:collection])
+      if collection.save
+        json(collection.to_resource)
+      else
+        err(400, collection.errors.full_messages.join("\n"))
+      end
+    end
+
+    endpoint description: "Get a collection",
+              responses: standard_errors( 200 => ["Collection"]),
+              parameters: {
+                "id": ["ID of the collection to retrieve", :path, true, Integer],
+              },
+              tags: ["Collection", "Public"]
+
+    get "/collections/:id" do
+      collection = Collection.first(id: params[:id])
+
+      if collection
+        json(collection.to_resource)
+      else
+        not_found("Collection", params[:id])
+      end
+    end
+
+
+    endpoint description: "Delete a collection",
+              responses: standard_errors( 200 => ["Collection"]),
+              parameters: {
+                "id": ["ID of the collection to delete", :path, true, Integer],
+              },
+              tags: ["Collection", "Curator"]
+
+    delete "/collections/:id", require_role: :curator do
+      collection = Collection.first(id: params[:id])
+
+      if collection
+        if collection.destroy
+          json(collection.to_resource)
+        else
+          err(400, collection.errors.full_messages.join("\n"))
+        end
+      else
+        not_found("Collection", params[:id])
+      end
+    end
+
+    endpoint description: "Update a collection",
+              responses: standard_errors( 200 => ["Collection"]),
+              parameters: {
+                "id": ["ID of the collection to update", :path, true, Integer],
+                "collection": ["New Collection", :body, true, "NewCollection"],
+              },
+              tags: ["Collection", "Public"]
+
+    put "/collections/:id" do
+      collection = Collection.first(id: params[:id])
+
+      if collection
+        if collection.update(params[:parsed_body][:collection])
+          json(collection.to_resource)
+        else
+          err(400, collection.errors.full_messages.join("\n"))
+        end
+      else
+        not_found("Collection", params[:id])
+      end
+    end
+  end
+end

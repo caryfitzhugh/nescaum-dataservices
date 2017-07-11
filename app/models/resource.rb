@@ -11,6 +11,8 @@ class Resource
 
   property :id, Serial
   property :indexed, Boolean, default: false
+
+  property :image, String, length: 1024
   property :created_at, DateTime
   property :updated_at, DateTime
 
@@ -32,8 +34,7 @@ class Resource
     # {type: "weblink", url: "url"} , ...]
     external_data_links:    {type: DataMapper::Property::PgArray, cs_name: :links, example: ["pdf::http://www.com/pdf", "weblink::http://google.com"]},
     effects:                {type: DataMapper::Property::PgArray, facet: true, expanded: true, example: ["Specific Vulnerability::Coastal Property Damage"]},
-    formats:                {type: DataMapper::Property::PgArray, facet: true, expanded: true, required: true, example: ["Documents::Report"]},
-    image:                  {type: String, length: 1024, example: "http://s3.amazonaws.com/temp-bucket/img.png"},
+    content_type:           {type: DataMapper::Property::PgArray, facet: true, expanded: true, required: true, example: ["Documents::Report"]},
     keywords:               {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["dams::noexpanded", "floods", "land cover change"]},
     publishers:             {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["NOAA", "NESCAUM", "The Disney Corporation"]},
     published_on_end:       {type: Date, cs_name: :pubend , example: "2017-01-31", required: true},

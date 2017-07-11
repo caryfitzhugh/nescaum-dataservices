@@ -7,6 +7,7 @@ require 'app/models/geofocus'
 require 'app/models/geofocus_resource'
 require 'app/models/resource'
 require 'app/models/user'
+require 'app/models/collection'
 
 require 'lib/config'
 
