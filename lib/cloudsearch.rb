@@ -107,10 +107,6 @@ module Cloudsearch
       )
     end
 
-    def sync_to_db!(start: 0, batch: 100)
-      # You want to find all the docids in cloudsearch at the moment.
-    end
-
     def search_conn
       unless @search
         @search = Aws::CloudSearchDomain::Client.new(
