@@ -14,6 +14,8 @@ require 'app/controllers/resources_controller'
 require 'app/controllers/collections_controller'
 require 'app/controllers/authentication_controller'
 require 'app/controllers/geofocus_controller'
+require 'app/controllers/actions_controller'
+require 'app/controllers/users_controller'
 require 'app/helpers'
 
 require 'lib/cloudsearch'
@@ -53,6 +55,8 @@ class NDSApp < Sinatra::Application
   use Controllers::GeofocusController
   use Controllers::AuthenticationController
   use Controllers::CollectionsController
+  use Controllers::ActionsController
+  use Controllers::UsersController
 
   get "/", :no_swagger => true do
     redirect '/index.html'

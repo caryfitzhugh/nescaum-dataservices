@@ -17,6 +17,15 @@ module Controllers
       }
     }
 
+    type 'CollectionIndex', {
+      properties: {
+        total: {type: Integer},
+        page: {type: Integer},
+        per_page: {type: Integer},
+        collections: {type: ["Collection"]}
+      }
+    }
+
     endpoint description: "Create Collection",
               responses: standard_errors( 200 => ["Collection"]),
               parameters: {
@@ -31,6 +40,27 @@ module Controllers
       else
         err(400, collection.errors.full_messages.join("\n"))
       end
+    end
+
+    endpoint description: "Index Collection",
+              responses: standard_errors( 200 => ["CollectionIndex"]),
+              parameters: {
+                "page": ["Page of records to return", :query, false, Integer, :minimum => 1],
+                "per_page": ["Number of records to return", :query, false, Integer, {:minimum => 1, :maximum => 100}],
+              },
+              tags: ["Collection", "Public"]
+
+    get "/collections" do
+      per_page = params[:per_page] || 50
+      page = params[:page] || 1
+      collections = Collection.all(limit: per_page, offset: (per_page * (page  - 1)))
+
+      json(
+        total: Collection.count,
+        page: page,
+        per_page: per_page,
+        collections: collections.map(&:to_resource)
+          )
     end
 
     endpoint description: "Get a collection",

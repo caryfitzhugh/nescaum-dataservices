@@ -17,6 +17,20 @@ class CollectionControllerTest < NDSTestBase
     assert_equal 0, Collection.count
   end
 
+  def test_index_collections
+    Collection.create!(name: "Foo", "resources": ["doc1","doc2"])
+    get "/collections"
+    assert response.ok?
+    assert_equal 1, json_response['total']
+    assert_equal 1, json_response['collections'].length
+
+    get "/collections", per_page: 10, page: 2
+    assert response.ok?
+    assert_equal 1, json_response['total']
+    assert_equal 0, json_response['collections'].length
+
+  end
+
   def test_update_collection
     Collection.create!(name: "Foo", "resources": ["doc1","doc2"])
 

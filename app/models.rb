@@ -8,6 +8,7 @@ require 'app/models/geofocus_resource'
 require 'app/models/resource'
 require 'app/models/user'
 require 'app/models/collection'
+require 'app/models/action'
 
 require 'lib/config'
 

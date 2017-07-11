@@ -8,7 +8,7 @@ class ResourceTest < NDSTestBase
     doc.authors = ["Cary FitzHugh", "Steve Signell"]
     doc.title = "Title"
     doc.subtitle = "Subtitle!"
-    doc.formats = ["document::report"]
+    doc.content_types = ["document::report"]
     doc.published_on_start = Date.today
     doc.published_on_end = Date.today
     doc.geofocuses << Geofocus.first_or_create(name: "basin lake NY")
@@ -23,7 +23,7 @@ class ResourceTest < NDSTestBase
     doc.authors = ["Cary FitzHugh", "Steve Signell"]
     doc.title = "Title"
     doc.subtitle = "Subtitle!"
-    doc.formats = ["document::report"]
+    doc.content_types = ["document::report"]
     doc.published_on_start = Date.today
     doc.published_on_end = Date.today
     doc.geofocuses << Geofocus.first_or_create(name: "basin lake NY")
@@ -64,13 +64,14 @@ class ResourceTest < NDSTestBase
     doc.authors = ["Cary FitzHugh", "Steve Signell"]
     doc.title = "Title"
     doc.subtitle = "Subtitle!"
-    doc.formats = ["document::report"]
+    doc.content_types = ["document::report"]
     doc.geofocuses << Geofocus.first_or_create(name: "basin lake NY")
     doc.external_data_links = [
       "pdf::http://google.com/pdf",
       "weblink::http://google.com/weblink",
     ]
     doc.publishers = ["NOAA"]
+    doc.image  = "http:123"
     doc.published_on_start = date
     doc.published_on_end = date
     doc.keywords = ["danger"]
@@ -90,9 +91,9 @@ class ResourceTest < NDSTestBase
                   :climate_changes=>["root", "root2::", "root2::leaf"],
                   :docid=>doc.docid,
                   :effects=>["root", "root2::", "root2::leaf"],
-                  :formats=>["document::", "document::report"],
+                  :content_types=>["document::", "document::report"],
                   :geofocuses => [Geofocus.first_or_create(name: "basin lake NY").id],
-                  :image => "",
+                  :image => "http:123",
                   :links=>["pdf::http://google.com/pdf", "weblink::http://google.com/weblink"],
                   :keywords=>["danger"],
                   :pubend=>to_cs_date(date),
@@ -119,7 +120,7 @@ class ResourceTest < NDSTestBase
     doc = Resource.create!(
       title: "Title",
       subtitle: "Subtitle",
-      formats: ["format::1"],
+      content_types: ["format::1"],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
@@ -132,7 +133,7 @@ class ResourceTest < NDSTestBase
     doc2 = Resource.create!(
       title: "Title",
       subtitle: "Subtitle",
-      formats: ["format::1"],
+      content_types: ["format::1"],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
@@ -143,7 +144,7 @@ class ResourceTest < NDSTestBase
     doc2 = Resource.create!(
       title: "Title",
       subtitle: "Subtitle",
-      formats: ["format::1"],
+      content_types: ["format::1"],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
