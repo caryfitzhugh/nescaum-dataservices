@@ -7,7 +7,7 @@ class ResourcesControllerTest < NDSTestBase
     post_json "/resources", {"resource" => {
       title: "Title",
       subtitle: "Subtitle",
-      formats: ["format::1"],
+      content_types: ["format::1"],
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
       geofocuses: [geofocus.id],
@@ -18,7 +18,7 @@ class ResourcesControllerTest < NDSTestBase
     assert response.ok?
     assert_equal "Title", js_resp['title']
     assert_equal "Subtitle", js_resp['subtitle']
-    assert_equal ["format::1"], js_resp['formats']
+    assert_equal ["format::1"], js_resp['content_types']
     assert_equal geofocus.to_resource["id"], js_resp['geofocuses'][0][:id]
     assert_equal geofocus.to_resource["name"], js_resp['geofocuses'][0][:name]
   end
@@ -29,7 +29,7 @@ class ResourcesControllerTest < NDSTestBase
     doc = Resource.create!(
       title: "Title",
       subtitle: "Subtitle",
-      formats: ["format::1"],
+      content_types: ["format::1"],
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
       geofocuses: [geofocus.id],
@@ -48,7 +48,7 @@ class ResourcesControllerTest < NDSTestBase
     doc = Resource.create!(
       title: "Title",
       subtitle: "Subtitle",
-      formats: ["format::1"],
+      content_types: ["format::1"],
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
       geofocuses: [geofocus.id],
@@ -66,7 +66,7 @@ class ResourcesControllerTest < NDSTestBase
     doc = Resource.create!(
       title: "Title1",
       subtitle: "Subtitle",
-      formats: ["format::1"],
+      content_types: ["format::1"],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
@@ -79,7 +79,7 @@ class ResourcesControllerTest < NDSTestBase
     doc2 = Resource.create!(
       title: "Title2",
       subtitle: "Subtitle",
-      formats: ["format::2"],
+      content_types: ["format::2"],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
@@ -90,7 +90,7 @@ class ResourcesControllerTest < NDSTestBase
     doc2 = Resource.create!(
       title: "Title3",
       subtitle: "Subtitle",
-      formats: ["format::3"],
+      content_types: ["format::3"],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
@@ -104,47 +104,47 @@ class ResourcesControllerTest < NDSTestBase
 
     assert_equal 3, jr['hits']
     assert_equal 1, jr['resources'].length
-    assert_equal 4, jr['facets']['formats'].length
+    assert_equal 4, jr['facets']['content_types'].length
 
 
     get "/resources", page: 1, per_page: 5
     jr = json_response
     assert_equal 3, jr['hits']
     assert_equal 3, jr['resources'].length
-    assert_equal 4, jr['facets']['formats'].length
+    assert_equal 4, jr['facets']['content_types'].length
 
     get "/resources", page: 1, per_page: 5, geofocuses: "#{geofocus1.id}"
     jr = json_response
     assert_equal 1, jr['hits']
     assert_equal 1, jr['resources'].length
-    assert_equal 2, jr['facets']['formats'].length
+    assert_equal 2, jr['facets']['content_types'].length
     # Should have 1 hit
 
     get "/resources", page: 1, per_page: 5, geofocuses: "#{geofocus1.id},#{geofocus2.id}"
     jr = json_response
     assert_equal 2, jr['hits']
     assert_equal 2, jr['resources'].length
-    assert_equal 3, jr['facets']['formats'].length
+    assert_equal 3, jr['facets']['content_types'].length
 
     get "/resources", page: 1, per_page: 5, query: "Title1"
     # should have 1 hit
     jr = json_response
     assert_equal 1, jr['hits']
     assert_equal 1, jr['resources'].length
-    assert_equal 2, jr['facets']['formats'].length
+    assert_equal 2, jr['facets']['content_types'].length
 
-    get "/resources", page: 1, per_page: 5, formats: "format::"
+    get "/resources", page: 1, per_page: 5, content_types: "format::"
     # Should have 3 hits
     jr = json_response
     assert_equal 3, jr['hits']
     assert_equal 3, jr['resources'].length
-    assert_equal 4, jr['facets']['formats'].length
+    assert_equal 4, jr['facets']['content_types'].length
 
-    get "/resources", page: 1, per_page: 5, formats: "format::3"
+    get "/resources", page: 1, per_page: 5, content_types: "format::3"
     # should have 1 hit
     jr = json_response
     assert_equal 1, jr['hits']
     assert_equal 1, jr['resources'].length
-    assert_equal 2, jr['facets']['formats'].length
+    assert_equal 2, jr['facets']['content_types'].length
   end
 end

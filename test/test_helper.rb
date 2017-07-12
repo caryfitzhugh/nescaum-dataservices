@@ -26,6 +26,8 @@ class NDSTestBase < Test::Unit::TestCase
     curator = User.new(username: "curator", password: "password",
                        name: "curator", email: "curator@cure.com",
                        roles: ['curator'])
+    curator.raise_on_save_failure = true
+    curator.save
     Controllers::Base.any_instance.expects(:current_user).at_least_once.returns(curator)
   end
 

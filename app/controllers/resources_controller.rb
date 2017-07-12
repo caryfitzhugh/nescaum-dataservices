@@ -180,6 +180,7 @@ module Controllers
       doc = Resource.new(params[:parsed_body][:resource])
 
       if doc.save
+        Action.track!(doc, current_user, "Created")
         json(doc.to_resource)
       else
         err(400, doc.errors.full_messages.join("\n"))
@@ -198,6 +199,7 @@ module Controllers
       doc.indexed = true
       if doc.save
         doc.sync_index!
+        Action.track!(doc, self.current_user, "Added to Index")
         json(doc.to_resource)
       else
         err(400, doc.errors.full_messages.join("\n"))
@@ -216,6 +218,7 @@ module Controllers
       doc.indexed = false
       if doc.save
         doc.sync_index!
+        Action.track!(doc, current_user, "Removed from Index")
         json(doc.to_resource)
       else
         err(400, doc.errors.full_messages.join("\n"))
@@ -235,6 +238,27 @@ module Controllers
       doc.attributes = doc.attributes.merge(params[:parsed_body][:resource])
 
       if doc.save
+        Action.track!(doc, current_user, "Updated")
+        json(doc.to_resource)
+      else
+        err(400, doc.errors.full_messages.join("\n"))
+      end
+    end
+
+    endpoint description: "Delete a resource",
+              responses: standard_errors( 200 => "Resource"),
+              parameters: {
+                "docid": ["Resource docid", :path, true, String],
+              },
+              tags: ["Resources", "Curator"]
+
+    delete "/resources/:docid", require_role: :curator do
+      doc = Resource.get_by_docid(params[:docid])
+
+      if doc.destroy
+        Action.track!(doc, current_user, "Deleted")
+        Cloudsearch.remove_documents([doc.docid])
+        Action.track!(doc, current_user, "Removed from Index")
         json(doc.to_resource)
       else
         err(400, doc.errors.full_messages.join("\n"))

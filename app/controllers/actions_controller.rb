@@ -10,6 +10,7 @@ module Controllers
         type: {type: String, description: "record type"},
         record_id: { type: Integer, description: "The id of the record that was changed"},
         message: {type: String, description: "What occurred"},
+        at: { type: String, format: "date-time", description: "When it happened"}
       }
     }
 
@@ -28,6 +29,8 @@ module Controllers
                 "page": ["Page of records to return", :query, false, Integer, :minimum => 1],
                 "per_page": ["Number of records to return", :query, false, Integer, {:minimum => 1, :maximum => 100}],
                 "user_id": ["Scope to particular user", :query, false, Integer, :minimum => 0],
+                "end": ["Limit to action at dates to <= this end date", :query, false, String, :format => :datetime],
+                "start": ["Limit to action at dates to >= this start date", :query, false, String, :format => :datetime],
               },
               tags: ["Action", "Curator"]
 
@@ -41,6 +44,13 @@ module Controllers
                   Action.all
                 end
 
+      if params[:start]
+        actions = actions.all(:at.gte => DateTime.parse(params[:start]))
+      end
+
+      if params[:end]
+        actions = actions.all(:at.lte => DateTime.parse(params[:end]))
+      end
 
       json(
         total: actions.count,
