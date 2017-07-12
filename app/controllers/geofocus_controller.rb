@@ -31,7 +31,7 @@ module Controllers
               },
               tags: ["Geofocus", "Public"]
 
-    delete "/geofocuses/:id" do
+    get "/geofocuses/:id" do
       gf = Geofocus.first(id: params[:id])
 
       if gf

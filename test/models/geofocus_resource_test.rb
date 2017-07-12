@@ -17,7 +17,7 @@ class GeofocusResourceTest < NDSTestBase
     doc.authors = ["Cary FitzHugh", "Steve Signell"]
     doc.title = "Title"
     doc.subtitle = "Subtitle!"
-    doc.formats = ["document::report"]
+    doc.content_types = ["document::report"]
     doc.published_on_start = Date.today
     doc.published_on_end = Date.today
     doc.save!

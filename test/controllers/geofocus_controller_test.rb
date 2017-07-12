@@ -8,6 +8,8 @@ class GeofocusControllerTest < NDSTestBase
     assert response.ok?
     assert_equal 1, Geofocus.count
 
+    assert_equal 1, Geofocus.count
+
     delete "/geofocuses/#{Geofocus.last.id}"
     assert response.ok?
     assert_equal 0, Geofocus.count

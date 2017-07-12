@@ -93,7 +93,7 @@ class ResourceTest < NDSTestBase
                   :effects=>["root", "root2::", "root2::leaf"],
                   :content_types=>["document::", "document::report"],
                   :geofocuses => [Geofocus.first_or_create(name: "basin lake NY").id],
-                  :image => "http:123",
+                  # No image in search doc :image => "http:123",
                   :links=>["pdf::http://google.com/pdf", "weblink::http://google.com/weblink"],
                   :keywords=>["danger"],
                   :pubend=>to_cs_date(date),
