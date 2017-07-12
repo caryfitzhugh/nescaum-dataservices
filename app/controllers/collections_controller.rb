@@ -108,9 +108,9 @@ module Controllers
                 "id": ["ID of the collection to update", :path, true, Integer],
                 "collection": ["New Collection", :body, true, "NewCollection"],
               },
-              tags: ["Collection", "Public"]
+              tags: ["Collection", "Curator"]
 
-    put "/collections/:id" do
+    put "/collections/:id", require_role: :curator do
       collection = Collection.first(id: params[:id])
 
       if collection
