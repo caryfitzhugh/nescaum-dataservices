@@ -36,7 +36,7 @@ class ResourceTest < NDSTestBase
     # THis is tricky.  Make sure you delete it after adding.
     # If you add after a delete - it can get confused and borked
     results = Resource.search()
-    assert_equal results.hits.found, 1
+    assert_equal results.total.found, 1
 
     doc.indexed = false
     doc.save!
@@ -44,7 +44,7 @@ class ResourceTest < NDSTestBase
 
     wait_for_cs_sync!
     results = Resource.search()
-    assert_equal results.hits.found, 0
+    assert_equal results.total.found, 0
   end
 
   def test_expand_literal
@@ -155,12 +155,12 @@ class ResourceTest < NDSTestBase
 
     # Now we make a few searches
     results = Resource.search(geofocuses: [])
-    assert_equal 3, results.hits.found
+    assert_equal 3, results.total.found
 
     results = Resource.search(geofocuses: [geofocus.id])
-    assert_equal 1, results.hits.found
+    assert_equal 1, results.total.found
 
     results = Resource.search(geofocuses: [geofocus2.id])
-    assert_equal 1, results.hits.found
+    assert_equal 1, results.total.found
   end
 end

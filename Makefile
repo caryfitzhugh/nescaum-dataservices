@@ -1,4 +1,4 @@
-run:
+run: start-db
 	SESSION_SECRET=test bundle exec shotgun config.ru --port 4000 --server thin
 
 swagger:
@@ -8,6 +8,7 @@ swagger:
 
 start-db:
 	docker-compose up postgres-service
+	bundle exec rake db:migrate
 
 vendor:
 	bundle install --deployment

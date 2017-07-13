@@ -102,48 +102,48 @@ class ResourcesControllerTest < NDSTestBase
     get "/resources", page: 1, per_page: 1
     jr = json_response
 
-    assert_equal 3, jr['hits']
+    assert_equal 3, jr['total']
     assert_equal 1, jr['resources'].length
     assert_equal 4, jr['facets']['content_types'].length
 
 
     get "/resources", page: 1, per_page: 5
     jr = json_response
-    assert_equal 3, jr['hits']
+    assert_equal 3, jr['total']
     assert_equal 3, jr['resources'].length
     assert_equal 4, jr['facets']['content_types'].length
 
     get "/resources", page: 1, per_page: 5, geofocuses: "#{geofocus1.id}"
     jr = json_response
-    assert_equal 1, jr['hits']
+    assert_equal 1, jr['total']
     assert_equal 1, jr['resources'].length
     assert_equal 2, jr['facets']['content_types'].length
     # Should have 1 hit
 
     get "/resources", page: 1, per_page: 5, geofocuses: "#{geofocus1.id},#{geofocus2.id}"
     jr = json_response
-    assert_equal 2, jr['hits']
+    assert_equal 2, jr['total']
     assert_equal 2, jr['resources'].length
     assert_equal 3, jr['facets']['content_types'].length
 
     get "/resources", page: 1, per_page: 5, query: "Title1"
     # should have 1 hit
     jr = json_response
-    assert_equal 1, jr['hits']
+    assert_equal 1, jr['total']
     assert_equal 1, jr['resources'].length
     assert_equal 2, jr['facets']['content_types'].length
 
     get "/resources", page: 1, per_page: 5, content_types: "format::"
-    # Should have 3 hits
+    # Should have 3 total
     jr = json_response
-    assert_equal 3, jr['hits']
+    assert_equal 3, jr['total']
     assert_equal 3, jr['resources'].length
     assert_equal 4, jr['facets']['content_types'].length
 
     get "/resources", page: 1, per_page: 5, content_types: "format::3"
     # should have 1 hit
     jr = json_response
-    assert_equal 1, jr['hits']
+    assert_equal 1, jr['total']
     assert_equal 1, jr['resources'].length
     assert_equal 2, jr['facets']['content_types'].length
   end

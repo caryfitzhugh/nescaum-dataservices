@@ -76,8 +76,6 @@ module Controllers
 
     type 'SearchRequestParameters', {
       properties: {
-        page: { type: Integer, description: "Page of results being returned"},
-        per_page: { type: Integer, description: "Number of results being returned"},
         query: {type: String, description: "The original search query"},
         geofocuses: {type: [Integer], description: "Geofocus to filter on"},
         published_on_end: {type: String, example: Date.today.to_s},
@@ -88,10 +86,21 @@ module Controllers
 
     type 'SearchResponse', {
       properties: {
-        hits: { type: Integer, description: "Total number of records"},
+        total: { type: Integer, description: "Total number of records"},
+        page: { type: Integer, description: "Page of results being returned"},
+        per_page: { type: Integer, description: "Number of results being returned"},
         params: { type: 'SearchRequestParameters', description: "The incoming search parameters"},
         resources: { type: ["Resource"], description: "Results"},
         facets: { type: "Facets", description: "All the facets for searching"},
+      }
+    }
+
+    type 'ResourceIndex', {
+      properties: {
+        total: {type: Integer},
+        page: {type: Integer},
+        per_page: {type: Integer},
+        resources: {type: ["Resource"]}
       }
     }
 
@@ -139,19 +148,41 @@ module Controllers
       records = Resource.all_by_docids(result.hits.hit.map {|res| res.fields['docid'][0]}).map(&:to_resource)
 
       json({
-        hits: result.hits.found,
+        total: result.hits.found,
+        page: page.to_i,
+        per_page: per_page.to_i,
+        resources: records,
         params: {
-          page: page.to_i,
-          per_page: per_page.to_i,
           query: query,
           geofocuses: geofocuses,
           published_on_end: params[:published_on_end],
           published_on_start: params[:published_on_start],
           filters: filters,
         },
-        resources: records,
         facets: facets,
       })
+    end
+
+    endpoint description: "List unindexed resources",
+              responses: standard_errors( 200 => ["ResourceIndex"]),
+              parameters: {
+                "page": ["Page of records to return", :query, false, Integer, :minimum => 1],
+                "per_page": ["Number of records to return", :query, false, Integer, {:minimum => 1, :maximum => 100}],
+              },
+              tags: ["Resource", "Curator"]
+
+    get "/geofocuses/unindexed", require_role: :curator do
+      per_page = params[:per_page] || 50
+      page = params[:page] || 1
+
+      resources = Resource.all(:order => [:created_at.desc], :limit => per_page, :offset => per_page * (page - 1))
+
+      json(
+        total: Resource.count,
+        page: page,
+        per_page: per_page,
+        resources: resources.map(&:to_resource)
+      )
     end
 
     endpoint description: "Search for all facets",

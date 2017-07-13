@@ -8,6 +8,15 @@ module Controllers
       }
     }
 
+    type 'GeofocusIndex', {
+      properties: {
+        total: {type: Integer},
+        page: {type: Integer},
+        per_page: {type: Integer},
+        geofocuses: {type: ["Geofocus"]}
+      }
+    }
+
     endpoint description: "Create Geofocus",
               responses: standard_errors( 200 => ["Geofocus"]),
               parameters: {
@@ -75,8 +84,19 @@ module Controllers
       per_page = params[:per_page] || 50
       page = params[:page] || 1
 
-      gfs = Geofocus.all(:name.like => "%#{params[:q]}%", :order => [:name.asc])
-      json(gfs.map(&:to_resource))
+      gfs = Geofocus.all(:order => [:name.asc])
+      if params[:q]
+        gfs = gfs.all(:name.like => "%#{params[:q]}%")
+      end
+      count = gfs.count
+      gfs = gfs.all(:limit => per_page, :offset => per_page * (page - 1))
+
+      json(
+        total: count,
+        page: page,
+        per_page: per_page,
+        geofocuses: gfs.map(&:to_resource)
+      )
     end
   end
 end
