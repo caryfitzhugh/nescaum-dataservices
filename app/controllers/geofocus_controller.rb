@@ -50,6 +50,28 @@ module Controllers
       end
     end
 
+    endpoint description: "Update a geofocus",
+              responses: standard_errors( 200 => ["Geofocus"]),
+              parameters: {
+                "id": ["ID of the geofocus to update", :path, true, Integer],
+                "geofocus": ["Data to update", :body, true, "NewGeofocus"]
+              },
+              tags: ["Geofocus", "Curator"]
+
+    put "/geofocuses/:id" do
+      gf = Geofocus.first(id: params[:id])
+
+      if gf
+        if gf.update(params[:parsed_body][:geofocus])
+          json(gf.to_resource)
+        else
+          err(400, gf.errors.full_messages.join("\n"))
+        end
+      else
+        not_found("Geofocus", params[:id])
+      end
+    end
+
     endpoint description: "Delete a geofocus",
               responses: standard_errors( 200 => ["Geofocus"]),
               parameters: {
@@ -72,15 +94,15 @@ module Controllers
     end
 
     endpoint description: "Search against all geofocus entries",
-              responses: standard_errors( 200 => [["Geofocus"]]),
+              responses: standard_errors( 200 => ["GeofocusIndex"]),
               parameters: {
                 "q": ["Name of the geofocus to search for", :query, false, String],
                 "page": ["Page of records to return", :query, false, Integer, :minimum => 1],
-                "per_page": ["Number of records to return", :query, false, Integer, {:minimum => 1, :maximum => 100}],
+                "per_page": ["Number of records to return", :query, false, Integer, {:minimum => 1, :maximum => 5000}],
               },
               tags: ["Geofocus", "Public"]
 
-    get "/geofocuses" do
+    get "/geofocuses/" do
       per_page = params[:per_page] || 50
       page = params[:page] || 1
 

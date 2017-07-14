@@ -109,7 +109,7 @@ namespace :cs do
         if cs_resource.nil?
           resources_to_submit.push(resource)
         else
-          uat = Time.at(cs_resource['uat'][0].to_i)
+          uat = Time.at(cs_resource['fields']['uat'][0].to_i).to_datetime
           muat = resource.updated_at
 
           if muat > uat
