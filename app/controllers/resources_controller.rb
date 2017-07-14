@@ -31,7 +31,7 @@ module Controllers
             throw "How to convert: #{name}"
           end
       end].merge(
-        "geofocus" => {type: [Integer], example: [1,2,3], description: "Geofocus ID to assign to this resource"}
+        "geofocuses" => {type: [Integer], example: [1,2,3], description: "Geofocus ID to assign to this resource"}
       )
 
     }
@@ -137,7 +137,6 @@ module Controllers
                                   per_page: per_page,
                                   pub_dates: [params[:published_on_start] ? Date.parse(params[:published_on_start]) : nil,
                                               params[:published_on_end] ? Date.parse(params[:published_on_end]) : nil])
-
       facets = result.facets.reduce({}) do |memo, (key, val)|
         memo[key] = val.buckets.map do |bucket|
           {value: bucket.value, count: bucket.count}
@@ -171,7 +170,7 @@ module Controllers
               },
               tags: ["Resource", "Curator"]
 
-    get "/geofocuses/unindexed", require_role: :curator do
+    get "/resources/unindexed", require_role: :curator do
       per_page = params[:per_page] || 50
       page = params[:page] || 1
 
@@ -312,5 +311,6 @@ module Controllers
         not_found("resource", params[:docid])
       end
     end
+
   end
 end

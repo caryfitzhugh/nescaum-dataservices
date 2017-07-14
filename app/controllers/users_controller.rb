@@ -55,5 +55,21 @@ module Controllers
         per_page: per_page,
         users: users.map(&:to_resource))
     end
+
+    type 'LoggedIn', {
+      properties: {
+        logged_in: { type: 'boolean', description: "Is Logged In"},
+      }
+    }
+
+    endpoint description: "Get users logged in",
+              responses: standard_errors( 200 => ["LoggedIn"]),
+              parameters: {
+              },
+              tags: ["User", "Curator"]
+
+    get "/users/logged_in" do
+      json(logged_in: !!current_user)
+    end
   end
 end
