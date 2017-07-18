@@ -43,7 +43,7 @@ module Controllers
               },
               tags: ["User", "Public"]
 
-    get "/users" do
+    get "/users/?" do
       per_page = params[:per_page] || 50
       page = params[:page] || 1
 

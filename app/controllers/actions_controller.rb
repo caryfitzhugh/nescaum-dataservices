@@ -10,7 +10,8 @@ module Controllers
         type: {type: String, description: "record type"},
         record_id: { type: Integer, description: "The id of the record that was changed"},
         message: {type: String, description: "What occurred"},
-        at: { type: String, format: "date-time", description: "When it happened"}
+        at: { type: String, format: "date-time", description: "When it happened"},
+        identifier: { type: String, description: "Human-readable identifier"}
       }
     }
 
@@ -34,7 +35,7 @@ module Controllers
               },
               tags: ["Action", "Curator"]
 
-    get "/actions", require_role: :curator do
+    get "/actions/?", require_role: :curator do
       per_page = params[:per_page] || 50
       page = params[:page] || 1
 
@@ -51,6 +52,8 @@ module Controllers
       if params[:end]
         actions = actions.all(:at.lte => DateTime.parse(params[:end]))
       end
+
+      actions = actions.all(:order  => [:at.desc])
 
       json(
         total: actions.count,

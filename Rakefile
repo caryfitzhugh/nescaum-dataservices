@@ -2,7 +2,34 @@ require './nds_app'
 require 'inquirer'
 
 namespace :db do
+  task :install_postgis do
+    require 'dm-migrations/migration_runner'
+
+    migration 1, :postgis_extensions do
+      up do
+        execute "CREATE EXTENSION IF NOT EXISTS postgis"
+      end
+    end
+    migration 2, :postgis_topology_extension do
+      up do
+        execute "CREATE EXTENSION IF NOT EXISTS postgis_topology"
+      end
+    end
+    migration 3, :fuzzystrmatch_extension do
+      up do
+        execute "CREATE EXTENSION IF NOT EXISTS fuzzystrmatch"
+      end
+    end
+    migration 4, :postgis_tiger_extension do
+      up do
+        execute "CREATE EXTENSION IF NOT EXISTS postgis_tiger_geocoder"
+      end
+    end
+
+    migrate_up!
+  end
   task :migrate do
+
     DataMapper.auto_upgrade!
   end
   task :hard_migrate do

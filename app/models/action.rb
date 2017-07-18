@@ -19,8 +19,14 @@ class Action
   end
 
   def to_resource
-    self.attributes.merge(
-      at: self.at.rfc3339
+    attrs = self.attributes.merge(
+      at: self.at.rfc3339,
+      identifier: ""
     )
+    if self.table == 'resources'
+      resource = Resource.first(id: self.record_id)
+      attrs[:identifier] = resource.title if resource
+    end
+    attrs
   end
 end

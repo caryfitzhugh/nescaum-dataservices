@@ -50,7 +50,7 @@ module Controllers
               },
               tags: ["Collection", "Public"]
 
-    get "/collections" do
+    get "/collections/?" do
       per_page = params[:per_page] || 50
       page = params[:page] || 1
       collections = Collection.all(limit: per_page, offset: (per_page * (page  - 1)))

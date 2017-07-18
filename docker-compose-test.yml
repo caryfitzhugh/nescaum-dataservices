@@ -7,10 +7,12 @@ services:
     command: postgres:5432
 
   postgres:
-    image: postgres:9.6
+    #image: postgres:9.6
+    image: mdillon/postgis #postgres:9.6
     ports:
       - "5006:5432"
     environment:
       - POSTGRES_PASSWORD=nds
       - POSTGRES_USER=nds
       - POSTGRES_DATABASE=nds
+      - POSTGRES_DB=nds

@@ -9,6 +9,7 @@ swagger:
 start-db:
 	docker-compose up postgres-service
 	bundle exec rake db:migrate
+	bundle exec rake db:install_postgis
 
 vendor:
 	bundle install --deployment
@@ -22,6 +23,7 @@ test: test-db-up
 
 test-db-up:
 	docker-compose -p nds_test-persist -f docker-compose-test.yml up postgres-service
+	bundle exec rake db:migrate
 
 test-db-down:
 	docker-compose -p nds_test-persist -f docker-compose-test.yml down -v
