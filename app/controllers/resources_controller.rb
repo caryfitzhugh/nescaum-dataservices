@@ -1,5 +1,7 @@
 require 'app/controllers/base'
+require 'app/controllers/geofocus_controller'
 require 'app/models'
+
 module Controllers
   class ResourcesController < Controllers::Base
     type 'Facet', {
@@ -78,6 +80,7 @@ module Controllers
       properties: {
         query: {type: String, description: "The original search query"},
         geofocuses: {type: [Integer], description: "Geofocus to filter on"},
+        bounding_box: {type: [Integer], description: "Array of lat/lng pairs to sort records by"},
         published_on_end: {type: String, example: Date.today.to_s},
         published_on_start: {type: String, example: Date.today.to_s},
         filters: {type: "SearchFilters", description: "The filters used in this search"}
@@ -109,6 +112,7 @@ module Controllers
               parameters: {
                 "page": ["Page of records to return", :query, false, Integer, :minimum => 1],
                 "per_page": ["Number of records to return", :query, false, Integer, {:minimum => 1, :maximum => 100}],
+                "bounding_box": ["Bounding box to search and sort results against '1 2, 2 3, 4 5, 5 6, 1 2'", :query, false, String],
                 "published_on_end": ["Limit to resources publish dates to <= this publish end date", :query, false, String, :format => :date],
                 "published_on_start": ["Limit to resources publish dates to >= this publish start date", :query, false, String, :format => :date],
                 "geofocuses": ["Geofocuses to filter resources on, split by ','", :query, false, String]
@@ -130,10 +134,16 @@ module Controllers
         filters[name] = params[name].split(",") if params[name]
       end
 
+      bbox = nil
+      if params[:bounding_box]
+        bbox = params[:bounding_box].split(",").map {|pair| pair.split(" ").map(&:to_f)}
+      end
+
       result = Resource.search(query: query,
                                   filters: filters,
                                   page: page,
                                   geofocuses: geofocuses,
+                                  bounding_box: bbox,
                                   per_page: per_page,
                                   pub_dates: [params[:published_on_start] ? Date.parse(params[:published_on_start]) : nil,
                                               params[:published_on_end] ? Date.parse(params[:published_on_end]) : nil])

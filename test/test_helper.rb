@@ -93,4 +93,31 @@ class NDSTestBase < Test::Unit::TestCase
   def json_response
     JSON.parse(last_response.body)
   end
+
+  private
+
+  def geom(k)
+    coords = {
+      far_small: [[10,10],[11,10],[11,11],[10,11],[10,10]],
+      far_large: [[10,10],[20,10],[20,20],[10,20],[10,10]],
+      near_small: [[0,0],[1,0],[1,1],[0,1],[0,0]],
+      near_large: [[0,0],[5,0],[5,5],[0,5],[0,0]],
+    }[k]
+
+    ring = GeoRuby::SimpleFeatures::LinearRing.from_coordinates(coords, 4326)
+    GeoRuby::SimpleFeatures::Polygon.from_linear_rings([ring])
+  end
+
+  def geom_doc(gfs)
+    resource = Resource.new(
+      title: "#{gfs.map(&:name).join(",")}",
+      content_types: ["format::1"],
+      indexed: true,
+      published_on_end: Date.today.to_s,
+      published_on_start: Date.today.to_s,
+      geofocuses: gfs.map(&:id)
+    )
+    assert resource.save
+    resource
+  end
 end

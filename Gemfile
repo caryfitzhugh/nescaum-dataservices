@@ -14,6 +14,7 @@ gem 'dm-postgres-types'
 gem 'dm-postgis', :git => 'https://github.com/skaufhold/dm-postgis.git'
 gem 'dm-migrations'
 gem 'georuby'
+gem 'rgeo'
 gem 'inquirer', :git => "https://github.com/brbrady/inquirer.rb.git", :ref => "master"
 gem 'aws-sdk'
 gem 'rack-cors', :require => 'rack/cors'

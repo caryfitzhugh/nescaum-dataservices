@@ -22,7 +22,7 @@ if CONFIG.postgres
     begin
       DataMapper.setup(:default, CONFIG.postgres)
       connected = true
-    rescue DataObjects::ConnectionError => e
+    rescue DataObjects::ConnectionError
       connected = false
       sleep 1
     end

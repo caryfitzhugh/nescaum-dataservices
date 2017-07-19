@@ -1,3 +1,4 @@
+require 'rgeo'
 DataMapper::Inflector.inflections do |inflect|
   inflect.irregular "geofocus", "geofocuses"
 end
@@ -45,15 +46,15 @@ class Resource
     title:                  {type: String, length: 256, required: true, example: "Title of the article"},
     subtitle:               {type: String, length: 256, example: "A sub title of peace"},
   }
-  FACETED_PROPERTIES = Hash[(PROPERTIES.each_pair.select do |(k,v)|
+  FACETED_PROPERTIES = Hash[(PROPERTIES.each_pair.select do |(_,v)|
                                 v[:facet]
                               end)]
 
-  DATE_PROPERTIES     = Hash[(PROPERTIES.each_pair.select do |(k,v)|
+  DATE_PROPERTIES     = Hash[(PROPERTIES.each_pair.select do |(_,v)|
                                 v[:type] == Date
                               end)]
 
-  TEXT_PROPERTIES     = Hash[(PROPERTIES.each_pair.select do |(k,v)|
+  TEXT_PROPERTIES     = Hash[(PROPERTIES.each_pair.select do |(_,v)|
                                 v[:type] == String
                               end)]
   PROPERTIES.each_pair do |name, attrs|
@@ -79,7 +80,7 @@ class Resource
     end
   end
 
-  def self.search(query:'', filters:{}, geofocuses: [], page:1, per_page:100, pub_dates: [nil,nil])
+  def self.search(query:'', filters:{}, bounding_box: nil, geofocuses: [], page:1, per_page:100, pub_dates: [nil,nil])
     # We want facets for all the filters.
     # Facets:  { "actions": [1,2,3,4]}
     # Query: "tornado"
@@ -108,6 +109,22 @@ class Resource
     filter_q.push([:and,"pubend:{,'#{to_cs_date(pub_dates[1])}']"]) if pub_dates[1]
     filter_q.push([:or].concat(geofocuses.map {|gf| "geofocuses:#{gf}"})) unless geofocuses.empty?
 
+    # Bounding boxen
+    if bounding_box
+      ring = GeoRuby::SimpleFeatures::LinearRing.from_coordinates(bounding_box, 4326)
+      bbox = GeoRuby::SimpleFeatures::Polygon.from_linear_rings([ring])
+      bbox_attrs = self.repository.adapter.select("SELECT ST_Centroid(geom) as centroid, ST_Area(geom) as area FROM (SELECT ST_GeomFromEWKT(?) as geom) as calc ", bbox.as_ewkt)[0]
+      centroid = GeoRuby::SimpleFeatures::Point.from_hex_ewkb(bbox_attrs.centroid)
+
+      area_delta = "((area - #{bbox_attrs.area})/(abs(area - #{bbox_attrs.area}) + 100))"
+      distance = "(haversin(#{centroid.lat}, #{centroid.lng}, centroid.latitude, centroid.longitude))"
+      args[:expr] = JSON.generate({
+        "bbox_score" => "#{distance} * (#{area_delta} + 0.01)"
+      })
+      args[:return] = "bbox_score"
+      args[:sort] = "bbox_score asc"
+    end
+
     # Scope to just our CS env
     filter_q.push([:and,"env:'#{CONFIG.cs.env}'"])
 
@@ -118,13 +135,14 @@ class Resource
       memo[filter] = {:sort => :count, :size => 100}
       memo
     end)
+
     self.logger.info "Args: #{args}"
+
     Cloudsearch.search_conn.search(args)
   end
 
   def docid
     docid = "#{Resource.custom_docid_prefix}#{self.class.name.downcase}::#{self.id}"
-    puts "DOCID: #{docid}"
     docid
   end
 
@@ -145,8 +163,8 @@ class Resource
       val = self.send(name)
       # Expand literals
       if attrs[:expanded]
-        val = (val || []).reduce([]) do |memo, attr|
-          memo.concat(Resource.expand_literal(attr))
+        val = (val || []).reduce([]) do |memo2, attr|
+          memo2.concat(Resource.expand_literal(attr))
         end
       end
 
@@ -166,8 +184,18 @@ class Resource
     attributes[:search_terms] = JSON.generate(attributes).gsub(/\W+/, " ")
     attributes[:geofocuses] = self.geofocuses.map(&:id)
 
+    area_and_centroid = Geofocus.calculate_area_and_centroid(self.geofocuses)
+    if area_and_centroid
+      attributes[:area] = area_and_centroid.area
+      attributes[:centroid] = "#{area_and_centroid.centroid.lat},#{area_and_centroid.centroid.lng}"
+    end
+
     # Remove any null / blank values
     attributes.select {|k,v| v}
+  end
+
+  def self.centroid_and_area_of_boundingbox
+
   end
 
   def self.expand_literal(literal)

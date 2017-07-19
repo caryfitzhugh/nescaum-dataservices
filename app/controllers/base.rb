@@ -8,12 +8,6 @@ module Controllers
     helpers Helpers::Authentication
     register Sinatra::SwaggerExposer
 
-    type 'Geofocus', {
-      properties: {
-        name: {type: String, description: "Name of the geofocus"},
-        id: {type: Integer, description: "ID of the geofocus entry"}
-      }
-    }
 
     private
     def self.require_role(role)

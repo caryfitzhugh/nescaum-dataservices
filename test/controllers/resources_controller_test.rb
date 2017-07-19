@@ -61,6 +61,35 @@ class ResourcesControllerTest < NDSTestBase
     wait_for_cs_sync!
   end
 
+  def test_search_sort_by_distance
+    far_small = Geofocus.create(name:"Far - Small",
+      geom: geom(:far_small))
+    far_large = Geofocus.create(name:"Far - Large",
+      geom: geom(:far_large))
+
+    near_small = Geofocus.create(name:"Near - Small",
+      geom: geom(:near_small))
+    near_large = Geofocus.create(name:"Near - Large",
+      geom: geom(:near_large))
+
+    # Set up the records
+    far_doc = geom_doc([far_small, far_large])
+    near_doc = geom_doc([near_small, near_large])
+    far_small_doc = geom_doc([far_small])
+    far_large_doc = geom_doc([far_large])
+    near_small_doc = geom_doc([near_small])
+    near_large_doc = geom_doc([near_large])
+    wait_for_cs_sync!
+
+    get "/resources", page: 1, per_page: 5, bounding_box:"0 0, 0 1, 1 1, 1 0, 0 0"
+    jr = json_response
+    assert_equal 6, jr['total']
+    assert_equal 5, jr['resources'].length
+
+    # Create near small, near large, far small, far large.
+    # Then search with a bounding box
+  end
+
   def test_search_resource
     geofocus1 = Geofocus.create(name: "GF1")
     doc = Resource.create!(

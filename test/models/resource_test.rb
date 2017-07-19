@@ -36,7 +36,7 @@ class ResourceTest < NDSTestBase
     # THis is tricky.  Make sure you delete it after adding.
     # If you add after a delete - it can get confused and borked
     results = Resource.search()
-    assert_equal results.total.found, 1
+    assert_equal results.hits.found, 1
 
     doc.indexed = false
     doc.save!
@@ -44,7 +44,33 @@ class ResourceTest < NDSTestBase
 
     wait_for_cs_sync!
     results = Resource.search()
-    assert_equal results.total.found, 0
+    assert_equal results.hits.found, 0
+  end
+  def test_search_geofocus_sort
+    far_small = Geofocus.create(name:"Far - Small",
+      geom: geom(:far_small))
+    far_large = Geofocus.create(name:"Far - Large",
+      geom: geom(:far_large))
+
+    near_small = Geofocus.create(name:"Near - Small",
+      geom: geom(:near_small))
+    near_large = Geofocus.create(name:"Near - Large",
+      geom: geom(:near_large))
+
+    # Set up the records
+    far_doc = geom_doc([far_small, far_large])
+    near_doc = geom_doc([near_small, near_large])
+    far_small_doc = geom_doc([far_small])
+    far_large_doc = geom_doc([far_large])
+    near_small_doc = geom_doc([near_small])
+    near_large_doc = geom_doc([near_large])
+
+    wait_for_cs_sync!
+
+    results = Resource.search(bounding_box: [[0,0],[1,0],[1,1],[0,1],[0,0]])
+    assert_equal results.hits.found, 6
+    assert_equal [near_small_doc.docid], results.hits.hit[0].fields['docid']
+    assert_equal [far_small_doc.docid], results.hits.hit[1].fields['docid']
   end
 
   def test_expand_literal
@@ -155,12 +181,12 @@ class ResourceTest < NDSTestBase
 
     # Now we make a few searches
     results = Resource.search(geofocuses: [])
-    assert_equal 3, results.total.found
+    assert_equal 3, results.hits.found
 
     results = Resource.search(geofocuses: [geofocus.id])
-    assert_equal 1, results.total.found
+    assert_equal 1, results.hits.found
 
     results = Resource.search(geofocuses: [geofocus2.id])
-    assert_equal 1, results.total.found
+    assert_equal 1, results.hits.found
   end
 end

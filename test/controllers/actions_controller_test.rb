@@ -9,7 +9,8 @@ class ActionsControllerTest < NDSTestBase
     assert response.ok?
     assert_equal 0, json_response['total']
 
-    action  =Action.create!(table: "test", record_id: 1, at: Time.now.utc.to_datetime, user: user, description: "FOO")
+    action  =Action.new(table: "test", record_id: 1, at: Time.now.utc.to_datetime, user: user, description: "FOO")
+    assert action.save
 
     get "/actions", page: 1, per_page: 1
 
