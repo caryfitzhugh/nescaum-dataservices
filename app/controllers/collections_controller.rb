@@ -112,7 +112,6 @@ module Controllers
 
     put "/collections/:id", require_role: :curator do
       collection = Collection.first(id: params[:id])
-
       if collection
         if collection.update(params[:parsed_body][:collection])
           json(collection.to_resource)

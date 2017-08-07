@@ -140,6 +140,45 @@ class ResourceTest < NDSTestBase
   def test_filter_query
     assert_equal "(and (or 1 2 3))", to_filter_query([:and, [:or, 1, 2, 3]])
   end
+  def test_sector_search
+    geofocus = Geofocus.create(name: "Test")
+    doc = Resource.create!(
+      title: "S1",
+      content_types: ["test"],
+      sectors: ["sector1"],
+      indexed: true,
+      published_on_end: Date.today.to_s,
+      published_on_start: Date.today.to_s,
+      geofocuses: [geofocus.id],
+    )
+    doc2 = Resource.create!(
+      title: "S2",
+      content_types: ["test"],
+      sectors: ["sector2"],
+      indexed: true,
+      published_on_end: Date.today.to_s,
+      published_on_start: Date.today.to_s,
+      geofocuses: [geofocus.id],
+    )
+    doc3 = Resource.create!(
+      title: "S1,2",
+      content_types: ["test"],
+      sectors: ["sector1","sector2"],
+      indexed: true,
+      published_on_end: Date.today.to_s,
+      published_on_start: Date.today.to_s,
+      geofocuses: [geofocus.id],
+    )
+
+    wait_for_cs_sync!
+
+    results = Resource.search(filters: {sectors: ['sector1']});
+    assert_equal 2, results.hits.found
+    results = Resource.search(filters: {sectors: ['sector2']});
+    assert_equal 1, results.hits.found
+    results = Resource.search(filters: {sectors: ['sector2','sector1']});
+    assert_equal 3, results.hits.found
+  end
 
   def test_geofocus_search
     geofocus = Geofocus.create(name: "Test")

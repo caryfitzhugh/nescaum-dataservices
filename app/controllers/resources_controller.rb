@@ -178,7 +178,7 @@ module Controllers
                 "page": ["Page of records to return", :query, false, Integer, :minimum => 1],
                 "per_page": ["Number of records to return", :query, false, Integer, {:minimum => 1, :maximum => 100}],
               },
-              tags: ["Resource", "Curator"]
+              tags: ["Resources", "Curator"]
 
     get "/resources/unindexed", require_role: :curator do
       per_page = params[:per_page] || 50

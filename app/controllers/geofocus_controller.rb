@@ -21,6 +21,7 @@ module Controllers
         name: {type: String, description: "Name of the geo-focus"},
         type: {type: String, description: "Type of the geofocus (i.e. City, Town, County, State, Region, etc)"},
         uid: {type: String, description: "UID of the geofocus"},
+        geom: {type: String, description: "Geojson representation of the point / feature of this geofocus"},
       }
     }
 
@@ -41,7 +42,6 @@ module Controllers
               tags: ["Geofocus", "Curator"]
 
     post "/geofocuses", require_role: :curator do
-
       gf = Geofocus.new(to_geofocus_attrs(params[:parsed_body][:geofocus]))
       if gf.save
         json(gf.to_resource)

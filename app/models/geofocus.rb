@@ -11,7 +11,7 @@ class Geofocus
   property :name, String, length: 512, required: true, unique_index: :unique_on_name_and_type
   property :type, String, length: 128, required: true, default: "custom", unique_index: :unique_on_name_and_type
   property :uid, String, length: 128
-  property :geom, PostGISGeometry, :index => true
+  property :geom, PostGISGeometry
 
   has n, :geofocus_resources
 
@@ -63,9 +63,7 @@ class Geofocus
   end
 
   def to_resource
-    self.attributes.clone.tap do |attrs|
-      attrs.delete(:geom)
-    end
+    self.attributes
   end
 
 end
