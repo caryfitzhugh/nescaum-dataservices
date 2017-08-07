@@ -2,6 +2,19 @@ require 'app/controllers/base'
 require 'app/models'
 module Controllers
   class GeofocusController < Controllers::Base
+    type 'IdGeoJSON', {
+      properties: {
+        id: { type: String, description: "Id of the geofocus"},
+        geom: { type: String, description: "Geojson of the geofocus"}
+      }
+    }
+
+    type 'BulkGeoJSON', {
+      properties: {
+        geojson: { type: ["IdGeoJSON"], description: "Bulk Geojson records"}
+      }
+    }
+
     type 'GeoJSON', {
 
     }
@@ -33,6 +46,31 @@ module Controllers
         geofocuses: {type: ["Geofocus"]}
       }
     }
+
+    endpoint description: "Get GeoJSON for a set of geofocuses",
+              responses: standard_errors( 200 => ["BulkGeoJSON"]),
+              parameters: {
+                "ids": ["Ids to retrieve, split by ','", :query, true, String],
+              },
+              tags: ["Geofocus", "Public"]
+
+    get "/geofocuses/bulk_geojson/?" do
+      ids = params[:ids].split(',').map(&:to_i)
+      gfs = Geofocus.all(id: ids)
+      if gfs.length == ids.length
+        content_type :json
+        geojsons = gfs.map do |gf|
+            { id: gf.id,
+              geom: gf.geom.as_json
+            }
+        end
+
+        [200, JSON.generate({ geojson: geojsons }) ]
+      else
+        not_found("Geofocus", params[:ids])
+      end
+    end
+
 
     endpoint description: "Create Geofocus",
               responses: standard_errors( 200 => ["Geofocus"]),
@@ -161,7 +199,6 @@ module Controllers
         not_found("Geofocus", params[:id])
       end
     end
-
     private
     def to_geofocus_attrs(param)
       attrs = param
