@@ -2,6 +2,9 @@ require 'app/models'
 
 module Controllers
   class AuthenticationController < Controllers::Base
+    get "/session", no_swagger: true do
+      [200, JSON.generate(session)]
+    end
 
     get "/sign_in", no_swagger: true  do
       if current_user
