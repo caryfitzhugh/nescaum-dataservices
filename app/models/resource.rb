@@ -5,6 +5,7 @@ end
 
 class Resource
   include DataMapper::Resource
+
   def self.custom_docid_prefix(prefix=:nil)
     @custom_docid_prefix = prefix unless prefix == :nil
     @custom_docid_prefix
@@ -38,7 +39,7 @@ class Resource
     content_types:          {type: DataMapper::Property::PgArray, facet: true, expanded: true, required: true, example: ["Documents::Report"]},
     keywords:               {type: DataMapper::Property::PgArray, facet: true, expanded: true, example: ["NY::expanded", "MA::floods", "ME::land cover change"]},
     publishers:             {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["NOAA", "NESCAUM", "The Disney Corporation"]},
-    published_on_end:       {type: Date, cs_name: :pubend , example: "2017-01-31", required: true},
+    published_on_end:       {type: Date, cs_name: :pubend , example: "2017-01-31", required: false},
     published_on_start:     {type: Date, cs_name: :pubstart, example: "2017-01-31", required: true },
     sectors:                {type: DataMapper::Property::PgArray, facet: true, expanded: true, example: ["Ecosystems", "Water Resources"]},
     strategies:             {type: DataMapper::Property::PgArray, facet: true, expanded: true, example: ["Adaptation"]},
@@ -155,7 +156,7 @@ class Resource
   end
 
   def to_resource
-    self.attributes.merge(docid: self.docid, geofocuses: self.geofocuses.map(&:to_resource))
+    self.attributes.merge(docid: self.docid, geofocuses: self.geofocuses.map(&:id))
   end
 
   def to_search_document(search_terms: true)
@@ -192,10 +193,6 @@ class Resource
 
     # Remove any null / blank values
     attributes.select {|k,v| v}
-  end
-
-  def self.centroid_and_area_of_boundingbox
-
   end
 
   def self.expand_literal(literal)

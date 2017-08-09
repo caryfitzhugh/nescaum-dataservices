@@ -18,7 +18,11 @@ module Controllers
     }
 
     type 'NewResource', {
-      required: Resource::PROPERTIES.each_pair.map {|prop, attrs| attrs[:required] && prop}.compact,
+      required: Resource::PROPERTIES.each_pair.map {|prop, attrs| if attrs[:required]
+                                                                    prop
+                                                                  else
+                                                                    nil
+                                                                  end}.compact,
       properties:
         Hash[Resource::PROPERTIES.each_pair.map do |name, attrs|
           if attrs[:facet]
@@ -59,7 +63,8 @@ module Controllers
           [prop.name.to_s, attrs]
         end].merge("docid": {type: String},
                    image: {type: String, example: "http://s3.amazonaws.com/temp-bucket/img.png"},
-                   geofocuses: {type: ['Geofocus'], example: {name: "Jericho, VT", id: 5465}})
+                   geofocuses: {type: [Integer], example: [1,2,3]}
+                 )
     }
 
     type 'Facets', {
@@ -184,7 +189,7 @@ module Controllers
       per_page = params[:per_page] || 50
       page = params[:page] || 1
 
-      resources = Resource.all(:order => [:created_at.desc], :limit => per_page, :offset => per_page * (page - 1))
+      resources = Resource.all(:indexed => false, :order => [:created_at.desc], :limit => per_page, :offset => per_page * (page - 1))
 
       json(
         total: Resource.count,
@@ -218,6 +223,7 @@ module Controllers
 
     post "/resources", require_role: :curator do
       doc = Resource.new(params[:parsed_body][:resource])
+      doc.published_on_end ||= doc.published_on_start
 
       if doc.save
         Action.track!(doc, current_user, "Created")
@@ -275,7 +281,9 @@ module Controllers
 
     put "/resources/:docid", require_role: :curator do
       doc = Resource.get_by_docid(params[:docid])
-      doc.attributes = doc.attributes.merge(params[:parsed_body][:resource])
+      attrs = params[:parsed_body][:resource]
+      attrs.delete('docid')
+      doc.attributes = doc.attributes.merge(attrs)
 
       if doc.save
         Action.track!(doc, current_user, "Updated")
@@ -295,7 +303,7 @@ module Controllers
     delete "/resources/:docid", require_role: :curator do
       doc = Resource.get_by_docid(params[:docid])
 
-      if doc.destroy
+      if doc.destroy!
         Action.track!(doc, current_user, "Deleted")
         Cloudsearch.remove_documents([doc.docid])
         Action.track!(doc, current_user, "Removed from Index")

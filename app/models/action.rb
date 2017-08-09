@@ -8,6 +8,10 @@ class Action
   property :description, String, length: 512, required: true
 
   def self.track!(record, user, msg)
+    if CONFIG.pretend_admin
+      user ||= User.first
+    end
+
     table = record.class.storage_names[record.class.repository.name]
     action = Action.new(table: table, record_id: record.id, user_id: user.id, description: msg,
                         at: Time.now.utc.to_datetime)
