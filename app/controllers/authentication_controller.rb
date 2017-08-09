@@ -2,8 +2,12 @@ require 'app/models'
 
 module Controllers
   class AuthenticationController < Controllers::Base
-    get "/session", no_swagger: true do
-      [200, JSON.generate(session.to_hash)]
+    get "/logged_in", no_swagger: true do
+      if current_user || CONFIG.pretend_admin
+        [200, "OK"]
+      else
+        [403, "NO USER"]
+      end
     end
 
     get "/sign_in", no_swagger: true  do
