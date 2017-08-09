@@ -12,11 +12,6 @@ module Controllers
     private
     def self.require_role(role)
       condition do
-
-        puts "Current User: " , current_user
-        puts "Current User ADMIN: " , current_user.is_admin?
-        puts "Current User Allowed: " , role, current_user.roles.include?(role.to_s)
-
         unless current_user && (current_user.is_admin? || current_user.roles.include?(role.to_s))
           # CONFIG pretend_admin
 #          unless CONFIG.pretend_admin
