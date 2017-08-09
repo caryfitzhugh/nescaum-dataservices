@@ -36,6 +36,7 @@ module Controllers
     post "/collections", require_role: :curator do
       collection = Collection.new(params[:parsed_body][:collection])
       if collection.save
+        Action.track!(collection, current_user, "Created")
         json(collection.to_resource)
       else
         err(400, collection.errors.full_messages.join("\n"))
@@ -93,6 +94,7 @@ module Controllers
 
       if collection
         if collection.destroy
+          Action.track!(collection, current_user, "Deleted")
           json(collection.to_resource)
         else
           err(400, collection.errors.full_messages.join("\n"))
@@ -114,6 +116,7 @@ module Controllers
       collection = Collection.first(id: params[:id])
       if collection
         if collection.update(params[:parsed_body][:collection])
+          Action.track!(collection, current_user, "Updated")
           json(collection.to_resource)
         else
           err(400, collection.errors.full_messages.join("\n"))

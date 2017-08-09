@@ -82,6 +82,7 @@ module Controllers
     post "/geofocuses", require_role: :curator do
       gf = Geofocus.new(to_geofocus_attrs(params[:parsed_body][:geofocus]))
       if gf.save
+        Action.track!(gf, current_user, "Created")
         json(gf.to_resource)
       else
         err(400, gf.errors.full_messages.join("\n"))
@@ -118,6 +119,7 @@ module Controllers
 
       if gf
         if gf.update(to_geofocus_attrs(params[:parsed_body][:geofocus]))
+          Action.track!(gf, current_user, "Updated")
           json(gf.to_resource)
         else
           err(400, gf.errors.full_messages.join("\n"))
@@ -139,6 +141,7 @@ module Controllers
 
       if gf
         if gf.destroy
+          Action.track!(gf, current_user, "Deleted")
           json(gf.to_resource)
         else
           err(400, gf.errors.full_messages.join("\n"))
