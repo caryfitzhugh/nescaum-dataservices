@@ -47,6 +47,23 @@ module Controllers
       }
     }
 
+    endpoint description: "Find specific geofocus",
+              responses: standard_errors( 200 => ["Geofocus"]),
+              parameters: {
+                "uid": ["UID of the geofocus to search for", :query, true, String],
+                "type": ["Type of the geofocus to search for", :query, true, String],
+              },
+              tags: ["Geofocus", "Public"]
+
+    get "/geofocuses/find/?" do
+      gf = Geofocus.first(:type => params[:type], :uid => params[:uid])
+      if gf
+        json(gf.to_resource)
+      else
+        not_found("Geofocus", params[:uid])
+      end
+    end
+
     endpoint description: "Get GeoJSON for a set of geofocuses",
               responses: standard_errors( 200 => ["BulkGeoJSON"]),
               parameters: {
@@ -150,6 +167,7 @@ module Controllers
         not_found("Geofocus", params[:id])
       end
     end
+
 
     endpoint description: "Search against all geofocus entries",
               responses: standard_errors( 200 => ["GeofocusIndex"]),
