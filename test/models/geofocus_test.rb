@@ -18,6 +18,16 @@ class GeofocusTest < NDSTestBase
     gf.geom = GeoRuby::SimpleFeatures::Geometry.from_geojson(gj).geometry
     assert gf.save, gf.errors.full_messages.join("\n")
   end
+  def test_geojson_properties
+
+    gf = Geofocus.new(name:"LaRgEr")
+    gj = File.read("test/data/large.geo.json")
+    gf.geom = GeoRuby::SimpleFeatures::Geometry.from_geojson(gj).geometry
+    assert gf.save, gf.errors.full_messages.join("\n")
+
+    assert gf.to_geojson
+  end
+
   def test_get_area_centroid
     gf = Geofocus.new(name: "Custom GJSON")
     geom = GeoRuby::SimpleFeatures::Geometry.from_geojson(' { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [ [ [100.0, 0.0], [100.0, 10.0], [0.0, 10.0], [0.0, 0.0], [100.0, 0.0] ] ] }, "properties": { "prop0": "value0", "prop1": {"this": "that"} } } ')

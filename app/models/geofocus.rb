@@ -66,4 +66,15 @@ class Geofocus
     self.attributes
   end
 
+  def to_geojson
+    {"type": "Feature",
+     "geometry": self.geom.as_json,
+     "properties": {
+        "name": self.name,
+        "uid": self.uid,
+        "id": self.id
+      }
+     }
+  end
+
 end

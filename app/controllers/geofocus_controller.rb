@@ -76,13 +76,9 @@ module Controllers
       gfs = Geofocus.all(id: ids)
       if gfs.length == ids.length
         content_type :json
-        geojsons = gfs.map do |gf|
-            { id: gf.id,
-              geom: gf.geom.as_json
-            }
-        end
+        geojsons = gfs.map(&:to_geojson)
 
-        [200, JSON.generate({ geojson: geojsons }) ]
+        json({ geojson: geojsons })
       else
         not_found("Geofocus", params[:ids])
       end
@@ -214,8 +210,7 @@ module Controllers
     get "/geofocuses/:id/geojson/?" do
       gf = Geofocus.first(:id => params[:id])
       if gf
-        content_type :json
-        [200, gf.geom.to_json]
+        json(gf.to_geojson)
       else
         not_found("Geofocus", params[:id])
       end
