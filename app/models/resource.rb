@@ -135,7 +135,7 @@ class Resource
       args[:expr] = JSON.generate({
         "bbox_score" => "#{distance} * (#{area_delta} + 0.01)"
       })
-      args[:return] = "bbox_score"
+      args[:return] = "docid,bbox_score"
       args[:sort] = "bbox_score asc"
     end
 
