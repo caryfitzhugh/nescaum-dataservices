@@ -85,7 +85,7 @@ module Controllers
       properties: {
         query: {type: String, description: "The original search query"},
         geofocuses: {type: [Integer], description: "Geofocus to filter on"},
-        bounding_box: {type: [Integer], description: "Array of lat/lng pairs to sort records by"},
+        bounding_box: {type: [Integer], description: "SW, NE list of lng, lat pairs, separated by , (leaflet.toBBoxString())", example: "23.7,90.2,23.9,90.7"},
         published_on_end: {type: String, example: Date.today.to_s},
         published_on_start: {type: String, example: Date.today.to_s},
         filters: {type: "SearchFilters", description: "The filters used in this search"}
@@ -117,7 +117,7 @@ module Controllers
               parameters: {
                 "page": ["Page of records to return", :query, false, Integer, :minimum => 1],
                 "per_page": ["Number of records to return", :query, false, Integer, {:minimum => 1, :maximum => 100}],
-                "bounding_box": ["Bounding box to search and sort results against '1 2, 2 3, 4 5, 5 6, 1 2'", :query, false, String],
+                "bounding_box": ["SW, NE list of lng, lat pairs, separated by , (leaflet.toBBoxString())", :query, false, String],
                 "published_on_end": ["Limit to resources publish dates to <= this publish end date", :query, false, String, :format => :date],
                 "published_on_start": ["Limit to resources publish dates to >= this publish start date", :query, false, String, :format => :date],
                 "geofocuses": ["Geofocuses to filter resources on, split by ','", :query, false, String]
@@ -141,7 +141,7 @@ module Controllers
 
       bbox = nil
       if params[:bounding_box]
-        bbox = params[:bounding_box].split(",").map {|pair| pair.split(" ").map(&:to_f)}
+        bbox = params[:bounding_box].split(",").map(&:to_f)
       end
 
       result = Resource.search(query: query,

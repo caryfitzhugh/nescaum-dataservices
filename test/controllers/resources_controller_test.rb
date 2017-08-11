@@ -81,7 +81,7 @@ class ResourcesControllerTest < NDSTestBase
     near_large_doc = geom_doc([near_large])
     wait_for_cs_sync!
 
-    get "/resources", page: 1, per_page: 5, bounding_box:"0 0, 0 1, 1 1, 1 0, 0 0"
+    get "/resources", page: 1, per_page: 5, bounding_box:"0,0,1,1"
     jr = json_response
     assert_equal 6, jr['total']
     assert_equal 5, jr['resources'].length

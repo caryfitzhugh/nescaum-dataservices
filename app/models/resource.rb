@@ -112,7 +112,20 @@ class Resource
 
     # Bounding boxen
     if bounding_box
-      ring = GeoRuby::SimpleFeatures::LinearRing.from_coordinates(bounding_box, 4326)
+      sw_lng = bounding_box[0]
+      sw_lat = bounding_box[1]
+      ne_lng = bounding_box[2]
+      ne_lat = bounding_box[3]
+
+      ring_coords = [
+        [sw_lat, sw_lng],
+        [sw_lat, ne_lng],
+        [ne_lat, ne_lng],
+        [ne_lat, sw_lng],
+        [sw_lat, sw_lng],
+      ]
+
+      ring = GeoRuby::SimpleFeatures::LinearRing.from_coordinates(ring_coords, 4326)
       bbox = GeoRuby::SimpleFeatures::Polygon.from_linear_rings([ring])
       bbox_attrs = self.repository.adapter.select("SELECT ST_Centroid(geom) as centroid, ST_Area(geom) as area FROM (SELECT ST_GeomFromEWKT(?) as geom) as calc ", bbox.as_ewkt)[0]
       centroid = GeoRuby::SimpleFeatures::Point.from_hex_ewkb(bbox_attrs.centroid)

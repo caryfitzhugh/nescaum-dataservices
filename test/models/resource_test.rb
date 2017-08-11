@@ -67,7 +67,7 @@ class ResourceTest < NDSTestBase
 
     wait_for_cs_sync!
 
-    results = Resource.search(bounding_box: [[0,0],[1,0],[1,1],[0,1],[0,0]])
+    results = Resource.search(bounding_box: [0,0,1,1])
     assert_equal results.hits.found, 6
     assert_equal [near_small_doc.docid], results.hits.hit[0].fields['docid']
     assert_equal [far_small_doc.docid], results.hits.hit[1].fields['docid']
