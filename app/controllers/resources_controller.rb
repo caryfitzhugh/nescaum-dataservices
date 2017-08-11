@@ -286,6 +286,7 @@ module Controllers
       doc.attributes = doc.attributes.merge(attrs)
 
       if doc.save
+        doc.sync_index!
         Action.track!(doc, current_user, "Updated")
         json(doc.to_resource)
       else
