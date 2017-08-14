@@ -70,6 +70,20 @@ namespace :db do
         puts user.errors.full_messages.join("\n")
       end
     end
+
+    task :update_password do |t, args|
+      username = Ask.input "Username"
+      user = User.first(username: username)
+      user.password = Ask.input("Password", password: true)
+
+      if user.save
+        puts "updated user:"
+        puts user.attributes
+      else
+        puts "Failed to update: "
+        puts user.errors.full_messages.join("\n")
+      end
+    end
   end
 end
 
