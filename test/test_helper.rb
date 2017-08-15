@@ -111,7 +111,6 @@ class NDSTestBase < Test::Unit::TestCase
   def geom_doc(gfs)
     resource = Resource.new(
       title: "#{gfs.map(&:name).join(",")}",
-      content_types: ["format::1"],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,

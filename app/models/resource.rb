@@ -1,6 +1,7 @@
 require 'rgeo'
 DataMapper::Inflector.inflections do |inflect|
   inflect.irregular "geofocus", "geofocuses"
+  inflect.irregular "strategy", "strategies"
 end
 
 class Resource
@@ -10,11 +11,28 @@ class Resource
     @custom_docid_prefix = prefix unless prefix == :nil
     @custom_docid_prefix
   end
+  FACETED_PROPERTIES = [
+    :actions,
+    :authors,
+    :climate_changes,
+    :effects,
+    :keywords,
+    :publishers,
+    :sectors,
+    :strategies,
+    :states
+  ]
 
   property :id, Serial
   property :indexed, Boolean, default: false
 
+  property :title, String, length: 1024
+  property :subtitle, String, length: 1024
   property :image, String, length: 1024
+  property :content,  String, length: 8192
+  property :external_data_links, DataMapper::Property::PgArray
+  property :published_on_end, Date, required: true
+  property :published_on_start, Date, required: true
   property :created_at, DateTime
   property :updated_at, DateTime
 
@@ -27,44 +45,43 @@ class Resource
     end
     super(newv)
   end
+  has n, :resource_action_links
+  has n, :resource_actions, through: :resource_action_links
 
-  PROPERTIES = {
-    actions:                {type: DataMapper::Property::PgArray, facet: true, expanded: true,  example: ["Emissions Reduction::multiple actions"]},
-    authors:                {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["C.S. Lewis", "Northeast Regional Climate Center (NRCC)"]},
-    content:                {type: String, length: 5000, description: "Markdown content describing the resource", example: "###Content"},
-    climate_changes:        {type: DataMapper::Property::PgArray, facet: true, expanded: true, example: ["Precipitation::Heavy Precipitation"]},
-    # {type: "weblink", url: "url"} , ...]
-    external_data_links:    {type: DataMapper::Property::PgArray, cs_name: :links, example: ["pdf::http://www.com/pdf", "weblink::http://google.com"]},
-    effects:                {type: DataMapper::Property::PgArray, facet: true, expanded: true, example: ["Specific Vulnerability::Coastal Property Damage"]},
-    content_types:          {type: DataMapper::Property::PgArray, facet: true, expanded: true, required: true, example: ["Documents::Report"]},
-    keywords:               {type: DataMapper::Property::PgArray, facet: true, expanded: true, example: ["NY::expanded", "MA::floods", "ME::land cover change"]},
-    publishers:             {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["NOAA", "NESCAUM", "The Disney Corporation"]},
-    published_on_end:       {type: Date, cs_name: :pubend , example: "2017-01-31", required: false},
-    published_on_start:     {type: Date, cs_name: :pubstart, example: "2017-01-31", required: true },
-    sectors:                {type: DataMapper::Property::PgArray, facet: true, expanded: true, example: ["Ecosystems", "Water Resources"]},
-    strategies:             {type: DataMapper::Property::PgArray, facet: true, expanded: true, example: ["Adaptation"]},
-    states:                 {type: DataMapper::Property::PgArray, facet: true, expanded: false, example: ["NY", "MA"]},
-    title:                  {type: String, length: 256, required: true, example: "Title of the article"},
-    subtitle:               {type: String, length: 256, example: "A sub title of peace"},
-  }
-  FACETED_PROPERTIES = Hash[(PROPERTIES.each_pair.select do |(_,v)|
-                                v[:facet]
-                              end)]
+  has n, :resource_author_links
+  has n, :resource_authors, through: :resource_author_links
 
-  DATE_PROPERTIES     = Hash[(PROPERTIES.each_pair.select do |(_,v)|
-                                v[:type] == Date
-                              end)]
+# has n, :resource_climate_changes
+  has n, :resource_climate_change_links
+  has n, :resource_climate_changes, through: :resource_climate_change_links
 
-  TEXT_PROPERTIES     = Hash[(PROPERTIES.each_pair.select do |(_,v)|
-                                v[:type] == String
-                              end)]
-  PROPERTIES.each_pair do |name, attrs|
-    args = {required: !!attrs[:required]}
+# has n, :resource_effects
+  has n, :resource_effect_links
+  has n, :resource_effects, through: :resource_effect_links
 
-    args[:length] = attrs[:length] if attrs[:length]
+# has n, :resource_keywords
+  has n, :resource_keyword_links
+  has n, :resource_keywords, through: :resource_keyword_links
 
-    property(name, attrs[:type], args)
-  end
+# has n, :resource_publishers
+  has n, :resource_publisher_links
+  has n, :resource_publishers, through: :resource_publisher_links
+
+# has n, :resource_content_types
+  has n, :resource_content_type_links
+  has n, :resource_content_types, through: :resource_content_type_links
+
+# has n, :resource_sectors
+  has n, :resource_sector_links
+  has n, :resource_sectors, through: :resource_sector_links
+
+# has n, :resource_strategies
+  has n, :resource_strategy_links
+  has n, :resource_strategies, through: :resource_strategy_links
+
+# has n, :resource_states
+  has n, :resource_state_links
+  has n, :resource_states, through: :resource_state_links
 
   def self.get_by_docid(did)
     id = did.split("::").last.to_i
@@ -145,7 +162,7 @@ class Resource
     args[:filter_query] = to_filter_query([:and].concat(filter_q))
 
     # Return facets for things
-    args[:facet] = JSON.generate(FACETED_PROPERTIES.keys.reduce({}) do |memo, filter|
+    args[:facet] = JSON.generate(FACETED_PROPERTIES.reduce({}) do |memo, filter|
       memo[filter] = {:sort => :count, :size => 100}
       memo
     end)
@@ -169,31 +186,65 @@ class Resource
   end
 
   def to_resource
-    self.attributes.merge(docid: self.docid, geofocuses: self.geofocuses.map(&:id))
+    {docid: self.docid,
+     geofocuses: self.geofocuses.map(&:id),
+     title: self.title,
+     subtitle: self.subtitle,
+     image: self.image,
+     external_data_links: self.external_data_links,
+     content: self.content,
+
+     actions: self.resource_actions.map(&:value),
+     authors: self.resource_authors.map(&:value),
+     climate_changes: self.resource_climate_changes.map(&:value),
+     effects: self.resource_effects.map(&:value),
+     content_types: self.resource_content_types.map(&:value),
+     keywords: self.resource_keywords.map(&:value),
+     publishers: self.resource_publishers.map(&:value),
+     sectors: self.resource_sectors.map(&:value),
+     strategies: self.resource_strategies.map(&:value),
+     states: self.resource_states.map(&:value),
+     actions: self.resource_actions.map(&:value),
+
+     ## Dates
+     published_on_start: to_cs_date(self.published_on_start),
+     published_on_start:   to_cs_date(self.published_on_end),
+    }
   end
 
   def to_search_document(search_terms: true)
-    attributes = PROPERTIES.reduce({}) do |memo, (name, attrs)|
-      val = self.send(name)
-      # Expand literals
-      if attrs[:expanded]
-        val = (val || []).reduce([]) do |memo2, attr|
-          memo2.concat(Resource.expand_literal(attr))
+    attributes = {}
+    [
+      [:actions, self.resource_actions, {:expand => true}],
+      [:authors, self.resource_authors],
+      [:climate_changes, self.resource_climate_changes, {:expand => true}],
+      [:effects, self.resource_effects, {:expand => true}],
+      [:content_types, self.resource_content_types, {:expand => true}],
+      [:keywords, self.resource_keywords, {:expand => true}],
+      [:publishers, self.resource_publishers],
+      [:sectors, self.resource_sectors, {:expand => true}],
+      [:strategies, self.resource_strategies, {:expand => true}],
+      [:states, self.resource_states]
+    ].each do |(cs_name, values, opts)|
+      opts ||= {}
+      attributes[cs_name] = values.map(&:value)
+      if opts[:expand]
+        attributes[cs_name] = attributes[cs_name].reduce([]) do |memo, v|
+          memo.concat(Resource.expand_literal(v))
         end
       end
-
-      if attrs[:type] == String
-        val ||= ""
-      elsif attrs[:type] == Date
-        val = to_cs_date(val) if val
-      elsif attrs[:type] == DataMapper::Property::PgArray
-        val ||= []
-      end
-
-      memo[attrs[:cs_name] || name] = val
-
-      memo
     end
+
+    ## Dates
+    attributes[:pubstart] = to_cs_date(self.published_on_start)
+    attributes[:pubend]   = to_cs_date(self.published_on_end)
+
+    attributes[:links] = self.external_data_links || []
+
+    attributes[:title] = self.title
+    attributes[:subtitle] = self.subtitle
+    attributes[:content] = self.content
+
     attributes[:docid] = self.docid
     attributes[:search_terms] = JSON.generate(attributes).gsub(/\W+/, " ")
     attributes[:geofocuses] = self.geofocuses.map(&:id)

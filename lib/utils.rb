@@ -6,7 +6,11 @@ def to_recursive_ostruct(hash)
 end
 
 def to_cs_date(date)
-  date.strftime("%Y-%m-%dT00:00:00.000Z")
+  if date
+    date.strftime("%Y-%m-%dT00:00:00.000Z")
+  else
+    nil
+  end
 end
 
 # [:name [:next 1 2 3] [:other 1 2 3]]

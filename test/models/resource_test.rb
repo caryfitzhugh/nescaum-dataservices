@@ -5,25 +5,107 @@ class ResourceTest < NDSTestBase
   def test_geofocus
     doc = Resource.new
     doc.content = "### Abstract"
-    doc.authors = ["Cary FitzHugh", "Steve Signell"]
     doc.title = "Title"
     doc.subtitle = "Subtitle!"
-    doc.content_types = ["document::report"]
     doc.published_on_start = Date.today
     doc.published_on_end = Date.today
     doc.geofocuses << Geofocus.first_or_create(name: "basin lake NY")
+
     doc.save!
     # can we run this?
     doc.to_search_document
   end
 
+  def test_resource_create
+    doc = Resource.new
+    doc.content = "### Abstract"
+    doc.title = "Title"
+    doc.subtitle = "Subtitle!"
+    doc.published_on_start = Date.today
+    doc.published_on_end = Date.today
+    doc.geofocuses << Geofocus.first_or_create(name: "basin lake NY")
+
+    assert doc.save
+
+    ResourceAction.add_to_resource!(doc, "Hello")
+    ResourceAction.add_to_resource!(doc, "Hello")
+    ResourceAction.add_to_resource!(doc, "Hello")
+    doc.reload
+
+    assert_equal ["Hello"], doc.resource_actions.map(&:value)
+
+    ResourceAuthor.add_to_resource!(doc, "Hello")
+    ResourceAuthor.add_to_resource!(doc, "Hello")
+    ResourceAuthor.add_to_resource!(doc, "Hello")
+    doc.reload
+
+    assert_equal ["Hello"], doc.resource_authors.map(&:value)
+
+    ResourceClimateChange.add_to_resource!(doc, "Hello")
+    ResourceClimateChange.add_to_resource!(doc, "Hello")
+    ResourceClimateChange.add_to_resource!(doc, "Hello")
+    doc.reload
+
+    assert_equal ["Hello"], doc.resource_climate_changes.map(&:value)
+
+    ResourceEffect.add_to_resource!(doc, "Hello")
+    ResourceEffect.add_to_resource!(doc, "Hello")
+    ResourceEffect.add_to_resource!(doc, "Hello")
+    doc.reload
+
+    assert_equal ["Hello"], doc.resource_effects.map(&:value)
+
+    ResourceKeyword.add_to_resource!(doc, "Hello")
+    ResourceKeyword.add_to_resource!(doc, "Hello")
+    ResourceKeyword.add_to_resource!(doc, "Hello")
+    doc.reload
+
+    assert_equal ["Hello"], doc.resource_keywords.map(&:value)
+
+    ResourcePublisher.add_to_resource!(doc, "Hello")
+    ResourcePublisher.add_to_resource!(doc, "Hello")
+    ResourcePublisher.add_to_resource!(doc, "Hello")
+    doc.reload
+
+    assert_equal ["Hello"], doc.resource_publishers.map(&:value)
+
+    ResourceContentType.add_to_resource!(doc, "Hello")
+    ResourceContentType.add_to_resource!(doc, "Hello")
+    ResourceContentType.add_to_resource!(doc, "Hello")
+    doc.reload
+
+    assert_equal ["Hello"], doc.resource_content_types.map(&:value)
+
+    ResourceSector.add_to_resource!(doc, "Hello")
+    ResourceSector.add_to_resource!(doc, "Hello")
+    ResourceSector.add_to_resource!(doc, "Hello")
+    doc.reload
+
+    assert_equal ["Hello"], doc.resource_sectors.map(&:value)
+
+    ResourceStrategy.add_to_resource!(doc, "Hello")
+    ResourceStrategy.add_to_resource!(doc, "Hello")
+    ResourceStrategy.add_to_resource!(doc, "Hello")
+    doc.reload
+
+    assert_equal ["Hello"], doc.resource_strategies.map(&:value)
+
+    ResourceState.add_to_resource!(doc, "Hello")
+    ResourceState.add_to_resource!(doc, "Hello")
+    ResourceState.add_to_resource!(doc, "Hello")
+    doc.reload
+
+    assert_equal ["Hello"], doc.resource_states.map(&:value)
+    # can we run this?
+    doc.to_search_document
+  end
   def test_cs_update
     doc = Resource.new
     doc.content = "### Abstract"
-    doc.authors = ["Cary FitzHugh", "Steve Signell"]
+    ["Cary FitzHugh", "Steve Signell"].each {|v| doc.resource_authors << ResourceAuthor.first_or_create(value: v)}
     doc.title = "Title"
     doc.subtitle = "Subtitle!"
-    doc.content_types = ["document::report"]
+    ["document::report"].each {|v| doc.resource_content_types << ResourceContentType.first_or_create(value: v)}
     doc.published_on_start = Date.today
     doc.published_on_end = Date.today
     doc.geofocuses << Geofocus.first_or_create(name: "basin lake NY")
@@ -46,6 +128,7 @@ class ResourceTest < NDSTestBase
     results = Resource.search()
     assert_equal results.hits.found, 0
   end
+
   def test_search_geofocus_sort
     far_small = Geofocus.create(name:"Far - Small",
       geom: geom(:far_small))
@@ -87,26 +170,27 @@ class ResourceTest < NDSTestBase
     date = Date.today
     doc = Resource.new
     doc.content = "### Abstract"
-    doc.authors = ["Cary FitzHugh", "Steve Signell"]
     doc.title = "Title"
     doc.subtitle = "Subtitle!"
-    doc.content_types = ["document::report"]
-    doc.geofocuses << Geofocus.first_or_create(name: "basin lake NY")
+    doc.image  = "http:123"
     doc.external_data_links = [
       "pdf::http://google.com/pdf",
       "weblink::http://google.com/weblink",
     ]
-    doc.publishers = ["NOAA"]
-    doc.image  = "http:123"
+    doc.geofocuses << Geofocus.first_or_create(name: "basin lake NY")
     doc.published_on_start = date
     doc.published_on_end = date
-    doc.keywords = ["danger"]
-    doc.sectors = ["root", "root2::leaf"]
-    doc.effects = ["root", "root2::leaf"]
-    doc.actions = ["root", "root2::leaf"]
-    doc.climate_changes = ["root", "root2::leaf"]
-    doc.strategies = ["adaptation"]
-    doc.states = ["VT", "MA", "CT"]
+
+    ["Cary FitzHugh", "Steve Signell"].each {|v| doc.resource_authors << ResourceAuthor.first_or_create(value: v)}
+    ["document::report"].each {|v| doc.resource_content_types << ResourceContentType.first_or_create(value: v)}
+    ["NOAA"].each {|v| doc.resource_publishers << ResourcePublisher.first_or_create(value: v)}
+    ["danger"].each {|v| doc.resource_keywords << ResourceKeyword.first_or_create(value: v)}
+    ["root", "root2::leaf"].each {|v| doc.resource_sectors << ResourceSector.first_or_create(value: v)}
+    ["root", "root2::leaf"].each {|v| doc.resource_effects << ResourceEffect.first_or_create(value: v)}
+    ["root", "root2::leaf"].each {|v| doc.resource_actions << ResourceAction.first_or_create(value: v)}
+    ["root", "root2::leaf"].each {|v| doc.resource_climate_changes << ResourceClimateChange.first_or_create(value: v)}
+    ["adaptation"].each {|v| doc.resource_strategies << ResourceStrategy.first_or_create(value: v)}
+    ["VT", "MA", "CT"].each {|v| doc.resource_states << ResourceState.first_or_create(value: v)}
 
     assert doc.save, doc.errors.full_messages.join("\n")
 
@@ -142,40 +226,45 @@ class ResourceTest < NDSTestBase
   end
   def test_sector_search
     geofocus = Geofocus.create(name: "Test")
-    doc = Resource.create!(
+    doc = Resource.new(
       title: "S1",
-      content_types: ["test"],
-      sectors: ["sector1"],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
       geofocuses: [geofocus.id],
     )
-    doc2 = Resource.create!(
+    doc.resource_sectors << ResourceSector.create(value:"sector1")
+    assert doc.save
+
+    doc2 = Resource.new(
       title: "S2",
-      content_types: ["test"],
-      sectors: ["sector2"],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
       geofocuses: [geofocus.id],
     )
-    doc3 = Resource.create!(
+    doc2.resource_sectors << ResourceSector.create(value:"sector2")
+    assert doc2.save
+
+    doc3 = Resource.new(
       title: "S1,2",
-      content_types: ["test"],
-      sectors: ["sector1","sector2"],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
       geofocuses: [geofocus.id],
     )
+    doc3.resource_sectors << ResourceSector.first_or_create(value:"sector2")
+    doc3.resource_sectors << ResourceSector.first_or_create(value:"sector1")
+    assert doc3.save
 
     wait_for_cs_sync!
 
     results = Resource.search(filters: {sectors: ['sector1']});
     assert_equal 2, results.hits.found
+
     results = Resource.search(filters: {sectors: ['sector2']});
-    assert_equal 1, results.hits.found
+    assert_equal 2, results.hits.found
+
     results = Resource.search(filters: {sectors: ['sector2','sector1']});
     assert_equal 3, results.hits.found
   end
@@ -185,7 +274,6 @@ class ResourceTest < NDSTestBase
     doc = Resource.create!(
       title: "Title",
       subtitle: "Subtitle",
-      content_types: ["format::1"],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
@@ -198,7 +286,6 @@ class ResourceTest < NDSTestBase
     doc2 = Resource.create!(
       title: "Title",
       subtitle: "Subtitle",
-      content_types: ["format::1"],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
@@ -209,7 +296,6 @@ class ResourceTest < NDSTestBase
     doc2 = Resource.create!(
       title: "Title",
       subtitle: "Subtitle",
-      content_types: ["format::1"],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,

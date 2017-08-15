@@ -18,66 +18,66 @@ module Controllers
     }
 
     type 'NewResource', {
-      required: Resource::PROPERTIES.each_pair.map {|prop, attrs| if attrs[:required]
-                                                                    prop
-                                                                  else
-                                                                    nil
-                                                                  end}.compact,
-      properties:
-        Hash[Resource::PROPERTIES.each_pair.map do |name, attrs|
-          if attrs[:facet]
-            [name.to_s, {type: [String], example: attrs[:example], description: attrs[:description]}]
-          elsif attrs[:type] == String
-            [name.to_s, {type: String, example: attrs[:example], description: attrs[:description]}]
-          elsif attrs[:type] == Date
-            [name.to_s, {type: Date, example: attrs[:example], description: attrs[:description]}]
-          elsif attrs[:type] == DataMapper::Property::PgArray
-            [name.to_s, {type: [String], example: attrs[:example], description: attrs[:description]}]
-          else
-            throw "How to convert: #{name}"
-          end
-      end].merge(
-        "geofocuses" => {type: [Integer], example: [1,2,3], description: "Geofocus ID to assign to this resource"}
-      )
-
+      required: [
+        :title,
+        :content,
+        :content_types
+      ],
+      properties: {
+        :title => {type: String, example: "Title of the resource"},
+        :subtitle => {type: String, example: "Subtitle"},
+        :image => {type: String, example: "http://lorempixel.com/500/500"},
+        :content => {type: String, example: "Markdown **so** awesome", description: "The abstract"},
+        :external_data_links => {type: [String], example: ["pdf::http://www.com/pdf", "weblink::http://google.com"]},
+        :published_on_start => {type: String, example: "2017-01-31"},
+        :published_on_end => {type: String, example: "2017-01-31"},
+        :geofocuses => {type: [Integer], example: [1,2,3], description: "Geofocus ID to assign to this resource"},
+        :actions => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+        :authors => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+        :climate_changes => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+        :content_types => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+        :keywords => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+        :publishers => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+        :sectors => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+        :strategies => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+        :states => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+      }
     }
 
     type 'Resource', {
-      properties: Hash[Resource.properties.map do |prop|
-          # Case statement didn't work?
-          attrs = if prop.class == DataMapper::Property::Serial
-            {type: Integer}
-          elsif prop.class == DataMapper::Property::PgArray
-            {type: [String]}
-          elsif prop.class == DataMapper::Property::String
-            {type: String}
-          elsif prop.class == DataMapper::Property::Date
-            {type: String, example: Date.today.to_s}
-          elsif prop.class == DataMapper::Property::Boolean
-            {type: 'boolean'}
-          elsif prop.class == DataMapper::Property::DateTime
-            {type: String, format: 'datetime', example: DateTime.now.to_s}
-          else
-            raise "ACK #{prop.class}"
-          end
-          [prop.name.to_s, attrs]
-        end].merge("docid": {type: String},
-                   image: {type: String, example: "http://s3.amazonaws.com/temp-bucket/img.png"},
-                   geofocuses: {type: [Integer], example: [1,2,3]}
-                 )
+      properties: {
+        :docid => {type: String},
+        :title => {type: String, example: "Title of the resource"},
+        :subtitle => {type: String, example: "Subtitle"},
+        :image => {type: String, example: "http://lorempixel.com/500/500"},
+        :content => {type: String, example: "Markdown **so** awesome", description: "The abstract"},
+        :external_data_links => {type: [String], example: ["pdf::http://www.com/pdf", "weblink::http://google.com"]},
+        :published_on_start => {type: String, example: "2017-01-31"},
+        :published_on_end => {type: String, example: "2017-01-31"},
+        :geofocuses => {type: [Integer], example: [1,2,3], description: "Geofocus ID to assign to this resource"},
+        :actions => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+        :authors => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+        :climate_changes => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+        :content_types => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+        :keywords => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+        :publishers => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+        :sectors => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+        :strategies => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+        :states => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+      }
     }
 
     type 'Facets', {
       properties:
-        Hash[Resource::FACETED_PROPERTIES.each_pair.map do |name, attrs|
+        Hash[Resource::FACETED_PROPERTIES.each.map do |name|
             [name.to_s, {type: ['Facet'], example: [{ name: "f1", count: 1}, {name: "f2", count: 2}]}]
           end]
     }
 
     type 'SearchFilters', {
       properties:
-        Hash[Resource::FACETED_PROPERTIES.each_pair.map do |name, attrs|
-          [name.to_s, {type: [String], example: (attrs[:expanded] ? Resource.expand_literal(attrs[:example]) : attrs[:example]), description: attrs[:description]}]
+        Hash[Resource::FACETED_PROPERTIES.each.map do |name|
+          [name.to_s, {type: [String]}]
         end]
     }
 
@@ -122,7 +122,7 @@ module Controllers
                 "published_on_start": ["Limit to resources publish dates to >= this publish start date", :query, false, String, :format => :date],
                 "geofocuses": ["Geofocuses to filter resources on, split by ','", :query, false, String]
               }.merge(
-                Hash[Resource::FACETED_PROPERTIES.each_pair.map do |name, attrs|
+                Hash[Resource::FACETED_PROPERTIES.each.map do |name|
                     [name.to_s, ["Filter. Separated by ,", :query, false, String]]
                   end]
               ),
@@ -135,7 +135,7 @@ module Controllers
       geofocuses = (params[:geofocuses] || "").split(',').map(&:to_i)
       filters = {}
 
-      Resource::FACETED_PROPERTIES.each do |name, attrs|
+      Resource::FACETED_PROPERTIES.each do |name|
         filters[name] = params[name].split(",") if params[name]
       end
 
