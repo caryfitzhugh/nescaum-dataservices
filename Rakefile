@@ -2,6 +2,152 @@ require './nds_app'
 require 'inquirer'
 
 namespace :db do
+
+  task :seed do
+    [
+      "Outreach/Education::Capacity Building",
+      "Outreach/Education::Research and Monitoring",
+      "Planning::Planning",
+      "Planning::Policies/Laws/Regulations",
+      "Implementation Action/Direct action on target::Management and Behavior",
+      "Implementation Action/Direct action on target::Financing",
+      "Implementation Action/Direct action on target::Technology",
+    ].each do |action|
+      ResourceAction.first_or_create(value: action)
+    end
+
+    [
+      "MA::Rising Temperatures::Annual Temperatures",
+      "MA::Rising Temperatures::Cloud Cover",
+      "MA::Rising Temperatures::Cloud Distribution",
+      "MA::Rising Temperatures::Evaporation",
+      "MA::Rising Temperatures::Extreme Cold Events",
+      "MA::Rising Temperatures::Extreme Heat Events",
+      "MA::Rising Temperatures::Growing Season Length",
+      "MA::Rising Temperatures::Ice Cover",
+      "MA::Rising Temperatures::In-stream Temperature",
+      "MA::Rising Temperatures::Lake and Pond Temperature",
+      "MA::Rising Temperatures::Ocean Temperature",
+      "MA::Rising Temperatures::Peak Winds",
+      "MA::Rising Temperatures::Seasonal Temperatures",
+      "MA::Rising Temperatures::Snow Cover",
+      "MA::Rising Temperatures::Snowfall",
+      "MA::Rising Temperatures::Snowmelt ",
+      "MA::Rising Temperatures::Snowpack",
+      "MA::Rising Temperatures::Soil Moisture",
+      "MA::Rising Temperatures::Wildfire",
+
+      "MA::Changes in Precipitation::Drought",
+      "MA::Changes in Precipitation::Soil Moisture",
+      "MA::Changes in Precipitation::Evaportation",
+      "MA::Changes in Precipitation::Streamflow",
+      "MA::Changes in Precipitation::Lake Levels",
+      "MA::Changes in Precipitation::Hydrology",
+      "MA::Changes in Precipitation::Inland Flooding",
+      "MA::Changes in Precipitation::Annual Precipitation",
+      "MA::Changes in Precipitation::Heavy Precipitation",
+      "MA::Changes in Precipitation::Coastal Flooding",
+      "MA::Changes in Precipitation::Seasonal Precipitation",
+      "MA::Changes in Precipitation::Extreme Precipitation Events",
+      "MA::Changes in Precipitation::Snowcover",
+      "MA::Changes in Precipitation::Lake Ice",
+      "MA::Changes in Precipitation::Flash Flooding",
+
+      "MA::Extreme Weather::Hurricanes",
+      "MA::Extreme Weather::Nor'easters",
+      "MA::Extreme Weather::Intense Winter Storms",
+      "MA::Extreme Weather::Ice Storms",
+      "MA::Extreme Weather::Heavy Precipitation Events",
+      "MA::Extreme Weather::High Wind",
+      "MA::Extreme Weather::Tornadoes",
+      "MA::Extreme Weather::Microbursts",
+      "MA::Extreme Weather::Hail",
+      "MA::Extreme Weather::Drought",
+      "MA::Extreme Weather::Wildfire",
+      "MA::Extreme Weather::Extreme Heat",
+      "MA::Extreme Weather::Extreme Cold",
+
+      "MA::Sea Level Rise::Storm Surge",
+      "MA::Sea Level Rise::Ocean Temperatures",
+      "MA::Sea Level Rise::Ocean Acidification",
+      "MA::Sea Level Rise::Coastal Flooding",
+      "MA::Sea Level Rise::Salt-Water Intrusion",
+
+    ].each do |climate_change|
+      ResourceClimateChange.first_or_create(value: climate_change)
+    end
+
+    [
+      "Data::Data Product",
+      "Data::Dataset",
+      "Data::Decision Support",
+      "Documents::Abstract",
+      "Documents::Academic Article",
+      "Documents::Article",
+      "Documents::Blog Posting",
+      "Documents::Book",
+      "Documents::Building Code",
+      "Documents::Case Study",
+      "Documents::Catalog",
+      "Documents::Chapter",
+      "Documents::Comment",
+      "Documents::Conference Paper",
+      "Documents::Document Section",
+      "Documents::Fact Sheet",
+      "Documents::Guide",
+      "Documents::Journal",
+      "Documents::Law",
+      "Documents::Manual",
+      "Documents::Memo",
+      "Documents::Newsletter",
+      "Documents::Newspaper",
+      "Documents::News Release",
+      "Documents::Plan",
+      "Documents::Proceedings",
+      "Documents::Report",
+      "Documents::Repository",
+      "Documents::Series",
+      "Documents::Software",
+      "Documents::Thesis",
+      "Documents::Video",
+      "Documents::Working Paper",
+      "Documents::White Paper",
+
+      "Maps::GIS Layer",
+      "Maps::Map",
+      "Maps::Map Viewer ",
+      "Maps::Decision Support",
+
+      "Websites::Clearinghouse",
+      "Websites::Website ",
+      "Websites::Website Section",
+      "Websites::Web-based Tool/Decision Support",
+
+      "Events::Conference",
+      "Events::Conference Series",
+      "Events::Exhibit",
+      "Events::Online Training",
+      "Events::Presentation",
+      "Events::Training",
+      "Events::Webinar",
+      "Events::Webinar Series",
+      "Events::Workshop",
+
+      "Project",
+      "Person",
+    ].each do |content_type|
+      ResourceContentType.first_or_create(value: content_type)
+    end
+
+    [
+      "Adaptation",
+      "Mitigation",
+    ].each do |effect|
+      ResourceEffect.first_or_create(value: effect)
+    end
+
+  end
+
   task :install_postgis do
     require 'dm-migrations/migration_runner'
 
