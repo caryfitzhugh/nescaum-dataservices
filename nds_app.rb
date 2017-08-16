@@ -1,5 +1,6 @@
 File.expand_path(File.dirname(__FILE__)).tap {|pwd| $LOAD_PATH.unshift(pwd) unless $LOAD_PATH.include?(pwd)}
 require 'lib/utils'
+require 'lib/ilike'
 autoload :CONFIG, 'lib/config'
 autoload :Paths, 'lib/paths'
 autoload :OpenStruct, 'ostruct'

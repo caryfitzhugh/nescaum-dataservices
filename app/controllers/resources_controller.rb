@@ -315,6 +315,62 @@ module Controllers
       end
     end
 
+
+    type 'FieldResponse', {
+      properties: {
+        total: { type: Integer, description: "Total number of records"},
+        page: { type: Integer, description: "Page of results being returned"},
+        per_page: { type: Integer, description: "Number of results being returned"},
+        values: {type: [String], description: "Value for the facet"},
+      }
+    }
+    endpoint description: "Find data on a field",
+              responses: standard_errors( 200 => "FieldResponse"),
+              parameters: {
+                "field_name": ["Field name to search", :query, true, String],
+                "query": ["Field name query to use", :query, false, String],
+                "page": ["Page of records to return", :query, false, Integer, :minimum => 1],
+                "per_page": ["Number of records to return", :query, false, Integer, {:minimum => 1, :maximum => 100}],
+              },
+              tags: ["Resources", "Public"]
+
+
+    get "/resources/fields" do
+      per_page = params[:per_page] || 50
+      page = params[:page] || 1
+      all = case params[:field_name].downcase.to_sym
+              when :actions
+                ResourceAction.all
+              when :authors
+                ResourceAuthor.all
+              when :climate_changes
+                ResourceClimateChange.all
+              when :content_types
+                ResourceContentType.all
+              when :effects
+                ResourceEffect.all
+              when :keywords
+                ResourceKeyword.all
+              when :publishers
+                ResourcePublisher.all
+              when :sectors
+                ResourceSector.all
+              when :strategies
+                ResourceStrategy.all
+              when :states
+                ResourceState.all
+              end.all(:value.ilike => "%#{params[:query]}%")
+
+      json(
+        total: all.count,
+        page: page,
+        per_page: per_page,
+        values: all.all(:order => [:value.asc],
+                           :limit => per_page, :offset => per_page * (page - 1)).map(&:value)
+      )
+
+    end
+
     endpoint description: "Lookup a resource by docid",
               responses: standard_errors( 200 => "Resource"),
               parameters: {

@@ -1,6 +1,52 @@
 require 'test_helper'
 
 class ResourcesControllerTest < NDSTestBase
+  def test_field_requests
+    [
+     [ResourceAction, :actions],
+     [ResourceAuthor, :authors],
+     [ResourceClimateChange, :climate_changes],
+     [ResourceContentType, :content_types],
+     [ResourceEffect, :effects],
+     [ResourceKeyword, :keywords],
+     [ResourcePublisher, :publishers],
+     [ResourceSector, :sectors],
+     [ResourceStrategy, :strategies],
+     [ResourceState, :states],
+    ].each do |(klass, key)|
+      klass.create(value: "A")
+      klass.create(value: "B")
+      klass.create(value: "AB")
+
+      get "/resources/fields", :field_name => key
+      assert response.ok?
+
+      js_resp = json_response
+      assert_equal 3, js_resp['total']
+
+      get "/resources/fields", :field_name => key, :query => "A"
+      assert response.ok?
+      js_resp = json_response
+      assert_equal 2, js_resp['total']
+
+      get "/resources/fields", :field_name => key, :query => "B"
+      assert response.ok?
+      js_resp = json_response
+      assert_equal 2, js_resp['total']
+
+      get "/resources/fields", :field_name => key, :query => "C"
+      assert response.ok?
+      js_resp = json_response
+      assert_equal 0, js_resp['total']
+
+      get "/resources/fields", :field_name => key, :query => "A", :page => 2, :per_page => 10
+      assert response.ok?
+      js_resp = json_response
+      assert_equal 2, js_resp['total']
+      assert_equal [], js_resp['values']
+    end
+  end
+
   def test_crud_resource
     login_curator!
     geofocus = Geofocus.create(name: "Test")
