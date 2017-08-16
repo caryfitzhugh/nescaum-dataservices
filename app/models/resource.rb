@@ -1,4 +1,5 @@
 require 'rgeo'
+
 DataMapper::Inflector.inflections do |inflect|
   inflect.irregular "geofocus", "geofocuses"
   inflect.irregular "strategy", "strategies"
@@ -37,6 +38,7 @@ class Resource
   property :created_at, DateTime
   property :updated_at, DateTime
 
+  has n, :geofocus_resources
   has n, :geofocuses, through: :geofocus_resources
 
   def geofocuses=(newv)
@@ -46,6 +48,7 @@ class Resource
     end
     super(newv)
   end
+
   has n, :resource_action_links
   has n, :resource_actions, through: :resource_action_links
   def actions=(action_strs)
@@ -62,7 +65,6 @@ class Resource
     end
   end
 
-# has n, :resource_climate_changes
   has n, :resource_climate_change_links
   has n, :resource_climate_changes, through: :resource_climate_change_links
   def climate_changes=(strs)
@@ -102,7 +104,7 @@ class Resource
   has n, :resource_content_type_links
   has n, :resource_content_types, through: :resource_content_type_links
   def content_types=(strs)
-    cts = strs.map do |str|
+    strs.map do |str|
       ResourceContentType.first_or_create(value: str)
     end
   end
@@ -222,6 +224,30 @@ class Resource
     self.logger.info "Args: #{args}"
 
     Cloudsearch.search_conn.search(args)
+  end
+
+  def delete_associations
+    self.resource_action_links.destroy
+    self.resource_author_links.destroy
+    self.resource_climate_change_links.destroy
+    self.resource_effect_links.destroy
+    self.resource_keyword_links.destroy
+    self.resource_publisher_links.destroy
+    self.resource_content_type_links.destroy
+    self.resource_sector_links.destroy
+    self.resource_strategy_links.destroy
+    self.resource_state_links.destroy
+    self.geofocus_resources.destroy
+  end
+
+  def destroy
+    delete_associations
+    super
+  end
+
+  def destroy!
+    delete_associations
+    super
   end
 
   def docid

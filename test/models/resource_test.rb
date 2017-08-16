@@ -1,6 +1,41 @@
 require 'test_helper'
 
 class ResourceTest < NDSTestBase
+  def test_resource_delete
+    date = Date.today
+    doc = Resource.new
+    doc.content = "### Abstract"
+    doc.title = "Title"
+    doc.subtitle = "Subtitle!"
+    doc.image  = "http:123"
+    doc.external_data_links = [
+      "pdf::http://google.com/pdf",
+      "weblink::http://google.com/weblink",
+    ]
+    doc.geofocuses << Geofocus.first_or_create(name: "basin lake NY")
+    doc.published_on_start = date
+    doc.published_on_end = date
+
+    ["Cary FitzHugh", "Steve Signell"].each {|v| doc.resource_authors << ResourceAuthor.first_or_create(value: v)}
+    ["document::report"].each {|v| doc.resource_content_types << ResourceContentType.first_or_create(value: v)}
+    ["NOAA"].each {|v| doc.resource_publishers << ResourcePublisher.first_or_create(value: v)}
+    ["danger"].each {|v| doc.resource_keywords << ResourceKeyword.first_or_create(value: v)}
+    ["root", "root2::leaf"].each {|v| doc.resource_sectors << ResourceSector.first_or_create(value: v)}
+    ["root", "root2::leaf"].each {|v| doc.resource_effects << ResourceEffect.first_or_create(value: v)}
+    ["root", "root2::leaf"].each {|v| doc.resource_actions << ResourceAction.first_or_create(value: v)}
+    ["root", "root2::leaf"].each {|v| doc.resource_climate_changes << ResourceClimateChange.first_or_create(value: v)}
+    ["adaptation"].each {|v| doc.resource_strategies << ResourceStrategy.first_or_create(value: v)}
+    ["VT", "MA", "CT"].each {|v| doc.resource_states << ResourceState.first_or_create(value: v)}
+
+    assert doc.save, doc.errors.full_messages.join("\n")
+
+    assert doc.destroy!
+    assert_equal 2, ResourceAuthor.count
+    assert_equal 1, ResourceContentType.count
+    assert_equal 1, ResourceKeyword.count
+    assert_equal 1, ResourcePublisher.count
+    assert_equal 1, Geofocus.count
+  end
   # /home/cfitzhugh/.rvm/gems/ruby-2.3.4@nescaum-dataservices/gems/aws-sdk-core-2.9.25/lib/aws-sdk-core/plugins/request_signer.rb : 89
   def test_geofocus
     doc = Resource.new

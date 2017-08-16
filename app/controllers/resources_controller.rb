@@ -305,7 +305,7 @@ module Controllers
     delete "/resources/:docid", require_role: :curator do
       doc = Resource.get_by_docid(params[:docid])
 
-      if doc.destroy!
+      if doc.destroy
         Action.track!(doc, current_user, "Deleted")
         Cloudsearch.remove_documents([doc.docid])
         Action.track!(doc, current_user, "Removed from Index")
