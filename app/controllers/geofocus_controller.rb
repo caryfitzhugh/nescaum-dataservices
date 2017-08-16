@@ -182,7 +182,7 @@ module Controllers
       gfs = Geofocus.all(:order => [:name.asc])
 
       if params[:q]
-        gfs = gfs.all(:name.like => "%#{params[:q]}%")
+        gfs = gfs.all(:name.ilike => "%#{params[:q]}%")
       end
 
       if params[:type]
