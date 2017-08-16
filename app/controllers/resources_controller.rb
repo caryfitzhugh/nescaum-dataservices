@@ -19,9 +19,6 @@ module Controllers
 
     type 'NewResource', {
       required: [
-        :title,
-        :content,
-        :content_types
       ],
       properties: {
         :title => {type: String, example: "Title of the resource"},
@@ -222,10 +219,14 @@ module Controllers
               tags: ["Resources", "Curator"]
 
     post "/resources", require_role: :curator do
-      doc = Resource.new(params[:parsed_body][:resource])
-      doc.published_on_end ||= doc.published_on_start
+      p = params[:parsed_body][:resource]
+      p[:published_on_end] = p[:published_on_end] || p[:published_on_start]
+
+      doc = Resource.new
+      update_resource(doc, p)
 
       if doc.save
+        doc.reload
         Action.track!(doc, current_user, "Created")
         json(doc.to_resource)
       else
@@ -283,7 +284,7 @@ module Controllers
       doc = Resource.get_by_docid(params[:docid])
       attrs = params[:parsed_body][:resource]
       attrs.delete('docid')
-      doc.attributes = doc.attributes.merge(attrs)
+      update_resource(doc,attrs)
 
       if doc.save
         doc.sync_index!
@@ -331,5 +332,30 @@ module Controllers
       end
     end
 
+    private
+
+    def update_resource(doc, p)
+      doc.title = p[:title] if p[:title]
+      doc.subtitle = p[:subtitle] if p[:subtitle]
+      doc.image = p[:image] if p[:image]
+      doc.content = p[:content] if p[:content]
+      doc.external_data_links = p[:external_data_links]  if p[:external_data_links]
+      doc.geofocuses = p[:geofocuses] if p[:geofocuses]
+      doc.published_on_start = p[:published_on_start] if p[:published_on_start]
+      doc.published_on_end = p[:published_on_end] || doc.published_on_start
+      doc.resource_content_types  = (p[:content_types] || []).map { |v| ResourceContentType.first_or_create(value: v) } if p[:content_types]
+      doc.resource_actions = (p[:actions] || []).map { |v| ResourceAction.first_or_create(value: v) } if p[:actions]
+      doc.resource_authors = (p[:authors] || []).map { |v| ResourceAuthor.first_or_create(value: v) } if p[:authors]
+      doc.resource_climate_changes = (p[:climate_changes] || []).map {|v| ResourceClimateChange.first_or_create(value: v) } if p[:climate_changes]
+      doc.resource_effects = (p[:effects] || []).map { |v| ResourceEffect.first_or_create(value: v) } if p[:effects]
+      doc.resource_keywords = (p[:keywords] || []).map {|v| ResourceKeyword.first_or_create(value: v) } if p[:keywords]
+      doc.resource_publishers = (p[:publishers] || []).map {|v| ResourcePublisher.first_or_create(value: v) } if p[:publishers]
+      doc.resource_sectors = (p[:sectors] || []).map {|v| ResourceSector.first_or_create(value: v) } if p[:sectors]
+      doc.resource_strategies = (p[:strategies] || []).map {|v| ResourceStrategy.first_or_create(value: v) } if p[:strategies]
+      doc.resource_states = (p[:states] || []).map {|v| ResourceState.first_or_create(value: v) } if p[:states]
+
+    end
   end
+
+
 end

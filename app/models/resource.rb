@@ -14,6 +14,7 @@ class Resource
   FACETED_PROPERTIES = [
     :actions,
     :authors,
+    :content_types,
     :climate_changes,
     :effects,
     :keywords,
@@ -47,41 +48,92 @@ class Resource
   end
   has n, :resource_action_links
   has n, :resource_actions, through: :resource_action_links
+  def actions=(action_strs)
+    action_strs.each do |str|
+      ResourceAction.add_to_resource!(self, str)
+    end
+  end
 
   has n, :resource_author_links
   has n, :resource_authors, through: :resource_author_links
+  def authors=(action_strs)
+    action_strs.each do |str|
+      ResourceAuthor.add_to_resource!(self, str)
+    end
+  end
 
 # has n, :resource_climate_changes
   has n, :resource_climate_change_links
   has n, :resource_climate_changes, through: :resource_climate_change_links
+  def climate_changes=(strs)
+    strs.each do |str|
+      ResourceClimateChange.add_to_resource!(self, str)
+    end
+  end
 
 # has n, :resource_effects
   has n, :resource_effect_links
   has n, :resource_effects, through: :resource_effect_links
+  def effects=(strs)
+    strs.each do |str|
+      ResourceEffect.add_to_resource!(self, str)
+    end
+  end
 
 # has n, :resource_keywords
   has n, :resource_keyword_links
   has n, :resource_keywords, through: :resource_keyword_links
+  def keywords=(strs)
+    strs.each do |str|
+      ResourceKeyword.add_to_resource!(self, str)
+    end
+  end
 
 # has n, :resource_publishers
   has n, :resource_publisher_links
   has n, :resource_publishers, through: :resource_publisher_links
+  def publishers=(strs)
+    strs.each do |str|
+      ResourcePublisher.add_to_resource!(self, str)
+    end
+  end
 
 # has n, :resource_content_types
   has n, :resource_content_type_links
   has n, :resource_content_types, through: :resource_content_type_links
+  def content_types=(strs)
+    cts = strs.map do |str|
+      ResourceContentType.first_or_create(value: str)
+    end
+  end
 
 # has n, :resource_sectors
   has n, :resource_sector_links
   has n, :resource_sectors, through: :resource_sector_links
+  def sectors=(strs)
+    strs.each do |str|
+      ResourceSector.add_to_resource!(self, str)
+    end
+  end
+
 
 # has n, :resource_strategies
   has n, :resource_strategy_links
   has n, :resource_strategies, through: :resource_strategy_links
+  def strategies=(strs)
+    strs.each do |str|
+      ResourceStrategy.add_to_resource!(self, str)
+    end
+  end
 
 # has n, :resource_states
   has n, :resource_state_links
   has n, :resource_states, through: :resource_state_links
+  def states=(strs)
+    strs.each do |str|
+      ResourceState.add_to_resource!(self, str)
+    end
+  end
 
   def self.get_by_docid(did)
     id = did.split("::").last.to_i
@@ -163,7 +215,7 @@ class Resource
 
     # Return facets for things
     args[:facet] = JSON.generate(FACETED_PROPERTIES.reduce({}) do |memo, filter|
-      memo[filter] = {:sort => :count, :size => 100}
+      memo[filter] = {:sort => :count, :size => 1000}
       memo
     end)
 
@@ -204,11 +256,10 @@ class Resource
      sectors: self.resource_sectors.map(&:value),
      strategies: self.resource_strategies.map(&:value),
      states: self.resource_states.map(&:value),
-     actions: self.resource_actions.map(&:value),
 
      ## Dates
      published_on_start: to_cs_date(self.published_on_start),
-     published_on_start:   to_cs_date(self.published_on_end),
+     published_on_end:   to_cs_date(self.published_on_end),
     }
   end
 

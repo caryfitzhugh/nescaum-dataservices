@@ -8,19 +8,77 @@ class ResourcesControllerTest < NDSTestBase
       title: "Title",
       subtitle: "Subtitle",
       content_types: ["format::1"],
-      published_on_end: Date.today.to_s,
+      image: "http://image.com",
+      content: "Content",
+      external_data_links: ["pdf::123"],
       published_on_start: Date.today.to_s,
       geofocuses: [geofocus.id],
+      actions: ["action"],
+      authors: ["author"],
+      effects: ["effect"],
+      climate_changes: ["climate_change"],
+      keywords: ["keyword"],
+      publishers: ["publisher"],
+      sectors: ['sector'],
+      strategies: ['strategy'],
+      states: ['state']
     }}
 
     js_resp = json_response
 
     assert response.ok?
-    assert_equal "Title", js_resp['title']
-    assert_equal "Subtitle", js_resp['subtitle']
-    assert_equal ["format::1"], js_resp['content_types']
-    assert_equal geofocus.to_resource["id"], js_resp['geofocuses'][0][:id]
-    assert_equal geofocus.to_resource["name"], js_resp['geofocuses'][0][:name]
+
+    {
+     'title' => 'Title',
+     'subtitle' => 'Subtitle',
+     'content_types' => ["format::1"],
+     'image' => 'http://image.com',
+     'content' => 'Content',
+     'external_data_links' => ['pdf::123'],
+     'actions' => ['action'],
+     'authors' => ['author'],
+     'effects' => ['effect'],
+     'climate_changes' => ['climate_change'],
+     'keywords' => ['keyword'],
+     'publishers' => ['publisher'],
+     'sectors' => ['sector'],
+     'strategies' => ['strategy'],
+     'states' => ['state']
+    }.each_pair do |key, res|
+      assert_equal res, js_resp[key]
+    end
+
+    assert_equal geofocus.to_resource[:id], js_resp['geofocuses'][0]
+
+    put_json "/resources/#{js_resp['docid']}", {"resource" => {
+      title: "Title2",
+      states: ['state2']
+    }}
+
+    js_resp = json_response
+
+    assert response.ok?
+
+    {
+     'title' => 'Title2',
+     'subtitle' => 'Subtitle',
+     'content_types' => ["format::1"],
+     'image' => 'http://image.com',
+     'content' => 'Content',
+     'external_data_links' => ['pdf::123'],
+     'actions' => ['action'],
+     'authors' => ['author'],
+     'effects' => ['effect'],
+     'climate_changes' => ['climate_change'],
+     'keywords' => ['keyword'],
+     'publishers' => ['publisher'],
+     'sectors' => ['sector'],
+     'strategies' => ['strategy'],
+     'states' => ['state2']
+    }.each_pair do |key, res|
+      assert_equal res, js_resp[key]
+    end
+
   end
 
   def test_index_resource
@@ -29,10 +87,8 @@ class ResourcesControllerTest < NDSTestBase
     doc = Resource.create!(
       title: "Title",
       subtitle: "Subtitle",
-      content_types: ["format::1"],
-      published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
-      geofocuses: [geofocus.id],
+      published_on_end: Date.today.to_s,
     )
 
     post_json "/resources/#{doc.docid}/index", {}
@@ -48,10 +104,8 @@ class ResourcesControllerTest < NDSTestBase
     doc = Resource.create!(
       title: "Title",
       subtitle: "Subtitle",
-      content_types: ["format::1"],
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
-      geofocuses: [geofocus.id],
     )
 
     delete "/resources/#{doc.docid}/index", {}
@@ -95,7 +149,7 @@ class ResourcesControllerTest < NDSTestBase
     doc = Resource.create!(
       title: "Title1",
       subtitle: "Subtitle",
-      content_types: ["format::1"],
+      resource_content_types: [ResourceContentType.first_or_create(value: "format::1")],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
@@ -108,7 +162,7 @@ class ResourcesControllerTest < NDSTestBase
     doc2 = Resource.create!(
       title: "Title2",
       subtitle: "Subtitle",
-      content_types: ["format::2"],
+      resource_content_types: [ResourceContentType.first_or_create(value: "format::2")],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
@@ -119,7 +173,7 @@ class ResourcesControllerTest < NDSTestBase
     doc2 = Resource.create!(
       title: "Title3",
       subtitle: "Subtitle",
-      content_types: ["format::3"],
+      resource_content_types: [ResourceContentType.first_or_create(value: "format::3")],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
