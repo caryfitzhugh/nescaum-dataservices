@@ -239,6 +239,7 @@ class Resource
 
   def to_resource
     {docid: self.docid,
+     id: self.id,
      geofocuses: self.geofocuses.map(&:id),
      title: self.title,
      subtitle: self.subtitle,
