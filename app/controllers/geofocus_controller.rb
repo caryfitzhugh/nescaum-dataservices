@@ -4,14 +4,14 @@ module Controllers
   class GeofocusController < Controllers::Base
     type 'IdGeoJSON', {
       properties: {
-        id: { type: String, description: "Id of the geofocus"},
-        geom: { type: String, description: "Geojson of the geofocus"}
+        geometry: { type: String, description: "Geojson of the geofocus"}
       }
     }
 
     type 'BulkGeoJSON', {
       properties: {
-        geojson: { type: ["IdGeoJSON"], description: "Bulk Geojson records"}
+        type: { type: String, description: "FeatureCollection"},
+        features: { type: ["IdGeoJSON"], description: "Bulk Geojson records"}
       }
     }
 
@@ -78,7 +78,7 @@ module Controllers
         content_type :json
         geojsons = gfs.map(&:to_geojson)
 
-        json({ geojson: geojsons })
+        json({ type: "FeatureCollection", features: geojsons })
       else
         not_found("Geofocus", params[:ids])
       end
