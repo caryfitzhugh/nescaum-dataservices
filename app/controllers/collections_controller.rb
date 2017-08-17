@@ -1,4 +1,5 @@
 require 'app/controllers/base'
+require 'app/controllers/resources_controller'
 require 'app/models'
 module Controllers
   class CollectionsController < Controllers::Base
@@ -13,7 +14,7 @@ module Controllers
       properties: {
         id: { type: Integer, description: "Collection ID"},
         name: {type: String, description: "Name of the collection"},
-        resources: {type: [String], description: "Docids of the collection"}
+        resources: {type: ['Resource'], description: "Resources of the collection"}
       }
     }
 

@@ -5,6 +5,10 @@ class Collection
   property :resources, DataMapper::Property::PgArray
 
   def to_resource
-    self.attributes
+    attrs = self.attributes
+    attrs[:resources] = attrs[:resources].map do |docid|
+      Resource.get_by_docid(docid)
+    end.compact.map(&:to_resource)
+    attrs
   end
 end
