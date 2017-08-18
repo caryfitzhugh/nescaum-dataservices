@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 gem "rake"
 gem 'sinatra', "2.0.0"
-gem "sinatra-cross_origin", "~> 0.3.1"
 gem "eventmachine", "1.2.3"
 gem 'thin'
 gem 'colorize'

@@ -6,7 +6,6 @@ autoload :Paths, 'lib/paths'
 autoload :OpenStruct, 'ostruct'
 require 'sinatra'
 require 'sinatra/base'
-require 'sinatra/cross_origin'
 require 'logger'
 require 'colorize'
 require 'rack/cors'
@@ -25,15 +24,15 @@ require 'lib/cloudsearch'
 set :logger, Logger.new(STDOUT)
 set :views, Proc.new { File.join(root, "app", "views") }
 set :method_override, true
+set :public_folder, File.dirname(__FILE__) + '/public'
 
 class NDSApp < Sinatra::Application
   register Sinatra::SwaggerExposer
-  register Sinatra::CrossOrigin
   use Rack::Session::Cookie, :key => 'rack.session',
                              :expire_after => 60 * 60 * 24, # 1 day
                              :secret => ENV["SESSION_SECRET"],
                              :old_secret => ENV["OLD_SESSION_SECRET"]
-  enable :cross_origin
+
   use Rack::Cors do
     allow do
       origins '*'
@@ -63,6 +62,10 @@ class NDSApp < Sinatra::Application
 
   get "/", :no_swagger => true do
     redirect '/index.html'
+  end
+
+  get '/data/*' , :no_swagger => true do
+    send_file File.join(File.dirname(__FILE__), 'data', params[:splat])
   end
 
   options "*" do
