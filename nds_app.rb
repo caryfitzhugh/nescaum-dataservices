@@ -6,6 +6,7 @@ autoload :Paths, 'lib/paths'
 autoload :OpenStruct, 'ostruct'
 require 'sinatra'
 require 'sinatra/base'
+require 'sinatra/cross_origin'
 require 'logger'
 require 'colorize'
 require 'rack/cors'
@@ -27,11 +28,12 @@ set :method_override, true
 
 class NDSApp < Sinatra::Application
   register Sinatra::SwaggerExposer
+  register Sinatra::CrossOrigin
   use Rack::Session::Cookie, :key => 'rack.session',
                              :expire_after => 60 * 60 * 24, # 1 day
                              :secret => ENV["SESSION_SECRET"],
                              :old_secret => ENV["OLD_SESSION_SECRET"]
-
+  enable :cross_origin
   use Rack::Cors do
     allow do
       origins '*'
@@ -61,5 +63,12 @@ class NDSApp < Sinatra::Application
 
   get "/", :no_swagger => true do
     redirect '/index.html'
+  end
+
+  options "*" do
+    response.headers["Allow"] = "HEAD,GET,PUT,POST,DELETE,OPTIONS"
+
+    response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
+    200
   end
 end
