@@ -1,0 +1,534 @@
+{
+   "Map Landing Page - Flooding":[
+      "http://www.nyclimatescience.org/individual/n12420",
+      "http://www.nyclimatescience.org/individual/n16601",
+      "http://www.nyclimatescience.org/individual/n16833",
+      "http://www.nyclimatescience.org/individual/n1935",
+      "http://www.nyclimatescience.org/individual/n2796",
+      "http://www.nyclimatescience.org/individual/n31878",
+      "http://www.nyclimatescience.org/individual/n94378"
+   ],
+   "Map Landing Page - Sea Level":[
+      "http://www.nyclimatescience.org/individual/n12420",
+      "http://www.nyclimatescience.org/individual/n14187",
+      "http://www.nyclimatescience.org/individual/n15095",
+      "http://www.nyclimatescience.org/individual/n1789",
+      "http://www.nyclimatescience.org/individual/n2244",
+      "http://www.nyclimatescience.org/individual/n25995",
+      "http://www.nyclimatescience.org/individual/n2619",
+      "http://www.nyclimatescience.org/individual/n30129",
+      "http://www.nyclimatescience.org/individual/n60431"
+   ],
+   "Snowpack Decline":[
+      "http://www.nyclimatescience.org/individual/n1943",
+      "http://www.nyclimatescience.org/individual/n2148",
+      "http://www.nyclimatescience.org/individual/n462",
+      "http://www.nyclimatescience.org/individual/n4710",
+      "http://www.nyclimatescience.org/individual/n5157",
+      "http://www.nyclimatescience.org/individual/n5741"
+   ],
+   "Communicate - General Resources":[
+      "http://www.nyclimatescience.org/individual/n11539",
+      "http://www.nyclimatescience.org/individual/n11546",
+      "http://www.nyclimatescience.org/individual/n15390",
+      "http://www.nyclimatescience.org/individual/n16060"
+   ],
+   "Vulnerability Assessment":[
+      "http://www.nyclimatescience.org/individual/n134",
+      "http://www.nyclimatescience.org/individual/n13635",
+      "http://www.nyclimatescience.org/individual/n17459",
+      "http://www.nyclimatescience.org/individual/n20352",
+      "http://www.nyclimatescience.org/individual/n3616",
+      "http://www.nyclimatescience.org/individual/n4886",
+      "http://www.nyclimatescience.org/individual/n5425",
+      "http://www.nyclimatescience.org/individual/n8451"
+   ],
+   "Preparing for extreme weather along lakes, rivers, and the coast: stabilizing shorelines":[
+      "http://www.nyclimatescience.org/individual/n6463",
+      "http://www.nyclimatescience.org/individual/n6585",
+      "http://www.nyclimatescience.org/individual/n999"
+   ],
+   "Sector: Transportation Highlights":[
+      "http://www.nyclimatescience.org/individual/n10258",
+      "http://www.nyclimatescience.org/individual/n11658",
+      "http://www.nyclimatescience.org/individual/n13270",
+      "http://www.nyclimatescience.org/individual/n2589",
+      "http://www.nyclimatescience.org/individual/n2597",
+      "http://www.nyclimatescience.org/individual/n4472",
+      "http://www.nyclimatescience.org/individual/n4886",
+      "http://www.nyclimatescience.org/individual/n4984",
+      "http://www.nyclimatescience.org/individual/n5400",
+      "http://www.nyclimatescience.org/individual/n6166",
+      "http://www.nyclimatescience.org/individual/n669",
+      "http://www.nyclimatescience.org/individual/n7056",
+      "http://www.nyclimatescience.org/individual/n7250",
+      "http://www.nyclimatescience.org/individual/n7672",
+      "http://www.nyclimatescience.org/individual/n7803",
+      "http://www.nyclimatescience.org/individual/n8934"
+   ],
+   "Investigate Solutions - Identify Potential Solutions: Energy":[
+      "http://www.nyclimatescience.org/individual/n10523",
+      "http://www.nyclimatescience.org/individual/n20994",
+      "http://www.nyclimatescience.org/individual/n5219",
+      "http://www.nyclimatescience.org/individual/n8224"
+   ],
+   "Building for resilience along New York City's coast":[
+      "http://www.nyclimatescience.org/individual/n15201",
+      "http://www.nyclimatescience.org/individual/n16150",
+      "http://www.nyclimatescience.org/individual/n6370"
+   ],
+   "Investigate Solutions - Identify Potential Solutions: Telecommunications":[
+      "http://www.nyclimatescience.org/individual/n1714",
+      "http://www.nyclimatescience.org/individual/n21055",
+      "http://www.nyclimatescience.org/individual/n7979"
+   ],
+   "Sector: Ecosystems Highlights":[
+      "http://www.nyclimatescience.org/individual/n11010",
+      "http://www.nyclimatescience.org/individual/n1537",
+      "http://www.nyclimatescience.org/individual/n16010",
+      "http://www.nyclimatescience.org/individual/n255",
+      "http://www.nyclimatescience.org/individual/n29306",
+      "http://www.nyclimatescience.org/individual/n3124",
+      "http://www.nyclimatescience.org/individual/n36812",
+      "http://www.nyclimatescience.org/individual/n3869",
+      "http://www.nyclimatescience.org/individual/n4965",
+      "http://www.nyclimatescience.org/individual/n519",
+      "http://www.nyclimatescience.org/individual/n763",
+      "http://www.nyclimatescience.org/individual/n810",
+      "http://www.nyclimatescience.org/individual/n8267",
+      "http://www.nyclimatescience.org/individual/n984"
+   ],
+   "Sector: Public Health Highlights":[
+      "http://www.nyclimatescience.org/individual/n11733",
+      "http://www.nyclimatescience.org/individual/n1426",
+      "http://www.nyclimatescience.org/individual/n16765",
+      "http://www.nyclimatescience.org/individual/n2441",
+      "http://www.nyclimatescience.org/individual/n25411",
+      "http://www.nyclimatescience.org/individual/n297",
+      "http://www.nyclimatescience.org/individual/n3021",
+      "http://www.nyclimatescience.org/individual/n3306",
+      "http://www.nyclimatescience.org/individual/n4011",
+      "http://www.nyclimatescience.org/individual/n405",
+      "http://www.nyclimatescience.org/individual/n4083",
+      "http://www.nyclimatescience.org/individual/n555",
+      "http://www.nyclimatescience.org/individual/n7278",
+      "http://www.nyclimatescience.org/individual/n7282",
+      "http://www.nyclimatescience.org/individual/n8090"
+   ],
+   "Events Highlights":[
+      "http://www.nyclimatescience.org/individual/n1015",
+      "http://www.nyclimatescience.org/individual/n11479",
+      "http://www.nyclimatescience.org/individual/n11655",
+      "http://www.nyclimatescience.org/individual/n1170",
+      "http://www.nyclimatescience.org/individual/n16667",
+      "http://www.nyclimatescience.org/individual/n6473"
+   ],
+   "Investigate Solutions - Identify Potential Solutions: Public Health":[
+      "http://www.nyclimatescience.org/individual/n2441",
+      "http://www.nyclimatescience.org/individual/n25916",
+      "http://www.nyclimatescience.org/individual/n7278"
+   ],
+   "Secondary Data Products Highlights":[
+      "http://www.nyclimatescience.org/individual/n10258",
+      "http://www.nyclimatescience.org/individual/n1196",
+      "http://www.nyclimatescience.org/individual/n1325",
+      "http://www.nyclimatescience.org/individual/n14918",
+      "http://www.nyclimatescience.org/individual/n1739",
+      "http://www.nyclimatescience.org/individual/n18943",
+      "http://www.nyclimatescience.org/individual/n19724",
+      "http://www.nyclimatescience.org/individual/n26227",
+      "http://www.nyclimatescience.org/individual/n2959",
+      "http://www.nyclimatescience.org/individual/n33229",
+      "http://www.nyclimatescience.org/individual/n33419",
+      "http://www.nyclimatescience.org/individual/n36628",
+      "http://www.nyclimatescience.org/individual/n44660",
+      "http://www.nyclimatescience.org/individual/n5169",
+      "http://www.nyclimatescience.org/individual/n6072",
+      "http://www.nyclimatescience.org/individual/n6191",
+      "http://www.nyclimatescience.org/individual/n7535",
+      "http://www.nyclimatescience.org/individual/n7877"
+   ],
+   "Map Landing Page - Plants and Animals":[
+      "http://www.nyclimatescience.org/individual/n14027",
+      "http://www.nyclimatescience.org/individual/n16747",
+      "http://www.nyclimatescience.org/individual/n17273",
+      "http://www.nyclimatescience.org/individual/n1795",
+      "http://www.nyclimatescience.org/individual/n27332",
+      "http://www.nyclimatescience.org/individual/n2959",
+      "http://www.nyclimatescience.org/individual/n31202",
+      "http://www.nyclimatescience.org/individual/n4965",
+      "http://www.nyclimatescience.org/individual/n63627",
+      "http://www.nyclimatescience.org/individual/n9502"
+   ],
+   "Communicate - Visualization Resources":[
+      "http://www.nyclimatescience.org/individual/n26685",
+      "http://www.nyclimatescience.org/individual/n5169",
+      "http://www.nyclimatescience.org/individual/n6191",
+      "http://www.nyclimatescience.org/individual/n7494"
+   ],
+   "Sector: Water Resources Highlights":[
+      "http://www.nyclimatescience.org/individual/n13821",
+      "http://www.nyclimatescience.org/individual/n1866",
+      "http://www.nyclimatescience.org/individual/n27454",
+      "http://www.nyclimatescience.org/individual/n3014",
+      "http://www.nyclimatescience.org/individual/n3311",
+      "http://www.nyclimatescience.org/individual/n3536",
+      "http://www.nyclimatescience.org/individual/n3682",
+      "http://www.nyclimatescience.org/individual/n3846",
+      "http://www.nyclimatescience.org/individual/n3965",
+      "http://www.nyclimatescience.org/individual/n4523",
+      "http://www.nyclimatescience.org/individual/n4901",
+      "http://www.nyclimatescience.org/individual/n5287",
+      "http://www.nyclimatescience.org/individual/n5741",
+      "http://www.nyclimatescience.org/individual/n63331",
+      "http://www.nyclimatescience.org/individual/n7235",
+      "http://www.nyclimatescience.org/individual/n7686",
+      "http://www.nyclimatescience.org/individual/n7764",
+      "http://www.nyclimatescience.org/individual/n9305"
+   ],
+   "Climate Data Grapher Spatial Products":[
+      "http://www.nyclimatescience.org/individual/n11485",
+      "http://www.nyclimatescience.org/individual/n12478",
+      "http://www.nyclimatescience.org/individual/n14629",
+      "http://www.nyclimatescience.org/individual/n15597",
+      "http://www.nyclimatescience.org/individual/n2475",
+      "http://www.nyclimatescience.org/individual/n52223"
+   ],
+   "Primary Maps Highlights":[
+      "http://www.nyclimatescience.org/individual/n7494"
+   ],
+   "Map Landing Page - Adaptation":[
+      "http://www.nyclimatescience.org/individual/n13101",
+      "http://www.nyclimatescience.org/individual/n25916",
+      "http://www.nyclimatescience.org/individual/n3804"
+   ],
+   "Investigate Solutions - Identify Potential Solutions: Buildings":[
+      "http://www.nyclimatescience.org/individual/n15201",
+      "http://www.nyclimatescience.org/individual/n16150",
+      "http://www.nyclimatescience.org/individual/n29830",
+      "http://www.nyclimatescience.org/individual/n6237",
+      "http://www.nyclimatescience.org/individual/n6370"
+   ],
+   "Primary Data Products Highlights":[
+      "http://www.nyclimatescience.org/individual/n26685"
+   ],
+   "Map Landing Page - Social and Economic Impacts":[
+      "http://www.nyclimatescience.org/individual/n33419",
+      "http://www.nyclimatescience.org/individual/n59246",
+      "http://www.nyclimatescience.org/individual/n74134",
+      "http://www.nyclimatescience.org/individual/n7850"
+   ],
+   "Preparing for heavy downpours: Save the Rain":[
+      "http://www.nyclimatescience.org/individual/n28600",
+      "http://www.nyclimatescience.org/individual/n3014",
+      "http://www.nyclimatescience.org/individual/n3965"
+   ],
+   "Investigate Solutions - Identify Potential Solutions: Transportation":[
+      "http://www.nyclimatescience.org/individual/n12462",
+      "http://www.nyclimatescience.org/individual/n125197",
+      "http://www.nyclimatescience.org/individual/n13270",
+      "http://www.nyclimatescience.org/individual/n6166"
+   ],
+   "Investigate Solutions - Identify Potential Solutions: Water Resources":[
+      "http://www.nyclimatescience.org/individual/n3536",
+      "http://www.nyclimatescience.org/individual/n3846",
+      "http://www.nyclimatescience.org/individual/n56278",
+      "http://www.nyclimatescience.org/individual/n7804"
+   ],
+   "Data Landing Page - Climate and weather":[
+      "http://www.nyclimatescience.org/individual/n19724",
+      "http://www.nyclimatescience.org/individual/n29796"
+   ],
+   "Map Landing Page - Climate and Weather":[
+      "http://www.nyclimatescience.org/individual/n14918",
+      "http://www.nyclimatescience.org/individual/n1739",
+      "http://www.nyclimatescience.org/individual/n20263",
+      "http://www.nyclimatescience.org/individual/n26227",
+      "http://www.nyclimatescience.org/individual/n27454",
+      "http://www.nyclimatescience.org/individual/n34211",
+      "http://www.nyclimatescience.org/individual/n3457",
+      "http://www.nyclimatescience.org/individual/n37988",
+      "http://www.nyclimatescience.org/individual/n5169",
+      "http://www.nyclimatescience.org/individual/n5333"
+   ],
+   "Managing stormwater along the coast: the Staten Island Bluebelt":[
+      "http://www.nyclimatescience.org/individual/n4624",
+      "http://www.nyclimatescience.org/individual/n810"
+   ],
+   "Sector: Telecommunications Highlights":[
+      "http://www.nyclimatescience.org/individual/n1714",
+      "http://www.nyclimatescience.org/individual/n2172",
+      "http://www.nyclimatescience.org/individual/n22378",
+      "http://www.nyclimatescience.org/individual/n4551",
+      "http://www.nyclimatescience.org/individual/n7979"
+   ],
+   "Reducing greenhouse gas emissions and preparing for climate change: Climate Smart Communities":[
+      "http://www.nyclimatescience.org/individual/n12535",
+      "http://www.nyclimatescience.org/individual/n14405",
+      "http://www.nyclimatescience.org/individual/n2108"
+   ],
+   "Create a Plan":[
+      "http://www.nyclimatescience.org/individual/n17751",
+      "http://www.nyclimatescience.org/individual/n3841",
+      "http://www.nyclimatescience.org/individual/n4472",
+      "http://www.nyclimatescience.org/individual/n55978",
+      "http://www.nyclimatescience.org/individual/n6154",
+      "http://www.nyclimatescience.org/individual/n7297"
+   ],
+   "Evaluate & Prioritize Solutions":[
+      "http://www.nyclimatescience.org/individual/n1117",
+      "http://www.nyclimatescience.org/individual/n12141",
+      "http://www.nyclimatescience.org/individual/n1313",
+      "http://www.nyclimatescience.org/individual/n17256",
+      "http://www.nyclimatescience.org/individual/n1866",
+      "http://www.nyclimatescience.org/individual/n1943",
+      "http://www.nyclimatescience.org/individual/n20596",
+      "http://www.nyclimatescience.org/individual/n26",
+      "http://www.nyclimatescience.org/individual/n358",
+      "http://www.nyclimatescience.org/individual/n3582",
+      "http://www.nyclimatescience.org/individual/n5679",
+      "http://www.nyclimatescience.org/individual/n7583"
+   ],
+   "Extreme Weather":[
+      "http://www.nyclimatescience.org/individual/n1508",
+      "http://www.nyclimatescience.org/individual/n15921",
+      "http://www.nyclimatescience.org/individual/n3971",
+      "http://www.nyclimatescience.org/individual/n448",
+      "http://www.nyclimatescience.org/individual/n48418",
+      "http://www.nyclimatescience.org/individual/n5544",
+      "http://www.nyclimatescience.org/individual/n7039",
+      "http://www.nyclimatescience.org/individual/n7278"
+   ],
+   "Investigate Solutions - Identify Potential Solutions: Coastal Zones":[
+      "http://www.nyclimatescience.org/individual/n1845",
+      "http://www.nyclimatescience.org/individual/n3913",
+      "http://www.nyclimatescience.org/individual/n6463"
+   ],
+   "Seasonal Drought":[
+      "http://www.nyclimatescience.org/individual/n134",
+      "http://www.nyclimatescience.org/individual/n14368",
+      "http://www.nyclimatescience.org/individual/n15346",
+      "http://www.nyclimatescience.org/individual/n3457",
+      "http://www.nyclimatescience.org/individual/n3869",
+      "http://www.nyclimatescience.org/individual/n7235"
+   ],
+   "Climate Data Grapher Station Products":[
+      "http://www.nyclimatescience.org/individual/n2070",
+      "http://www.nyclimatescience.org/individual/n24311"
+   ],
+   "Data Landing Page - Plants and animals":[
+      "http://www.nyclimatescience.org/individual/n33229"
+   ],
+   "Heat Waves":[
+      "http://www.nyclimatescience.org/individual/n14003",
+      "http://www.nyclimatescience.org/individual/n2441",
+      "http://www.nyclimatescience.org/individual/n2504",
+      "http://www.nyclimatescience.org/individual/n297",
+      "http://www.nyclimatescience.org/individual/n4886",
+      "http://www.nyclimatescience.org/individual/n6618",
+      "http://www.nyclimatescience.org/individual/n7542"
+   ],
+   "Secondary Documents Highlights":[
+      "http://www.nyclimatescience.org/individual/n13635",
+      "http://www.nyclimatescience.org/individual/n22194",
+      "http://www.nyclimatescience.org/individual/n3536",
+      "http://www.nyclimatescience.org/individual/n4163",
+      "http://www.nyclimatescience.org/individual/n4934",
+      "http://www.nyclimatescience.org/individual/n5132",
+      "http://www.nyclimatescience.org/individual/n5679",
+      "http://www.nyclimatescience.org/individual/n6154",
+      "http://www.nyclimatescience.org/individual/n6166",
+      "http://www.nyclimatescience.org/individual/n6814",
+      "http://www.nyclimatescience.org/individual/n7452",
+      "http://www.nyclimatescience.org/individual/n899"
+   ],
+   "Map Landing Page - Energy":[
+      "http://www.nyclimatescience.org/individual/n11877",
+      "http://www.nyclimatescience.org/individual/n49356",
+      "http://www.nyclimatescience.org/individual/n5017"
+   ],
+   "Coastal Flooding":[
+      "http://www.nyclimatescience.org/individual/n12762",
+      "http://www.nyclimatescience.org/individual/n15554",
+      "http://www.nyclimatescience.org/individual/n2244",
+      "http://www.nyclimatescience.org/individual/n2619",
+      "http://www.nyclimatescience.org/individual/n2864",
+      "http://www.nyclimatescience.org/individual/n54828",
+      "http://www.nyclimatescience.org/individual/n6191",
+      "http://www.nyclimatescience.org/individual/n7786"
+   ],
+   "Investigate Solutions - Identify Potential Solutions: Ecosystems":[
+      "http://www.nyclimatescience.org/individual/n30185",
+      "http://www.nyclimatescience.org/individual/n810",
+      "http://www.nyclimatescience.org/individual/n875"
+   ],
+   "Impacts & Risks":[
+      "http://www.nyclimatescience.org/individual/n12762",
+      "http://www.nyclimatescience.org/individual/n14632",
+      "http://www.nyclimatescience.org/individual/n1943",
+      "http://www.nyclimatescience.org/individual/n2148",
+      "http://www.nyclimatescience.org/individual/n462",
+      "http://www.nyclimatescience.org/individual/n4984",
+      "http://www.nyclimatescience.org/individual/n5639",
+      "http://www.nyclimatescience.org/individual/n7278"
+   ],
+   "Secondary Maps Highlights":[
+      "http://www.nyclimatescience.org/individual/n11877",
+      "http://www.nyclimatescience.org/individual/n13101",
+      "http://www.nyclimatescience.org/individual/n14512",
+      "http://www.nyclimatescience.org/individual/n1789",
+      "http://www.nyclimatescience.org/individual/n1935",
+      "http://www.nyclimatescience.org/individual/n2244",
+      "http://www.nyclimatescience.org/individual/n27454",
+      "http://www.nyclimatescience.org/individual/n30129",
+      "http://www.nyclimatescience.org/individual/n31202",
+      "http://www.nyclimatescience.org/individual/n3457",
+      "http://www.nyclimatescience.org/individual/n3804",
+      "http://www.nyclimatescience.org/individual/n4523",
+      "http://www.nyclimatescience.org/individual/n4770",
+      "http://www.nyclimatescience.org/individual/n49356",
+      "http://www.nyclimatescience.org/individual/n4965",
+      "http://www.nyclimatescience.org/individual/n5017",
+      "http://www.nyclimatescience.org/individual/n58051"
+   ],
+   "Mitigation":[
+      "http://www.nyclimatescience.org/individual/n10258",
+      "http://www.nyclimatescience.org/individual/n12535",
+      "http://www.nyclimatescience.org/individual/n14405",
+      "http://www.nyclimatescience.org/individual/n1662",
+      "http://www.nyclimatescience.org/individual/n1829",
+      "http://www.nyclimatescience.org/individual/n2108",
+      "http://www.nyclimatescience.org/individual/n26",
+      "http://www.nyclimatescience.org/individual/n3292",
+      "http://www.nyclimatescience.org/individual/n4104",
+      "http://www.nyclimatescience.org/individual/n5017",
+      "http://www.nyclimatescience.org/individual/n5219",
+      "http://www.nyclimatescience.org/individual/n55978",
+      "http://www.nyclimatescience.org/individual/n61677",
+      "http://www.nyclimatescience.org/individual/n7877",
+      "http://www.nyclimatescience.org/individual/n8224",
+      "http://www.nyclimatescience.org/individual/n9848"
+   ],
+   "Investigate Solutions - Identify Potential Solutions: Agriculture":[
+      "http://www.nyclimatescience.org/individual/n1583",
+      "http://www.nyclimatescience.org/individual/n20709",
+      "http://www.nyclimatescience.org/individual/n4996",
+      "http://www.nyclimatescience.org/individual/n8406"
+   ],
+   "Find Funding":[
+      "http://www.nyclimatescience.org/individual/n12141",
+      "http://www.nyclimatescience.org/individual/n188",
+      "http://www.nyclimatescience.org/individual/n19533",
+      "http://www.nyclimatescience.org/individual/n2228",
+      "http://www.nyclimatescience.org/individual/n25556",
+      "http://www.nyclimatescience.org/individual/n6281",
+      "http://www.nyclimatescience.org/individual/n87205"
+   ],
+   "Primary Documents Highlights":[
+      "http://www.nyclimatescience.org/individual/n14632",
+      "http://www.nyclimatescience.org/individual/n17617",
+      "http://www.nyclimatescience.org/individual/n4917",
+      "http://www.nyclimatescience.org/individual/n8040",
+      "http://www.nyclimatescience.org/individual/n9496"
+   ],
+   "Sector: Agriculture Highlights":[
+      "http://www.nyclimatescience.org/individual/n11447",
+      "http://www.nyclimatescience.org/individual/n1170",
+      "http://www.nyclimatescience.org/individual/n15161",
+      "http://www.nyclimatescience.org/individual/n1528",
+      "http://www.nyclimatescience.org/individual/n3204",
+      "http://www.nyclimatescience.org/individual/n32084",
+      "http://www.nyclimatescience.org/individual/n3292",
+      "http://www.nyclimatescience.org/individual/n3781",
+      "http://www.nyclimatescience.org/individual/n49753",
+      "http://www.nyclimatescience.org/individual/n4996",
+      "http://www.nyclimatescience.org/individual/n5705",
+      "http://www.nyclimatescience.org/individual/n6599",
+      "http://www.nyclimatescience.org/individual/n7905",
+      "http://www.nyclimatescience.org/individual/n8406"
+   ],
+   "Adaptation":[
+      "http://www.nyclimatescience.org/individual/n13101",
+      "http://www.nyclimatescience.org/individual/n14581",
+      "http://www.nyclimatescience.org/individual/n14850",
+      "http://www.nyclimatescience.org/individual/n188",
+      "http://www.nyclimatescience.org/individual/n2886",
+      "http://www.nyclimatescience.org/individual/n358",
+      "http://www.nyclimatescience.org/individual/n3841",
+      "http://www.nyclimatescience.org/individual/n3846"
+   ],
+   "Sector: Coastal Zones Highlights":[
+      "http://www.nyclimatescience.org/individual/n12240",
+      "http://www.nyclimatescience.org/individual/n12762",
+      "http://www.nyclimatescience.org/individual/n15201",
+      "http://www.nyclimatescience.org/individual/n16150",
+      "http://www.nyclimatescience.org/individual/n16278",
+      "http://www.nyclimatescience.org/individual/n1789",
+      "http://www.nyclimatescience.org/individual/n1845",
+      "http://www.nyclimatescience.org/individual/n2244",
+      "http://www.nyclimatescience.org/individual/n3804",
+      "http://www.nyclimatescience.org/individual/n4551",
+      "http://www.nyclimatescience.org/individual/n54828",
+      "http://www.nyclimatescience.org/individual/n5544",
+      "http://www.nyclimatescience.org/individual/n5665",
+      "http://www.nyclimatescience.org/individual/n6072",
+      "http://www.nyclimatescience.org/individual/n6191",
+      "http://www.nyclimatescience.org/individual/n6745",
+      "http://www.nyclimatescience.org/individual/n7212",
+      "http://www.nyclimatescience.org/individual/n7452",
+      "http://www.nyclimatescience.org/individual/n7818",
+      "http://www.nyclimatescience.org/individual/n810",
+      "http://www.nyclimatescience.org/individual/n8267"
+   ],
+   "Promoting renewable energy: Solar Tompkins":[
+      "http://www.nyclimatescience.org/individual/n11954",
+      "http://www.nyclimatescience.org/individual/n18879"
+   ],
+   "Sector: Buildings Highlights":[
+      "http://www.nyclimatescience.org/individual/n15201",
+      "http://www.nyclimatescience.org/individual/n1662",
+      "http://www.nyclimatescience.org/individual/n3306",
+      "http://www.nyclimatescience.org/individual/n3342",
+      "http://www.nyclimatescience.org/individual/n4746",
+      "http://www.nyclimatescience.org/individual/n6038",
+      "http://www.nyclimatescience.org/individual/n6370",
+      "http://www.nyclimatescience.org/individual/n6745"
+   ],
+   "Sector: Energy Highlights":[
+      "http://www.nyclimatescience.org/individual/n11877",
+      "http://www.nyclimatescience.org/individual/n13635",
+      "http://www.nyclimatescience.org/individual/n14405",
+      "http://www.nyclimatescience.org/individual/n15554",
+      "http://www.nyclimatescience.org/individual/n23110",
+      "http://www.nyclimatescience.org/individual/n26",
+      "http://www.nyclimatescience.org/individual/n3580",
+      "http://www.nyclimatescience.org/individual/n4163",
+      "http://www.nyclimatescience.org/individual/n4468",
+      "http://www.nyclimatescience.org/individual/n49356",
+      "http://www.nyclimatescience.org/individual/n5219",
+      "http://www.nyclimatescience.org/individual/n6933",
+      "http://www.nyclimatescience.org/individual/n7428",
+      "http://www.nyclimatescience.org/individual/n7535",
+      "http://www.nyclimatescience.org/individual/n7877"
+   ],
+   "Heavy Downpours":[
+      "http://www.nyclimatescience.org/individual/n11877",
+      "http://www.nyclimatescience.org/individual/n1739",
+      "http://www.nyclimatescience.org/individual/n1935",
+      "http://www.nyclimatescience.org/individual/n22194",
+      "http://www.nyclimatescience.org/individual/n50369",
+      "http://www.nyclimatescience.org/individual/n5840",
+      "http://www.nyclimatescience.org/individual/n6184"
+   ],
+   "Map Landing Page - Lakes, Rivers, and Streams":[
+      "http://www.nyclimatescience.org/individual/n10554",
+      "http://www.nyclimatescience.org/individual/n14512",
+      "http://www.nyclimatescience.org/individual/n16655",
+      "http://www.nyclimatescience.org/individual/n16833",
+      "http://www.nyclimatescience.org/individual/n1795",
+      "http://www.nyclimatescience.org/individual/n31202",
+      "http://www.nyclimatescience.org/individual/n4523",
+      "http://www.nyclimatescience.org/individual/n4770",
+      "http://www.nyclimatescience.org/individual/n58051"
+   ]
+}

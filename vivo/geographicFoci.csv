@@ -1,0 +1,147 @@
+geographicLocationName,type
+"Albany, NY",City
+"Binghamton, NY",City
+"Buffalo, NY",City
+"Cortland City, NY",City
+"Geneva, NY",City
+"Ithaca, NY",City
+"Kingston, NY",City
+"New Rochelle City, NY",City
+"New York, NY",City
+"Oneida, NY",City
+"Oswego, NY",City
+"Rochester City, NY",City
+"Syracuse, NY",City
+"Yonkers City, NY",City
+"Albany County, NY",County
+"Albany County, NY",County
+"Allegany County, NY",County
+"Atlantic County, NJ",County
+"Bergen County, NJ",County
+"Bronx County, NY",County
+"Bronx County, NY",County
+"Broome County, NY",County
+"Cape May County, NJ",County
+"Cattaraugus County, NY",County
+"Cayuga County, NY",County
+"Chautauqua County, NY",County
+"Chemung County, NY",County
+"Chenango County, NY",County
+"Clinton County, NY",County
+"Columbia County, NY",County
+"Cortland County, NY",County
+"Cumberland County, NJ",County
+"Delaware County, NY",County
+"Dutchess County, NY",County
+"Erie County, NY",County
+"Essex County, NJ",County
+"Essex County, NY",County
+"Fairfield County, CT",County
+"Franklin County, NY",County
+"Fulton County, NY",County
+"Genesee County, NY",County
+"Greene County, NY",County
+"Hamilton County, NY",County
+"Hamilton County, NY",County
+"Herkimer County, NY",County
+"Hudson County, NJ",County
+"Hunterdon County, NJ",County
+"Jefferson County, NY",County
+"Kings County, NY",County
+"Kings County, NY",County
+"Lewis County, NY",County
+"Litchfield County, CT",County
+"Livingston County, NY",County
+"Madison County, NY",County
+"Mercer County, NJ",County
+"Middlesex County, NJ",County
+"Monmouth County, NJ",County
+"Monroe County, NY",County
+"Montgomery County, NY",County
+"Morris County, NJ",County
+"Nassau County, NY",County
+"New Haven County, CT",County
+"New York County, NY",County
+"New York County, NY",County
+"Niagara County, NY",County
+"Ocean County, NJ",County
+Oneida,County
+"Oneida County, NY",County
+"Onondaga County, NY",County
+"Ontario County, NY",County
+"Orange County, NY",County
+"Orleans County, NY",County
+Oswego,County
+"Oswego County, NY",County
+"Otsego County, NY",County
+"Passaic County, NJ",County
+"Putnam County, NY",County
+"Queens County, NY",County
+"Queens County, NY",County
+"Rensselaer County, NY",County
+"Rensselaer County, NY",County
+"Richmond County, NY",County
+"Richmond County, NY",County
+"Rockland County, NY",County
+"Salem County, NJ",County
+"Saratoga County, NY",County
+"Schenectady County, NY",County
+"Schoharie County, NY",County
+"Schuyler County, NY",County
+"Seneca County, NY",County
+"Somerset County, NJ",County
+"St. Lawrence County, NY",County
+"Steuben County, NY",County
+"Suffolk County, NY",County
+"Sullivan County, NY",County
+"Sussex County, NJ",County
+"Tioga County, NY",County
+"Tompkins County, NY",County
+"Ulster County, NY",County
+"Ulster County, NY",County
+"Union County, NJ",County
+"Warren County, NJ",County
+"Warren County, NY",County
+"Washington County, NY",County
+"Wayne County, NY",County
+"Westchester County, NY",County
+"Wyoming County, NY",County
+"Yates County, NY",County
+Hudson-Wappinger HUC8 watershed,HUC8 watershed
+Lower Hudson HUC8 watershed,HUC8 watershed
+Middle Hudson HUC8 watershed,HUC8 watershed
+Rondout HUC8 watershed,HUC8 watershed
+"Adirondack Park Preserve, NY",Preserve
+Connecticut,State
+Maine,State
+Massachusetts,State
+New Hampshire,State
+New Jersey,State
+New York,State
+New York,State
+Pennsylvania,State
+Rhode Island,State
+Vermont,State
+Great Lakes Region,Subnational Region
+Lake Champlain Basin,Subnational Region
+New England,Subnational Region
+Northeast United States,Subnational Region
+"Babylon Town, NY",Town
+"Catskill Town, NY",Town
+"Dryden Town, NY",Town
+"Henrietta, NY",Town
+"Islip Town, NY",Town
+"Kingston Town, NY",Town
+"Montgomery, NY",Town
+"Red Hook Town, NY",Town
+"Rosendale, NY",Town
+"Stony Point Town, NY",Town
+"Wallkill, NY",Town
+"Wilmington Town, NY",Town
+"Gowanda Village, NY",Village
+"Larchmont, NY",Village
+"Millbrook, NY",Village
+"Piermont Village, NY",Village
+"Red Hook Village, NY",Village
+"Skaneateles Village, NY",Village
+"Tivoli Village, NY",Village
