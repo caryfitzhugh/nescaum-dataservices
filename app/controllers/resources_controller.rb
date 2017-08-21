@@ -126,7 +126,7 @@ module Controllers
               ),
               tags: ["Resources", "Public"]
 
-    get "/resources" do
+    get "/resources/?" do
       per_page = params[:per_page] || 50
       page = params[:page] || 1
       query = params[:query]
@@ -143,13 +143,14 @@ module Controllers
       end
 
       result = Resource.search(query: query,
-                                  filters: filters,
-                                  page: page,
-                                  geofocuses: geofocuses,
-                                  bounding_box: bbox,
-                                  per_page: per_page,
-                                  pub_dates: [params[:published_on_start] ? Date.parse(params[:published_on_start]) : nil,
-                                              params[:published_on_end] ? Date.parse(params[:published_on_end]) : nil])
+                               filters: filters,
+                               page: page,
+                               geofocuses: geofocuses,
+                               bounding_box: bbox,
+                               per_page: per_page,
+                               pub_dates: [params[:published_on_start] ? Date.parse(params[:published_on_start]) : nil,
+                                           params[:published_on_end] ? Date.parse(params[:published_on_end]) : nil])
+
       facets = result.facets.reduce({}) do |memo, (key, val)|
         memo[key] = val.buckets.map do |bucket|
           {value: bucket.value, count: bucket.count}

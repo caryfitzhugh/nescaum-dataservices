@@ -9,7 +9,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://purl.org/datastar/CugirRepository" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Coastal Zones",
@@ -31,7 +31,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://purl.org/datastar/CugirRepository" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Coastal Zones",
@@ -53,7 +53,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://purl.org/datastar/DryadRepository" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -110,7 +110,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://purl.org/datastar/KnbRepository" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Coastal Zones",
@@ -132,7 +132,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://purl.org/datastar/KnbRepository" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Coastal Zones",
@@ -154,7 +154,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://purl.org/datastar/PangaeaRepository" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones",
         "Water Resources"
@@ -204,7 +204,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n30715/EPA+Greenhouse+gas+emissions.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "emissions data",
         "GHG"
        ] ,
@@ -213,13 +213,13 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n10258" ,
-    "sectors" : 
+    "sectors" :
       [ "Agriculture",
         "Transportation",
         "Energy"
        ] ,
     "strategies" : [ "Mitigation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "greenhouse gas emissions",
         "greenhouse gas emissions (Topic)"
        ] ,
@@ -232,7 +232,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n30715/EPA+Greenhouse+gas+emissions.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "emissions data",
         "GHG"
        ] ,
@@ -241,13 +241,13 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n10258" ,
-    "sectors" : 
+    "sectors" :
       [ "Agriculture",
         "Transportation",
         "Energy"
        ] ,
     "strategies" : [ "Mitigation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "greenhouse gas emissions",
         "greenhouse gas emissions (Topic)"
        ] ,
@@ -260,7 +260,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n30715/EPA+Greenhouse+gas+emissions.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "emissions data",
         "GHG"
        ] ,
@@ -269,13 +269,13 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n10258" ,
-    "sectors" : 
+    "sectors" :
       [ "Agriculture",
         "Transportation",
         "Energy"
        ] ,
     "strategies" : [ "Mitigation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "greenhouse gas emissions",
         "greenhouse gas emissions (Topic)"
        ] ,
@@ -294,7 +294,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n10554" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -307,7 +307,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "ocean temperature",
         "annual temperature",
         "wind distribution",
@@ -332,7 +332,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n10687" ,
     "sectors" : [  ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate projections (Topic)",
         "climate projections"
@@ -342,7 +342,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "extreme heat events",
         "extreme cold events",
@@ -362,12 +362,12 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n12273/StormEventsDatabase.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme weather",
         "severe weather",
         "storms"
        ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://www.ncdc.noaa.gov/stormevents/" ,
           "linklabel" : "weblink"
         },
@@ -377,7 +377,7 @@
        ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n11204" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -389,7 +389,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -399,7 +399,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "streamflow",
         "inland flooding",
         "coastal flooding"
@@ -421,7 +421,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "streamflow",
         "inland flooding",
         "coastal flooding"
@@ -454,7 +454,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n11370" ,
     "sectors" : [ "Ecosystems" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "ecosystem changes",
         "ecosystem changes (Topic)"
        ] ,
@@ -474,7 +474,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n11370" ,
     "sectors" : [ "Ecosystems" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "ecosystem changes",
         "ecosystem changes (Topic)"
        ] ,
@@ -483,7 +483,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual precipitation",
         "heavy precipitation events",
         "seasonal precipitation"
@@ -491,7 +491,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n10308/CDG+image+county+precip.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme weather",
         "rain",
         "precipitation trends",
@@ -504,7 +504,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n11485" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -516,7 +516,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations",
@@ -529,7 +529,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "storm surge",
         "inland flooding",
         "sea level rise",
@@ -538,7 +538,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n37559/energy+infrastructure+FEMA+flood.jpg" ,
-    "keywords" : 
+    "keywords" :
       [ "electric transmission lines",
         "coal",
         "natural gas",
@@ -555,14 +555,14 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n11877" ,
-    "sectors" : 
+    "sectors" :
       [ "Coastal Zones",
         "Transportation",
         "Energy",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "vulnerability (Topic)",
         "vulnerability"
        ] ,
@@ -571,7 +571,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "storm surge",
         "inland flooding",
         "sea level rise",
@@ -580,7 +580,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n37559/energy+infrastructure+FEMA+flood.jpg" ,
-    "keywords" : 
+    "keywords" :
       [ "electric transmission lines",
         "coal",
         "natural gas",
@@ -597,14 +597,14 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n11877" ,
-    "sectors" : 
+    "sectors" :
       [ "Coastal Zones",
         "Transportation",
         "Energy",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "vulnerability (Topic)",
         "vulnerability"
        ] ,
@@ -613,7 +613,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "storm surge",
         "inland flooding",
         "sea level rise",
@@ -622,7 +622,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n37559/energy+infrastructure+FEMA+flood.jpg" ,
-    "keywords" : 
+    "keywords" :
       [ "electric transmission lines",
         "coal",
         "natural gas",
@@ -639,14 +639,14 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n11877" ,
-    "sectors" : 
+    "sectors" :
       [ "Coastal Zones",
         "Transportation",
         "Energy",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "vulnerability (Topic)",
         "vulnerability"
        ] ,
@@ -672,7 +672,7 @@
     "type" : "Data Product"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "DeGaetano, Arthur T.",
         "Moore, Rick"
        ] ,
@@ -689,7 +689,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n12030" ,
     "sectors" : [ "Agriculture" ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "fruit",
         "climate data",
         "climate measurements and observations (Topic)",
@@ -700,7 +700,7 @@
     "type" : "Decision Support"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "DeGaetano, Arthur T.",
         "Moore, Rick"
        ] ,
@@ -717,7 +717,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n12030" ,
     "sectors" : [ "Agriculture" ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "fruit",
         "climate data",
         "climate measurements and observations (Topic)",
@@ -732,7 +732,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "Gross Domestic Product",
         "BEA Statistics",
         "Corporate Profits",
@@ -748,7 +748,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n12085" ,
     "sectors" : [  ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "economic impacts (Topic)",
         "economic impacts"
        ] ,
@@ -757,11 +757,11 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "sea level rise",
         "coastal flooding"
        ] ,
-    "effects" : 
+    "effects" :
       [ "coastal property damage",
         "coastal properties permanently under seawater",
         "saltwater in built freshwater systems"
@@ -776,7 +776,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n12299" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "shorelines (coastal)",
         "vulnerability (Topic)",
         "vulnerability"
@@ -786,11 +786,11 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "sea level rise",
         "coastal flooding"
        ] ,
-    "effects" : 
+    "effects" :
       [ "coastal property damage",
         "coastal properties permanently under seawater",
         "saltwater in built freshwater systems"
@@ -805,7 +805,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n12299" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "shorelines (coastal)",
         "vulnerability (Topic)",
         "vulnerability"
@@ -814,14 +814,14 @@
     "type" : "Data Product"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Blumberg, Alan",
         "Becker, Mark",
         "Orton, Philip",
         "MacManus, Kytt",
         "Lall, Upmanu"
        ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "storm surge",
         "inland flooding",
         "sea level rise",
@@ -831,7 +831,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n23393/Hudson+River+Flooding+Decision+Support.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "transportation infrastructure",
         "emergency services",
         "waste",
@@ -847,7 +847,7 @@
     "publicationdate" : "2016-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n12420" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Public Health",
         "Coastal Zones",
@@ -857,7 +857,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "shorelines (inland) (Topic)",
         "shorelines (inland)",
         "vulnerability (Topic)",
@@ -867,14 +867,14 @@
     "type" : "Decision Support"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Blumberg, Alan",
         "Becker, Mark",
         "Orton, Philip",
         "MacManus, Kytt",
         "Lall, Upmanu"
        ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "storm surge",
         "inland flooding",
         "sea level rise",
@@ -884,7 +884,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n23393/Hudson+River+Flooding+Decision+Support.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "transportation infrastructure",
         "emergency services",
         "waste",
@@ -900,7 +900,7 @@
     "publicationdate" : "2016-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n12420" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Public Health",
         "Coastal Zones",
@@ -910,7 +910,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "shorelines (inland) (Topic)",
         "shorelines (inland)",
         "vulnerability (Topic)",
@@ -921,7 +921,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual precipitation",
         "heavy precipitation events",
         "seasonal precipitation"
@@ -929,7 +929,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n31457/CDG+image+state+precip.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme weather",
         "rain",
         "precipitation trends",
@@ -942,7 +942,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n12478" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -954,7 +954,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations",
@@ -971,7 +971,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "keywords" : [  ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://www.coast.noaa.gov/ccapatlas/" ,
           "linklabel" : "weblink"
         },
@@ -981,7 +981,7 @@
        ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n1264" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Coastal Zones",
@@ -998,7 +998,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "keywords" : [  ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://www.coast.noaa.gov/ccapatlas/" ,
           "linklabel" : "weblink"
         },
@@ -1008,7 +1008,7 @@
        ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n1264" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Coastal Zones",
@@ -1030,7 +1030,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n127482" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Transportation",
         "Water Resources"
@@ -1051,7 +1051,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n127482" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Transportation",
         "Water Resources"
@@ -1063,7 +1063,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "annual precipitation",
         "ice cover",
@@ -1073,7 +1073,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "reanalysis",
         "weather forecasts"
        ] ,
@@ -1082,7 +1082,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n1292" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -1094,7 +1094,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -1104,7 +1104,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "extreme heat events",
         "extreme cold events",
         "annual temperature",
@@ -1118,7 +1118,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n11699/Current+and+historical+station+data.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "growing degree day",
         "heating degree day",
         "cooling degree day"
@@ -1128,7 +1128,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n1325" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -1146,7 +1146,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "extreme heat events",
         "extreme cold events",
         "annual temperature",
@@ -1160,7 +1160,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n11699/Current+and+historical+station+data.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "growing degree day",
         "heating degree day",
         "cooling degree day"
@@ -1170,7 +1170,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n1325" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -1191,7 +1191,7 @@
     "climatechanges" : [  ] ,
     "effects" : [ "animal and insect species range shifts" ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "range expansion",
         "bird species",
         "range shift",
@@ -1205,7 +1205,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n13375" ,
     "sectors" : [ "Ecosystems" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "ecosystem changes",
         "ecosystem changes (Topic)",
         "biodiversity"
@@ -1215,7 +1215,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "wind distribution",
         "annual precipitation",
@@ -1234,7 +1234,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n13407" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -1246,7 +1246,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate projections (Topic)",
         "climate projections"
@@ -1256,7 +1256,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "hurricanes",
         "storm surge",
         "sea level rise",
@@ -1264,7 +1264,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "100-year flood",
         "500-year flood"
        ] ,
@@ -1273,7 +1273,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n135593" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -1285,7 +1285,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "tourism (Topic)",
         "tourism",
         "wind energy (Topic)",
@@ -1303,7 +1303,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "extreme heat events",
         "extreme cold events",
         "annual temperature",
@@ -1326,7 +1326,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n13692" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -1338,7 +1338,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -1348,7 +1348,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "heat index",
         "seasonal temperature"
@@ -1363,7 +1363,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n13836" ,
     "sectors" : [ "Public Health" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -1373,7 +1373,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "heat index",
         "seasonal temperature"
@@ -1388,7 +1388,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n13836" ,
     "sectors" : [ "Public Health" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -1396,7 +1396,7 @@
     "title" : "North America Land Data Assimilation System (NLDAS)  Daily Air Temperatures and Heat Index 1979 - 2011" ,
     "type" : "Dataset"
   },
-  { "actions" : 
+  { "actions" :
       [ "multiple land use actions",
         "multiple relocation actions",
         "multiple policy actions",
@@ -1407,7 +1407,7 @@
     "climatechanges" : [ "inland flooding" ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "non-regulatory flood resilience",
         "river corridors",
         "vulnerable settlements",
@@ -1421,7 +1421,7 @@
         "municipal plan",
         "emergency preparedness"
        ] ,
-    "links" : 
+    "links" :
       [ { "link" : "https://s3.amazonaws.com/nyclimatescience.org/CPR-Flood_Resilience_Checklist_FORM_distributed.pdf" ,
           "linklabel" : "pdf"
         },
@@ -1432,27 +1432,27 @@
     "publicationdate" : "2016-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n13894" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Transportation",
         "Buildings",
         "Water Resources"
        ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "resilience",
         "land use"
        ] ,
     "title" : "Flood Resilience Checklist for Vermont Communities" ,
     "type" : "Decision Support"
   },
-  { "actions" : 
+  { "actions" :
       [ "multiple land use actions",
         "multiple natural resource and/or conservation actions",
         "multiple policy actions"
        ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "extreme heat events",
         "lake level",
@@ -1475,7 +1475,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n2205/Mass+wildlife+action+tool.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "game species",
         "pollinators",
         "insects",
@@ -1497,26 +1497,26 @@
     "publicationdate" : "2015-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n13895" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones",
         "Transportation"
        ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "ecosystem changes",
         "ecosystem changes (Topic)"
        ] ,
     "title" : "Massachusetts Wildlife Climate Action Tool" ,
     "type" : "Decision Support"
   },
-  { "actions" : 
+  { "actions" :
       [ "multiple land use actions",
         "multiple natural resource and/or conservation actions",
         "multiple policy actions"
        ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "extreme heat events",
         "lake level",
@@ -1539,7 +1539,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n2205/Mass+wildlife+action+tool.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "game species",
         "pollinators",
         "insects",
@@ -1561,13 +1561,13 @@
     "publicationdate" : "2015-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n13895" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones",
         "Transportation"
        ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "ecosystem changes",
         "ecosystem changes (Topic)"
        ] ,
@@ -1576,14 +1576,14 @@
   },
   { "actions" : [  ] ,
     "authors" : [ "New Jersey Coastal Management Program" ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "storm surge",
         "sea level rise",
         "coastal flooding"
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "planning integration",
         "risk assessment",
         "hazard exposure",
@@ -1606,7 +1606,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n13913" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "resilience",
         "land use"
        ] ,
@@ -1615,7 +1615,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "extreme heat events",
         "seasonal temperature"
        ] ,
@@ -1630,7 +1630,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n14027" ,
     "sectors" : [ "Agriculture" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "dairy (Topic)",
         "dairy"
        ] ,
@@ -1639,7 +1639,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "extreme heat events",
         "annual temperature",
@@ -1649,7 +1649,7 @@
         "peak winds",
         "seasonal precipitation"
        ] ,
-    "effects" : 
+    "effects" :
       [ "infrastructure damage, weakening, or strain",
         "habitat changes",
         "crop growth effects",
@@ -1659,7 +1659,7 @@
         "illness from air pollutants"
        ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme weather",
         "urban heat island",
         "precipitation variability",
@@ -1676,7 +1676,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n14124" ,
     "sectors" : [  ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "habitat loss (Topic)",
         "habitat loss",
         "ecosystem changes",
@@ -1690,7 +1690,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "fish barrier",
         "fish passage"
        ] ,
@@ -1700,13 +1700,13 @@
     "publicationdate" : "2013-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n14352" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Transportation",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "culverts",
         "dams (Topic)",
         "dams"
@@ -1714,7 +1714,7 @@
     "title" : "Hudson River Estuary Barrier Project" ,
     "type" : "Data Product"
   },
-  { "actions" : 
+  { "actions" :
       [ "multiple land use actions",
         "multiple energy efficiency or conservation actions",
         "multiple emissions reduction actions",
@@ -1727,7 +1727,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "transportation policy",
         "emissions reduction",
         "infrastructure investment",
@@ -1741,7 +1741,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n14405" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones",
         "Transportation",
@@ -1750,7 +1750,7 @@
         "Water Resources"
        ] ,
     "strategies" : [ "Mitigation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "land use",
         "greenhouse gas emissions",
         "greenhouse gas emissions (Topic)"
@@ -1760,7 +1760,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "extreme heat events",
         "annual temperature",
@@ -1781,7 +1781,7 @@
     "publicationdate" : "2016-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n14443" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -1793,7 +1793,7 @@
         "Water Resources"
        ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations",
@@ -1808,7 +1808,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "grasslands",
         "connecting lands",
         "vernal pools",
@@ -1836,7 +1836,7 @@
     "publicationdate" : "2013-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n14542" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Water Resources"
        ] ,
@@ -1851,7 +1851,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n14736/CAIT.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "country greenhouse gas emissions",
         "emissions data",
         "GHG",
@@ -1862,12 +1862,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n14596" ,
-    "sectors" : 
+    "sectors" :
       [ "Agriculture",
         "Energy"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "greenhouse gas emissions",
         "greenhouse gas emissions (Topic)"
        ] ,
@@ -1880,7 +1880,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n14736/CAIT.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "country greenhouse gas emissions",
         "emissions data",
         "GHG",
@@ -1891,12 +1891,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n14596" ,
-    "sectors" : 
+    "sectors" :
       [ "Agriculture",
         "Energy"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "greenhouse gas emissions",
         "greenhouse gas emissions (Topic)"
        ] ,
@@ -1909,7 +1909,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n14736/CAIT.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "country greenhouse gas emissions",
         "emissions data",
         "GHG",
@@ -1920,12 +1920,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n14596" ,
-    "sectors" : 
+    "sectors" :
       [ "Agriculture",
         "Energy"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "greenhouse gas emissions",
         "greenhouse gas emissions (Topic)"
        ] ,
@@ -1934,7 +1934,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "extreme heat events",
         "extreme cold events",
         "annual temperature",
@@ -1943,7 +1943,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n25964/CDG+image+river+temp.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme weather",
         "degree days",
         "temperature extremes",
@@ -1958,7 +1958,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n14629" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -1970,7 +1970,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations",
@@ -1987,7 +1987,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n18546/extreme+precip+in+changing+climate.jpg" ,
-    "keywords" : 
+    "keywords" :
       [ "flood",
         "extreme precipitation",
         "extreme rain",
@@ -1998,7 +1998,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n14918" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -2019,7 +2019,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "local connectedness",
         "microhabitats",
         "permeable landscape",
@@ -2034,7 +2034,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n14976" ,
     "sectors" : [ "Ecosystems" ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "resilience",
         "biodiversity"
        ] ,
@@ -2043,18 +2043,18 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "streamflow",
         "inland flooding",
         "coastal flooding"
        ] ,
-    "effects" : 
+    "effects" :
       [ "hydrologic changes affecting aquatic life",
         "groundwater recharge rate changes"
        ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "sediment",
         "flood",
         "aquatic habitat",
@@ -2073,7 +2073,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n15072" ,
     "sectors" : [ "Water Resources" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "water supply",
         "water supply (Topic)",
         "water quality"
@@ -2083,18 +2083,18 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "streamflow",
         "inland flooding",
         "coastal flooding"
        ] ,
-    "effects" : 
+    "effects" :
       [ "hydrologic changes affecting aquatic life",
         "groundwater recharge rate changes"
        ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "sediment",
         "flood",
         "aquatic habitat",
@@ -2113,7 +2113,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n15072" ,
     "sectors" : [ "Water Resources" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "water supply",
         "water supply (Topic)",
         "water quality"
@@ -2135,7 +2135,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n15095" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "vulnerability (Topic)",
         "vulnerability",
         "climate projections (Topic)",
@@ -2146,7 +2146,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "ocean temperature",
         "inland water temperature"
        ] ,
@@ -2158,12 +2158,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n15104" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -2173,7 +2173,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "ocean temperature",
         "inland water temperature"
        ] ,
@@ -2185,12 +2185,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n15104" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -2212,7 +2212,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n15398" ,
     "sectors" : [ "Ecosystems" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "ecosystem changes",
         "ecosystem changes (Topic)"
        ] ,
@@ -2221,7 +2221,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "extreme heat events",
         "extreme cold events",
         "annual temperature",
@@ -2240,7 +2240,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n15588" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -2252,7 +2252,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -2262,7 +2262,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "extreme heat events",
         "extreme cold events",
         "annual temperature",
@@ -2271,7 +2271,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n7357/CDG+image+county+temp.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme weather",
         "degree days",
         "temperature extremes",
@@ -2286,7 +2286,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n15597" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -2298,7 +2298,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations",
@@ -2315,7 +2315,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "keywords" : [  ] ,
-    "links" : 
+    "links" :
       [ { "link" : "https://coastalmap.marine.usgs.gov/national/shorelc/" ,
           "linklabel" : "description"
         },
@@ -2333,7 +2333,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "extreme heat events",
         "extreme cold events",
         "annual temperature",
@@ -2349,7 +2349,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n41046/NYStateMesonet.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "weather data",
         "weather forecast",
         "weather stations"
@@ -2359,7 +2359,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n15713" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -2371,7 +2371,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -2381,7 +2381,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "annual precipitation",
         "seasonal temperature",
@@ -2391,7 +2391,7 @@
     "format" : "data" ,
     "imageURL" : "/file/n17529/ClimateWizard.JPG" ,
     "keywords" : [ "future climate" ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://www.climatewizard.org/index.html" ,
           "linklabel" : "weblink"
         },
@@ -2402,7 +2402,7 @@
     "publicationdate" : "2009-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n15773" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -2414,7 +2414,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate projections (Topic)",
         "climate projections"
@@ -2458,7 +2458,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "lake level",
         "annual temperature",
         "wind distribution",
@@ -2476,13 +2476,13 @@
         } ] ,
     "publishers" : [ "National Oceanic and Atmospheric Administration (NOAA)" ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n16010" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Transportation",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "Great Lakes",
         "climate data",
         "climate measurements and observations (Topic)",
@@ -2493,7 +2493,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "lake level",
         "annual temperature",
         "wind distribution",
@@ -2511,13 +2511,13 @@
         } ] ,
     "publishers" : [ "National Oceanic and Atmospheric Administration (NOAA)" ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n16010" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Transportation",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "Great Lakes",
         "climate data",
         "climate measurements and observations (Topic)",
@@ -2528,7 +2528,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [ "Federal Emergency Management Agency (FEMA)" ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "inland flooding",
         "coastal flooding"
        ] ,
@@ -2541,7 +2541,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n16601" ,
-    "sectors" : 
+    "sectors" :
       [ "Agriculture",
         "Public Health",
         "Coastal Zones",
@@ -2560,7 +2560,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n59188/Env+Public+health+tracker+Air+Pollution.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "fine particulate (PM 2.5)",
         "ozone"
        ] ,
@@ -2587,7 +2587,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n16655" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Energy",
         "Water Resources"
@@ -2609,7 +2609,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n16655" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Energy",
         "Water Resources"
@@ -2621,7 +2621,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "annual temperature",
         "wind distribution",
@@ -2636,7 +2636,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "watershed health",
         "climate change trends",
         "flood control",
@@ -2651,13 +2651,13 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n16717" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -2667,7 +2667,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "annual temperature",
         "wind distribution",
@@ -2682,7 +2682,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "watershed health",
         "climate change trends",
         "flood control",
@@ -2697,13 +2697,13 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n16717" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -2713,7 +2713,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "extreme cold events",
         "seasonal temperature",
         "growing season"
@@ -2721,12 +2721,12 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n64978/Vineyard+Site+Evaluator.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "viticulture",
         "viniculture",
         "growing degree days"
        ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://arcserver2.iagt.org/vll/Default.aspx" ,
           "linklabel" : "description"
         },
@@ -2738,7 +2738,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n16747" ,
     "sectors" : [ "Agriculture" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "wine",
         "grapes",
         "climate"
@@ -2748,14 +2748,14 @@
   },
   { "actions" : [ "incorporate sea-level rise information into land use planning" ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "storm surge",
         "sea level rise",
         "coastal flooding"
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "coastal evacuation routes",
         "state infrastructure",
         "tidal cycles",
@@ -2778,7 +2778,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "streamflow",
         "inland flooding",
         "coastal flooding"
@@ -2792,7 +2792,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n16833" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Coastal Zones",
@@ -2807,7 +2807,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "streamflow",
         "inland flooding",
         "coastal flooding"
@@ -2821,7 +2821,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n16833" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Coastal Zones",
@@ -2839,7 +2839,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "CO<sub>2<\\/sub>",
         "carbon footprint"
        ] ,
@@ -2850,7 +2850,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n169" ,
     "sectors" : [ "Energy" ] ,
     "strategies" : [ "Mitigation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "greenhouse gas emissions",
         "greenhouse gas emissions (Topic)"
        ] ,
@@ -2871,7 +2871,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n17116" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -2892,12 +2892,12 @@
     "publicationdate" : "2012-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n17273" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "gardening",
         "climate"
        ] ,
@@ -2905,7 +2905,7 @@
     "type" : "Data Product"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "National Resources Conservation Service (NRCS)",
         "Northeast Regional Climate Center (NRCC)"
        ] ,
@@ -2913,7 +2913,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n13128/extreme+precip+NY+New+England.jpg" ,
-    "keywords" : 
+    "keywords" :
       [ "flood",
         "extreme weather",
         "severe weather",
@@ -2926,7 +2926,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n1739" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -2938,7 +2938,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -2947,7 +2947,7 @@
     "type" : "Decision Support"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "National Resources Conservation Service (NRCS)",
         "Northeast Regional Climate Center (NRCC)"
        ] ,
@@ -2955,7 +2955,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n13128/extreme+precip+NY+New+England.jpg" ,
-    "keywords" : 
+    "keywords" :
       [ "flood",
         "extreme weather",
         "severe weather",
@@ -2968,7 +2968,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n1739" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -2980,7 +2980,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -2989,7 +2989,7 @@
     "type" : "Data Product"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "National Resources Conservation Service (NRCS)",
         "Northeast Regional Climate Center (NRCC)"
        ] ,
@@ -2997,7 +2997,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n13128/extreme+precip+NY+New+England.jpg" ,
-    "keywords" : 
+    "keywords" :
       [ "flood",
         "extreme weather",
         "severe weather",
@@ -3010,7 +3010,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n1739" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -3022,7 +3022,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -3032,7 +3032,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "annual precipitation",
         "seasonal temperature",
@@ -3041,7 +3041,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "solar radiation",
         "growing degree days",
         "soil temperature"
@@ -3053,7 +3053,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n175" ,
     "sectors" : [ "Agriculture" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -3067,11 +3067,11 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n186826/EAF+Mapper.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "State Environmental Quality Review Act",
         "SEQR"
        ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://www.dec.ny.gov/permits/6191.html" ,
           "linklabel" : "description"
         },
@@ -3089,11 +3089,11 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "sea level rise",
         "coastal flooding"
        ] ,
-    "effects" : 
+    "effects" :
       [ "coastal property damage",
         "coastal properties permanently under seawater",
         "saltwater in built freshwater systems"
@@ -3108,7 +3108,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n1789" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "shorelines (coastal)",
         "vulnerability (Topic)",
         "vulnerability"
@@ -3118,11 +3118,11 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "sea level rise",
         "coastal flooding"
        ] ,
-    "effects" : 
+    "effects" :
       [ "coastal property damage",
         "coastal properties permanently under seawater",
         "saltwater in built freshwater systems"
@@ -3137,7 +3137,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n1789" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "shorelines (coastal)",
         "vulnerability (Topic)",
         "vulnerability"
@@ -3147,11 +3147,11 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "sea level rise",
         "coastal flooding"
        ] ,
-    "effects" : 
+    "effects" :
       [ "coastal property damage",
         "coastal properties permanently under seawater",
         "saltwater in built freshwater systems"
@@ -3166,7 +3166,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n1789" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "shorelines (coastal)",
         "vulnerability (Topic)",
         "vulnerability"
@@ -3174,7 +3174,7 @@
     "title" : "Surging Seas Risk Zone Map: New York" ,
     "type" : "Dataset"
   },
-  { "actions" : 
+  { "actions" :
       [ "multiple relocation actions",
         "multiple risk management actions",
         "multiple natural resource and/or conservation actions",
@@ -3183,7 +3183,7 @@
         "multiple built infrastructure actions"
        ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "extreme heat events",
         "hurricanes",
@@ -3193,7 +3193,7 @@
         "ocean acidification",
         "coastal flooding"
        ] ,
-    "effects" : 
+    "effects" :
       [ "infrastructure damage, weakening, or strain",
         "pest species range shifts",
         "disease from water-borne pathogens",
@@ -3218,7 +3218,7 @@
         "crop stress from weeds and disease"
        ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "tribal nations",
         "funding opportunities",
         "carbon balance",
@@ -3237,7 +3237,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n188" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -3249,7 +3249,7 @@
         "Water Resources"
        ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "risk management",
         "water supply",
         "water supply (Topic)",
@@ -3272,7 +3272,7 @@
     "title" : "U.S. Climate Resilience Toolkit" ,
     "type" : "Decision Support"
   },
-  { "actions" : 
+  { "actions" :
       [ "multiple relocation actions",
         "multiple risk management actions",
         "multiple natural resource and/or conservation actions",
@@ -3281,7 +3281,7 @@
         "multiple built infrastructure actions"
        ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "extreme heat events",
         "hurricanes",
@@ -3291,7 +3291,7 @@
         "ocean acidification",
         "coastal flooding"
        ] ,
-    "effects" : 
+    "effects" :
       [ "infrastructure damage, weakening, or strain",
         "pest species range shifts",
         "disease from water-borne pathogens",
@@ -3316,7 +3316,7 @@
         "crop stress from weeds and disease"
        ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "tribal nations",
         "funding opportunities",
         "carbon balance",
@@ -3335,7 +3335,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n188" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -3347,7 +3347,7 @@
         "Water Resources"
        ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "risk management",
         "water supply",
         "water supply (Topic)",
@@ -3370,7 +3370,7 @@
     "title" : "U.S. Climate Resilience Toolkit" ,
     "type" : "Data Product"
   },
-  { "actions" : 
+  { "actions" :
       [ "multiple relocation actions",
         "multiple risk management actions",
         "multiple natural resource and/or conservation actions",
@@ -3379,7 +3379,7 @@
         "multiple built infrastructure actions"
        ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "extreme heat events",
         "hurricanes",
@@ -3389,7 +3389,7 @@
         "ocean acidification",
         "coastal flooding"
        ] ,
-    "effects" : 
+    "effects" :
       [ "infrastructure damage, weakening, or strain",
         "pest species range shifts",
         "disease from water-borne pathogens",
@@ -3414,7 +3414,7 @@
         "crop stress from weeds and disease"
        ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "tribal nations",
         "funding opportunities",
         "carbon balance",
@@ -3433,7 +3433,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n188" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -3445,7 +3445,7 @@
         "Water Resources"
        ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "risk management",
         "water supply",
         "water supply (Topic)",
@@ -3470,7 +3470,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "annual precipitation"
        ] ,
@@ -3482,7 +3482,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n18841" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -3494,7 +3494,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations",
@@ -3506,7 +3506,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "annual precipitation"
        ] ,
@@ -3518,7 +3518,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n18841" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -3530,7 +3530,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations",
@@ -3542,7 +3542,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "annual temperature",
         "annual precipitation",
@@ -3552,7 +3552,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n12997/PRISM+climate+data.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "this month",
         "historical past",
         "prior 6 months",
@@ -3565,7 +3565,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n18943" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -3577,7 +3577,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -3587,7 +3587,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "annual temperature",
         "annual precipitation",
@@ -3597,7 +3597,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n12997/PRISM+climate+data.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "this month",
         "historical past",
         "prior 6 months",
@@ -3610,7 +3610,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n18943" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -3622,7 +3622,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -3631,7 +3631,7 @@
     "type" : "Dataset"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Barry, L. Margaret",
         "Gerrard, Michael B."
        ] ,
@@ -3653,14 +3653,14 @@
     "type" : "Database"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Rudstam, Lars G.",
         "Jackson, James R."
        ] ,
     "climatechanges" : [ "ice cover" ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "Oneida Lake",
         "lake ice cover",
         "Cazenovia Lake"
@@ -3670,12 +3670,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n19190" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -3685,7 +3685,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "annual temperature",
         "annual precipitation",
@@ -3695,12 +3695,12 @@
         "seasonal precipitation",
         "growing season"
        ] ,
-    "effects" : 
+    "effects" :
       [ "crop growth effects",
         "freeze or frost damage"
        ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "crop management",
         "weather stations",
         "pest forecasts"
@@ -3712,7 +3712,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n19236" ,
     "sectors" : [ "Agriculture" ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "fruit",
         "integrated pest management (Topic)",
         "integrated pest management",
@@ -3723,7 +3723,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "annual temperature",
         "annual precipitation",
@@ -3733,12 +3733,12 @@
         "seasonal precipitation",
         "growing season"
        ] ,
-    "effects" : 
+    "effects" :
       [ "crop growth effects",
         "freeze or frost damage"
        ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "crop management",
         "weather stations",
         "pest forecasts"
@@ -3750,7 +3750,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n19236" ,
     "sectors" : [ "Agriculture" ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "fruit",
         "integrated pest management (Topic)",
         "integrated pest management",
@@ -3761,7 +3761,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "inland flooding",
         "coastal flooding"
        ] ,
@@ -3774,7 +3774,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n1935" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -3792,7 +3792,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "inland flooding",
         "coastal flooding"
        ] ,
@@ -3805,7 +3805,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n1935" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -3823,7 +3823,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "storm surge",
         "sea level rise",
         "coastal flooding"
@@ -3838,7 +3838,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n1944" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "vulnerability (Topic)",
         "vulnerability"
        ] ,
@@ -3850,7 +3850,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "illuminance",
         "historical climate data",
         "solar radiation",
@@ -3864,7 +3864,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n1953" ,
     "sectors" : [ "Energy" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "solar radiation (Topic)",
         "solar radiation"
@@ -3873,7 +3873,7 @@
     "type" : "Dataset"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Moore, Rick",
         "DeGaetano, Arthur T."
        ] ,
@@ -3890,7 +3890,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n19724" ,
     "sectors" : [ "Agriculture" ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -3899,7 +3899,7 @@
     "type" : "Decision Support"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Moore, Rick",
         "DeGaetano, Arthur T."
        ] ,
@@ -3916,7 +3916,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n19724" ,
     "sectors" : [ "Agriculture" ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -3929,7 +3929,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "environmental benefits",
         "water use",
         "supply chain management",
@@ -3942,7 +3942,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n20090" ,
     "sectors" : [ "Agriculture" ] ,
     "strategies" : [ "Mitigation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "biodiversity",
         "land use",
         "greenhouse gas emissions",
@@ -3955,7 +3955,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "annual precipitation",
         "seasonal temperature",
@@ -3971,7 +3971,7 @@
     "publicationdate" : "2012-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n20263" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -3983,7 +3983,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate projections (Topic)",
         "climate projections"
@@ -3993,7 +3993,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual precipitation",
         "snow storms",
         "heavy precipitation events",
@@ -4004,7 +4004,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n47951/CDG+image+station+precip.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme weather",
         "rain",
         "precipitation trends",
@@ -4020,7 +4020,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n2070" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -4032,7 +4032,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -4053,7 +4053,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n2129" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Energy",
@@ -4076,7 +4076,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n2129" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Energy",
@@ -4112,7 +4112,7 @@
     "format" : "data" ,
     "imageURL" : "/file/n32405/eGRID.JPG" ,
     "keywords" : [ "GHG" ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://www2.epa.gov/energy/egrid" ,
           "linklabel" : "description"
         },
@@ -4125,7 +4125,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n2198" ,
     "sectors" : [ "Energy" ] ,
     "strategies" : [ "Mitigation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "greenhouse gas emissions",
         "greenhouse gas emissions (Topic)"
        ] ,
@@ -4134,7 +4134,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "storm surge",
         "sea level rise",
         "coastal flooding"
@@ -4142,7 +4142,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n15040/NOAA+sea+level+rise+and+coastal+impacts+viewer.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "wetlands",
         "coastal communities",
         "coastal flooding impacts",
@@ -4155,7 +4155,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n2244" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "risk management",
         "economic impacts (Topic)",
         "economic impacts",
@@ -4168,7 +4168,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "storm surge",
         "sea level rise",
         "coastal flooding"
@@ -4176,7 +4176,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n15040/NOAA+sea+level+rise+and+coastal+impacts+viewer.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "wetlands",
         "coastal communities",
         "coastal flooding impacts",
@@ -4189,7 +4189,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n2244" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "risk management",
         "economic impacts (Topic)",
         "economic impacts",
@@ -4202,7 +4202,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "storm surge",
         "sea level rise",
         "coastal flooding"
@@ -4210,7 +4210,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n15040/NOAA+sea+level+rise+and+coastal+impacts+viewer.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "wetlands",
         "coastal communities",
         "coastal flooding impacts",
@@ -4223,7 +4223,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n2244" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "risk management",
         "economic impacts (Topic)",
         "economic impacts",
@@ -4235,13 +4235,13 @@
     "type" : "Dataset"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Hunter, Timothy S.",
         "Smith, Joeseph P.",
         "Gronewold, Andrew D.",
         "Clites, Anne H."
        ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "lake level",
         "annual precipitation",
         "evaporation",
@@ -4250,7 +4250,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "water level",
         "Lake Erie",
         "net basin supply",
@@ -4267,7 +4267,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n23128" ,
     "sectors" : [ "Water Resources" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate measurements and observations (Topic)",
         "climate measurements and observations"
        ] ,
@@ -4275,13 +4275,13 @@
     "type" : "Data Product"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Hunter, Timothy S.",
         "Smith, Joeseph P.",
         "Gronewold, Andrew D.",
         "Clites, Anne H."
        ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "lake level",
         "annual precipitation",
         "evaporation",
@@ -4290,7 +4290,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "water level",
         "Lake Erie",
         "net basin supply",
@@ -4307,7 +4307,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n23128" ,
     "sectors" : [ "Water Resources" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate measurements and observations (Topic)",
         "climate measurements and observations"
        ] ,
@@ -4316,7 +4316,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "ocean temperature",
         "drought",
         "extreme heat events",
@@ -4353,7 +4353,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n14649/Climate.data.gov.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "climate change",
         "extreme weather"
        ] ,
@@ -4362,14 +4362,14 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n2317" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Coastal Zones",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "water supply",
         "water supply (Topic)",
         "climate data",
@@ -4384,7 +4384,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "ocean temperature",
         "drought",
         "extreme heat events",
@@ -4421,7 +4421,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n14649/Climate.data.gov.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "climate change",
         "extreme weather"
        ] ,
@@ -4430,14 +4430,14 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n2317" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Coastal Zones",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "water supply",
         "water supply (Topic)",
         "climate data",
@@ -4452,7 +4452,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "ocean temperature",
         "drought",
         "extreme heat events",
@@ -4489,7 +4489,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n14649/Climate.data.gov.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "climate change",
         "extreme weather"
        ] ,
@@ -4498,14 +4498,14 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n2317" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Coastal Zones",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "water supply",
         "water supply (Topic)",
         "climate data",
@@ -4519,18 +4519,18 @@
     "type" : "Dataset"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Ithaca-Tompkins County Transportation Council ",
         "Energetics Incorporated"
        ] ,
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "site suitability",
         "EV charging station"
        ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://www.tompkinscountyny.gov/itctc/projects#EV" ,
           "linklabel" : "weblink"
         },
@@ -4541,7 +4541,7 @@
     "publicationdate" : "2017-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n23283" ,
-    "sectors" : 
+    "sectors" :
       [ "Transportation",
         "Energy"
        ] ,
@@ -4552,7 +4552,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "wind distribution",
         "annual precipitation",
@@ -4562,7 +4562,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "solar radiation",
         "humidity",
         "growing degree days",
@@ -4576,7 +4576,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n2390" ,
     "sectors" : [ "Agriculture" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -4586,7 +4586,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "extreme heat events",
         "extreme cold events",
         "annual temperature",
@@ -4596,7 +4596,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n16841/CDG+image+station+temp.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme weather",
         "frost",
         "frost free season",
@@ -4614,7 +4614,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n24311" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -4626,7 +4626,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -4637,7 +4637,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "extreme heat events",
         "extreme cold events",
         "annual temperature",
@@ -4646,7 +4646,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n12244/CDG+image+state+temp.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme weather",
         "degree days",
         "temperature extremes",
@@ -4661,7 +4661,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n2475" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -4673,7 +4673,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations",
@@ -4697,7 +4697,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n24813" ,
     "sectors" : [ "Energy" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "energy supply",
         "energy production",
         "energy use (Topic)",
@@ -4711,7 +4711,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "critical habitat",
         "Audubon Important Bird Areas",
         "wetlands",
@@ -4724,7 +4724,7 @@
         "habitat protection",
         "habitat"
        ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://www.wind.tnc.org/#" ,
           "linklabel" : "description"
         },
@@ -4734,12 +4734,12 @@
        ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n25054" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Energy"
        ] ,
     "strategies" : [ "Mitigation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "habitat loss (Topic)",
         "habitat loss",
         "wind energy (Topic)",
@@ -4752,14 +4752,14 @@
     "type" : "Decision Support"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Magnuson, J.",
         "Benson, B."
        ] ,
     "climatechanges" : [ "ice cover" ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "lake ice",
         "river ice"
        ] ,
@@ -4770,7 +4770,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n25167" ,
     "sectors" : [ "Water Resources" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate measurements and observations (Topic)",
         "climate measurements and observations"
        ] ,
@@ -4790,7 +4790,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n25637" ,
     "sectors" : [ "Water Resources" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "water supply",
         "water supply (Topic)"
        ] ,
@@ -4810,7 +4810,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n25637" ,
     "sectors" : [ "Water Resources" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "water supply",
         "water supply (Topic)"
        ] ,
@@ -4829,12 +4829,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n25995" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "shorelines (coastal)",
         "ecosystem changes",
         "ecosystem changes (Topic)"
@@ -4844,7 +4844,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [ "Marcy, Doug" ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "hurricanes",
         "storm surge",
         "sea level rise",
@@ -4852,7 +4852,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "Hurricane Irene",
         "risk assessment",
         "Hurricane Sandy",
@@ -4866,7 +4866,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n2604" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "vulnerability (Topic)",
         "vulnerability"
        ] ,
@@ -4875,7 +4875,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "storm surge",
         "sea level rise",
         "coastal flooding"
@@ -4883,7 +4883,7 @@
     "effects" : [ "coastal erosion" ] ,
     "format" : "data" ,
     "imageURL" : "/file/n11881/Coastal+Hazards+USGS.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme storms",
         "overwash",
         "shoreline change",
@@ -4901,7 +4901,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n2619" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "risk management",
         "shorelines (coastal)",
         "vulnerability (Topic)",
@@ -4912,7 +4912,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "storm surge",
         "sea level rise",
         "coastal flooding"
@@ -4920,7 +4920,7 @@
     "effects" : [ "coastal erosion" ] ,
     "format" : "data" ,
     "imageURL" : "/file/n11881/Coastal+Hazards+USGS.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme storms",
         "overwash",
         "shoreline change",
@@ -4938,7 +4938,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n2619" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "risk management",
         "shorelines (coastal)",
         "vulnerability (Topic)",
@@ -4949,7 +4949,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "storm surge",
         "sea level rise",
         "coastal flooding"
@@ -4957,7 +4957,7 @@
     "effects" : [ "coastal erosion" ] ,
     "format" : "data" ,
     "imageURL" : "/file/n11881/Coastal+Hazards+USGS.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme storms",
         "overwash",
         "shoreline change",
@@ -4975,7 +4975,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n2619" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "risk management",
         "shorelines (coastal)",
         "vulnerability (Topic)",
@@ -4986,7 +4986,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "annual precipitation",
         "evaporation",
@@ -4996,11 +4996,11 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n7860/National+Climate+change+viewer.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "NEX-DCP30 dataset",
         "future climate"
        ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://www.usgs.gov/climate_landuse/clu_rd/nccv/viewer.asp" ,
           "linklabel" : "weblink"
         },
@@ -5010,7 +5010,7 @@
        ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n26227" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -5022,7 +5022,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate projections (Topic)",
         "climate projections"
@@ -5042,12 +5042,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n26466" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "greenhouse gases",
         "carbon cycle",
         "greenhouse gas emissions",
@@ -5069,12 +5069,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n26466" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "greenhouse gases",
         "carbon cycle",
         "greenhouse gas emissions",
@@ -5086,7 +5086,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "extreme heat events",
         "extreme cold events",
         "annual temperature",
@@ -5103,7 +5103,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n26562" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -5115,7 +5115,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations",
@@ -5127,7 +5127,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "extreme heat events",
         "extreme cold events",
         "annual temperature",
@@ -5143,7 +5143,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n13351/CDG+NY+avg+annual+temp.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "rain",
         "degree days",
         "precipitation trends",
@@ -5162,7 +5162,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n26685" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -5174,7 +5174,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations",
@@ -5185,7 +5185,7 @@
     "type" : "Data Product"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Conley, Amy",
         "Howard, Timothy G.",
         "White, Erin I"
@@ -5194,7 +5194,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n26896/tft.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "BAP",
         "ecological stress",
         "ecological health",
@@ -5212,7 +5212,7 @@
         "erosion",
         "floodplain"
        ] ,
-    "links" : 
+    "links" :
       [ { "link" : "https://lab.nynhp.org/trees_tribs_gl/data_explorer/" ,
           "linklabel" : "weblink"
         },
@@ -5223,12 +5223,12 @@
     "publicationdate" : "2016-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n27205" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Water Resources"
        ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "water quality",
         "resilience"
        ] ,
@@ -5242,7 +5242,7 @@
     "format" : "data" ,
     "imageURL" : "/file/n57858/NY+Nature+Explorer.JPG" ,
     "keywords" : [ "biodiversity mapping" ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://www.dec.ny.gov/natureexplorer/app/" ,
           "linklabel" : "weblink"
         },
@@ -5261,7 +5261,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "annual precipitation",
         "sea level rise",
@@ -5278,7 +5278,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n27454" ,
     "sectors" : [ "Water Resources" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate projections (Topic)",
         "climate projections"
        ] ,
@@ -5290,7 +5290,7 @@
     "climatechanges" : [ "heavy precipitation events" ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "precipitation intensity",
         "point precipitation frequency estimates",
         "recurrence intervals",
@@ -5314,7 +5314,7 @@
     "climatechanges" : [ "heavy precipitation events" ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "precipitation intensity",
         "point precipitation frequency estimates",
         "recurrence intervals",
@@ -5355,7 +5355,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "ecosystem service valuation",
         "simulation models"
        ] ,
@@ -5366,7 +5366,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n27857" ,
     "sectors" : [ "Ecosystems" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "ecosystem services",
         "biodiversity"
        ] ,
@@ -5375,7 +5375,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "hurricanes",
         "storm surge",
         "inland flooding",
@@ -5390,7 +5390,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n2796" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -5408,7 +5408,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "hurricanes",
         "storm surge",
         "inland flooding",
@@ -5423,7 +5423,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n2796" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -5444,7 +5444,7 @@
     "climatechanges" : [  ] ,
     "effects" : [ "freeze or frost damage" ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "Empire",
         "McIntosh",
         "Red Delicious"
@@ -5466,7 +5466,7 @@
     "climatechanges" : [  ] ,
     "effects" : [ "freeze or frost damage" ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "Empire",
         "McIntosh",
         "Red Delicious"
@@ -5488,7 +5488,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "hydrologic disconnections",
         "wetlands",
         "invasive Phragmites stands",
@@ -5502,7 +5502,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n28288" ,
     "sectors" : [ "Ecosystems" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "ecosystem changes",
         "ecosystem changes (Topic)"
        ] ,
@@ -5510,7 +5510,7 @@
     "type" : "Decision Support"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "North Atlantic Landscape Conservation Cooperative (NALCC)",
         "Nature Conservancy of Canada",
         "The Nature Conservancy, Eastern Conservation Science",
@@ -5520,7 +5520,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "grasslands",
         "wetlands",
         "forests",
@@ -5535,7 +5535,7 @@
     "publicationdate" : "2013-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n28337" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones"
        ] ,
@@ -5546,7 +5546,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "streamflow",
         "inland flooding",
@@ -5562,7 +5562,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n28515" ,
     "sectors" : [ "Water Resources" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -5572,7 +5572,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "streamflow",
         "inland flooding",
@@ -5588,7 +5588,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n28515" ,
     "sectors" : [ "Water Resources" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -5598,20 +5598,20 @@
   },
   { "actions" : [  ] ,
     "authors" : [ "Landscape Change Research Group" ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "annual precipitation",
         "seasonal temperature",
         "soil moisture"
        ] ,
-    "effects" : 
+    "effects" :
       [ "tree species range shifts",
         "animal and insect species range shifts",
         "animal and insect population changes"
        ] ,
     "format" : "data" ,
     "imageURL" : "/file/n26719/Tree+and+bird+atlas.jpg" ,
-    "keywords" : 
+    "keywords" :
       [ "projected future habitat",
         "summary of predictors",
         "tree atlas",
@@ -5633,20 +5633,20 @@
   },
   { "actions" : [  ] ,
     "authors" : [ "Landscape Change Research Group" ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "annual precipitation",
         "seasonal temperature",
         "soil moisture"
        ] ,
-    "effects" : 
+    "effects" :
       [ "tree species range shifts",
         "animal and insect species range shifts",
         "animal and insect population changes"
        ] ,
     "format" : "data" ,
     "imageURL" : "/file/n26719/Tree+and+bird+atlas.jpg" ,
-    "keywords" : 
+    "keywords" :
       [ "projected future habitat",
         "summary of predictors",
         "tree atlas",
@@ -5667,11 +5667,11 @@
     "type" : "Dataset"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Habitat Seven",
         "National Environmental Modeling and Analysis Center (NEMAC)"
        ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "extreme heat events",
         "extreme cold events",
@@ -5685,14 +5685,14 @@
         "seasonal precipitation",
         "coastal flooding"
        ] ,
-    "effects" : 
+    "effects" :
       [ "saltwater in freshwater ecosystems",
         "coastal power plant damage",
         "saltwater intrusion on coastal land"
        ] ,
     "format" : "data" ,
     "imageURL" : "/file/n28756/The+Climate+Explorer.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "tribal nations",
         "pollution",
         "development",
@@ -5712,7 +5712,7 @@
     "publicationdate" : "2016-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n29796" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -5724,7 +5724,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "vulnerability (Topic)",
         "vulnerability",
@@ -5739,7 +5739,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "sea level rise",
         "coastal flooding"
        ] ,
@@ -5761,7 +5761,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "sea level rise",
         "coastal flooding"
        ] ,
@@ -5787,7 +5787,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n75439/Model+my+watershed.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "farm animals",
         "suspended solids",
         "stormwater",
@@ -5805,12 +5805,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n30165" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "water quality",
         "land use"
        ] ,
@@ -5823,7 +5823,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n75439/Model+my+watershed.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "farm animals",
         "suspended solids",
         "stormwater",
@@ -5841,12 +5841,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n30165" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "water quality",
         "land use"
        ] ,
@@ -5858,7 +5858,7 @@
     "climatechanges" : [ "sea level rise" ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "future sea level",
         "New York City / Lower Hudson region",
         "official State projections",
@@ -5871,7 +5871,7 @@
     "publicationdate" : "2016-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n30395" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -5883,7 +5883,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate projections (Topic)",
         "climate projections"
        ] ,
@@ -5895,7 +5895,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "streams",
         "climate change",
         "amount of impervious surface",
@@ -5910,12 +5910,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n30478" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Water Resources"
        ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "resilience",
         "biodiversity"
        ] ,
@@ -5924,7 +5924,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "annual precipitation",
         "seasonal temperature",
@@ -5939,7 +5939,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n30514" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -5950,7 +5950,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "Great Lakes",
         "climate data",
         "climate measurements and observations (Topic)",
@@ -5960,7 +5960,7 @@
     "type" : "Data Product"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Fenimore, Chris",
         "Rippey, Brad"
        ] ,
@@ -5973,14 +5973,14 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n30900" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Energy",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -5989,7 +5989,7 @@
     "type" : "Data Product"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Fenimore, Chris",
         "Rippey, Brad"
        ] ,
@@ -6002,14 +6002,14 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n30900" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Energy",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -6019,7 +6019,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "extreme heat events",
         "extreme cold events",
@@ -6033,13 +6033,13 @@
         "growing season",
         "inland water temperature"
        ] ,
-    "effects" : 
+    "effects" :
       [ "plant species range shifts",
         "animal and insect population changes"
        ] ,
     "format" : "data" ,
     "imageURL" : "/file/n21224/Natural+Resource+Navigator.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "streams",
         "wetlands",
         "invasives",
@@ -6054,7 +6054,7 @@
         "climate change exposure",
         "land use"
        ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://maps.naturalresourcenavigator.org/" ,
           "linklabel" : "weblink"
         },
@@ -6065,13 +6065,13 @@
     "publicationdate" : "2015-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n31202" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "habitat loss (Topic)",
         "habitat loss",
         "invasive plant species",
@@ -6085,7 +6085,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "inland flooding",
         "coastal flooding"
        ] ,
@@ -6101,7 +6101,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n31222" ,
     "sectors" : [  ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "economic impacts (Topic)",
         "economic impacts"
        ] ,
@@ -6111,17 +6111,17 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "ocean temperature",
         "ocean acidification"
        ] ,
-    "effects" : 
+    "effects" :
       [ "animal and insect species range shifts",
         "animal and insect population changes"
        ] ,
     "format" : "data" ,
     "imageURL" : "/file/n12405/NE+fish+vulnerability+assess.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "climate exposure",
         "biological sensitivity"
        ] ,
@@ -6131,12 +6131,12 @@
     "publicationdate" : "2016-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n31228" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "vulnerability (Topic)",
         "vulnerability"
        ] ,
@@ -6145,7 +6145,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "wind distribution",
         "heat index",
@@ -6166,7 +6166,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n3175" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -6184,7 +6184,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "hurricanes",
         "storm surge",
         "inland flooding",
@@ -6194,7 +6194,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n28584/Coastal+Flood+Exposure+Mapper.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "hospital",
         "elderly",
         "infrastructure exposure",
@@ -6212,7 +6212,7 @@
         "critical facilities",
         "population density"
        ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://www.coast.noaa.gov/floodexposure/#/splash" ,
           "linklabel" : "weblink"
         },
@@ -6222,7 +6222,7 @@
        ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n31878" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Public Health",
         "Coastal Zones",
@@ -6235,7 +6235,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "hurricanes",
         "storm surge",
         "sea level rise",
@@ -6243,7 +6243,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "community infrastructure",
         "FEMA flood zones",
         "businesses",
@@ -6260,7 +6260,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n31909" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Public Health",
         "Coastal Zones",
@@ -6269,7 +6269,7 @@
         "Energy"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "vulnerability (Topic)",
         "vulnerability",
         "land use"
@@ -6296,18 +6296,18 @@
     "type" : "Data Product"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "DeGaetano, Arthur T.",
         "Belcher, Brian"
        ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "soil moisture"
        ] ,
     "effects" : [ "crop growth effects" ] ,
     "format" : "data" ,
     "imageURL" : "/file/n26324/CSF+Irrigation+tool.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "soil water capacity",
         "crop type"
        ] ,
@@ -6324,18 +6324,18 @@
     "type" : "Decision Support"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "DeGaetano, Arthur T.",
         "Belcher, Brian"
        ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "soil moisture"
        ] ,
     "effects" : [ "crop growth effects" ] ,
     "format" : "data" ,
     "imageURL" : "/file/n26324/CSF+Irrigation+tool.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "soil water capacity",
         "crop type"
        ] ,
@@ -6357,7 +6357,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n12967/EJSCREEN+image.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "National Priority list proximity",
         "particulate matter",
         "demographic index",
@@ -6378,7 +6378,7 @@
         "Risk Management Plan potential chemical accident management plan proximity",
         "Treatment Storage Disposal Facility proximity"
        ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://ejscreen.epa.gov/mapper/" ,
           "linklabel" : "weblink"
         },
@@ -6388,13 +6388,13 @@
        ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n33419" ,
-    "sectors" : 
+    "sectors" :
       [ "Public Health",
         "Transportation",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "equity & environmental justice",
         "equity & environmental justice (Topic)"
        ] ,
@@ -6402,7 +6402,7 @@
     "type" : "Data Product"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "DeGaetano, Arthur T.",
         "Castellano, Christopher M."
        ] ,
@@ -6410,7 +6410,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n32083/IDF+curves.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme weather",
         "extreme rain",
         "heavy downpours",
@@ -6422,7 +6422,7 @@
     "publicationdate" : "2015-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n34211" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -6434,7 +6434,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate modeling",
         "climate modeling (Topic)",
         "climate data",
@@ -6448,7 +6448,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "extreme heat events",
         "extreme cold events",
@@ -6465,7 +6465,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n34231" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -6476,7 +6476,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "Great Lakes",
         "climate data",
         "climate projections (Topic)",
@@ -6497,14 +6497,14 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n3457" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Energy",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -6525,14 +6525,14 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n3457" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Energy",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -6543,7 +6543,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "hurricanes",
         "intense winter storms",
         "ice storms",
@@ -6554,7 +6554,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme weather",
         "severe weather"
        ] ,
@@ -6565,7 +6565,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n34669" ,
     "sectors" : [  ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -6575,7 +6575,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "hurricanes",
         "intense winter storms",
         "ice storms",
@@ -6586,7 +6586,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme weather",
         "severe weather"
        ] ,
@@ -6597,7 +6597,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n34669" ,
     "sectors" : [  ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -6610,7 +6610,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "BEA Regional Fact Sheets",
         "Gross Domestic Product",
         "Personal Income Mapping",
@@ -6625,7 +6625,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n35" ,
     "sectors" : [  ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "economic impacts (Topic)",
         "economic impacts"
        ] ,
@@ -6637,7 +6637,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "BEA Regional Fact Sheets",
         "Gross Domestic Product",
         "Personal Income Mapping",
@@ -6652,7 +6652,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n35" ,
     "sectors" : [  ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "economic impacts (Topic)",
         "economic impacts"
        ] ,
@@ -6695,7 +6695,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "intense winter storms",
         "nor'easters"
        ] ,
@@ -6710,7 +6710,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n36628" ,
     "sectors" : [  ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -6723,7 +6723,7 @@
     "climatechanges" : [ "heavy precipitation events" ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "storm water",
         "impervious areas",
         "stormwater runoff",
@@ -6734,7 +6734,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n3682" ,
-    "sectors" : 
+    "sectors" :
       [ "Buildings",
         "Water Resources"
        ] ,
@@ -6745,7 +6745,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "annual precipitation",
         "seasonal temperature",
@@ -6761,7 +6761,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n37988" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -6773,7 +6773,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -6783,7 +6783,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "storm surge",
         "sea level rise",
         "coastal flooding"
@@ -6791,7 +6791,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n121043/coastal+resilience+NY.jpg" ,
-    "keywords" : 
+    "keywords" :
       [ "salt marsh",
         "wetlands",
         "community planning",
@@ -6808,12 +6808,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n3804" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones"
        ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "economic impacts (Topic)",
         "economic impacts",
         "shorelines (coastal)",
@@ -6822,7 +6822,7 @@
     "title" : "Coastal Resilience: New York" ,
     "type" : "Decision Support"
   },
-  { "actions" : 
+  { "actions" :
       [ "multiple emissions reduction actions",
         "multiple carbon sequestration or capture actions"
        ] ,
@@ -6830,7 +6830,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "GHG",
         "farming",
         "carbon sequestration"
@@ -6842,7 +6842,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n3828" ,
     "sectors" : [ "Agriculture" ] ,
     "strategies" : [ "Mitigation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "greenhouse gas emissions",
         "greenhouse gas emissions (Topic)"
        ] ,
@@ -6850,14 +6850,14 @@
     "type" : "Decision Support"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "DeGaetano, Arthur T.",
         "Belcher, Brian"
        ] ,
     "climatechanges" : [ "soil moisture" ] ,
     "effects" : [ "plant stress" ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "legumes",
         "soil water capacity",
         "roots and tubers",
@@ -6875,7 +6875,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n39324" ,
     "sectors" : [ "Agriculture" ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -6884,14 +6884,14 @@
     "type" : "Decision Support"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "DeGaetano, Arthur T.",
         "Belcher, Brian"
        ] ,
     "climatechanges" : [ "soil moisture" ] ,
     "effects" : [ "plant stress" ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "legumes",
         "soil water capacity",
         "roots and tubers",
@@ -6909,7 +6909,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n39324" ,
     "sectors" : [ "Agriculture" ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -6919,7 +6919,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "extreme heat events",
         "extreme cold events",
         "annual temperature",
@@ -6931,7 +6931,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "heating degree days",
         "cooling degree days"
        ] ,
@@ -6940,7 +6940,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n40493" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -6951,7 +6951,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "Great Lakes",
         "climate data",
         "climate measurements and observations (Topic)",
@@ -6981,7 +6981,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "annual temperature",
         "annual precipitation",
@@ -6997,7 +6997,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n44660" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -7009,7 +7009,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -7019,7 +7019,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "annual temperature",
         "annual precipitation",
@@ -7035,7 +7035,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n44660" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -7047,7 +7047,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -7067,14 +7067,14 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n4523" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Transportation",
         "Buildings",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "economic impacts (Topic)",
         "economic impacts",
         "Great Lakes",
@@ -7098,14 +7098,14 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n4523" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Transportation",
         "Buildings",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "economic impacts (Topic)",
         "economic impacts",
         "Great Lakes",
@@ -7129,14 +7129,14 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n4523" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Transportation",
         "Buildings",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "economic impacts (Topic)",
         "economic impacts",
         "Great Lakes",
@@ -7150,7 +7150,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "seasonal temperature",
         "seasonal precipitation"
        ] ,
@@ -7162,7 +7162,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n45287" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -7174,7 +7174,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate projections (Topic)",
         "climate projections"
@@ -7187,7 +7187,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "hospital inpatient day expenses",
         "health expenditures",
         "employer-based health premiums",
@@ -7211,7 +7211,7 @@
     "type" : "Dataset"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Gronewold, Andrew D.",
         "Smith, Joeseph P.",
         "Hunter, Timothy S.",
@@ -7220,7 +7220,7 @@
     "climatechanges" : [ "lake level" ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "water level",
         "Lake Erie",
         "Lake Huron",
@@ -7235,7 +7235,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n46137" ,
     "sectors" : [ "Water Resources" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate reconstructions",
         "climate reconstructions (Topic)",
         "climate measurements and observations (Topic)",
@@ -7245,7 +7245,7 @@
     "type" : "Data Product"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Gronewold, Andrew D.",
         "Smith, Joeseph P.",
         "Hunter, Timothy S.",
@@ -7254,7 +7254,7 @@
     "climatechanges" : [ "lake level" ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "water level",
         "Lake Erie",
         "Lake Huron",
@@ -7269,7 +7269,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n46137" ,
     "sectors" : [ "Water Resources" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate reconstructions",
         "climate reconstructions (Topic)",
         "climate measurements and observations (Topic)",
@@ -7291,7 +7291,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n46142" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate measurements and observations (Topic)",
         "climate measurements and observations"
        ] ,
@@ -7299,12 +7299,12 @@
     "type" : "Data Product"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Cayan, Dan",
         "Thrasher, B. L.",
         "Pierce, D. W."
        ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "annual precipitation",
         "seasonal temperature",
@@ -7319,7 +7319,7 @@
     "publicationdate" : "2016-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n47233" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -7331,7 +7331,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate projections (Topic)",
         "climate projections"
@@ -7340,14 +7340,14 @@
     "type" : "Dataset"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "New York City Department of Environmental Protection (DEP)",
         "Center for International Earth Science Information Network (CIESIN)",
         "United States National Park Service",
         "City University of New York (CUNY) Brooklyn College"
        ] ,
     "climatechanges" : [  ] ,
-    "effects" : 
+    "effects" :
       [ "pathogens and pollutants in water",
         "water clarity and oxygen level changes"
        ] ,
@@ -7359,7 +7359,7 @@
     "publicationdate" : "2016-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n47540" ,
-    "sectors" : 
+    "sectors" :
       [ "Coastal Zones",
         "Water Resources"
        ] ,
@@ -7369,14 +7369,14 @@
     "type" : "Data Product"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "New York City Department of Environmental Protection (DEP)",
         "Center for International Earth Science Information Network (CIESIN)",
         "United States National Park Service",
         "City University of New York (CUNY) Brooklyn College"
        ] ,
     "climatechanges" : [  ] ,
-    "effects" : 
+    "effects" :
       [ "pathogens and pollutants in water",
         "water clarity and oxygen level changes"
        ] ,
@@ -7388,7 +7388,7 @@
     "publicationdate" : "2016-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n47540" ,
-    "sectors" : 
+    "sectors" :
       [ "Coastal Zones",
         "Water Resources"
        ] ,
@@ -7409,13 +7409,13 @@
         } ] ,
     "publishers" : [ "National Oceanic and Atmospheric Administration (NOAA)" ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n4770" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Transportation",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "Great Lakes",
         "climate data",
         "climate measurements and observations (Topic)",
@@ -7436,13 +7436,13 @@
         } ] ,
     "publishers" : [ "National Oceanic and Atmospheric Administration (NOAA)" ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n4770" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Transportation",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "Great Lakes",
         "climate data",
         "climate measurements and observations (Topic)",
@@ -7451,7 +7451,7 @@
     "title" : "Great Lakes Ice Cover" ,
     "type" : "Dataset"
   },
-  { "actions" : 
+  { "actions" :
       [ "use low-carbon emission technologies to generate electricity",
         "increase electricity generation from renewable energy sources"
        ] ,
@@ -7459,7 +7459,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "electric vehicle outlets",
         "energy efficiency"
        ] ,
@@ -7468,12 +7468,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n48844" ,
-    "sectors" : 
+    "sectors" :
       [ "Transportation",
         "Energy"
        ] ,
     "strategies" : [ "Mitigation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "solar energy",
         "solar energy (Topic)",
         "energy production",
@@ -7488,7 +7488,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "beach sand",
         "beach nourishment"
        ] ,
@@ -7505,18 +7505,18 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "streamflow",
         "inland water temperature"
        ] ,
-    "effects" : 
+    "effects" :
       [ "coldwater fish species population changes",
         "animal and insect species range shifts",
         "animal and insect population changes"
        ] ,
     "format" : "data" ,
     "imageURL" : "/file/n47606/FishViz.jpg" ,
-    "keywords" : 
+    "keywords" :
       [ "streams",
         "<p>warm water species<\\/p>",
         "lakes",
@@ -7531,7 +7531,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n4965" ,
     "sectors" : [ "Ecosystems" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "habitat loss (Topic)",
         "habitat loss",
         "Great Lakes",
@@ -7543,18 +7543,18 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "streamflow",
         "inland water temperature"
        ] ,
-    "effects" : 
+    "effects" :
       [ "coldwater fish species population changes",
         "animal and insect species range shifts",
         "animal and insect population changes"
        ] ,
     "format" : "data" ,
     "imageURL" : "/file/n47606/FishViz.jpg" ,
-    "keywords" : 
+    "keywords" :
       [ "streams",
         "<p>warm water species<\\/p>",
         "lakes",
@@ -7569,7 +7569,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n4965" ,
     "sectors" : [ "Ecosystems" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "habitat loss (Topic)",
         "habitat loss",
         "Great Lakes",
@@ -7585,7 +7585,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n10195/Madison+micro-hydro.jpg" ,
-    "keywords" : 
+    "keywords" :
       [ "low carbon emission power generation",
         "renewable energy"
        ] ,
@@ -7594,12 +7594,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n5017" ,
-    "sectors" : 
+    "sectors" :
       [ "Energy",
         "Water Resources"
        ] ,
     "strategies" : [ "Mitigation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "hydropower",
         "hydropower (Topic)"
        ] ,
@@ -7608,7 +7608,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "annual precipitation",
         "seasonal temperature",
@@ -7616,7 +7616,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "climate change",
         "CMIP5",
         "future climate"
@@ -7627,7 +7627,7 @@
     "publicationdate" : "2015-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n51253" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -7639,7 +7639,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate modeling",
         "climate modeling (Topic)",
         "climate data",
@@ -7651,7 +7651,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "ocean temperature",
         "drought",
         "annual temperature",
@@ -7667,7 +7667,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n5169" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -7679,7 +7679,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -7689,7 +7689,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual precipitation",
         "heavy precipitation events",
         "seasonal precipitation"
@@ -7697,7 +7697,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n15974/CDG+image+river+precip.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme weather",
         "rain",
         "precipitation trends",
@@ -7710,7 +7710,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n52223" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -7722,7 +7722,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations",
@@ -7738,11 +7738,11 @@
     "climatechanges" : [ "heavy precipitation events" ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "climate resilience",
         "stormwater management"
        ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://www2.epa.gov/communityhealth/green-infrastructure-wizard" ,
           "linklabel" : "description"
         },
@@ -7760,7 +7760,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "hurricanes",
         "storm surge",
         "sea level rise",
@@ -7768,7 +7768,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "100-year flood",
         "500-year flood"
        ] ,
@@ -7777,7 +7777,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n53084" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Public Health",
         "Coastal Zones",
@@ -7794,7 +7794,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "hail storms",
         "annual precipitation",
         "snowpack",
@@ -7814,7 +7814,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n5333" ,
     "sectors" : [ "Water Resources" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -7824,7 +7824,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "hail storms",
         "annual precipitation",
         "snowpack",
@@ -7844,7 +7844,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n5333" ,
     "sectors" : [ "Water Resources" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -7855,13 +7855,13 @@
   { "actions" : [  ] ,
     "authors" : [  ] ,
     "climatechanges" : [  ] ,
-    "effects" : 
+    "effects" :
       [ "tick or mosquito population or biting rate changes",
         "heat-related death or illness",
         "freshwater algal blooms"
        ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "cyanobacteria (blue green algae)",
         "tick tracker",
         "heat vulnerability index",
@@ -7881,13 +7881,13 @@
   { "actions" : [  ] ,
     "authors" : [  ] ,
     "climatechanges" : [  ] ,
-    "effects" : 
+    "effects" :
       [ "tick or mosquito population or biting rate changes",
         "heat-related death or illness",
         "freshwater algal blooms"
        ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "cyanobacteria (blue green algae)",
         "tick tracker",
         "heat vulnerability index",
@@ -7906,7 +7906,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "hurricanes",
         "storm surge",
         "inland flooding",
@@ -7925,7 +7925,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n54828" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "risk management",
         "shorelines (coastal)",
         "shorelines (inland) (Topic)",
@@ -7936,7 +7936,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "hurricanes",
         "storm surge",
         "coastal flooding"
@@ -7952,7 +7952,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n5544" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate measurements and observations (Topic)",
         "climate measurements and observations"
        ] ,
@@ -7960,7 +7960,7 @@
     "type" : "Decision Support"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Yetman, G.",
         "Doxsey-Whitfield, E.",
         "Fisher, K.",
@@ -7974,7 +7974,7 @@
         "Sanderson , Eric W.",
         "Orton, Philip"
        ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "sea level rise",
         "coastal flooding"
        ] ,
@@ -7988,7 +7988,7 @@
     "publicationdate" : "2016-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n5558" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones"
        ] ,
@@ -7998,7 +7998,7 @@
     "type" : "Data Product"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Yetman, G.",
         "Doxsey-Whitfield, E.",
         "Fisher, K.",
@@ -8012,7 +8012,7 @@
         "Sanderson , Eric W.",
         "Orton, Philip"
        ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "sea level rise",
         "coastal flooding"
        ] ,
@@ -8026,7 +8026,7 @@
     "publicationdate" : "2016-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n5558" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones"
        ] ,
@@ -8040,7 +8040,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "recreational fishing",
         "toothed mammals",
         "danger zones and restricted areas",
@@ -8064,7 +8064,7 @@
         "fathom lines",
         "shipping data"
        ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://midatlanticocean.org/data-portal/" ,
           "linklabel" : "description"
         },
@@ -8074,12 +8074,12 @@
        ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n56390" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "wind energy (Topic)",
         "wind energy",
         "recreation",
@@ -8096,7 +8096,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "recreational fishing",
         "toothed mammals",
         "danger zones and restricted areas",
@@ -8120,7 +8120,7 @@
         "fathom lines",
         "shipping data"
        ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://midatlanticocean.org/data-portal/" ,
           "linklabel" : "description"
         },
@@ -8130,12 +8130,12 @@
        ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n56390" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "wind energy (Topic)",
         "wind energy",
         "recreation",
@@ -8159,7 +8159,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n58051" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Water Resources"
        ] ,
@@ -8180,7 +8180,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n58051" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Water Resources"
        ] ,
@@ -8191,7 +8191,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "inland flooding",
         "coastal flooding"
        ] ,
@@ -8204,7 +8204,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n5807" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -8222,7 +8222,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "inland flooding",
         "coastal flooding"
        ] ,
@@ -8235,7 +8235,7 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n5807" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -8253,7 +8253,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "snowfall",
         "snow cover"
        ] ,
@@ -8268,7 +8268,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n5834" ,
     "sectors" : [  ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -8278,7 +8278,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "snowfall",
         "snow cover"
        ] ,
@@ -8293,7 +8293,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n5834" ,
     "sectors" : [  ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -8303,7 +8303,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "extreme heat events",
         "hurricanes",
         "intense winter storms",
@@ -8316,7 +8316,7 @@
         "snowfall",
         "coastal flooding"
        ] ,
-    "effects" : 
+    "effects" :
       [ "infrastructure damage, weakening, or strain",
         "natural gas pipeline damage from frost heaves, flooding, and extreme weather events",
         "coastal power plant damage",
@@ -8324,7 +8324,7 @@
        ] ,
     "format" : "data" ,
     "imageURL" : "/file/n25183/Energy+infrastructure+storm.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "power plants",
         "storm forecast",
         "storm tracks"
@@ -8336,7 +8336,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n58631" ,
     "sectors" : [ "Energy" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "nuclear power plants",
         "fossil fuel power stations",
         "electrical transmission lines",
@@ -8352,7 +8352,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "extreme heat events",
         "hurricanes",
         "intense winter storms",
@@ -8365,7 +8365,7 @@
         "snowfall",
         "coastal flooding"
        ] ,
-    "effects" : 
+    "effects" :
       [ "infrastructure damage, weakening, or strain",
         "natural gas pipeline damage from frost heaves, flooding, and extreme weather events",
         "coastal power plant damage",
@@ -8373,7 +8373,7 @@
        ] ,
     "format" : "data" ,
     "imageURL" : "/file/n25183/Energy+infrastructure+storm.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "power plants",
         "storm forecast",
         "storm tracks"
@@ -8385,7 +8385,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n58631" ,
     "sectors" : [ "Energy" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "nuclear power plants",
         "fossil fuel power stations",
         "electrical transmission lines",
@@ -8400,7 +8400,7 @@
     "type" : "Dataset"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Gronlund, C.",
         "Diez-Roux, Ana V.",
         "O'Neill, Marie S",
@@ -8409,7 +8409,7 @@
         "Brines, S.",
         "Reid, C."
        ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "drought",
         "extreme heat events",
         "seasonal temperature",
@@ -8418,7 +8418,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n42017/Socioecon+and+cl+ch+great+lakes.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "timber",
         "heat vulnerability index"
        ] ,
@@ -8427,14 +8427,14 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n59246" ,
-    "sectors" : 
+    "sectors" :
       [ "Agriculture",
         "Public Health",
         "Transportation",
         "Buildings"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "economic impacts (Topic)",
         "economic impacts",
         "tourism (Topic)",
@@ -8443,7 +8443,7 @@
     "title" : "Socioeconomics and Climate Change in the Great Lakes Region" ,
     "type" : "Data Product"
   },
-  { "actions" : 
+  { "actions" :
       [ "multiple energy efficiency or conservation actions",
         "multiple emissions reduction actions"
        ] ,
@@ -8451,7 +8451,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "energy efficiency",
         "renewable electric",
         "electric vehicles",
@@ -8466,12 +8466,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n59641" ,
-    "sectors" : 
+    "sectors" :
       [ "Transportation",
         "Energy"
        ] ,
     "strategies" : [ "Mitigation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "wind energy (Topic)",
         "wind energy",
         "solar energy",
@@ -8495,7 +8495,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n10248/SeaLevel+Trends.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "tides and currents",
         "sea level graph"
        ] ,
@@ -8506,7 +8506,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n60431" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -8517,17 +8517,17 @@
   { "actions" : [  ] ,
     "authors" : [  ] ,
     "climatechanges" : [  ] ,
-    "effects" : 
+    "effects" :
       [ "animal and insect species range shifts",
         "animal and insect population changes"
        ] ,
     "format" : "data" ,
     "imageURL" : "/file/n29225/Ocean+Adapt.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "fisheries",
         "marine life"
        ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://www.st.nmfs.noaa.gov/ecosystems/climate/activities/oceanadapt" ,
           "linklabel" : "description"
         },
@@ -8537,12 +8537,12 @@
        ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n6072" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "ecosystem changes",
         "ecosystem changes (Topic)"
        ] ,
@@ -8552,17 +8552,17 @@
   { "actions" : [  ] ,
     "authors" : [  ] ,
     "climatechanges" : [  ] ,
-    "effects" : 
+    "effects" :
       [ "animal and insect species range shifts",
         "animal and insect population changes"
        ] ,
     "format" : "data" ,
     "imageURL" : "/file/n29225/Ocean+Adapt.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "fisheries",
         "marine life"
        ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://www.st.nmfs.noaa.gov/ecosystems/climate/activities/oceanadapt" ,
           "linklabel" : "description"
         },
@@ -8572,12 +8572,12 @@
        ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n6072" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "ecosystem changes",
         "ecosystem changes (Topic)"
        ] ,
@@ -8587,17 +8587,17 @@
   { "actions" : [  ] ,
     "authors" : [  ] ,
     "climatechanges" : [  ] ,
-    "effects" : 
+    "effects" :
       [ "animal and insect species range shifts",
         "animal and insect population changes"
        ] ,
     "format" : "data" ,
     "imageURL" : "/file/n29225/Ocean+Adapt.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "fisheries",
         "marine life"
        ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://www.st.nmfs.noaa.gov/ecosystems/climate/activities/oceanadapt" ,
           "linklabel" : "description"
         },
@@ -8607,12 +8607,12 @@
        ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n6072" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "ecosystem changes",
         "ecosystem changes (Topic)"
        ] ,
@@ -8624,7 +8624,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "housing",
         "social",
         "economic",
@@ -8643,14 +8643,14 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "inland flooding",
         "coastal flooding"
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n23857/Coastal+County+Snapshots+2.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "wetlands",
         "jobs"
        ] ,
@@ -8659,12 +8659,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n6191" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "economic impacts (Topic)",
         "economic impacts",
         "shorelines (coastal)",
@@ -8677,14 +8677,14 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "inland flooding",
         "coastal flooding"
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n23857/Coastal+County+Snapshots+2.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "wetlands",
         "jobs"
        ] ,
@@ -8693,12 +8693,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n6191" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "economic impacts (Topic)",
         "economic impacts",
         "shorelines (coastal)",
@@ -8711,7 +8711,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "hurricanes",
         "storm surge",
         "coastal flooding"
@@ -8737,7 +8737,7 @@
     "format" : "data" ,
     "imageURL" : "/file/n50125/Forecasts+of+climate+associated+tree.JPG" ,
     "keywords" : [  ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://www.geobabble.org/~hnw/global/treeranges3/climate_change/atlas.html" ,
           "linklabel" : "weblink"
         },
@@ -8749,7 +8749,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n63627" ,
     "sectors" : [ "Ecosystems" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "ecosystem changes",
         "ecosystem changes (Topic)"
        ] ,
@@ -8763,7 +8763,7 @@
     "format" : "data" ,
     "imageURL" : "/file/n50125/Forecasts+of+climate+associated+tree.JPG" ,
     "keywords" : [  ] ,
-    "links" : 
+    "links" :
       [ { "link" : "http://www.geobabble.org/~hnw/global/treeranges3/climate_change/atlas.html" ,
           "linklabel" : "weblink"
         },
@@ -8775,7 +8775,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n63627" ,
     "sectors" : [ "Ecosystems" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "ecosystem changes",
         "ecosystem changes (Topic)"
        ] ,
@@ -8784,7 +8784,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "ocean temperature",
         "annual temperature",
         "hurricanes",
@@ -8797,7 +8797,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "dissolved oxygen",
         "station data",
         "surface currents",
@@ -8822,12 +8822,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n64282" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -8837,7 +8837,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "ocean temperature",
         "annual temperature",
         "hurricanes",
@@ -8850,7 +8850,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "dissolved oxygen",
         "station data",
         "surface currents",
@@ -8875,12 +8875,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n64282" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate measurements and observations (Topic)",
         "climate measurements and observations"
@@ -8893,7 +8893,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "Census Results",
         "U.S. Census of Agriculture",
         "Historical Census Data",
@@ -8906,7 +8906,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n6529" ,
     "sectors" : [ "Agriculture" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "economic impacts (Topic)",
         "economic impacts"
        ] ,
@@ -8918,7 +8918,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "Census Results",
         "U.S. Census of Agriculture",
         "Historical Census Data",
@@ -8931,7 +8931,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n6529" ,
     "sectors" : [ "Agriculture" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "economic impacts (Topic)",
         "economic impacts"
        ] ,
@@ -8940,14 +8940,14 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "ice cover",
         "storm surge",
         "sea level rise"
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "water level",
         "surface wind waves",
         "ice climatology",
@@ -8959,13 +8959,13 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n6808" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "shorelines (coastal)",
         "climate data",
         "shorelines (inland) (Topic)",
@@ -8976,14 +8976,14 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "ice cover",
         "storm surge",
         "sea level rise"
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "water level",
         "surface wind waves",
         "ice climatology",
@@ -8995,13 +8995,13 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n6808" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "shorelines (coastal)",
         "climate data",
         "shorelines (inland) (Topic)",
@@ -9025,7 +9025,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n6891" ,
     "sectors" : [ "Energy" ] ,
     "strategies" : [ "Mitigation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "greenhouse gas emissions",
         "greenhouse gas emissions (Topic)",
         "energy use (Topic)",
@@ -9047,7 +9047,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n7210" ,
     "sectors" : [ "Public Health" ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "heat waves",
         "urban"
        ] ,
@@ -9067,7 +9067,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n7210" ,
     "sectors" : [ "Public Health" ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "heat waves",
         "urban"
        ] ,
@@ -9087,7 +9087,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n7210" ,
     "sectors" : [ "Public Health" ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "heat waves",
         "urban"
        ] ,
@@ -9159,7 +9159,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n74134" ,
     "sectors" : [ "Public Health" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "vulnerability (Topic)",
         "vulnerability",
         "equity & environmental justice",
@@ -9170,7 +9170,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "streamflow",
         "seasonal temperature",
@@ -9182,7 +9182,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n4323/Sea+level+rise+and+railroads.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "railroads",
         "wastewater treatment",
         "trout",
@@ -9203,7 +9203,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "recreation",
         "aquaculture",
         "mammals",
@@ -9228,7 +9228,7 @@
     "publicationdate" : "2011-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n75330" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Coastal Zones",
@@ -9246,7 +9246,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "recreation",
         "aquaculture",
         "mammals",
@@ -9271,7 +9271,7 @@
     "publicationdate" : "2011-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n75330" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Coastal Zones",
@@ -9298,7 +9298,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n7535" ,
     "sectors" : [ "Energy" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "energy policy",
         "energy production",
         "energy use (Topic)",
@@ -9321,7 +9321,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n7535" ,
     "sectors" : [ "Energy" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "energy policy",
         "energy production",
         "energy use (Topic)",
@@ -9344,7 +9344,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n7535" ,
     "sectors" : [ "Energy" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "energy policy",
         "energy production",
         "energy use (Topic)",
@@ -9355,17 +9355,17 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "storm surge",
         "sea level rise",
         "coastal flooding"
        ] ,
-    "effects" : 
+    "effects" :
       [ "coastal property damage",
         "coastal erosion"
        ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "risk assessment",
         "planning",
         "vulnerability assessment"
@@ -9375,13 +9375,13 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n7583" ,
-    "sectors" : 
+    "sectors" :
       [ "Coastal Zones",
         "Buildings",
         "Water Resources"
        ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "economic impacts (Topic)",
         "economic impacts",
         "shorelines (coastal)",
@@ -9394,16 +9394,16 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "extreme heat events",
         "seasonal temperature"
        ] ,
-    "effects" : 
+    "effects" :
       [ "asthma and other respiratory diseases associated with ozone and fine-particle air pollution",
         "heat-related death or illness"
        ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "heat stress",
         "drinking water",
         "birth defects",
@@ -9429,16 +9429,16 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "extreme heat events",
         "seasonal temperature"
        ] ,
-    "effects" : 
+    "effects" :
       [ "asthma and other respiratory diseases associated with ozone and fine-particle air pollution",
         "heat-related death or illness"
        ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "heat stress",
         "drinking water",
         "birth defects",
@@ -9476,7 +9476,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n7850" ,
     "sectors" : [ "Public Health" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "vulnerability (Topic)",
         "vulnerability",
         "equity & environmental justice",
@@ -9491,7 +9491,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n30564/EIA.gov.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "geothermal",
         "Energy forecasts",
         "ethanol",
@@ -9507,19 +9507,19 @@
     "links" : [ { "link" : "http://www.eia.doe.gov" ,
           "linklabel" : "weblink"
         } ] ,
-    "publishers" : 
+    "publishers" :
       [ "National Energy Information Center (NEIC)",
         "United States Department of Energy (DOE)",
         "United States Energy Information Administration (EIA)"
        ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n7877" ,
-    "sectors" : 
+    "sectors" :
       [ "Agriculture",
         "Transportation",
         "Energy"
        ] ,
     "strategies" : [ "Mitigation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "biofuels",
         "biofuels (Topic)",
         "wind energy (Topic)",
@@ -9549,7 +9549,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n30564/EIA.gov.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "geothermal",
         "Energy forecasts",
         "ethanol",
@@ -9565,19 +9565,19 @@
     "links" : [ { "link" : "http://www.eia.doe.gov" ,
           "linklabel" : "weblink"
         } ] ,
-    "publishers" : 
+    "publishers" :
       [ "National Energy Information Center (NEIC)",
         "United States Department of Energy (DOE)",
         "United States Energy Information Administration (EIA)"
        ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n7877" ,
-    "sectors" : 
+    "sectors" :
       [ "Agriculture",
         "Transportation",
         "Energy"
        ] ,
     "strategies" : [ "Mitigation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "biofuels",
         "biofuels (Topic)",
         "wind energy (Topic)",
@@ -9607,7 +9607,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n30564/EIA.gov.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "geothermal",
         "Energy forecasts",
         "ethanol",
@@ -9623,19 +9623,19 @@
     "links" : [ { "link" : "http://www.eia.doe.gov" ,
           "linklabel" : "weblink"
         } ] ,
-    "publishers" : 
+    "publishers" :
       [ "National Energy Information Center (NEIC)",
         "United States Department of Energy (DOE)",
         "United States Energy Information Administration (EIA)"
        ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n7877" ,
-    "sectors" : 
+    "sectors" :
       [ "Agriculture",
         "Transportation",
         "Energy"
        ] ,
     "strategies" : [ "Mitigation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "biofuels",
         "biofuels (Topic)",
         "wind energy (Topic)",
@@ -9661,7 +9661,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "ocean temperature",
         "drought",
         "extreme heat events",
@@ -9686,7 +9686,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme weather",
         "severe weather"
        ] ,
@@ -9697,7 +9697,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n8204" ,
     "sectors" : [  ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "greenhouse gases",
         "climate measurements and observations (Topic)",
         "climate measurements and observations",
@@ -9710,7 +9710,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "ocean temperature",
         "drought",
         "extreme heat events",
@@ -9735,7 +9735,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme weather",
         "severe weather"
        ] ,
@@ -9746,7 +9746,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n8204" ,
     "sectors" : [  ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "greenhouse gases",
         "climate measurements and observations (Topic)",
         "climate measurements and observations",
@@ -9759,7 +9759,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "ocean temperature",
         "drought",
         "extreme heat events",
@@ -9784,7 +9784,7 @@
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "extreme weather",
         "severe weather"
        ] ,
@@ -9795,7 +9795,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n8204" ,
     "sectors" : [  ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "greenhouse gases",
         "climate measurements and observations (Topic)",
         "climate measurements and observations",
@@ -9817,12 +9817,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n8437" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate measurements and observations (Topic)",
         "climate measurements and observations"
        ] ,
@@ -9840,12 +9840,12 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n8437" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate measurements and observations (Topic)",
         "climate measurements and observations"
        ] ,
@@ -9857,7 +9857,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "culvert replacement",
         "river sensitivity",
         "fish passage",
@@ -9874,13 +9874,13 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n89870" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Transportation",
         "Water Resources"
        ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "resilience",
         "roads (Topic)",
         "roads",
@@ -9894,7 +9894,7 @@
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "culvert replacement",
         "river sensitivity",
         "fish passage",
@@ -9911,13 +9911,13 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n89870" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Transportation",
         "Water Resources"
        ] ,
     "strategies" : [ "Adaptation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "resilience",
         "roads (Topic)",
         "roads",
@@ -9945,18 +9945,18 @@
     "type" : "Data Product"
   },
   { "actions" : [  ] ,
-    "authors" : 
+    "authors" :
       [ "Hegewisch, Katherine",
         "Abatzoglou, John"
        ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "annual temperature",
         "wind distribution",
         "annual precipitation"
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "northward wind",
         "Downward shortwave solar radiation",
         "specific humidity",
@@ -9970,7 +9970,7 @@
     "publicationdate" : "2016-07-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n9381" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Public Health",
@@ -9982,7 +9982,7 @@
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate modeling",
         "climate modeling (Topic)",
         "climate data",
@@ -9994,7 +9994,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "streamflow",
         "inland flooding",
         "coastal flooding"
@@ -10002,7 +10002,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n29685/Future+flow+explorer.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "climate change",
         "peak flows",
         "hydrology",
@@ -10014,7 +10014,7 @@
     "publicationdate" : "2015-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n94378" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Agriculture",
         "Coastal Zones",
@@ -10029,13 +10029,13 @@
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "sea level rise",
         "coastal flooding"
        ] ,
     "effects" : [  ] ,
     "format" : "data" ,
-    "keywords" : 
+    "keywords" :
       [ "accretion",
         "coastal wetlands"
        ] ,
@@ -10045,12 +10045,12 @@
     "publicationdate" : "2014-01-01T00:00:00" ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n9457" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Coastal Zones"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "habitat loss (Topic)",
         "habitat loss",
         "ecosystem changes",
@@ -10065,7 +10065,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n59865/Ausabel+river+road-stream+crossings.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "culvert replacement",
         "fish passage",
         "Ausable road-stream crossings",
@@ -10079,13 +10079,13 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n9502" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Transportation",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "roads (Topic)",
         "roads",
         "culverts"
@@ -10099,7 +10099,7 @@
     "effects" : [  ] ,
     "format" : "data" ,
     "imageURL" : "/file/n59865/Ausabel+river+road-stream+crossings.JPG" ,
-    "keywords" : 
+    "keywords" :
       [ "culvert replacement",
         "fish passage",
         "Ausable road-stream crossings",
@@ -10113,13 +10113,13 @@
         } ] ,
     "publishers" : [  ] ,
     "resource" : "http://www.nyclimatescience.org/individual/n9502" ,
-    "sectors" : 
+    "sectors" :
       [ "Ecosystems",
         "Transportation",
         "Water Resources"
        ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "roads (Topic)",
         "roads",
         "culverts"
@@ -10129,7 +10129,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [ "Warren, Randy" ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "sea level rise",
         "coastal flooding"
        ] ,
@@ -10145,7 +10145,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n9702" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate projections (Topic)",
         "climate projections"
@@ -10155,7 +10155,7 @@
   },
   { "actions" : [  ] ,
     "authors" : [ "Warren, Randy" ] ,
-    "climatechanges" : 
+    "climatechanges" :
       [ "sea level rise",
         "coastal flooding"
        ] ,
@@ -10171,7 +10171,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n9702" ,
     "sectors" : [ "Coastal Zones" ] ,
     "strategies" : [  ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "climate data",
         "climate projections (Topic)",
         "climate projections"
@@ -10192,7 +10192,7 @@
     "resource" : "http://www.nyclimatescience.org/individual/n9803" ,
     "sectors" : [ "Agriculture" ] ,
     "strategies" : [ "Mitigation" ] ,
-    "subjectAreas" : 
+    "subjectAreas" :
       [ "greenhouse gas emissions",
         "greenhouse gas emissions (Topic)"
        ] ,
@@ -10217,4 +10217,3 @@
     "type" : "Data Product"
   }
  ]
-

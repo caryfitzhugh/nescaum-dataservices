@@ -27,6 +27,7 @@ group :development do
   gem 'shotgun'
   gem 'pry-byebug'
   gem 'factory_girl'
+  gem 'mechanize'
 end
 
 group :test do
