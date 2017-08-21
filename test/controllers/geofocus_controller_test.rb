@@ -65,6 +65,6 @@ class GeofocusControllerTest < NDSTestBase
 
     get "/geofocuses/#{Geofocus.last.id}/geojson"
     assert response.ok?
-    assert_equal geojson, response.body
+    assert_equal JSON.parse(geojson) ,JSON.parse(response.body)['geometry']
   end
 end

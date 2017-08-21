@@ -2,16 +2,22 @@ require './nds_app'
 require 'inquirer'
 
 namespace :db do
-
   task :seed do
     [
-      "Outreach/Education::Capacity Building",
-      "Outreach/Education::Research and Monitoring",
-      "Planning::Planning",
-      "Planning::Policies/Laws/Regulations",
-      "Implementation Action/Direct action on target::Management and Behavior",
-      "Implementation Action/Direct action on target::Financing",
-      "Implementation Action/Direct action on target::Technology",
+      "Adaptation",
+      "Mitigation"
+    ].each do |strategy|
+      ResourceStrategy.first_or_create(value: strategy)
+    end
+
+    [
+      "MA::Outreach/Education::Capacity Building",
+      "MA::Outreach/Education::Research and Monitoring",
+      "MA::Planning::Planning",
+      "MA::Planning::Policies/Laws/Regulations",
+      "MA::Implementation Action/Direct action on target::Management and Behavior",
+      "MA::Implementation Action/Direct action on target::Financing",
+      "MA::Implementation Action/Direct action on target::Technology",
     ].each do |action|
       ResourceAction.first_or_create(value: action)
     end
@@ -138,14 +144,6 @@ namespace :db do
     ].each do |content_type|
       ResourceContentType.first_or_create(value: content_type)
     end
-
-    [
-      "Adaptation",
-      "Mitigation",
-    ].each do |effect|
-      ResourceEffect.first_or_create(value: effect)
-    end
-
   end
 
   task :install_postgis do

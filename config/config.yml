@@ -19,7 +19,7 @@ development:
 
 test:
   postgres: <%= ENV["POSTGRES_DB_URL"] || "postgres://nds:nds@localhost:5006/nds" %>
-  pretend_admin: true
+  pretend_admin: false
   cs:
     env: test
     search_endpoint: "https://search-nds-resources-22fi3bt2o7vt5wllh64qck52a4.us-east-1.cloudsearch.amazonaws.com"
