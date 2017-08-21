@@ -33,8 +33,8 @@ class Resource
   property :image, String, length: 1024
   property :content,  String, length: 8192
   property :external_data_links, DataMapper::Property::PgArray
-  property :published_on_end, Date, required: true
-  property :published_on_start, Date, required: true
+  property :published_on_end, Date
+  property :published_on_start, Date
   property :created_at, DateTime
   property :updated_at, DateTime
 
