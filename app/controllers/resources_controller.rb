@@ -44,6 +44,7 @@ module Controllers
     type 'Resource', {
       properties: {
         :docid => {type: String},
+        :indexed => {type: 'boolean', example: "Is this resource in the public index?"},
         :title => {type: String, example: "Title of the resource"},
         :subtitle => {type: String, example: "Subtitle"},
         :image => {type: String, example: "http://lorempixel.com/500/500"},
