@@ -32,16 +32,22 @@ class CollectionControllerTest < NDSTestBase
   end
 
   def test_update_collection
-    Collection.create!(name: "Foo", "resources": ["doc1","doc2"])
+    doc1 = Resource.new(title:"FOO", published_on_start: Date.today.to_s, published_on_end:Date.today.to_s)
+    assert doc1.save
+    Collection.create!(name: "Foo", "resources": [doc1.docid])
 
     get "/collections/#{Collection.last.id}"
     assert response.ok?
     assert_equal "Foo", json_response["name"]
-    assert_equal ['doc1','doc2'], json_response["resources"]
+    assert_equal [doc1.docid], json_response["resources"].map {|r| r['docid']}
 
-    put_json "/collections/#{Collection.last.id}", {"collection": {"resources": ["doc2","doc1"], "name": "Bar"}}
+    doc2 = Resource.new(title:"BAR", published_on_start: Date.today.to_s, published_on_end:Date.today.to_s)
+    assert doc2.save
+
+    login_curator!
+    put_json "/collections/#{Collection.last.id}", {"collection": {"resources": [doc2.docid], "name": "Bar"}}
     assert response.ok?
     assert_equal "Bar", json_response["name"]
-    assert_equal ['doc2','doc1'], json_response["resources"]
+    assert_equal [doc2.docid], json_response["resources"].map {|r| r['docid']}
   end
 end
