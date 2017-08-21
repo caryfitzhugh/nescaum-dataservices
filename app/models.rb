@@ -3,6 +3,8 @@ require 'dm-postgres-types'
 require 'dm-chunked_query'
 require 'dm-timestamps'
 
+require 'app/models/feedback'
+require 'app/models/suggestion'
 require 'app/models/geofocus'
 require 'app/models/geofocus_resource'
 require 'app/models/resource_action'
