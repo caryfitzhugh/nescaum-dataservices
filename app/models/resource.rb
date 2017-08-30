@@ -37,7 +37,7 @@ class Resource
   property :published_on_start, Date
   property :created_at, DateTime
   property :updated_at, DateTime
-  property :internal_id, String
+  property :internal_id, String, unique: true
 
   has n, :geofocus_resources
   has n, :geofocuses, through: :geofocus_resources
