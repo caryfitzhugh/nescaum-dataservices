@@ -207,7 +207,6 @@ GEM
       pry (~> 0.10)
     public_suffix (2.0.5)
     rack (2.0.3)
-    rack-cors (1.0.1)
     rack-protection (2.0.0)
       rack
     rack-test (0.7.0)
@@ -343,7 +342,6 @@ DEPENDENCIES
   mechanize
   mocha
   pry-byebug
-  rack-cors
   rack-test
   rake
   rdf
