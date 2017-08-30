@@ -17,7 +17,7 @@ gem 'georuby'
 gem 'rgeo'
 gem 'inquirer', :git => "https://github.com/brbrady/inquirer.rb.git", :ref => "master"
 gem 'aws-sdk'
-gem 'rack-cors', :require => 'rack/cors'
+gem 'sinatra-cross_origin'
 
 group :development do
   gem "rdf"

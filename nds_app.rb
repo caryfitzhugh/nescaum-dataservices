@@ -8,8 +8,7 @@ require 'sinatra'
 require 'sinatra/base'
 require 'logger'
 require 'colorize'
-require 'rack/cors'
-
+require 'sinatra/cross_origin'
 require 'sinatra/swagger-exposer/swagger-exposer'
 require 'app/controllers/resources_controller'
 require 'app/controllers/collections_controller'
@@ -28,18 +27,22 @@ set :views, Proc.new { File.join(root, "app", "views") }
 set :method_override, true
 set :public_folder, File.dirname(__FILE__) + '/public'
 
+set :allow_origin, :any
+set :allow_methods, [:get, :put, :delete, :post, :options]
+set :allow_credentials, true
+set :max_age, "1728000"
+set :expose_headers, ['Content-Type']
+
 class NDSApp < Sinatra::Application
   register Sinatra::SwaggerExposer
+  register Sinatra::CrossOrigin
+
   use Rack::Session::Cookie, :key => 'rack.session',
                              :expire_after => 60 * 60 * 24, # 1 day
                              :secret => ENV["SESSION_SECRET"],
                              :old_secret => ENV["OLD_SESSION_SECRET"]
-
-  use Rack::Cors do
-    allow do
-      origins '*'
-      resource "*", methods: :any
-    end
+  configure do
+    enable :cross_origin
   end
 
   general_info(
@@ -68,13 +71,12 @@ class NDSApp < Sinatra::Application
     redirect '/index.html'
   end
 
-  get '/data/*' , :no_swagger => true do
+  get '/data/**' , :no_swagger => true do
     send_file File.join(File.dirname(__FILE__), 'data', params[:splat])
   end
 
-  options "*" do
+  options "*", :no_swagger => true do
     response.headers["Allow"] = "HEAD,GET,PUT,POST,DELETE,OPTIONS"
-
     response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
     200
   end

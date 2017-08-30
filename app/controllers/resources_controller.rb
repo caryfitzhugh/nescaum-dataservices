@@ -31,6 +31,7 @@ module Controllers
         :geofocuses => {type: [Integer], example: [1,2,3], description: "Geofocus ID to assign to this resource"},
         :actions => {type: [String], example: ["MA::facet", "NY::facet like this"]},
         :authors => {type: [String], example: ["MA::facet", "NY::facet like this"]},
+        :internal_id => {type: String, example: "vivo_id_4454"},
         :climate_changes => {type: [String], example: ["MA::facet", "NY::facet like this"]},
         :content_types => {type: [String], example: ["MA::facet", "NY::facet like this"]},
         :keywords => {type: [String], example: ["MA::facet", "NY::facet like this"]},
@@ -50,6 +51,7 @@ module Controllers
         :image => {type: String, example: "http://lorempixel.com/500/500"},
         :content => {type: String, example: "Markdown **so** awesome", description: "The abstract"},
         :external_data_links => {type: [String], example: ["pdf::http://www.com/pdf", "weblink::http://google.com"]},
+        :internal_id => {type: String, example: "vivo_id_4454"},
         :published_on_start => {type: String, example: "2017-01-31"},
         :published_on_end => {type: String, example: "2017-01-31"},
         :geofocuses => {type: [Integer], example: [1,2,3], description: "Geofocus ID to assign to this resource"},
@@ -196,6 +198,23 @@ module Controllers
         per_page: per_page,
         resources: resources.map(&:to_resource)
       )
+    end
+
+    endpoint description: "Find by internal id",
+              responses: standard_errors( 200 => ["Resource"]),
+              parameters: {
+                "id": ["Internal id", :path, true, String],
+              },
+              tags: ["Resources", "Curator"]
+
+    get "/resources/internal/:id", require_role: :curator do
+      doc = Resource.first(:internal_id => params[:id])
+
+      if doc
+        json(doc.to_resource)
+      else
+        not_found("resource", params[:id])
+      end
     end
 
     endpoint description: "Search for all facets",
@@ -397,6 +416,7 @@ module Controllers
       doc.subtitle = p[:subtitle] if p[:subtitle]
       doc.image = p[:image] if p[:image]
       doc.content = p[:content] if p[:content]
+      doc.internal_id = p[:internal_id] if p[:internal_id]
       doc.external_data_links = p[:external_data_links]  if p[:external_data_links]
       doc.geofocuses = p[:geofocuses] if p[:geofocuses]
       doc.published_on_start = p[:published_on_start] if p[:published_on_start]

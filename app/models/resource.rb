@@ -37,6 +37,7 @@ class Resource
   property :published_on_start, Date
   property :created_at, DateTime
   property :updated_at, DateTime
+  property :internal_id, String
 
   has n, :geofocus_resources
   has n, :geofocuses, through: :geofocus_resources
@@ -273,6 +274,7 @@ class Resource
      image: self.image,
      external_data_links: self.external_data_links,
      content: self.content,
+     internal_id: self.internal_id,
 
      actions: self.resource_actions.map(&:value),
      authors: self.resource_authors.map(&:value),
