@@ -73,6 +73,7 @@ module Controllers
               tags: ["Collection", "Public"]
 
     get "/collections/by-name/:name" do
+      puts "Collection by name [#{params[:name]}]"
       collection = Collection.first(name: params[:name])
 
       if collection
