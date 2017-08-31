@@ -45,6 +45,10 @@ class NDSApp < Sinatra::Application
     enable :cross_origin
   end
 
+  before do
+    cross_origin
+  end
+
   general_info(
     {
       version: '0.0.1',
