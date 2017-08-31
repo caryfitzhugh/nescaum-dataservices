@@ -65,6 +65,23 @@ module Controllers
           )
     end
 
+    endpoint description: "Get a collection by name",
+              responses: standard_errors( 200 => ["Collection"]),
+              parameters: {
+                "name": ["name of the collection to retrieve", :path, true, String],
+              },
+              tags: ["Collection", "Public"]
+
+    get "/collections/by-name/:name" do
+      collection = Collection.first(name: params[:name])
+
+      if collection
+        json(collection.to_resource)
+      else
+        not_found("Collection", params[:name])
+      end
+    end
+
     endpoint description: "Get a collection",
               responses: standard_errors( 200 => ["Collection"]),
               parameters: {
