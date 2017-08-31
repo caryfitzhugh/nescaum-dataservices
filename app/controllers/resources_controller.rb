@@ -129,6 +129,7 @@ module Controllers
               tags: ["Resources", "Public"]
 
     get "/resources/?" do
+      cross_origin
       per_page = params[:per_page] || 50
       page = params[:page] || 1
       query = params[:query]
@@ -225,6 +226,7 @@ module Controllers
               tags: ["Resources", "Public"]
 
     get "/resources/facets" do
+      cross_origin
       facets = params[:names].split(",").map(&:strip).reduce([]) do |memo, facet_name|
         memo.push({name: facet_name, facets: Cloudsearch.facet_list(facet_name).to_a})
         memo
@@ -357,6 +359,7 @@ module Controllers
 
 
     get "/resources/fields" do
+      cross_origin
       per_page = params[:per_page] || 50
       page = params[:page] || 1
       all = case params[:field_name].downcase.to_sym
@@ -400,6 +403,7 @@ module Controllers
               tags: ["Resources", "Public"]
 
     get "/resources/:docid" do
+      cross_origin
       doc = Resource.get_by_docid(params[:docid])
 
       if doc

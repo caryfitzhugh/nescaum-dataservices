@@ -56,6 +56,7 @@ module Controllers
               tags: ["Geofocus", "Public"]
 
     get "/geofocuses/find/?" do
+      cross_origin
       gf = Geofocus.first(:type => params[:type], :uid => params[:uid])
       if gf
         json(gf.to_resource)
@@ -72,6 +73,7 @@ module Controllers
               tags: ["Geofocus", "Public"]
 
     get "/geofocuses/bulk_geojson/?" do
+      cross_origin
       ids = params[:ids].split(',').map(&:to_i)
       gfs = Geofocus.all(id: ids)
       if gfs.length == ids.length
@@ -110,6 +112,7 @@ module Controllers
               tags: ["Geofocus", "Public"]
 
     get "/geofocuses/:id" do
+      cross_origin
       gf = Geofocus.first(id: params[:id])
 
       if gf
@@ -176,6 +179,7 @@ module Controllers
               tags: ["Geofocus", "Public"]
 
     get "/geofocuses/?" do
+      cross_origin
       per_page = params[:per_page] || 50
       page = params[:page] || 1
 
@@ -208,6 +212,7 @@ module Controllers
               tags: ["Geofocus", "Public"]
 
     get "/geofocuses/:id/geojson/?" do
+      cross_origin
       gf = Geofocus.first(:id => params[:id])
       if gf
         json(gf.to_geojson)
@@ -215,7 +220,9 @@ module Controllers
         not_found("Geofocus", params[:id])
       end
     end
+
     private
+
     def to_geofocus_attrs(param)
       attrs = param
       if attrs[:geom]

@@ -42,6 +42,7 @@ module Controllers
               tags: ["Collection"]
 
     post "/feedback" do
+      cross_origin
       fb = Feedback.new(params[:parsed_body][:feedback])
       if fb.save
         json(fb.to_resource)

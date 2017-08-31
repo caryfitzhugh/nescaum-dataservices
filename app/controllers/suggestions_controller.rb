@@ -52,6 +52,7 @@ module Controllers
               tags: ["Collection"]
 
     post "/suggestion" do
+      cross_origin
       fb = Suggestion.new(params[:parsed_body][:suggestion])
       if fb.save
         json(fb.to_resource)
