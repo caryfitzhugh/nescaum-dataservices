@@ -73,6 +73,7 @@ module Controllers
               tags: ["Collection", "Public"]
 
     get "/collections/by-name/*" do
+      cross_origin
       collection = Collection.first(name: params[:splat])
 
       if collection
