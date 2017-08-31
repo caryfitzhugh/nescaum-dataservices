@@ -72,14 +72,13 @@ module Controllers
               },
               tags: ["Collection", "Public"]
 
-    get "/collections/by-name/:name" do
-      puts "Collection by name [#{params[:name]}]"
-      collection = Collection.first(name: params[:name])
+    get "/collections/by-name/*" do
+      collection = Collection.first(name: params[:splat])
 
       if collection
         json(collection.to_resource)
       else
-        not_found("Collection", params[:name])
+        not_found("Collection", params[:splat])
       end
     end
 
