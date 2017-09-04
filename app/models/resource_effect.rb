@@ -6,6 +6,11 @@ class ResourceEffect
 
   has n, :resource_effect_links
 
+  before :save, :downcase
+  def downcase
+    value = value.downcase
+  end
+
   def self.add_to_resource!(resource, value)
     ra = ResourceEffect.first_or_create(value: value)
     ResourceEffectLink.first_or_create(resource: resource, resource_effect: ra)

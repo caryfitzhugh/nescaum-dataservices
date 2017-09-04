@@ -6,6 +6,11 @@ class ResourceKeyword
 
   has n, :resource_keyword_links
 
+  before :save, :downcase
+  def downcase
+    value = value.downcase
+  end
+
   def self.add_to_resource!(resource, value)
     ra = ResourceKeyword.first_or_create(value: value)
     ResourceKeywordLink.first_or_create(resource: resource, resource_keyword: ra)

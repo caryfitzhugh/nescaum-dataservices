@@ -139,7 +139,7 @@ class Resource
   end
 
   def self.get_by_docid(did)
-    id = did.split("::").last.to_i
+    id = did.to_s.split("::").last.to_i
     Resource.get(id)
   end
 
@@ -173,7 +173,7 @@ class Resource
     filter_q = []
 
     filters = (filters || []).reduce([]) do |all, (fname, fvals)|
-        [:or ].concat(fvals.map {|fval| "#{fname}:'#{fval.strip}'" })
+      [:or ].concat(fvals.map {|fval| "#{fname}:'#{fval.strip.downcase}'" })
       end
     filter_q.push(filters) unless filters.empty?
 
