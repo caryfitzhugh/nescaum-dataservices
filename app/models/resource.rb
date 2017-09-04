@@ -174,8 +174,11 @@ class Resource
 
     #[:and [:or f1, f2] [:or f3 f4]]
     filter_rules = (filters || []).map do |(fname, fvals)|
-      [:or ].concat(fvals.map {|fval| "#{fname}:'#{fval.strip}'" })
+      if fvals.length > 0
+        [:or ].concat(fvals.map {|fval| "#{fname}:'#{fval.strip}'" })
       end
+    end
+
     filter_q.push([:and].concat(filter_rules)) unless filters.empty?
 
     ## Pubdate (range - squeezer!)
