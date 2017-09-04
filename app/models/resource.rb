@@ -173,7 +173,7 @@ class Resource
     filter_q = []
 
     filters = (filters || []).reduce([]) do |all, (fname, fvals)|
-      [:or ].concat(fvals.map {|fval| "#{fname}:'#{fval.strip.downcase}'" })
+      [:or ].concat(fvals.map {|fval| "#{fname}:'#{fval.strip}'" })
       end
     filter_q.push(filters) unless filters.empty?
 

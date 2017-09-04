@@ -329,4 +329,52 @@ class ResourceTest < NDSTestBase
     results = Resource.search(geofocuses: [geofocus2.id])
     assert_equal 1, results.hits.found
   end
+  def test_searching
+    doc = Resource.create!(
+      title: "Title",
+      subtitle: "Subtitle",
+      indexed: true,
+      effects: ["facet1"],
+      states: ["state1"],
+    )
+    doc.sync_index!
+
+    # GF Doc 2 - has same fields but different GF
+    doc2 = Resource.create!(
+      title: "Title",
+      subtitle: "Subtitle",
+      indexed: true,
+      effects: ["facet1"],
+      states: ["state2"],
+    )
+
+    # GF Doc 3 - has same fields but no GF
+    doc2 = Resource.create!(
+      title: "Title",
+      subtitle: "Subtitle",
+      indexed: true,
+      effects: ["facet1"],
+      states: ["state3"],
+    )
+
+    wait_for_cs_sync!
+
+    # Now we make a few searches
+    results = Resource.search(filters: {
+      effects: ["facet1"]
+    })
+    assert_equal 3, results.hits.found
+
+    results = Resource.search(filters: {
+      effects: ["facet1"],
+      states: ["state1"]
+    })
+    assert_equal 1, results.hits.found
+
+    results = Resource.search(filters: {
+      effects: ["facet1"],
+      states: ["state1", "state2","state3"]
+    })
+    assert_equal 3, results.hits.found
+  end
 end

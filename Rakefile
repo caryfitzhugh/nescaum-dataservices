@@ -9,7 +9,7 @@ namespace :db do
     ].each do |strategy|
       ResourceStrategy.first_or_create(value: strategy)
     end
-    ResourceStrategy.all.each {|rs| rs.touch }
+    ResourceStrategy.all.each {|rs| rs.value=res.value.downcase; rs.save }
 
     [
       "ma::agriculture",
@@ -36,7 +36,7 @@ namespace :db do
     ].each do |sector|
       ResourceSector.first_or_create(value: sector)
     end
-    ResourceSector.all.each {|rs| rs.touch }
+    ResourceSector.all.each {|rs| rs.value=res.value.downcase; rs.save }
 
     [
       "ma::outreach/education::capacity building",
@@ -49,7 +49,7 @@ namespace :db do
     ].each do |action|
       ResourceAction.first_or_create(value: action)
     end
-    ResourceAction.all.each {|rs| rs.touch }
+    ResourceAction.all.each {|rs| rs.value=res.value.downcase; rs.save }
 
     [
       "ma::rising temperatures::annual temperatures",
@@ -111,7 +111,7 @@ namespace :db do
     ].each do |climate_change|
       ResourceClimateChange.first_or_create(value: climate_change)
     end
-    ResourceClimateChange.all.each {|rs| rs.touch }
+    ResourceClimateChange.all.each {|rs| rs.value=res.value.downcase; rs.save }
 
     [
       "Data::Data Product",
