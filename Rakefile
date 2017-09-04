@@ -3,14 +3,15 @@ require 'inquirer'
 
 namespace :db do
   task :seed do
+    ResourceStrategy.all.each {|rs| rs.value=rs.value.downcase; rs.save }
     [
       "adaptation",
       "mitigation"
     ].each do |strategy|
       ResourceStrategy.first_or_create(value: strategy)
     end
-    ResourceStrategy.all.each {|rs| rs.value=rs.value.downcase; rs.save }
 
+    ResourceSector.all.each {|rs| rs.value=rs.downcase; rs.save }
     [
       "ma::agriculture",
       "ma::coastal zones",
@@ -36,8 +37,8 @@ namespace :db do
     ].each do |sector|
       ResourceSector.first_or_create(value: sector)
     end
-    ResourceSector.all.each {|rs| rs.value=rs.downcase; rs.save }
 
+    ResourceAction.all.each {|rs| rs.value=rs.downcase; rs.save }
     [
       "ma::outreach/education::capacity building",
       "ma::outreach/education::research and monitoring",
@@ -49,8 +50,8 @@ namespace :db do
     ].each do |action|
       ResourceAction.first_or_create(value: action)
     end
-    ResourceAction.all.each {|rs| rs.value=rs.downcase; rs.save }
 
+    ResourceClimateChange.all.each {|rs| rs.value=rs.downcase; rs.save }
     [
       "ma::rising temperatures::annual temperatures",
       "ma::rising temperatures::cloud cover",
@@ -111,7 +112,6 @@ namespace :db do
     ].each do |climate_change|
       ResourceClimateChange.first_or_create(value: climate_change)
     end
-    ResourceClimateChange.all.each {|rs| rs.value=rs.downcase; rs.save }
 
     [
       "Data::Data Product",
@@ -174,7 +174,6 @@ namespace :db do
     ].each do |content_type|
       ResourceContentType.first_or_create(value: content_type)
     end
-    ResourceContentType.all.each {|rs| rs.touch }
   end
 
   task :install_postgis do
