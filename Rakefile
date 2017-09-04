@@ -4,84 +4,114 @@ require 'inquirer'
 namespace :db do
   task :seed do
     [
-      "Adaptation",
-      "Mitigation"
+      "adaptation",
+      "mitigation"
     ].each do |strategy|
       ResourceStrategy.first_or_create(value: strategy)
     end
+    ResourceStrategy.all.each {|rs| rs.touch }
 
     [
-      "MA::Outreach/Education::Capacity Building",
-      "MA::Outreach/Education::Research and Monitoring",
-      "MA::Planning::Planning",
-      "MA::Planning::Policies/Laws/Regulations",
-      "MA::Implementation Action/Direct action on target::Management and Behavior",
-      "MA::Implementation Action/Direct action on target::Financing",
-      "MA::Implementation Action/Direct action on target::Technology",
+      "ma::agriculture",
+      "ma::coastal zones",
+      "ma::economy",
+      "ma::forestry",
+      "ma::infrastructure",
+      "ma::local government",
+      "ma::natural resources / habitats",
+      "ma::public heatlh",
+      "ma::public safety / emergency response",
+      "ma::recreation",
+      "ma::water resources",
+
+      "ny::agriculture",
+      "ny::buildings",
+      "ny::coastal zones",
+      "ny::ecosystems",
+      "ny::energy",
+      "ny::public health",
+      "ny::telecommunications",
+      "ny::transportation",
+      "ny::water resources",
+    ].each do |sector|
+      ResourceSector.first_or_create(value: sector)
+    end
+    ResourceSector.all.each {|rs| rs.touch }
+
+    [
+      "ma::outreach/education::capacity building",
+      "ma::outreach/education::research and monitoring",
+      "ma::planning::planning",
+      "ma::planning::policies/laws/regulations",
+      "ma::implementation action/direct action on target::management and behavior",
+      "ma::implementation action/direct action on target::financing",
+      "ma::implementation action/direct action on target::technology",
     ].each do |action|
       ResourceAction.first_or_create(value: action)
     end
+    ResourceAction.all.each {|rs| rs.touch }
 
     [
-      "MA::Rising Temperatures::Annual Temperatures",
-      "MA::Rising Temperatures::Cloud Cover",
-      "MA::Rising Temperatures::Cloud Distribution",
-      "MA::Rising Temperatures::Evaporation",
-      "MA::Rising Temperatures::Extreme Cold Events",
-      "MA::Rising Temperatures::Extreme Heat Events",
-      "MA::Rising Temperatures::Growing Season Length",
-      "MA::Rising Temperatures::Ice Cover",
-      "MA::Rising Temperatures::In-stream Temperature",
-      "MA::Rising Temperatures::Lake and Pond Temperature",
-      "MA::Rising Temperatures::Ocean Temperature",
-      "MA::Rising Temperatures::Peak Winds",
-      "MA::Rising Temperatures::Seasonal Temperatures",
-      "MA::Rising Temperatures::Snow Cover",
-      "MA::Rising Temperatures::Snowfall",
-      "MA::Rising Temperatures::Snowmelt ",
-      "MA::Rising Temperatures::Snowpack",
-      "MA::Rising Temperatures::Soil Moisture",
-      "MA::Rising Temperatures::Wildfire",
+      "ma::rising temperatures::annual temperatures",
+      "ma::rising temperatures::cloud cover",
+      "ma::rising temperatures::cloud distribution",
+      "ma::rising temperatures::evaporation",
+      "ma::rising temperatures::extreme cold events",
+      "ma::rising temperatures::extreme heat events",
+      "ma::rising temperatures::growing season length",
+      "ma::rising temperatures::ice cover",
+      "ma::rising temperatures::in-stream temperature",
+      "ma::rising temperatures::lake and pond temperature",
+      "ma::rising temperatures::ocean temperature",
+      "ma::rising temperatures::peak winds",
+      "ma::rising temperatures::seasonal temperatures",
+      "ma::rising temperatures::snow cover",
+      "ma::rising temperatures::snowfall",
+      "ma::rising temperatures::snowmelt ",
+      "ma::rising temperatures::snowpack",
+      "ma::rising temperatures::soil moisture",
+      "ma::rising temperatures::wildfire",
 
-      "MA::Changes in Precipitation::Drought",
-      "MA::Changes in Precipitation::Soil Moisture",
-      "MA::Changes in Precipitation::Evaportation",
-      "MA::Changes in Precipitation::Streamflow",
-      "MA::Changes in Precipitation::Lake Levels",
-      "MA::Changes in Precipitation::Hydrology",
-      "MA::Changes in Precipitation::Inland Flooding",
-      "MA::Changes in Precipitation::Annual Precipitation",
-      "MA::Changes in Precipitation::Heavy Precipitation",
-      "MA::Changes in Precipitation::Coastal Flooding",
-      "MA::Changes in Precipitation::Seasonal Precipitation",
-      "MA::Changes in Precipitation::Extreme Precipitation Events",
-      "MA::Changes in Precipitation::Snowcover",
-      "MA::Changes in Precipitation::Lake Ice",
-      "MA::Changes in Precipitation::Flash Flooding",
+      "ma::changes in precipitation::drought",
+      "ma::changes in precipitation::soil moisture",
+      "ma::changes in precipitation::evaportation",
+      "ma::changes in precipitation::streamflow",
+      "ma::changes in precipitation::lake levels",
+      "ma::changes in precipitation::hydrology",
+      "ma::changes in precipitation::inland flooding",
+      "ma::changes in precipitation::annual precipitation",
+      "ma::changes in precipitation::heavy precipitation",
+      "ma::changes in precipitation::coastal flooding",
+      "ma::changes in precipitation::seasonal precipitation",
+      "ma::changes in precipitation::extreme precipitation events",
+      "ma::changes in precipitation::snowcover",
+      "ma::changes in precipitation::lake ice",
+      "ma::changes in precipitation::flash flooding",
 
-      "MA::Extreme Weather::Hurricanes",
-      "MA::Extreme Weather::Nor'easters",
-      "MA::Extreme Weather::Intense Winter Storms",
-      "MA::Extreme Weather::Ice Storms",
-      "MA::Extreme Weather::Heavy Precipitation Events",
-      "MA::Extreme Weather::High Wind",
-      "MA::Extreme Weather::Tornadoes",
-      "MA::Extreme Weather::Microbursts",
-      "MA::Extreme Weather::Hail",
-      "MA::Extreme Weather::Drought",
-      "MA::Extreme Weather::Wildfire",
-      "MA::Extreme Weather::Extreme Heat",
-      "MA::Extreme Weather::Extreme Cold",
+      "ma::extreme weather::hurricanes",
+      "ma::extreme weather::nor'easters",
+      "ma::extreme weather::intense winter storms",
+      "ma::extreme weather::ice storms",
+      "ma::extreme weather::heavy precipitation events",
+      "ma::extreme weather::high wind",
+      "ma::extreme weather::tornadoes",
+      "ma::extreme weather::microbursts",
+      "ma::extreme weather::hail",
+      "ma::extreme weather::drought",
+      "ma::extreme weather::wildfire",
+      "ma::extreme weather::extreme heat",
+      "ma::extreme weather::extreme cold",
 
-      "MA::Sea Level Rise::Storm Surge",
-      "MA::Sea Level Rise::Ocean Temperatures",
-      "MA::Sea Level Rise::Ocean Acidification",
-      "MA::Sea Level Rise::Coastal Flooding",
-      "MA::Sea Level Rise::Salt-Water Intrusion",
+      "ma::sea level rise::storm surge",
+      "ma::sea level rise::ocean temperatures",
+      "ma::sea level rise::ocean acidification",
+      "ma::sea level rise::coastal flooding",
+      "ma::sea level rise::salt-water intrusion",
 
     ].each do |climate_change|
       ResourceClimateChange.first_or_create(value: climate_change)
     end
+    ResourceClimateChange.all.each {|rs| rs.touch }
 
     [
       "Data::Data Product",
@@ -144,6 +174,7 @@ namespace :db do
     ].each do |content_type|
       ResourceContentType.first_or_create(value: content_type)
     end
+    ResourceContentType.all.each {|rs| rs.touch }
   end
 
   task :install_postgis do
