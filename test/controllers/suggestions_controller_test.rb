@@ -4,7 +4,6 @@ class SuggestionControllerTest < NDSTestBase
   def test_creation
     post_json "/suggestions", {"suggestion" => {name: "George",
                                            organization: "Jungle",
-                                           contact: 'false',
                                            phone: '123-456-7890',
                                            email: "george@thejungle.org",
                                            title: "Title",

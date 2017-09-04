@@ -51,7 +51,7 @@ module Controllers
               },
               tags: ["Collection"]
 
-    post "/suggestion" do
+    post "/suggestions/?" do
       cross_origin
       fb = Suggestion.new(params[:parsed_body][:suggestion])
       if fb.save
