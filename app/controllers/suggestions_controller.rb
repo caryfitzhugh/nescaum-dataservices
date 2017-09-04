@@ -69,7 +69,7 @@ module Controllers
               },
               tags: ["Suggestion", "Curator"]
 
-    get "/suggestion/?", require_role: :curator do
+    get "/suggestions/?", require_role: :curator do
       per_page = params[:per_page] || 50
       page = params[:page] || 1
       fbs = Suggestion.all(limit: per_page, offset: (per_page * (page  - 1)))
@@ -89,7 +89,7 @@ module Controllers
               },
               tags: ["Collection", "Curator"]
 
-    get "/suggestion/:id", require_role: :curator do
+    get "/suggestions/:id", require_role: :curator do
       fb = Suggestion.first(id: params[:id])
 
       if fb

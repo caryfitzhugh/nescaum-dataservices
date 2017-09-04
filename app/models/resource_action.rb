@@ -8,7 +8,7 @@ class ResourceAction
 
   before :save, :downcase
   def downcase
-    value = value.downcase
+    self.value = self.value.downcase if self.value
   end
 
   def self.add_to_resource!(resource, value)

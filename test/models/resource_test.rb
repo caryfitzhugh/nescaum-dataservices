@@ -63,70 +63,50 @@ class ResourceTest < NDSTestBase
     assert doc.save
 
     ResourceAction.add_to_resource!(doc, "Hello")
-    ResourceAction.add_to_resource!(doc, "Hello")
-    ResourceAction.add_to_resource!(doc, "Hello")
     doc.reload
 
-    assert_equal ["Hello"], doc.resource_actions.map(&:value)
+    assert_equal ["hello"], doc.resource_actions.map(&:value)
 
-    ResourceAuthor.add_to_resource!(doc, "Hello")
-    ResourceAuthor.add_to_resource!(doc, "Hello")
     ResourceAuthor.add_to_resource!(doc, "Hello")
     doc.reload
 
     assert_equal ["Hello"], doc.resource_authors.map(&:value)
 
     ResourceClimateChange.add_to_resource!(doc, "Hello")
-    ResourceClimateChange.add_to_resource!(doc, "Hello")
-    ResourceClimateChange.add_to_resource!(doc, "Hello")
     doc.reload
 
-    assert_equal ["Hello"], doc.resource_climate_changes.map(&:value)
+    assert_equal ["hello"], doc.resource_climate_changes.map(&:value)
 
-    ResourceEffect.add_to_resource!(doc, "Hello")
-    ResourceEffect.add_to_resource!(doc, "Hello")
     ResourceEffect.add_to_resource!(doc, "Hello")
     doc.reload
 
-    assert_equal ["Hello"], doc.resource_effects.map(&:value)
+    assert_equal ["hello"], doc.resource_effects.map(&:value)
 
-    ResourceKeyword.add_to_resource!(doc, "Hello")
-    ResourceKeyword.add_to_resource!(doc, "Hello")
     ResourceKeyword.add_to_resource!(doc, "Hello")
     doc.reload
 
-    assert_equal ["Hello"], doc.resource_keywords.map(&:value)
+    assert_equal ["hello"], doc.resource_keywords.map(&:value)
 
-    ResourcePublisher.add_to_resource!(doc, "Hello")
-    ResourcePublisher.add_to_resource!(doc, "Hello")
     ResourcePublisher.add_to_resource!(doc, "Hello")
     doc.reload
 
     assert_equal ["Hello"], doc.resource_publishers.map(&:value)
 
     ResourceContentType.add_to_resource!(doc, "Hello")
-    ResourceContentType.add_to_resource!(doc, "Hello")
-    ResourceContentType.add_to_resource!(doc, "Hello")
     doc.reload
 
     assert_equal ["Hello"], doc.resource_content_types.map(&:value)
 
     ResourceSector.add_to_resource!(doc, "Hello")
-    ResourceSector.add_to_resource!(doc, "Hello")
-    ResourceSector.add_to_resource!(doc, "Hello")
     doc.reload
 
-    assert_equal ["Hello"], doc.resource_sectors.map(&:value)
+    assert_equal ["hello"], doc.resource_sectors.map(&:value)
 
-    ResourceStrategy.add_to_resource!(doc, "Hello")
-    ResourceStrategy.add_to_resource!(doc, "Hello")
     ResourceStrategy.add_to_resource!(doc, "Hello")
     doc.reload
 
-    assert_equal ["Hello"], doc.resource_strategies.map(&:value)
+    assert_equal ["hello"], doc.resource_strategies.map(&:value)
 
-    ResourceState.add_to_resource!(doc, "Hello")
-    ResourceState.add_to_resource!(doc, "Hello")
     ResourceState.add_to_resource!(doc, "Hello")
     doc.reload
 
