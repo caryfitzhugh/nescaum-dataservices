@@ -160,11 +160,11 @@ class Resource
     args = {
       size: per_page,
       start: (page - 1) * per_page,
+      query_parser: "structured"
     }
 
     if query == "" || query.nil?
       args[:query] = "matchall"
-      args[:query_parser] = "structured"
     else
       args[:query] = query
     end
@@ -172,10 +172,11 @@ class Resource
     ## Filters
     filter_q = []
 
-    filters = (filters || []).reduce([]) do |all, (fname, fvals)|
+    #[:and [:or f1, f2] [:or f3 f4]]
+    filter_rules = (filters || []).map do |(fname, fvals)|
       [:or ].concat(fvals.map {|fval| "#{fname}:'#{fval.strip}'" })
       end
-    filter_q.push(filters) unless filters.empty?
+    filter_q.push([:and].concat(filter_rules)) unless filters.empty?
 
     ## Pubdate (range - squeezer!)
     filter_q.push([:and,"pubstart:['#{to_cs_date(pub_dates[0])}',}"]) if pub_dates[0]

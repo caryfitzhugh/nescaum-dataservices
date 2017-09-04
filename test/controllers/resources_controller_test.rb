@@ -196,6 +196,8 @@ class ResourcesControllerTest < NDSTestBase
       title: "Title1",
       subtitle: "Subtitle",
       resource_content_types: [ResourceContentType.first_or_create(value: "format::1")],
+      resource_states: [ResourceState.first_or_create(value:'MA'),ResourceState.first_or_create(value:'NY')],
+      resource_states: [ResourceState.first_or_create(value:'MA'),ResourceState.first_or_create(value:'NY')],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
@@ -209,6 +211,7 @@ class ResourcesControllerTest < NDSTestBase
       title: "Title2",
       subtitle: "Subtitle",
       resource_content_types: [ResourceContentType.first_or_create(value: "format::2")],
+      resource_states: [ResourceState.first_or_create(value:'MA'),ResourceState.first_or_create(value:'NY')],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
@@ -220,6 +223,7 @@ class ResourcesControllerTest < NDSTestBase
       title: "Title3",
       subtitle: "Subtitle",
       resource_content_types: [ResourceContentType.first_or_create(value: "format::3")],
+      resource_states: [ResourceState.first_or_create(value:'MA'),ResourceState.first_or_create(value:'NY')],
       indexed: true,
       published_on_end: Date.today.to_s,
       published_on_start: Date.today.to_s,
@@ -268,8 +272,39 @@ class ResourcesControllerTest < NDSTestBase
     assert_equal 3, jr['total']
     assert_equal 3, jr['resources'].length
     assert_equal 4, jr['facets']['content_types'].length
+  end
 
-    get "/resources", page: 1, per_page: 5, content_types: "format::3"
+  def test_search_resource_complex1
+    doc = Resource.create!(
+      title: "Title1",
+      subtitle: "Subtitle",
+      resource_content_types: [ResourceContentType.first_or_create(value: "format::1")],
+      resource_states: [ResourceState.first_or_create(value:'MA'),ResourceState.first_or_create(value:'NY')],
+      resource_states: [ResourceState.first_or_create(value:'MA'),ResourceState.first_or_create(value:'NY')],
+      indexed: true,
+    )
+
+    # GF Doc 2 - has same fields but different GF
+    doc2 = Resource.create!(
+      title: "Title2",
+      subtitle: "Subtitle",
+      resource_content_types: [ResourceContentType.first_or_create(value: "format::2")],
+      resource_states: [ResourceState.first_or_create(value:'MA'),ResourceState.first_or_create(value:'NY')],
+      indexed: true,
+    )
+
+    # GF Doc 3 - has same fields but no GF
+    doc2 = Resource.create!(
+      title: "Title3",
+      subtitle: "Subtitle",
+      resource_content_types: [ResourceContentType.first_or_create(value: "format::3")],
+      resource_states: [ResourceState.first_or_create(value:'MA'),ResourceState.first_or_create(value:'NY')],
+      indexed: true,
+    )
+
+    wait_for_cs_sync!
+
+    get "/resources", page: 1, per_page: 5, content_types: "format::3", states: "MA"
     # should have 1 hit
     jr = json_response
     assert_equal 1, jr['total']
