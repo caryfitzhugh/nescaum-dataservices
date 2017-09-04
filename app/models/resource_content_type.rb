@@ -2,7 +2,7 @@ class ResourceContentType
   include DataMapper::Resource
 
   property :id, Serial
-  property :value, String, required: true, index: true, unique: true
+  property :value, String, required: true, index: true, unique: true, length: 256
 
   has n, :resource_content_type_links
 
