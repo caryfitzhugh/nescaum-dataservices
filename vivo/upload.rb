@@ -24,10 +24,12 @@ def image_url(host, url)
       bucket_name: BUCKETNAME,
       key: "uploaded_image/#{URI.parse(host).hostname}/#{key}"
     )
-
     unless obj.exists?
+
+      safe_url = url.encode('ASCII', :invalid => :replace, :undef => :replace)
+      uri = open('https://www.nyclimatescience.org/proxy/image?url="' + safe_url + '"')
       obj.put({
-        body: open('https://www.nyclimatescience.org/proxy/image?url="' + url + '"').read,
+        body: uri.read,
         acl: "public-read"
         })
 
@@ -99,6 +101,7 @@ def get_abstract(data)
 end
 
 def lookup_geofocus(host, name)
+  safe_name = name.encode('ASCII', :invalid => :replace, :undef => :replace)
   uri = URI.parse("#{host}/geofocuses/?q=#{name}")
   resp = Net::HTTP.get(uri)
   JSON.parse(resp)['geofocuses'][0]
@@ -223,6 +226,9 @@ a.get("#{host}") do |page|
         errors.push([e, data]);
         retries += 1
         retry if retries < 3
+      rescue Exception
+        puts "Err"
+        `echo "#{data['resource']}" >> failed_imports.txt`
       end
     end
   end
