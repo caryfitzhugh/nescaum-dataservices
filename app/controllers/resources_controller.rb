@@ -426,14 +426,14 @@ module Controllers
       doc.published_on_start = p[:published_on_start] if p[:published_on_start]
       doc.published_on_end = p[:published_on_end] || doc.published_on_start
       doc.resource_content_types  = (p[:content_types] || []).map { |v| ResourceContentType.first_or_create(value: v) } if p[:content_types]
-      doc.resource_actions = (p[:actions] || []).map { |v| ResourceAction.first_or_create(value: v) } if p[:actions]
+      doc.resource_actions = (p[:actions] || []).map { |v| ResourceAction.first_or_create(value: v.downcase) } if p[:actions]
       doc.resource_authors = (p[:authors] || []).map { |v| ResourceAuthor.first_or_create(value: v) } if p[:authors]
-      doc.resource_climate_changes = (p[:climate_changes] || []).map {|v| ResourceClimateChange.first_or_create(value: v) } if p[:climate_changes]
-      doc.resource_effects = (p[:effects] || []).map { |v| ResourceEffect.first_or_create(value: v) } if p[:effects]
-      doc.resource_keywords = (p[:keywords] || []).map {|v| ResourceKeyword.first_or_create(value: v) } if p[:keywords]
+      doc.resource_climate_changes = (p[:climate_changes] || []).map {|v| ResourceClimateChange.first_or_create(value: v.downcase) } if p[:climate_changes]
+      doc.resource_effects = (p[:effects] || []).map { |v| ResourceEffect.first_or_create(value: v.downcase) } if p[:effects]
+      doc.resource_keywords = (p[:keywords] || []).map {|v| ResourceKeyword.first_or_create(value: v.downcase) } if p[:keywords]
       doc.resource_publishers = (p[:publishers] || []).map {|v| ResourcePublisher.first_or_create(value: v) } if p[:publishers]
-      doc.resource_sectors = (p[:sectors] || []).map {|v| ResourceSector.first_or_create(value: v) } if p[:sectors]
-      doc.resource_strategies = (p[:strategies] || []).map {|v| ResourceStrategy.first_or_create(value: v) } if p[:strategies]
+      doc.resource_sectors = (p[:sectors] || []).map {|v| ResourceSector.first_or_create(value: v.downcase) } if p[:sectors]
+      doc.resource_strategies = (p[:strategies] || []).map {|v| ResourceStrategy.first_or_create(value: v.downcase) } if p[:strategies]
       doc.resource_states = (p[:states] || []).map {|v| ResourceState.first_or_create(value: v) } if p[:states]
 
     end

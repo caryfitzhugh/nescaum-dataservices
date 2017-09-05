@@ -10,11 +10,12 @@ require 'mechanize'
 require 'aws-sdk'
 require 'pry'
 require 'digest'
+require 'open-uri'
 BUCKETNAME='nescaum-dataservices-assets'
 
-host = "http://localhost:4000" #Ask.input "API Host"
-username = "cfitzhugh" #Ask.input "Username"
-password = "password" #Ask.input("Password", password: true)
+host = Ask.input "API Host"
+username = Ask.input "Username"
+password = Ask.input("Password", password: true)
 
 def image_url(host, url)
   if url
@@ -23,28 +24,34 @@ def image_url(host, url)
       bucket_name: BUCKETNAME,
       key: "uploaded_image/#{URI.parse(host).hostname}/#{key}"
     )
-    if obj.exists?
-      obj.public_url(virtual_host: true)
-    else
-      ## Download it from the nyclimatescience.org site
-      ## Put it in the S3 bucket
-      #resp = s3.put_object(
-      #  :bucket => "mybucket",
-      #  :key => "myfolder/upload_me.sql",
-      #  :body => "./upload_me.sql"
-      #)
+
+    unless obj.exists?
+      obj.put({
+        body: open('https://www.nyclimatescience.org/proxy/image?url="' + url + '"').read,
+        acl: "public-read"
+        })
+
       # Download the image, upload to .... somewhere (S3?)
       # Get the URL
-      #
     end
+
+    obj.public_url(virtual_host: true)
   end
-  nil
 end
 
-def resource_present?(host, data)
+def resource_present?(host, cookie, data)
   res_id = to_id(data)
   uri = URI.parse("#{host}/resources/internal/#{CGI.escape(res_id)}")
-  resp = JSON.parse(Net::HTTP.get(uri))
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = uri.scheme == 'https'
+  headers = {
+    'Content-Type' => 'application/json',
+    'Cookie' => cookie.to_s,
+    'Accept' => 'application/json' }
+  path = uri.path
+  response = http.get(uri.path, headers)
+  resp = JSON.parse(response.body)
+  puts resp
   resp['code'] != 404
 end
 
@@ -102,7 +109,7 @@ def geofocuses(host, data)
       gf['id']
     else
       puts 'Could not find geofocus...'
-      nil
+      raise "failed"
     end
   end.compact
   []
@@ -130,18 +137,18 @@ def create_resource(host,cookie, data)
     :published_on_start => pubdate(data),
     :published_on_end => pubdate(data),
     :geofocuses => geofocuses(host, data),
-    :actions => data['actions'] || [],
-    :authors => data['authors'] || [],
+    :actions => (data['actions'] || []).uniq,
+    :authors => (data['authors'] || []).uniq,
     :internal_id => to_id(data),
     :climate_changes => data['climatechanges'] || [],
     :content_types => ["#{data['format'].capitalize}::#{data['type']}"],
-    :keywords => data['keywords'],
-    :publishers => data['publishers'],
-    :sectors => data['sectors'],
-    :strategies => data['strategies'],
+    :keywords => (data['keywords'] || []).uniq,
+    :publishers => (data['publishers'] ||[]).uniq,
+    :sectors => (data['sectors'] ||[]).uniq,
+    :strategies => (data['strategies'] ||[]).uniq,
     :states => []
   }
-
+require 'pp'; pp resource
   req.body = JSON.generate({'resource' => resource })
   https.request(req)
 end
@@ -161,22 +168,45 @@ a.get("#{host}") do |page|
   end.submit
 
   cookie = a.cookie_jar.jar[URI.parse(host).hostname]['/']['rack.session']
+  puts cookie
 
-  file_to_import = "vivo/dataresources.json" #Ask.input "Resources File to load"
 
-  data_file = JSON.parse(File.read(file_to_import))
-  data_file.each do |data|
-    if (resource_present?(host, data))
-      #puts "Prob#ably already exists".yellow
-    else
-      create_result = create_resource(host, cookie, data)
-      if create_result.is_a? Net::HTTPOK
-        puts "Created #{data['title']}".green
-      else
-        puts "Failed to create #{data['title']}".red
+  errors = []
+  files_to_import = [
+    "vivo/documentsresources.json",
+    "vivo/dataresources.json",
+    "vivo/mapsresources.json",
+    "vivo/websitesresources.json",
+  ]
+
+  files_to_import.each do |file_to_import|
+    puts "opening: #{file_to_import}"
+    data_file = JSON.parse(File.read(file_to_import))
+    data_file.each do |data|
+      retries = 0
+      begin
+        puts "looking at: #{data['title']}".white
+
+        if (resource_present?(host, cookie, data))
+          puts "Prob#ably already exists".yellow
+        else
+          create_result = create_resource(host, cookie, data)
+          if create_result.is_a? Net::HTTPOK
+            puts "Created #{data['title']}".green
+          else
+            raise create_result.body
+          end
+        end
+      rescue RuntimeError => e
+        puts "Failed to create #{data['title']} #{e}".red
+        errors.push([e, data]);
+        retries += 1
+        retry if retries < 3
       end
     end
   end
+
+  File.write("import_errors.json", JSON.generate(errors))
 end
 #sign_in_page = Net::HTTP.get(host, '/sign_in')
 #puts sign_in_page

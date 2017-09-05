@@ -1,4 +1,34 @@
-[ { "actions" : [  ] ,
+[
+  { "actions" : [  ] ,
+    "authors" : [  ] ,
+    "climatechanges" : [  ] ,
+    "effects" : [  ] ,
+    "format" : "data" ,
+    "imageURL" : "/file/n30715/EPA+Greenhouse+gas+emissions.JPG" ,
+    "keywords" :
+      [ "emissions data",
+        "GHG"
+       ] ,
+    "links" : [ { "link" : "https://www.epa.gov/ghgemissions" ,
+          "linklabel" : "weblink"
+        } ] ,
+    "publishers" : [  ] ,
+    "resource" : "http://www.nyclimatescience.org/individual/n10258" ,
+    "sectors" :
+      [ "Agriculture",
+        "Transportation",
+        "Energy"
+       ] ,
+    "strategies" : [ "Mitigation" ] ,
+    "subjectAreas" :
+      [ "greenhouse gas emissions",
+        "greenhouse gas emissions (Topic)"
+       ] ,
+    "title" : "EPA Greenhouse Gas Emissions" ,
+    "type" : "Decision Support"
+  },
+
+  { "actions" : [  ] ,
     "authors" : [  ] ,
     "climatechanges" : [  ] ,
     "effects" : [  ] ,
@@ -197,34 +227,6 @@
     "subjectAreas" : [ "climate data" ] ,
     "title" : "National Hurricane Center" ,
     "type" : "Dataset"
-  },
-  { "actions" : [  ] ,
-    "authors" : [  ] ,
-    "climatechanges" : [  ] ,
-    "effects" : [  ] ,
-    "format" : "data" ,
-    "imageURL" : "/file/n30715/EPA+Greenhouse+gas+emissions.JPG" ,
-    "keywords" :
-      [ "emissions data",
-        "GHG"
-       ] ,
-    "links" : [ { "link" : "https://www.epa.gov/ghgemissions" ,
-          "linklabel" : "weblink"
-        } ] ,
-    "publishers" : [  ] ,
-    "resource" : "http://www.nyclimatescience.org/individual/n10258" ,
-    "sectors" :
-      [ "Agriculture",
-        "Transportation",
-        "Energy"
-       ] ,
-    "strategies" : [ "Mitigation" ] ,
-    "subjectAreas" :
-      [ "greenhouse gas emissions",
-        "greenhouse gas emissions (Topic)"
-       ] ,
-    "title" : "EPA Greenhouse Gas Emissions" ,
-    "type" : "Decision Support"
   },
   { "actions" : [  ] ,
     "authors" : [  ] ,
