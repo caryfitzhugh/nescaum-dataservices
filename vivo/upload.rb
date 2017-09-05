@@ -89,7 +89,13 @@ end
 
 def get_abstract(data)
   id = to_id(data)
-  (fociandabstracts[id] || {})[:abstract]
+  abstract = (fociandabstracts[id] || {})[:abstract]
+  begin
+    abstract.encode('UTF-8', :invalid => :replace, :undef => :replace)
+  rescue Exception => e
+    pp e
+    ""
+  end
 end
 
 def lookup_geofocus(host, name)
@@ -98,8 +104,24 @@ def lookup_geofocus(host, name)
   JSON.parse(resp)['geofocuses'][0]
 end
 
-def geofocuses(host, data)
+def create_geofocus(host,cookie, name)
+  uri = URI.parse("#{host}/geofocuses")
+  https = Net::HTTP.new(uri.host, uri.port)
+  https.use_ssl = uri.scheme == 'https'
+  req = Net::HTTP::Post.new(uri.path,
+        initheader = {'Content-Type' => 'application/json',
+                      'Cookie' => cookie.to_s,
+                      'Accept' => 'application/json'})
 
+  geofocus = {
+    :name => name,
+  }
+  `echo "#{name}" >> missing_geofocuses.txt`
+  req.body = JSON.generate({'geofocus' => geofocus })
+  https.request(req)
+end
+
+def geofocuses(host, cookie, data)
   get_geofocuses(data).map do |name|
     # Using the API, find the geofocus
     # If not found, create a geofocus with that new name? (ask first?)
@@ -108,11 +130,10 @@ def geofocuses(host, data)
     if gf
       gf['id']
     else
-      puts 'Could not find geofocus...'
-      raise "failed"
+      puts 'Could not find geofocus...' + name
+      JSON.parse(create_geofocus(host, cookie, name).body)['id']
     end
   end.compact
-  []
 end
 
 
@@ -127,7 +148,7 @@ def create_resource(host,cookie, data)
                       'Accept' => 'application/json'})
 
   resource = {
-    :title => data['title'],
+    :title => data['title'].encode('UTF-8', :invalid => :replace, :undef => :replace),
     :subtitle => data['subtitle'],
     :image => image_url(host, data['imageURL']),
     :content => get_abstract(data),
@@ -136,7 +157,7 @@ def create_resource(host,cookie, data)
     end,
     :published_on_start => pubdate(data),
     :published_on_end => pubdate(data),
-    :geofocuses => geofocuses(host, data),
+    :geofocuses => geofocuses(host, cookie, data).uniq,
     :actions => (data['actions'] || []).uniq,
     :authors => (data['authors'] || []).uniq,
     :internal_id => to_id(data),
