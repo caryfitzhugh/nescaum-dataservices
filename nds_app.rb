@@ -74,6 +74,9 @@ class NDSApp < Sinatra::Application
   get '/data/**' , :no_swagger => true do
     send_file File.join(File.dirname(__FILE__), 'data', params[:splat])
   end
+  get '/data/datagrapher/*' , :no_swagger => true do
+    send_file File.join(File.dirname(__FILE__), 'data', params[:splat])
+  end
 
   options "*", :no_swagger => true do
     response.headers["Allow"] = "HEAD,GET,PUT,POST,DELETE,OPTIONS"
