@@ -115,6 +115,7 @@ module Controllers
     endpoint description: "Search for resources",
               responses: standard_errors( 200 => "SearchResponse"),
               parameters: {
+                "query": ["Text to search for", :query, false, String],
                 "page": ["Page of records to return", :query, false, Integer, :minimum => 1],
                 "per_page": ["Number of records to return", :query, false, Integer, {:minimum => 1, :maximum => 100}],
                 "bounding_box": ["SW, NE list of lng, lat pairs, separated by , (leaflet.toBBoxString())", :query, false, String],

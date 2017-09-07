@@ -163,14 +163,14 @@ class Resource
       query_parser: "structured"
     }
 
+    ## Filters
+    filter_q = []
+
     if query == "" || query.nil?
       args[:query] = "matchall"
     else
-      args[:query] = query
+      args[:query] = "(and '#{query}')"
     end
-
-    ## Filters
-    filter_q = []
 
     #[:and [:or f1, f2] [:or f3 f4]]
     filter_rules = (filters || []).map do |(fname, fvals)|
