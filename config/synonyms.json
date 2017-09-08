@@ -1,0 +1,19 @@
+{
+    "precipitation": ["rain","rainfall"],
+    "sea level":     ["sea-level"],
+    "heavy precipitation":  ["heavy rainfall","heavy downpour","extreme precipitation","extreme rainfall","intense precipitation","intense rainfall","intense downpour"],
+    "ice cover": ["ice extent"],
+    "lake effect": ["lake-effect"],
+    "snow cover":["snow depth"],
+    "snowpack":["snow water equivalent","water equivalent of snow depth"],
+    "greenhouse gas": ["GHG"],
+    "wastewater": ["waste water"],
+    "stormwater": ["storm water"],
+    "streamflow": ["stream flow"],
+    "extreme heat": ["excessive heat"],
+    "extreme":    ["excessive","severe"],
+    "farming":  ["agriculture"],
+    "transportation": ["infrastructure"],
+    "buildings":  ["infrastructure"],
+    "telecommunications":  ["infrastructure"]
+}
