@@ -226,6 +226,10 @@ module Controllers
     def to_geofocus_attrs(param)
       attrs = param
       if attrs[:geom]
+        if !attrs[:geom].is_a? String
+          attrs[:geom] = attrs[:geom].to_json
+        end
+
         attrs[:geom] = GeoRuby::SimpleFeatures::Geometry.from_geojson(attrs[:geom])#.geometry
         attrs[:geom] = attrs[:geom].geometry if attrs[:geom].respond_to?(:geometry)
       end
