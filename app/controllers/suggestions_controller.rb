@@ -4,6 +4,7 @@ module Controllers
   class SuggestionsController < Controllers::Base
     type 'NewSuggestion', {
       properties: {
+        recaptcha: { type: String, description: "ReCaptcha token"},
         name: {type: String, description: "Name of the suggestioner"},
         email: {type: String, description: "Email of the suggestioner"},
         organization: {type: String, description: "Name of the suggestioner's organization"},
