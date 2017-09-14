@@ -2,7 +2,8 @@ require 'test_helper'
 
 class SuggestionControllerTest < NDSTestBase
   def test_creation
-    post_json "/suggestions", {"suggestion" => {name: "George",
+    post_json "/suggestions", {"recaptcha" => "FOO",
+                               "suggestion" => {name: "George",
                                            organization: "Jungle",
                                            phone: '123-456-7890',
                                            email: "george@thejungle.org",

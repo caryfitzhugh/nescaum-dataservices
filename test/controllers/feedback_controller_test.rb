@@ -2,7 +2,8 @@ require 'test_helper'
 
 class FeedbackControllerTest < NDSTestBase
   def test_creation
-    post_json "/feedback", {"feedback" => {name: "George",
+    post_json "/feedback", {"recaptcha" => "FOO",
+                            "feedback" => {name: "George",
                                            organization: "Jungle",
                                            comment: "Good grief",
                                            contact: 'false',
@@ -11,7 +12,8 @@ class FeedbackControllerTest < NDSTestBase
     assert response.ok?
     assert_equal 1, Feedback.count
 
-    post_json "/feedback", {"feedback" => {name: "George",
+    post_json "/feedback", {"recaptcha" => "FOO",
+                            "feedback" => {name: "George",
                                            organization: "Jungle",
                                            comment: "Good grief",
                                            contact: 'true',

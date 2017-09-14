@@ -19,11 +19,11 @@ deps:
 	pip install --upgrade --user awsebcli
 
 test: test-db-up
-	bundle exec rake test
+	APP_ENV=test bundle exec rake test
 
 test-db-up:
 	docker-compose -p nds_test-persist -f docker-compose-test.yml up postgres-service
-	bundle exec rake db:migrate
+	APP_ENV=test bundle exec rake db:migrate
 
 test-db-down:
 	docker-compose -p nds_test-persist -f docker-compose-test.yml down -v
