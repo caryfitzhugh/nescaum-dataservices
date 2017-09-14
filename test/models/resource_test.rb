@@ -1,6 +1,23 @@
 require 'test_helper'
 
 class ResourceTest < NDSTestBase
+  def test_resource_search_syntax
+    assert_equal Resource.expand_query("any terms which are not quoted"),
+      "(and (or 'any' 'terms' 'which' 'are' 'not' 'quoted'))"
+  #  => (or 'any' 'terms' 'which' 'are' 'not' 'quoted')
+  #
+  #  but if a 'term is quoted'
+  #  => (or 'but' 'if' 'a' 'term is quoted')
+  assert_equal Resource.expand_query("but if a 'term is quoted'"),
+      "(and (or 'but' 'if' 'a' 'term is quoted'))"
+  #
+  assert_equal Resource.expand_query("a +fine +'day for a ride' -but -'not going to' -ride but run"),
+      "(and (and 'fine' 'day for a ride') (or 'a' 'but' 'run') (not 'but' 'not going to' 'ride'))"
+  #  and +require something -'but not others'
+  #  => (and 'require' (or 'and' 'something') (not 'but not others'))
+
+  end
+
   def test_resource_delete
     date = Date.today
     doc = Resource.new

@@ -169,7 +169,7 @@ class Resource
     if query == "" || query.nil?
       args[:query] = "matchall"
     else
-      args[:query] = "(and '#{query}')"
+      args[:query] = self.expand_query(query)
     end
 
     #[:and [:or f1, f2] [:or f3 f4]]
@@ -362,6 +362,51 @@ class Resource
 
       parts.push([parts.last , last].compact.join)
       parts
+    end
+  end
+
+  #  any terms which are not quoted
+  #  => (or 'any' 'terms' 'which' 'are' 'not' 'quoted')
+  #
+  #  but if a 'term is quoted'
+  #  => (or 'but' 'if' 'a' 'term is quoted')
+  #
+  #  and +require something -'but not others'
+  #  => (and 'require' (or 'and' 'something') (not 'but not others'))
+
+  def self.expand_query(query)
+    if query == "" || query.nil?
+      "matchall"
+    else
+      ands = []
+      ors = []
+      nots = []
+      query.scan(/([-+]?(('[^']*')|(\w+)))/).map(&:first).each do |term|
+        str = term.to_s.gsub(/^[+\-']+/, '').gsub(/'$/, '')
+        if (term[0] === '+')
+          ands.push(str)
+        elsif (term[0] === '-')
+          nots.push(str)
+        else
+          ors.push(str)
+        end
+      end
+
+      ors.uniq!
+      ands.uniq!
+      nots.uniq!
+
+      ors_str  = ors.length > 0 ?
+        "(or '" + ors.join("' '") + "')"
+         : nil
+      ands_str  = ands.length > 0 ?
+        "(and '" + ands.join("' '") + "')"
+         : nil
+      nots_str  = nots.length > 0 ?
+        "(not '" + nots.join("' '") + "')"
+         : nil
+
+         "(" + ["and", ands_str, ors_str, nots_str].compact.join(" ") + ")"
     end
   end
 
