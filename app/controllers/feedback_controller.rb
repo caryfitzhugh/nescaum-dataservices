@@ -4,7 +4,6 @@ module Controllers
   class FeedbackController < Controllers::Base
     type 'NewFeedback', {
       properties: {
-        recaptcha: { type: String, description: "ReCaptcha token"},
         name: {type: String, description: "Name of the feedbacker"},
         organization: {type: String, description: "Name of the feedbacker's organization"},
         email: {type: String, description: "Email of the feedbacker"},
@@ -38,6 +37,7 @@ module Controllers
     endpoint description: "Create Feedback",
               responses: standard_errors( 200 => ["Feedback"]),
               parameters: {
+                "recaptcha": ["ReCaptcha Token", :body, true, String],
                 "feedback": ["New Feedback", :body, true, "NewFeedback"],
               },
               tags: ["Collection"]
