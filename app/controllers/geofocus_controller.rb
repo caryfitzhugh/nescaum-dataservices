@@ -225,7 +225,7 @@ module Controllers
 
     def to_geofocus_attrs(param)
       attrs = param
-      if attrs[:geom]
+      if attrs[:geom] && attrs[:geom] != ""
         if !attrs[:geom].is_a? String
           attrs[:geom] = attrs[:geom].to_json
         end
