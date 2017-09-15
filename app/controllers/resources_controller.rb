@@ -1,6 +1,7 @@
 require 'app/controllers/base'
 require 'app/controllers/geofocus_controller'
 require 'app/models'
+require 'uri'
 
 module Controllers
   class ResourcesController < Controllers::Base
@@ -134,16 +135,16 @@ module Controllers
       per_page = params[:per_page] || 50
       page = params[:page] || 1
       query = params[:query]
-      geofocuses = (params[:geofocuses] || "").split(',').map(&:to_i)
+      geofocuses = split_multiples((params[:geofocuses] || "")).map(&:to_i)
       filters = {}
 
       Resource::FACETED_PROPERTIES.each do |name|
-        filters[name] = params[name].split(",") if params[name]
+        filters[name] = split_multiples(params[name]) if params[name]
       end
 
       bbox = nil
       if params[:bounding_box]
-        bbox = params[:bounding_box].split(",").map(&:to_f)
+        bbox = split_multiples(params[:bounding_box]).map(&:to_f)
       end
 
       result = Resource.search(query: query,
@@ -228,7 +229,7 @@ module Controllers
 
     get "/resources/facets" do
       cross_origin
-      facets = params[:names].split(",").map(&:strip).reduce([]) do |memo, facet_name|
+      facets = split_multiples(params[:names]).map(&:strip).reduce([]) do |memo, facet_name|
         memo.push({name: facet_name, facets: Cloudsearch.facet_list(facet_name).to_a})
         memo
       end
@@ -415,7 +416,11 @@ module Controllers
     end
 
     private
-
+    def split_multiples(p)
+      p.split(",").map do |part|
+        URI.unescape(part)
+      end
+    end
     def update_resource(doc, p)
       doc.title = p[:title] if p[:title]
       doc.subtitle = p[:subtitle] if p[:subtitle]

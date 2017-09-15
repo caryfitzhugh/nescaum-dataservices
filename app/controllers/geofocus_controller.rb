@@ -75,7 +75,7 @@ module Controllers
     get "/geofocuses/bulk_geojson/?" do
       cross_origin
       ids = params[:ids].split(',').map(&:to_i)
-      gfs = Geofocus.all(id: ids)
+      gfs = Geofocus.all(id: ids, :geom.not => nil)
       if gfs.length == ids.length
         content_type :json
         geojsons = gfs.map(&:to_geojson)
@@ -213,7 +213,7 @@ module Controllers
 
     get "/geofocuses/:id/geojson/?" do
       cross_origin
-      gf = Geofocus.first(:id => params[:id])
+      gf = Geofocus.first(:id => params[:id], :geom.not => nil)
       if gf
         json(gf.to_geojson)
       else
