@@ -224,6 +224,8 @@ module Controllers
     private
 
     def to_geofocus_attrs(param)
+      # CLone Deep...
+      # Then return a new set.
       attrs = param
       if attrs[:geom] && attrs[:geom] != ""
         if !attrs[:geom].is_a? String
