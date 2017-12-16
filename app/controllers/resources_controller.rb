@@ -87,6 +87,8 @@ module Controllers
         query: {type: String, description: "The original search query"},
         geofocuses: {type: [Integer], description: "Geofocus to filter on"},
         bounding_box: {type: [Integer], description: "SW, NE list of lng, lat pairs, separated by , (leaflet.toBBoxString())", example: "23.7,90.2,23.9,90.7"},
+        sort_by_center_lat: {type: String, description: "lat of center to sort on", example: "42.377117"},
+        sort_by_center_lng: {type: String, description: "Lng of center to sort on", example:" -71.9443"},
         published_on_end: {type: String, example: Date.today.to_s},
         published_on_start: {type: String, example: Date.today.to_s},
         filters: {type: "SearchFilters", description: "The filters used in this search"}
@@ -120,6 +122,8 @@ module Controllers
                 "page": ["Page of records to return", :query, false, Integer, :minimum => 1],
                 "per_page": ["Number of records to return", :query, false, Integer, {:minimum => 1, :maximum => 100}],
                 "bounding_box": ["SW, NE list of lng, lat pairs, separated by , (leaflet.toBBoxString())", :query, false, String],
+                "sort_by_center_lat": ["Latitude of center point to sort results against", :query, false, String],
+                "sort_by_center_lng": ["Longitude of center point to sort results against", :query, false, String],
                 "published_on_end": ["Limit to resources publish dates to <= this publish end date", :query, false, String, :format => :date],
                 "published_on_start": ["Limit to resources publish dates to >= this publish start date", :query, false, String, :format => :date],
                 "geofocuses": ["Geofocuses to filter resources on, split by ','", :query, false, String]
@@ -147,9 +151,15 @@ module Controllers
         bbox = split_multiples(params[:bounding_box]).map(&:to_f)
       end
 
+      sort_by_center = nil
+      if params[:sort_by_center_lat] && params[:sort_by_center_lng]
+        sort_by_center = OpenStruct.new({lat: params[:sort_by_center_lat].to_f, lng: params[:sort_by_center_lng].to_f})
+      end
+
       result = Resource.search(query: query,
                                filters: filters,
                                page: page,
+                               sort_by_center: sort_by_center,
                                geofocuses: geofocuses,
                                bounding_box: bbox,
                                per_page: per_page,

@@ -152,8 +152,7 @@ class Resource
       ids.index(resource.id)
     end
   end
-
-  def self.search(query:'', filters:{}, bounding_box: nil, geofocuses: [], page:1, per_page:100, pub_dates: [nil,nil])
+  def self.search(query:'', filters:{}, sort_by_center: nil, bounding_box: nil, geofocuses: [], page:1, per_page:100, pub_dates: [nil,nil])
     # We want facets for all the filters.
     # Facets:  { "actions": [1,2,3,4]}
     # Query: "tornado"
@@ -186,8 +185,15 @@ class Resource
     filter_q.push([:and,"pubend:{,'#{to_cs_date(pub_dates[1])}']"]) if pub_dates[1]
     filter_q.push([:or].concat(geofocuses.map {|gf| "geofocuses:#{gf}"})) unless geofocuses.empty?
 
-    # Bounding boxen
-    if bounding_box
+    if sort_by_center
+      distance = "(haversin(#{sort_by_center.lat}, #{sort_by_center.lng}, centroid.latitude, centroid.longitude))"
+      args[:expr] = JSON.generate({
+        "centroid_score" => "#{distance}"
+      })
+      args[:return] = "docid,centroid_score"
+      args[:sort] = "centroid_score asc, _score asc"
+
+    elsif bounding_box
       sw_lng = bounding_box[0]
       sw_lat = bounding_box[1]
       ne_lng = bounding_box[2]
