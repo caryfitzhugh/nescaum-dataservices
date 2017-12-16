@@ -188,7 +188,7 @@ class Resource
     if sort_by_center
       distance = "(haversin(#{sort_by_center.lat}, #{sort_by_center.lng}, centroid.latitude, centroid.longitude))"
       args[:expr] = JSON.generate({
-        "centroid_score" => "#{distance}"
+        "centroid_score" => "floor(#{distance} / 125)"
       })
       args[:return] = "docid,centroid_score"
       args[:sort] = "centroid_score asc, _score asc"
@@ -234,7 +234,9 @@ class Resource
 
     self.logger.info "Args: #{args}"
 
-    Cloudsearch.search_conn.search(args)
+    res = Cloudsearch.search_conn.search(args)
+    self.logger.info "Res: #{res}"
+    res
   end
 
   def delete_associations
