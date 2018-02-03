@@ -152,7 +152,16 @@ class Resource
       ids.index(resource.id)
     end
   end
-  def self.search(query:'', filters:{}, sort_by_center: nil, bounding_box: nil, geofocuses: [], page:1, per_page:100, pub_dates: [nil,nil])
+  def self.search(query:'',
+                  filters:{},
+                  sort_by_center: nil,
+                  bounding_box: nil,
+                  geofocuses: [],
+                  page:1,
+                  per_page:100,
+                  pub_dates: [nil,nil],
+                  score_weight: 1,
+                  distance_weight: 3)
     # We want facets for all the filters.
     # Facets:  { "actions": [1,2,3,4]}
     # Query: "tornado"
@@ -187,11 +196,12 @@ class Resource
 
     if sort_by_center
       distance = "(haversin(#{sort_by_center.lat}, #{sort_by_center.lng}, centroid.latitude, centroid.longitude))"
+      centroid_score =  "floor(#{distance} / 125)"
       args[:expr] = JSON.generate({
-        "centroid_score" => "floor(#{distance} / 125)"
+        "score" => "_score * #{score_weight} - (#{centroid_score} * #{distance_weight})"
       })
-      args[:return] = "docid,centroid_score"
-      args[:sort] = "centroid_score asc, _score asc"
+      args[:return] = "docid,title,score"
+      args[:sort] = "score desc"
 
     elsif bounding_box
       sw_lng = bounding_box[0]
@@ -214,11 +224,15 @@ class Resource
 
       area_delta = "((area - #{bbox_attrs.area})/(abs(area - #{bbox_attrs.area}) + 100))"
       distance = "(haversin(#{centroid.lat}, #{centroid.lng}, centroid.latitude, centroid.longitude))"
+      bbox_score = "#{distance} * (#{area_delta} + 0.01)"
       args[:expr] = JSON.generate({
-        "bbox_score" => "#{distance} * (#{area_delta} + 0.01)"
+        "score" => "(1000 - _score) * #{score_weight} - ((#{bbox_score}) * #{distance_weight})"
       })
-      args[:return] = "docid,bbox_score"
-      args[:sort] = "bbox_score asc"
+      args[:return] = "docid,score, title"
+      args[:sort] = "score desc"
+    else
+
+      args[:return] = "docid, title"
     end
 
     # Scope to just our CS env
@@ -231,6 +245,24 @@ class Resource
       memo[filter] = {:sort => :count, :size => 1000}
       memo
     end)
+
+    # Weights
+    args[:query_options] = {"fields": [
+          'title^2',
+          'subtitle',
+          'content',
+          'actions',
+          'authors',
+          'climate_changes',
+          'effects',
+          'content_types',
+          'keywords',
+          'publishers',
+          'sectors',
+          'strategies',
+          'states',
+          'search_terms'
+      ]}.to_json
 
     self.logger.info "Args: #{args}"
 
