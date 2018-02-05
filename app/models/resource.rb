@@ -200,7 +200,7 @@ class Resource
       args[:expr] = JSON.generate({
         "score" => "_score * #{score_weight} - (#{centroid_score} * #{distance_weight})"
       })
-      args[:return] = "docid,title,score"
+      args[:return] = "docid,score"
       args[:sort] = "score desc"
 
     elsif bounding_box
@@ -228,11 +228,11 @@ class Resource
       args[:expr] = JSON.generate({
         "score" => "(1000 - _score) * #{score_weight} - ((#{bbox_score}) * #{distance_weight})"
       })
-      args[:return] = "docid,score, title"
+      args[:return] = "docid,score"
       args[:sort] = "score desc"
     else
 
-      args[:return] = "docid, title"
+      args[:return] = "docid"
     end
 
     # Scope to just our CS env
