@@ -16,7 +16,9 @@ var insect_species = {
   "NY-2-113466": "Hemlock Woolly Adelgid"
 };
 
-var types = [{key: "county",    type: "COUNTY", layer_num: 7}];
+var types = [{key: "county",   type: "COUNTY", layer_num: 7},
+             {key: "basin",    type: "HUC", layer_num: 9}];
+
 
 // We want to iterate over all of the species, and make the request to the server.
 // Generating the resulting JSON map

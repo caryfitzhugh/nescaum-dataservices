@@ -50,7 +50,8 @@ var plant_species = {
   "NY-2-149941": "Yellow Iris, Water-flag, Yellow flag iris, Water flag, Yellow flag"
 };
 
-var types = [{key: "county",    type: "COUNTY", layer_num: 7}];
+var types = [{key: "county",   type: "COUNTY", layer_num: 7},
+             {key: "basin",    type: "HUC", layer_num: 9}];
 
 // We want to iterate over all of the species, and make the request to the server.
 // Generating the resulting JSON map

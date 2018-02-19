@@ -20,7 +20,8 @@ var animal_species = {
   "NY-2-109673": "Zebra Mussel"
 };
 
-var types = [{key: "county",    type: "COUNTY", layer_num: 7}];
+var types = [{key: "county",   type: "COUNTY", layer_num: 7},
+             {key: "basin",    type: "HUC", layer_num: 9}];
 
 // We want to iterate over all of the species, and make the request to the server.
 // Generating the resulting JSON map
