@@ -59,7 +59,7 @@ namespace :db do
       "ma::rising temperatures::cloud distribution",
       "ma::rising temperatures::evaporation",
       "ma::rising temperatures::extreme cold events",
-      "ma::rising temperatures::extreme heat events",
+      "ma::rising temperatures::extreme heat",
       "ma::rising temperatures::growing season length",
       "ma::rising temperatures::ice cover",
       "ma::rising temperatures::in-stream temperature",

@@ -371,7 +371,11 @@ class Resource
     attributes[:content] = self.content
 
     attributes[:docid] = self.docid
-    attributes[:search_terms] = JSON.generate(attributes).gsub(/\W+/, " ")
+    terms = []
+    attributes.values().each do |val|
+      terms <<  val if val
+    end
+    attributes[:search_terms] = JSON.generate(terms).gsub(/\W+/, " ")
     attributes[:geofocuses] = self.geofocuses.map(&:id)
 
     area_and_centroid = Geofocus.calculate_area_and_centroid(self.geofocuses)
