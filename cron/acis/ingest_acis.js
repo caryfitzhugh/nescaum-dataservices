@@ -57,14 +57,14 @@ const download_acis_data = (opts) => {
        json_blob: null,
        ny_json_pk: 1 },
      */
-
+    /*
     opts.grid = "loca:wmean:rcp85";
     opts.state = "NY";
     opts.elem_name = "maxt";
     opts.elem_reduce = "cnt_gt_90";
     opts.elem_interval = "yly";
     opts.area_reduce = 'county_mean';
-     /*   */
+    */
 
     let body = {
         "grid": opts.grid,
