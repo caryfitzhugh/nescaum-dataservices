@@ -1,0 +1,6 @@
+{
+  "name": "acis Data Importer",
+  "dependencies": {
+    "pg": "latest"
+  }
+}
