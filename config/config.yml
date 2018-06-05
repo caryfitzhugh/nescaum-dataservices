@@ -1,6 +1,18 @@
 production:
-  postgres: postgres://<%= ENV['RDS_USERNAME'] %>:<%= ENV['RDS_PASSWORD'] %>@<%= ENV['RDS_HOSTNAME'] %>:<%= ENV['RDS_PORT'] %>/<%= ENV['RDS_DB_NAME'] %>
-  geoserver_postgres: postgres://<%= ENV['GEOSERVER_RDS_USERNAME'] %>:<%= ENV['GEOSERVER_RDS_PASSWORD'] %>@<%= ENV['GEOSERVER_RDS_HOSTNAME'] %>:<%= ENV['GEOSERVER_RDS_PORT'] %>/<%= ENV['GEOSERVER_RDS_DB_NAME'] %>
+  postgres:
+     adapter: postgres
+     database: <%= ENV['RDS_DB_NAME'] %>
+     username: <%= ENV['RDS_USERNAME'] %>
+     password: <%= ENV['RDS_PASSWORD'] %>
+     host: <%= ENV['RDS_HOSTNAME'] %>
+     port: <%= ENV['RDS_PORT'] %>
+  geoserver:
+     adapter: postgres
+     database: <%= ENV['GEOSERVER_RDS_DB_NAME'] %>
+     username: <%= ENV['GEOSERVER_RDS_USERNAME'] %>
+     password: <%= ENV['GEOSERVER_RDS_PASSWORD'] %>
+     host: <%= ENV['GEOSERVER_RDS_HOSTNAME'] %>
+     port: <%= ENV['GEOSERVER_RDS_PORT'] %>
   cs:
     env: <%= ENV["CLOUDSEARCH_ENV"] %>
     search_endpoint: <%= ENV["CLOUDSEARCH_SEARCH_ENDPOINT"] %>
