@@ -6,7 +6,8 @@ production:
      password: <%= ENV['RDS_PASSWORD'] %>
      host: <%= ENV['RDS_HOSTNAME'] %>
      port: <%= ENV['RDS_PORT'] %>
-  geoserver:
+
+  postgres_geoserver:
      adapter: postgres
      database: <%= ENV['GEOSERVER_RDS_DB_NAME'] %>
      username: <%= ENV['GEOSERVER_RDS_USERNAME'] %>
