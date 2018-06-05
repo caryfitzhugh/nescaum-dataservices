@@ -45,7 +45,7 @@ if CONFIG.postgres
   connected = false
   while !connected
     begin
-      DataMapper.setup(:default, CONFIG.postgres)
+      DataMapper.setup(:default, CONFIG.postgres.to_h)
       connected = true
     rescue DataObjects::ConnectionError
       connected = false
@@ -60,7 +60,7 @@ if CONFIG.geoserver_postgres
   connected = false
   while !connected
     begin
-      DataMapper.setup(:geoserver, CONFIG.geoserver_postgres)
+      DataMapper.setup(:geoserver, CONFIG.geoserver_postgres.to_h)
       connected = true
     rescue DataObjects::ConnectionError
       connected = false
