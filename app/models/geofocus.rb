@@ -21,8 +21,8 @@ class Geofocus
         attrs[k.to_sym] = v
       end
       Geofocus.new(attrs)
-
   end
+
   def self.find_containing_point(latlng)
     self.repository.adapter.select("SELECT * FROM geofocuses WHERE ST_Contains(geofocuses.geom, ST_Transform( ST_GeomFromText(?, 4326), 4326))",
                                    "POINT(#{latlng[1]} #{latlng[0]})").map do |stct|

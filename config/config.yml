@@ -1,5 +1,6 @@
 production:
   postgres: postgres://<%= ENV['RDS_USERNAME'] %>:<%= ENV['RDS_PASSWORD'] %>@<%= ENV['RDS_HOSTNAME'] %>:<%= ENV['RDS_PORT'] %>/<%= ENV['RDS_DB_NAME'] %>
+  geoserver_postgres: postgres://<%= ENV['GEOSERVER_RDS_USERNAME'] %>:<%= ENV['GEOSERVER_RDS_PASSWORD'] %>@<%= ENV['GEOSERVER_RDS_HOSTNAME'] %>:<%= ENV['GEOSERVER_RDS_PORT'] %>/<%= ENV['GEOSERVER_RDS_DB_NAME'] %>
   cs:
     env: <%= ENV["CLOUDSEARCH_ENV"] %>
     search_endpoint: <%= ENV["CLOUDSEARCH_SEARCH_ENDPOINT"] %>
@@ -9,9 +10,10 @@ production:
 
 development:
   postgres: <%= ENV["POSTGRES_DB_URL"] || "postgres://nds:nds@localhost:5000/nds" %>
+  geoserver_postgres: <%= ENV["GEOSERVER_POSTGRES_DB_URL"] || "postgres://nds:nds@localhost:5000/nds" %>
   pretend_admin: true
   cs:
-    env: development
+    env: production
     search_endpoint: "https://search-nds-resources-22fi3bt2o7vt5wllh64qck52a4.us-east-1.cloudsearch.amazonaws.com"
     doc_endpoint: "https://doc-nds-resources-22fi3bt2o7vt5wllh64qck52a4.us-east-1.cloudsearch.amazonaws.com"
     #access_key: <%= ENV["CLOUDSEARCH_ACCESS_KEY"] %>
@@ -19,6 +21,7 @@ development:
 
 test:
   postgres: <%= ENV["POSTGRES_DB_URL"] || "postgres://nds:nds@localhost:5006/nds" %>
+  geoserver_postgres: <%= ENV["MAP_POSTGRES_DB_URL"] || "postgres://nds:nds@localhost:5006/nds" %>
   pretend_admin: false
   cs:
     env: test

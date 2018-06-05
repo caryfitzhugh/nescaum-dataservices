@@ -10,14 +10,18 @@ require 'logger'
 require 'colorize'
 require 'sinatra/cross_origin'
 require 'sinatra/swagger-exposer/swagger-exposer'
-require 'app/controllers/resources_controller'
-require 'app/controllers/collections_controller'
-require 'app/controllers/authentication_controller'
-require 'app/controllers/feedback_controller'
-require 'app/controllers/suggestions_controller'
-require 'app/controllers/geofocus_controller'
+
 require 'app/controllers/actions_controller'
+require 'app/controllers/authentication_controller'
+require 'app/controllers/climate_deltas_controller'
+require 'app/controllers/collections_controller'
+require 'app/controllers/feedback_controller'
+require 'app/controllers/geofocus_controller'
+require 'app/controllers/map_states_controller'
+require 'app/controllers/resources_controller'
+require 'app/controllers/suggestions_controller'
 require 'app/controllers/users_controller'
+
 require 'app/helpers'
 
 require 'lib/cloudsearch'
@@ -44,28 +48,32 @@ class NDSApp < Sinatra::Application
   configure do
     enable :cross_origin
   end
-
+  before do
+    logger.level = 0
+  end
   general_info(
     {
       version: '0.0.1',
       title: 'NESCAUM Data Services',
       description: 'Data services provided by NESCAUM and other providers',
       license: {
-        name: 'Copyright NESCAUM 2017',
+        name: 'Copyright NESCAUM 2017-2018',
         url: 'http://nescaum.org'
       }
     }
   )
   helpers Helpers::Authentication
 
-  use Controllers::ResourcesController
-  use Controllers::GeofocusController
-  use Controllers::AuthenticationController
-  use Controllers::CollectionsController
   use Controllers::ActionsController
-  use Controllers::UsersController
+  use Controllers::AuthenticationController
+  use Controllers::ClimateDeltasController
+  use Controllers::CollectionsController
   use Controllers::FeedbackController
+  use Controllers::GeofocusController
+  use Controllers::ResourcesController
   use Controllers::SuggestionsController
+  use Controllers::UsersController
+  use Controllers::MapStatesController
 
   get "/", :no_swagger => true do
     redirect '/index.html'

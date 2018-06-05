@@ -1,5 +1,6 @@
 require 'data_mapper'
 require 'dm-postgres-types'
+require 'dm-postgis'
 require 'dm-chunked_query'
 require 'dm-timestamps'
 
@@ -26,19 +27,20 @@ require 'app/models/resource_strategy_link'
 require 'app/models/resource_state'
 require 'app/models/resource_state_link'
 
-require 'app/models/resource'
-require 'app/models/user'
-require 'app/models/collection'
 require 'app/models/action'
+require 'app/models/climate_data'
+require 'app/models/collection'
 require 'app/models/feedback'
+require 'app/models/resource'
 require 'app/models/suggestion'
+require 'app/models/user'
+require 'app/models/map_state'
 
 require 'lib/config'
 
 DataMapper.finalize
 
 DataMapper::Logger.new($stdout, :info)
-
 if CONFIG.postgres
   connected = false
   while !connected
@@ -52,4 +54,19 @@ if CONFIG.postgres
   end
 else
   raise "Need to have POSTGRES_DB_URL set!"
+end
+
+if CONFIG.geoserver_postgres
+  connected = false
+  while !connected
+    begin
+      DataMapper.setup(:geoserver, CONFIG.geoserver_postgres)
+      connected = true
+    rescue DataObjects::ConnectionError
+      connected = false
+      sleep 1
+    end
+  end
+else
+  puts "Need to have GEOSERVER_POSTGRES ENV set!"
 end

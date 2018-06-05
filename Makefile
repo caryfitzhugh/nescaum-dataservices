@@ -28,4 +28,7 @@ test-db-up:
 test-db-down:
 	docker-compose -p nds_test-persist -f docker-compose-test.yml down -v
 
+tunnel:
+	ssh -L 5009:geoserver-db.c9se39llh7gh.us-east-1.rds.amazonaws.com:5432 ec2-user@54.173.250.109
+
 .PHONY: run

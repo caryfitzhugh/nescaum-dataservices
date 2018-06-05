@@ -2,7 +2,7 @@ require 'json'
 require 'open-uri'
 require 'georuby'
 
-require '../nds_app'
+require './nds_app'
 class String
   def titleize
     u_split = split("_")
@@ -22,23 +22,23 @@ end
 #    simplify to 2%
 #    export (600kb)
 
-FILENAME = './masstowns.geojson'
+FILENAME = File.join(File.dirname(__FILE__), 'masstowns.geojson')
 puts "Loaded data"
 data = JSON.load(File.read(FILENAME))
-puts data['features'].count
+
 towns = {}
 
 data['features'].each do |feature|
   props = feature['properties']
   name = props['TOWN'].titleize + ", MA"
   geofocus = Geofocus.first(:name => name)
-  unless existing
+  unless geofocus
     geofocus = Geofocus.new
     geofocus.name = name
     geofocus.type = 'town'
   end
 
-  if existing.geom
+  if geofocus.geom
     puts "Skipping..."
   else
     geofocus.geom = GeoRuby::SimpleFeatures::Geometry.from_geojson(JSON.dump(feature['geometry']))
