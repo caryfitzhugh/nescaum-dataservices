@@ -56,11 +56,11 @@ else
   raise "Need to have POSTGRES_DB_URL set!"
 end
 
-if CONFIG.geoserver_postgres
+if CONFIG.postgres_geoserver
   connected = false
   while !connected
     begin
-      DataMapper.setup(:geoserver, CONFIG.geoserver_postgres.to_h)
+      DataMapper.setup(:geoserver, CONFIG.postgres_geoserver.to_h)
       connected = true
     rescue DataObjects::ConnectionError
       connected = false
