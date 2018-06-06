@@ -32,7 +32,9 @@ data['features'].each do |feature|
   props = feature['properties']
   name = props['TOWN'].titleize + ", MA"
   geofocus = Geofocus.first(:name => name)
-  unless geofocus
+  if geofocus
+    puts "existing"
+  else
     geofocus = Geofocus.new
     geofocus.name = name
     geofocus.type = 'town'
@@ -45,5 +47,5 @@ data['features'].each do |feature|
   end
 
   geofocus.save!
-  puts "Updated ", name
+  puts "Updated ", name, geofocus.id
 end
