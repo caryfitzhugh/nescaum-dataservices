@@ -23,22 +23,22 @@ class ClimateData
         wheres = []
         vars = []
         unless counties.empty?
-          wheres.push('name IN (?)')
+          wheres.push('name IN ?')
           vars.push(counties)
         end
 
         unless years.empty?
-          wheres.push('year in (?)')
-          vars.push(years)
+          wheres.push('year in ?')
+          vars.push(years.map(&:to_s))
         end
 
         unless seasons.empty?
-          wheres.push('season in (?)')
+          wheres.push('season in ?')
           vars.push(seasons)
         end
 
         unless variables.empty?
-          wheres.push('variable_name in (?)')
+          wheres.push('variable_name in ?')
           vars.push(variables)
         end
 
@@ -46,7 +46,7 @@ class ClimateData
           sql += ' WHERE ' + wheres.join(" AND ")
         end
 
-        adapter.select.each do |res|
+        adapter.select(sql, vals).each do |res|
           results.push({ county: res.name,
             state: 'ma',
             year: res.year.to_i,
