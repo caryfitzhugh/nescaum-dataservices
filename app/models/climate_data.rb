@@ -46,7 +46,7 @@ class ClimateData
           sql += ' WHERE ' + wheres.join(" AND ")
         end
 
-        adapter.select(sql, vars).each do |res|
+        adapter.select(sql, *vars).each do |res|
           results.push({ county: res.name,
             state: 'ma',
             year: res.year.to_i,
