@@ -46,10 +46,26 @@ class ClimateData
           sql += ' WHERE ' + wheres.join(" AND ")
         end
 
-        results = results + adapter.select(sql, vars)
+        adapter.select.each do |res|
+          results.push({ county: res.name,
+            state: 'ma',
+            year: res.year.to_i,
+            variable: res.variable_name,
+            data: {
+              high: res.range.split(" to ")[1].to_f,
+              low: res.range.split(" to ")[0].to_f,
+              baseline: res.baseline.to_f,
+              average: res.avg.to_f
+            }
+          })
+        end
       else
 
       end
+      #  #<struct geomtype="state", name="MA", uid="25", variable_name="templt32", year="2050",
+        #   season="spring", baseline="37.24",
+        #   avg=#<BigDecimal:55d60462e078,'-0.1018E2',18(18)>,
+        #   range="-6.4 to -14.9">
       results
   end
 end
