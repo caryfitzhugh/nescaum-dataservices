@@ -65,6 +65,7 @@ module Controllers
               tags: ["Climate Data", "Public"]
 
     get "/climate-data/details/?" do
+      cross_origin
         #   :state/:county/:year/:variable/:season/?" do
       states = (params['states'].split(",").map(&:strip)) rescue []
       counties = (params['counties'].split(",").map(&:strip)) rescue []
@@ -78,23 +79,5 @@ module Controllers
                                                seasons: seasons,
                                                variables: variables))
     end
-
-    endpoint description: "Get Climate Data",
-              responses: standard_errors( 200 => "ClimateDeltaGeoJSON"),
-              parameters: {
-                "parameter"  => ["Parameter name to return data on", :query, false, String],
-                "geojson" => ["Return geometries as well", :query, false, 'boolean'],
-                "state" => ["State to return data for", :path, true, String],
-              },
-              tags: ["Climate Data", "Public"]
-
-    get "/climate-data/:state/?" do
-      features = []
-      json({
-        "type" => "FeatureCollection",
-        "features" => features
-      })
-    end
-
   end
 end
