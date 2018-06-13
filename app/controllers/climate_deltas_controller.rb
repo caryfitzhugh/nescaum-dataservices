@@ -30,6 +30,8 @@ module Controllers
       properties: {
         state: { type: String, description: "State of data"},
         county: { type: String, description: "County for data"},
+        uid: { type: String, description: "UID of data location"},
+        season: { type: String, description: "Season of data"},
         year:   { type: Integer, description: "Year of data:  " + [2030, 2050, 2070, 2090].to_json},
         variable: { type: String, description: "Variable of data: " + [
                            'tempgt95',
@@ -61,6 +63,7 @@ module Controllers
                 "years"  => ["Years name to return data on, comma sep", :query, false, String],
                 "counties"  => ["County name to return data on, comma sep", :query, false, String],
                 "states"  => ["County name to return data on, comma sep", :query, false, String],
+                "uids"  => ["UIDs name to return data on, comma sep", :query, false, String],
               },
               tags: ["Climate Data", "Public"]
 
@@ -72,12 +75,14 @@ module Controllers
       years = (params['years'].split(",").map(&:strip).map(&:to_i)) rescue []
       seasons = (params['seasons'].split(",").map(&:strip)) rescue []
       variables = (params['variables'].split(",").map(&:strip)) rescue []
+      uids = (params['uids'].split(",").map(&:strip)) rescue []
 
       json(ClimateData.climate_delta_details(states: states,
-                                               counties: counties,
-                                               years: years,
-                                               seasons: seasons,
-                                               variables: variables))
+                                             counties: counties,
+                                             uids: uids,
+                                             years: years,
+                                             seasons: seasons,
+                                             variables: variables))
     end
   end
 end

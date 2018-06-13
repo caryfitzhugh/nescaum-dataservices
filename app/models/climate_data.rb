@@ -15,7 +15,7 @@ class ClimateData
   property :geom, PostGISGeometry
   property :data, Json
 
-  def self.climate_delta_details(states: [], counties: [], years: [], seasons: [], variables: [])
+  def self.climate_delta_details(uids: [], states: [], counties: [], years: [], seasons: [], variables: [])
       adapter = DataMapper.repository(:geoserver).adapter
       results = []
       if states.include?('ma')
@@ -25,6 +25,11 @@ class ClimateData
         unless counties.empty?
           wheres.push('name IN ?')
           vars.push(counties)
+        end
+
+        unless uids.empty?
+          wheres.push('uid IN ?')
+          vars.push(uids)
         end
 
         unless years.empty?
@@ -51,6 +56,8 @@ class ClimateData
             state: 'ma',
             year: res.year.to_i,
             variable: res.variable_name,
+            season: res.season,
+            uid: res.uid,
             data: {
               high: res.range.split(" to ")[1].to_f,
               low: res.range.split(" to ")[0].to_f,
