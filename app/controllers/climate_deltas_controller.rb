@@ -31,7 +31,6 @@ module Controllers
         state: { type: String, description: "State of data"},
         county: { type: String, description: "County for data"},
         uid: { type: String, description: "UID of data location"},
-        season: { type: String, description: "Season of data"},
         year:   { type: Integer, description: "Year of data:  " + [2030, 2050, 2070, 2090].to_json},
         variable: { type: String, description: "Variable of data: " + [
                            'tempgt95',
@@ -50,7 +49,7 @@ module Controllers
                            'growdegdays',
                            'precipgt2',
                            'precip'].to_json},
-                           season: { type: String, description: "Seasons for data: " + ['spring', 'summer', 'fall', 'winter', 'annual'].to_json},
+        season: { type: String, description: "Seasons for data: " + ['spring', 'summer', 'fall', 'winter', 'annual'].to_json},
         data: { type: 'ClimateDataDetailsData', description: "The Data"}
       }
     }
