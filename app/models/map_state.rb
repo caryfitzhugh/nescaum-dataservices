@@ -3,7 +3,7 @@ require 'dm-postgis'
 
 class MapState
   include DataMapper::Resource
-  property :data, String
+  property :data, String, :length => 32 * 1024 # 32k max
   property :token, String, :key => true
 
   def generate_token!
