@@ -21,6 +21,7 @@ module Controllers
               tags: ["Mapping"]
 
     post "/map_states/?" do
+      cross_origin
       map_state_data = params[:parsed_body][:map_state]
       map_state = MapState.new(map_state_data)
       map_state.generate_token!
@@ -40,6 +41,7 @@ module Controllers
               tags: ["Mapping"]
 
     get "/map_states/:token" do
+      cross_origin
       map_state = MapState.first(token: params[:token])
 
       if map_state
