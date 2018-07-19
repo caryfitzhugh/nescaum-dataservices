@@ -11,6 +11,7 @@ require 'colorize'
 require 'sinatra/cross_origin'
 require 'sinatra/swagger-exposer/swagger-exposer'
 
+require 'app/controllers/acis_controller'
 require 'app/controllers/actions_controller'
 require 'app/controllers/authentication_controller'
 require 'app/controllers/climate_deltas_controller'
@@ -64,6 +65,7 @@ class NDSApp < Sinatra::Application
   )
   helpers Helpers::Authentication
 
+  use Controllers::AcisController
   use Controllers::ActionsController
   use Controllers::AuthenticationController
   use Controllers::ClimateDeltasController

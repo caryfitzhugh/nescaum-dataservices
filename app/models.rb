@@ -4,6 +4,7 @@ require 'dm-postgis'
 require 'dm-chunked_query'
 require 'dm-timestamps'
 
+require 'app/models/acis_data'
 require 'app/models/geofocus'
 require 'app/models/geofocus_resource'
 require 'app/models/resource_action'
