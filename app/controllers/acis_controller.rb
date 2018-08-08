@@ -62,20 +62,9 @@ module Controllers
     get "/acis/ny/observed/?" do
       cross_origin
 
-        #   :state/:county/:year/:variable/:season/?" do
-      states = (params['states'].split(",").map(&:strip)) rescue []
-      counties = (params['counties'].split(",").map(&:strip)) rescue []
-      years = (params['years'].split(",").map(&:strip).map(&:to_i)) rescue []
-      seasons = (params['seasons'].split(",").map(&:strip)) rescue []
-      variables = (params['variables'].split(",").map(&:strip)) rescue []
-      uids = (params['uids'].split(",").map(&:strip)) rescue []
-
-      json(ClimateData.climate_delta_details(states: states,
-                                             counties: counties,
-                                             uids: uids,
-                                             years: years,
-                                             seasons: seasons,
-                                             variables: variables))
+      features = AcisData.ny_observed(params['variable_name'],
+                                      params['geojson'] =~ /true/i,
+                                      params['geomtype'] || 'basin')
     end
   end
 end
