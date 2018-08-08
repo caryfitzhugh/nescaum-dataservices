@@ -3,14 +3,28 @@ require 'app/models'
 
 module Controllers
   class AcisController < Controllers::Base
-    type 'AcisDataFeaturePropertyDetail', {
+    type 'AcisProjectedDataFeaturePropertyDetail', {
       properties: {
-        year: { type: Number, description: "Year"},
+        year: { type: Integer, description: "Year"},
         delta_low: { type: Float},
         delta_high: { type: Float},
       }
     }
-    type 'AcisDataFeatureProperties', {
+
+    type 'AcisObservedDataFeaturePropertyValue', {
+      properties: {
+        year: { type: Integer}
+        data_value: { type: Float}
+      }
+    }
+
+    type 'AcisObservedDataFeaturePropertyDetail', {
+      properties: {
+        season: { type: String, description: "Season"},
+        values: { type: ["AcisObservedDataFeaturePropertyValue"]},
+      }
+    }
+    type 'AcisObservedDataFeatureProperties', {
       properties: {
         variable_name: { type: String, description: "Variable of data: " + [
                     'mint',
@@ -30,28 +44,28 @@ module Controllers
         geomtype: { type: String, description: "Geometry type [basin, county]"},
         name: { type: String, description: "Data description"},
         uid: { type: String, description: "UID of data location"},
-        data: { type: ['AcisDataFeaturePropertyDetail'], description: "The Data"}
+        data: { type: ['AcisObservedDataFeaturePropertyDetail'], description: "The Data"}
       }
     }
 
-    type 'AcisDataFeature', {
+    type 'AcisObservedDataFeature', {
       properties: {
         type: { type: String, description: "type of feature"},
         geometry: { type: String, description: "Geojson of the feature"},
-        properties: { type: "AcisDataFeatureProperties"},
+        properties: { type: "AcisObservedDataFeatureProperties"},
       }
     }
 
-    type 'AcisDataGeoJSON', {
+    type 'AcisObservedDataGeoJSON', {
       properties: {
         type: { type: String, description: "Type of GeoJSON"},
-        features: { type: ["AcisDataFeature"], description: "Features"}
+        features: { type: ["AcisObservedDataFeature"], description: "Features"}
       }
     }
 
 
     endpoint description: "Get Observed ACIS Data",
-              responses: standard_errors( 200 => "AcisDataGeoJSON"),
+              responses: standard_errors( 200 => "AcisObservedDataGeoJSON"),
               parameters: {
                 "variable_name"  => ["Parameter to return (mint, maxt, etc.)", :query, false, String],
                 "geomtype"  => ["Geometry type to return (basin/county)", :query, false, String],
