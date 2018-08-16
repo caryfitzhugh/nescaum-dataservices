@@ -41,11 +41,10 @@ class AcisData
       sql += ' WHERE ' + wheres.join(" AND ")
 
       adapter.select(sql, *vars).map do |res|
-        { geomtype: res.geomtype,
+        result = { geomtype: res.geomtype,
           name: res.name,
           variable_name: res.variable_name,
           uid: res.uid,
-          geometry: res.geom,
           data: JSON.parse(res.data).map {|datum|
                 {season: datum['season'],
                  values: datum['values'].map {|value|
@@ -55,6 +54,11 @@ class AcisData
                 }
           }
         }
+
+        if include_geojson
+          result[:geom] = JSON.parse(res.geom)
+        end
+        result
       end
       #  #<struct geomtype="state", name="MA", uid="25", variable_name="templt32", year="2050",
         #   season="spring", baseline="37.24",
