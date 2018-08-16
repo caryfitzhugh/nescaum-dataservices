@@ -30,12 +30,12 @@ development:
     host: <%= ENV['POSTGRES_DB_HOST'] || 'localhost' %>
     port: <%= ENV['POSTGRES_DB_PORT'] || '5000' %>
   postgres_geoserver:
-    adapter: <%= ENV['POSTGRES_DB_ADAPTER'] || 'postgres' %>
-    database: <%= ENV['POSTGRES_DB_DATABASE'] || 'nds' %>
-    username: <%= ENV['POSTGRES_DB_USERNAME'] || 'nds' %>
-    password: <%= ENV['POSTGRES_DB_PASSWORD'] || 'nds' %>
-    host: <%= ENV['POSTGRES_DB_HOST'] || 'localhost' %>
-    port: <%= ENV['POSTGRES_DB_PORT'] || '5000' %>
+    adapter: <%= ENV['GEOSERVER_DB_ADAPTER'] || 'postgres' %>
+    database: <%= ENV['GEOSERVER_DB_DATABASE'] || 'nds' %>
+    username: <%= ENV['GEOSERVER_DB_USERNAME'] || 'nds' %>
+    password: <%= ENV['GEOSERVER_DB_PASSWORD'] || 'nds' %>
+    host: <%= ENV['GEOSERVER_DB_HOST'] || 'localhost' %>
+    port: <%= ENV['GEOSERVER_DB_PORT'] || '5000' %>
 
   pretend_admin: true
   cs:

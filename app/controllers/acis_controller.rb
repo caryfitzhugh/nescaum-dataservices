@@ -13,8 +13,8 @@ module Controllers
 
     type 'AcisObservedDataFeaturePropertyValue', {
       properties: {
-        year: { type: Integer}
-        data_value: { type: Float}
+        year: { type: Integer},
+        data_value: { type: Float},
       }
     }
 
@@ -79,6 +79,10 @@ module Controllers
       features = AcisData.ny_observed(params['variable_name'],
                                       params['geojson'] =~ /true/i,
                                       params['geomtype'] || 'basin')
+      json({
+        "type": "FeatureCollection",
+        "features": features
+      })
     end
   end
 end

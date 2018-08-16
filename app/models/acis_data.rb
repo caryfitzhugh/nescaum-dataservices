@@ -14,14 +14,19 @@ class AcisData
   property :uid, String, :key => true
   property :variable_name, String
   property :geom, PostGISGeometry
-  property :data, Json
+  property :data, String
+  property :name, String
 
   def self.ny_observed(variable_name, include_geojson, geomtype)
       #require 'pry'
       #binding.pry
 
       adapter = DataMapper.repository(:geoserver).adapter
-      sql = 'select * from ny.acis_observed'
+      fields = ['geomtype','uid','variable_name','data', 'name']
+      if include_geojson
+        fields << 'ST_AsGeoJSON(geom) as geom'
+      end
+      sql = "select #{fields.join(',')} from ny.acis_observed"
       wheres = []
       vars = []
 
@@ -36,14 +41,11 @@ class AcisData
       sql += ' WHERE ' + wheres.join(" AND ")
 
       adapter.select(sql, *vars).map do |res|
-        #  You need to run this on the staging server, and connect to the DB
-        #  And do these queries, and make them come back with GeoJSON data
-        #  woot woot.
-
         { geomtype: res.geomtype,
           name: res.name,
           variable_name: res.variable_name,
           uid: res.uid,
+          geometry: res.geom,
           data: JSON.parse(res.data).map {|datum|
                 {season: datum['season'],
                  values: datum['values'].map {|value|
