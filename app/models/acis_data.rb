@@ -18,9 +18,6 @@ class AcisData
   property :name, String
 
   def self.ny_observed(variable_name, include_geojson, geomtype)
-      #require 'pry'
-      #binding.pry
-
       adapter = DataMapper.repository(:geoserver).adapter
       fields = ['geomtype','uid','variable_name','data', 'name']
       if include_geojson
@@ -83,7 +80,6 @@ class AcisData
       sql += ' WHERE ' + wheres.join(" AND ")
 
       adapter.select(sql, *vars).map do |res|
-        binding.pry
         result = { geomtype: res.geomtype,
           name: res.name,
           variable_name: res.variable_name,
