@@ -3,13 +3,6 @@ require 'app/models'
 
 module Controllers
   class AcisController < Controllers::Base
-    type 'AcisProjectedDataFeaturePropertyDetail', {
-      properties: {
-        year: { type: Integer, description: "Year"},
-        delta_low: { type: Float},
-        delta_high: { type: Float},
-      }
-    }
 
     type 'AcisObservedDataFeaturePropertyValue', {
       properties: {
@@ -77,6 +70,81 @@ module Controllers
       cross_origin
 
       features = AcisData.ny_observed(params['variable_name'],
+                                      params['geojson'] =~ /true/i,
+                                      params['geomtype'] || 'basin')
+      json({
+        "type": "FeatureCollection",
+        "features": features
+      })
+    end
+
+    type 'AcisProjectedDataFeaturePropertyValue', {
+      properties: {
+        year: { type: Integer, description: "Year"},
+        delta_low: { type: Float},
+        delta_high: { type: Float},
+      }
+    }
+
+    type 'AcisProjectedDataFeaturePropertyDetail', {
+      properties: {
+        season: { type: String, description: "Season"},
+        values: { type: ["AcisProjectedDataFeaturePropertyValue"]},
+      }
+    }
+
+    type 'AcisProjectedDataFeatureProperties', {
+      properties: {
+        variable_name: { type: String, description: "Variable of data: " + [
+                    'mint',
+                    'maxt',
+                    'maxt_gt_95',
+                    'mint_lt_32',
+                    'avgt',
+                    'gdd',
+                    'hdd',
+                    'maxt_gt_90',
+                    'pcpn_gt_2',
+                    'maxt_gt_100',
+                    'mint_lt_0',
+                    'pcpn_gt_1',
+                    'cdd',
+                    'pcpn'].to_json},
+        geomtype: { type: String, description: "Geometry type [basin, county]"},
+        name: { type: String, description: "Data description"},
+        uid: { type: String, description: "UID of data location"},
+        data: { type: ['AcisProjectedDataFeaturePropertyDetail'], description: "The Data"}
+      }
+    }
+
+    type 'AcisProjectedDataFeature', {
+      properties: {
+        type: { type: String, description: "type of feature"},
+        geometry: { type: String, description: "Geojson of the feature"},
+        properties: { type: "AcisProjectedDataFeatureProperties"},
+      }
+    }
+
+    type 'AcisProjectedDataGeoJSON', {
+      properties: {
+        type: { type: String, description: "Type of GeoJSON"},
+        features: { type: ["AcisProjectedDataFeature"], description: "Features"}
+      }
+    }
+
+    endpoint description: "Get Projected ACIS Data",
+              responses: standard_errors( 200 => "AcisProjectedDataGeoJSON"),
+              parameters: {
+                "variable_name"  => ["Parameter to return (mint, maxt, etc.)", :query, false, String],
+                "geomtype"  => ["Geometry type to return (basin/county)", :query, false, String],
+                "geojson"  => ["GeoJson should be included flag", :query, false, String],
+              },
+              tags: ["ACIS", "Climate Data", "Public"]
+
+    get "/acis/ny/projected/?" do
+      cross_origin
+
+      features = AcisData.ny_projected(params['variable_name'],
                                       params['geojson'] =~ /true/i,
                                       params['geomtype'] || 'basin')
       json({

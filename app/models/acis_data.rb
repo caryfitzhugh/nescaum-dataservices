@@ -60,9 +60,50 @@ class AcisData
         end
         result
       end
-      #  #<struct geomtype="state", name="MA", uid="25", variable_name="templt32", year="2050",
-        #   season="spring", baseline="37.24",
-        #   avg=#<BigDecimal:55d60462e078,'-0.1018E2',18(18)>,
-        #   range="-6.4 to -14.9">
+  end
+
+  def self.ny_projected(variable_name, include_geojson, geomtype)
+      adapter = DataMapper.repository(:geoserver).adapter
+      fields = ['geomtype','uid','variable_name','data', 'name']
+      if include_geojson
+        fields << 'ST_AsGeoJSON(geom) as geom'
+      end
+      sql = "select #{fields.join(',')} from ny.acis_projected"
+      wheres = []
+      vars = []
+
+      if geomtype
+        wheres.push('geomtype = ?')
+        vars.push(geomtype)
+      end
+
+      wheres.push("variable_name = ?")
+      vars.push(variable_name)
+
+      sql += ' WHERE ' + wheres.join(" AND ")
+
+      adapter.select(sql, *vars).map do |res|
+        binding.pry
+        result = { geomtype: res.geomtype,
+          name: res.name,
+          variable_name: res.variable_name,
+          uid: res.uid,
+          data: JSON.parse(res.data).map {|datum|
+                {season: datum['season'],
+                 baseline: datum['baseline'].to_f,
+                 values: datum['values'].map {|value|
+                                { year: value['year'].to_i,
+                                  delta_low: value['delta_low'].to_f,
+                                  delta_high: value['delta_high'].to_f}
+                        }
+                }
+          }
+        }
+
+        if include_geojson
+          result[:geom] = JSON.parse(res.geom)
+        end
+        result
+      end
   end
 end
