@@ -51,7 +51,7 @@ module Controllers
     type 'AcisObservedDataFeature', {
       properties: {
         type: { type: String, description: "type of feature"},
-        geometry: { type: Object, description: "Geojson of the feature"},
+        geometry: { type: String, description: "Geojson of the feature"},
         properties: { type: "AcisObservedDataFeatureProperties"},
       }
     }
