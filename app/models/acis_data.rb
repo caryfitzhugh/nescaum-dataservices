@@ -38,22 +38,21 @@ class AcisData
       sql += ' WHERE ' + wheres.join(" AND ")
 
       adapter.select(sql, *vars).map do |res|
-        result = { geomtype: res.geomtype,
-          name: res.name,
-          variable_name: res.variable_name,
-          uid: res.uid,
-          data: JSON.parse(res.data).map {|datum|
-                {season: datum['season'],
-                 values: datum['values'].map {|value|
-                                { year: value['year'].to_i,
-                                  data_value: value['data_value'].to_f}
-                        }
-                }
-          }
-        }
+        result = {type: "Feature",
+          geometry: nil,
+          properties: {
+                    geomtype: res.geomtype,
+                    name: res.name,
+                    variable_name: res.variable_name,
+                    uid: res.uid,
+                    data: JSON.parse(res.data).map {|datum|
+                      {season: datum['season'],
+                       values: datum['values'].map {|value|
+                                      { year: value['year'].to_i,
+                                        data_value: value['data_value'].to_f}}}}}}
 
         if include_geojson
-          result[:geom] = JSON.parse(res.geom)
+          result[:geometry] = JSON.parse(res.geom)
         end
         result
       end
@@ -80,24 +79,23 @@ class AcisData
       sql += ' WHERE ' + wheres.join(" AND ")
 
       adapter.select(sql, *vars).map do |res|
-        result = { geomtype: res.geomtype,
-          name: res.name,
-          variable_name: res.variable_name,
-          uid: res.uid,
-          data: JSON.parse(res.data).map {|datum|
-                {season: datum['season'],
-                 baseline: datum['baseline'].to_f,
-                 values: datum['values'].map {|value|
-                                { year: value['year'].to_i,
-                                  delta_low: value['delta_low'].to_f,
-                                  delta_high: value['delta_high'].to_f}
-                        }
-                }
-          }
-        }
+        result = {type: "Feature",
+          geometry: nil,
+          properties: {
+            geomtype: res.geomtype,
+            name: res.name,
+            variable_name: res.variable_name,
+            uid: res.uid,
+            data: JSON.parse(res.data).map {|datum|
+                  {season: datum['season'],
+                  baseline: datum['baseline'].to_f,
+                  values: datum['values'].map {|value|
+                                  { year: value['year'].to_i,
+                                    delta_low: value['delta_low'].to_f,
+                                    delta_high: value['delta_high'].to_f}}}}}}
 
         if include_geojson
-          result[:geom] = JSON.parse(res.geom)
+          result[:geometry] = JSON.parse(res.geom)
         end
         result
       end
