@@ -71,7 +71,7 @@ module Controllers
 
       features = AcisData.ny_observed(params['variable_name'],
                                       params['geojson'] =~ /true/i,
-                                      params['geomtype'] || 'basin')
+                                      params['geomtype'])
       json({
         "type": "FeatureCollection",
         "features": features
@@ -146,7 +146,7 @@ module Controllers
 
       features = AcisData.ny_projected(params['variable_name'],
                                       params['geojson'] =~ /true/i,
-                                      params['geomtype'] || 'basin')
+                                      params['geomtype'])
       json({
         "type": "FeatureCollection",
         "features": features
