@@ -1,4 +1,4 @@
-run: start-db
+run:
 	SESSION_SECRET=test bundle exec shotgun config.ru --port 4000 --server thin
 
 swagger:

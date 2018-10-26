@@ -183,7 +183,7 @@ class Resource
     #[:and [:or f1, f2] [:or f3 f4]]
     filter_rules = (filters || []).map do |(fname, fvals)|
       if fvals.length > 0
-        [:or ].concat(fvals.map {|fval| "#{fname}:'#{fval.strip}'" })
+        [:or ].concat(fvals.map {|fval| "#{fname}:'#{fval.strip.gsub(/'/, "\\'")}'" })
       end
     end
 
