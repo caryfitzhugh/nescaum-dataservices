@@ -1,3 +1,4 @@
+require 'uri'
 require 'rgeo'
 
 DataMapper::Inflector.inflections do |inflect|
@@ -305,6 +306,16 @@ class Resource
       Cloudsearch.add_documents([self.to_search_document])
     else
       Cloudsearch.remove_documents([self.docid])
+    end
+  end
+
+  def get_broken_links(link_cache: {})
+    # Find any body links
+    [ self.image,
+      self.external_data_links.map {|edl| edl.split("::", 2)[1] },
+      URI.extract(self.content)
+    ].flatten.compact.reject do |link|
+      check_url!(link )
     end
   end
 

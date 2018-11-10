@@ -1,4 +1,26 @@
 require 'ostruct'
+require 'net/http'
+require 'uri'
+
+def check_url!(uri, allowed_redirects=5)
+  allowed_redirects.times do
+    url = URI.parse(uri)
+
+    Net::HTTP.start(url.host, url.port, :use_ssl => (url.scheme == "https")) do |http|
+      request = Net::HTTP::Get.new url
+      response = http.request_head url.path # Net::HTTPResponse object
+
+      if response.kind_of?(Net::HTTPRedirection)
+        uri = response['location']
+      else
+        return response.kind_of?(Net::HTTPSuccess)
+      end
+    end
+  end
+
+  false
+end
+
 def to_recursive_ostruct(hash)
   OpenStruct.new(hash.each_with_object({}) do |(key, val), memo|
         memo[key] = val.is_a?(Hash) ? to_recursive_ostruct(val) : val

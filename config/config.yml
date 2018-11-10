@@ -1,4 +1,10 @@
 production:
+  emails:
+     broken_links:
+        - ihz2@cornell.edu
+        - lrector@nescaum.org
+        - cary.fitzhugh@gmail.com
+
   postgres:
      adapter: postgres
      database: <%= ENV['RDS_DB_NAME'] %>
@@ -22,6 +28,9 @@ production:
     secret_key: <%= ENV["CLOUDSEARCH_SECRET_KEY"] %>
 
 development:
+  emails:
+     broken_links:
+        - cary.fitzhugh@gmail.com
   postgres:
     adapter: <%= ENV['POSTGRES_DB_ADAPTER'] || 'postgres' %>
     database: <%= ENV['POSTGRES_DB_DATABASE'] || 'nds' %>
@@ -46,6 +55,9 @@ development:
     #secret_key: <%= ENV["CLOUDSEARCH_SECRET_KEY"] %>
 
 test:
+  emails:
+     broken_links:
+        - noone@there.com
   postgres:
     adapter: <%= ENV['POSTGRES_DB_ADAPTER'] || 'postgres' %>
     database: <%= ENV['POSTGRES_DB_DATABASE'] || 'nds' %>
