@@ -13,7 +13,7 @@ def check_url!(uri, allowed_redirects=5)
       path = url.path
       if path == ''
           path = "/"
-
+      end
       response = http.request_head path # Net::HTTPResponse object
 
       if response.kind_of?(Net::HTTPRedirection)
