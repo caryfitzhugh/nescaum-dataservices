@@ -15,7 +15,8 @@ module Controllers
               parameters: { },
               tags: ["Housekeeping", "Curator"]
 
-    get "/housekeeping/broken-link-checks/?", require_role: :curator do
+    #get "/housekeeping/broken-link-checks/?", require_role: :curator do
+    get "/housekeeping/broken-link-checks/?" do
       resources = Resource.all
 
       link_cache = {}
