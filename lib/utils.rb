@@ -10,7 +10,11 @@ def check_url!(uri, allowed_redirects=5)
 
     Net::HTTP.start(url.host, url.port, :use_ssl => (url.scheme == "https")) do |http|
       request = Net::HTTP::Get.new url
-      response = http.request_head url.path # Net::HTTPResponse object
+      path = url.path
+      if path == ''
+          path = "/"
+
+      response = http.request_head path # Net::HTTPResponse object
 
       if response.kind_of?(Net::HTTPRedirection)
         uri = response['location']
