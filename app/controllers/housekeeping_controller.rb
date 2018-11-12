@@ -35,6 +35,7 @@ module Controllers
             end.join "\n"}
           EMAIL_BODY
         end
+      end
 
       json({
         msg: "Found ${broken_resources.length} broken resources. Email sent"

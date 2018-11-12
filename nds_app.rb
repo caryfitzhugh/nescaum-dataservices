@@ -18,6 +18,7 @@ require 'app/controllers/climate_deltas_controller'
 require 'app/controllers/collections_controller'
 require 'app/controllers/feedback_controller'
 require 'app/controllers/geofocus_controller'
+require 'app/controllers/housekeeping_controller'
 require 'app/controllers/map_states_controller'
 require 'app/controllers/resources_controller'
 require 'app/controllers/suggestions_controller'
@@ -72,6 +73,7 @@ class NDSApp < Sinatra::Application
   use Controllers::CollectionsController
   use Controllers::FeedbackController
   use Controllers::GeofocusController
+  use Controllers::HousekeepingController
   use Controllers::ResourcesController
   use Controllers::SuggestionsController
   use Controllers::UsersController
