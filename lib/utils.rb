@@ -4,26 +4,29 @@ require 'uri'
 
 def check_url!(uri, allowed_redirects=5)
   puts "Checking on #{uri} url..."
+  begin
 
-  allowed_redirects.times do
-    url = URI.parse(uri)
+    allowed_redirects.times do
+      url = URI.parse(uri)
 
-    Net::HTTP.start(url.host, url.port, :use_ssl => (url.scheme == "https")) do |http|
-      request = Net::HTTP::Get.new url
-      path = url.path
-      if path == ''
-          path = "/"
-      end
-      response = http.request_head path # Net::HTTPResponse object
+      Net::HTTP.start(url.host, url.port, :use_ssl => (url.scheme == "https")) do |http|
+        request = Net::HTTP::Get.new url
+        path = url.path
+        if path == ''
+            path = "/"
+        end
+        response = http.request_head path # Net::HTTPResponse object
 
-      if response.kind_of?(Net::HTTPRedirection)
-        uri = response['location']
-      else
-        return response.kind_of?(Net::HTTPSuccess)
+        if response.kind_of?(Net::HTTPRedirection)
+          uri = response['location']
+        else
+          return response.kind_of?(Net::HTTPSuccess)
+        end
       end
     end
+  rescue SocketError
+    false
   end
-
   false
 end
 
