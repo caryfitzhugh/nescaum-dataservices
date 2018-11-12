@@ -1,3 +1,5 @@
 run-test-shell.sh
 .config
 vendor
+*.swp
+*.swo
