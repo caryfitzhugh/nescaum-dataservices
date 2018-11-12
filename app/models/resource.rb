@@ -313,7 +313,7 @@ class Resource
     # Find any body links
     [ self.image,
       self.external_data_links.map {|edl| edl.split("::", 2)[1] },
-      URI.extract(self.content)
+      URI.extract(self.content, ["http", "https"])
     ].flatten.compact.reject do |link|
       check_url!(link )
     end
