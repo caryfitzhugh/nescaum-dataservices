@@ -3,6 +3,8 @@ require 'net/http'
 require 'uri'
 
 def check_url!(uri, allowed_redirects=5)
+  puts "Checking on #{uri} url..."
+
   allowed_redirects.times do
     url = URI.parse(uri)
 
