@@ -34,6 +34,8 @@ def check_url!(uri, allowed_redirects=5)
     false
   rescue SocketError
     false
+  rescue Exception
+    false
   end
   false
 end
