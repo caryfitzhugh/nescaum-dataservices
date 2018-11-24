@@ -5,10 +5,9 @@ require 'uri'
 def check_url!(uri, allowed_redirects=5)
   puts "Checking on #{uri} url..."
   begin
+    url = URI.parse(uri)
 
     allowed_redirects.times do
-      url = URI.parse(uri)
-
       Net::HTTP.start(url.host, url.port, :use_ssl => (url.scheme == "https")) do |http|
         request = Net::HTTP::Get.new url
         path = url.path
@@ -18,7 +17,7 @@ def check_url!(uri, allowed_redirects=5)
         response = http.request_head path # Net::HTTPResponse object
 
         if response.kind_of?(Net::HTTPRedirection)
-          uri = response['location']
+          url.merge(URI.parse(response['location']))
         else
           return response.kind_of?(Net::HTTPSuccess)
         end
