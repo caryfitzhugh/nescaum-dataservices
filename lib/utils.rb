@@ -8,7 +8,7 @@ def check_url!(uri, allowed_redirects=5)
     url = URI.parse(uri)
 
     allowed_redirects.times do
-      Net::HTTP.start(url.host, url.port, :use_ssl => (url.scheme == "https")) do |http|
+      Net::HTTP.start(url.host, url.port, :timeout => 3, :use_ssl => (url.scheme == "https")) do |http|
         request = Net::HTTP::Get.new url
         path = url.path
         if path == ''
@@ -23,6 +23,9 @@ def check_url!(uri, allowed_redirects=5)
         end
       end
     end
+  rescue Net::ReadTimeout
+    # ReadTimeout .. but
+    false
   rescue SocketError
     false
   end
