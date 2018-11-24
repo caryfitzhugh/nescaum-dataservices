@@ -3,7 +3,7 @@ require 'net/http'
 require 'uri'
 
 def check_url!(uri, allowed_redirects=5)
-  puts "1) Checking on #{uri} url..."
+  puts "2) Checking on #{uri} url..."
   begin
     url = URI.parse(uri)
 
@@ -26,6 +26,9 @@ def check_url!(uri, allowed_redirects=5)
         end
       end
     end
+  rescue URI::InvalidURIError
+    puts "Invalid URI: " + uri
+    false
   rescue Net::ReadTimeout, Net::OpenTimeout
     # ReadTimeout .. but
     false
