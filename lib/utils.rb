@@ -9,8 +9,8 @@ def check_url!(uri, allowed_redirects=5)
 
     allowed_redirects.times do
       Net::HTTP.start(url.host, url.port,
-                      :read_timeout => 3,
-                      :open_timeout => 3,
+                      :read_timeout => 15,
+                      :open_timeout => 15,
                       :use_ssl => (url.scheme == "https")) do |http|
         request = Net::HTTP::Get.new url
         path = url.path
