@@ -2,16 +2,11 @@ require 'aws-sdk'
 
 HOST = 'nescaum-ccsc-dataservices.com'
 
-def send_alert_email(to, subject)
+def send_alert_email(to, subject, html)
   body = yield
   # Replace sender@example.com with your "From" address.
   # This address must be verified with Amazon SES.
   sender = "alert@" + HOST
-
-  # The HTML body of the email.
-  htmlbody =
-    "<h1>#{subject}</h1>" +
-    "<p>#{body}</p>"
 
   # The email body for recipients with non-HTML email clients.
   textbody = body
@@ -22,8 +17,7 @@ def send_alert_email(to, subject)
   _send_email( subject: subject,
                recipient: to,
                sender: sender,
-               text: textbody,
-               html: htmlbody)
+               html: body)
 end
 
 def _send_email(subject:,

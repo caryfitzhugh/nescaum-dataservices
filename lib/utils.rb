@@ -3,7 +3,7 @@ require 'net/http'
 require 'uri'
 
 def check_url!(uri, allowed_redirects=5)
-  puts "1) Checking on #{uri} url..."
+  puts "Checking on #{uri} url..."
   begin
     url = URI.parse(uri)
 
@@ -12,6 +12,7 @@ def check_url!(uri, allowed_redirects=5)
                       :read_timeout => 15,
                       :open_timeout => 15,
                       :use_ssl => (url.scheme == "https")) do |http|
+
         request = Net::HTTP::Get.new url
         path = url.path
         if path == ''
@@ -30,11 +31,14 @@ def check_url!(uri, allowed_redirects=5)
     puts "Invalid URI: " + uri
     false
   rescue Net::ReadTimeout, Net::OpenTimeout
+    puts "Read timeout expired: " + uri
     # ReadTimeout .. but
     false
   rescue SocketError
+    puts "socket error: " + uri
     false
-  rescue Exception
+  rescue Exception => e
+    puts "error: " + uri + ' ' + e
     false
   end
   false
