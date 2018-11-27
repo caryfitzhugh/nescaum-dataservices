@@ -1,5 +1,6 @@
 require 'app/controllers/base'
 require 'app/models'
+require 'lib/email'
 
 module Controllers
   class HousekeepingController < Controllers::Base
