@@ -6,11 +6,7 @@ def send_alert_email(to, subject)
   body = yield
   # Replace sender@example.com with your "From" address.
   # This address must be verified with Amazon SES.
-  sender = "alert@${HOST}"
-
-  # Replace recipient@example.com with a "To" address. If your account
-  # is still in the sandbox, this address must be verified.
-  recipient = to
+  sender = "alert@" + HOST
 
   # The HTML body of the email.
   htmlbody =
@@ -25,7 +21,7 @@ def send_alert_email(to, subject)
 
   _send_email( subject: subject,
                recipient: to,
-               sender: "alert@${HOST}",
+               sender: sender,
                text: textbody,
                html: htmlbody)
 
@@ -36,14 +32,12 @@ def _send_email(subject:,
                 sender:,
                 text:,
                 html: )
+  awsregion = "us-east-1"
 
   # Create a new SES resource and specify a region
   ses = Aws::SES::Client.new(region: awsregion)
 
   encoding = 'UTF-8'
-
-  # Replace us-west-2 with the AWS Region you're using for Amazon SES.
-  awsregion = "us-east-1"
 
   # Try to send the email.
   begin
@@ -58,7 +52,7 @@ def _send_email(subject:,
         body: {
           html: {
             charset: encoding,
-            data: html || "<h1>${subject}</h1><p>${text}</p>",,
+            data: html || "<h1>${subject}</h1><p>${text}</p>",
           },
           text: {
             charset: encoding,

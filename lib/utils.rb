@@ -3,7 +3,7 @@ require 'net/http'
 require 'uri'
 
 def check_url!(uri, allowed_redirects=5)
-  puts "2) Checking on #{uri} url..."
+  puts "1) Checking on #{uri} url..."
   begin
     url = URI.parse(uri)
 
