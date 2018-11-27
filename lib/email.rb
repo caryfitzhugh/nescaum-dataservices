@@ -10,7 +10,7 @@ def send_alert_email(to, subject)
 
   # The HTML body of the email.
   htmlbody =
-    "<h1>${subject}</h1>" +
+    "<h1>#{subject}</h1>" +
     "<p>#{body}</p>"
 
   # The email body for recipients with non-HTML email clients.
@@ -24,7 +24,6 @@ def send_alert_email(to, subject)
                sender: sender,
                text: textbody,
                html: htmlbody)
-
 end
 
 def _send_email(subject:,
@@ -52,7 +51,7 @@ def _send_email(subject:,
         body: {
           html: {
             charset: encoding,
-            data: html || "<h1>${subject}</h1><p>${text}</p>",
+            data: html || "<h1>#{subject}</h1><p>#{text}</p>",
           },
           text: {
             charset: encoding,
