@@ -33,9 +33,16 @@ module Controllers
           <<-EMAIL_BODY
             <h2>#{broken_resources.length} Resources Found with Broken Links</h2>
             <ul>
-            #{broken_resources.map do |r|
-              "<li>#{r[0].id} #{r[0].title} - <ul>#{r[1].map {|l| "<li>#{l}</li>")}}</ul> </li>"
-            end}
+              #{broken_resources.map do |r|
+                "<li>#{r[0].id} #{r[0].title}" +
+                  "<ul>" +
+                    r[1].map do |l|
+                      "<li>#{l}</li>"
+                    end.join("")
+                  + "</ul>"+
+                "</li>"
+              end
+              }
             </ul>
           EMAIL_BODY
         end
