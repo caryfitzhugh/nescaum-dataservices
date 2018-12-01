@@ -20,33 +20,8 @@ module Controllers
     get "/housekeeping/broken-link-checks/?" do
       resources = Resource.all
 
-      link_cache = {}
-
       # Find all the broken links and use a cache to keep track of things that were already looked up
-      broken_resources = resources.map do |r|
-          [r, r.get_broken_links(link_cache: link_cache)]
-      end.reject {|r| r[1].empty? }
-
-
-      CONFIG.emails.broken_links.each do |to|
-        send_alert_email(to, "#{broken_resources.length} Broken-Link Resources") do
-          <<-EMAIL_BODY
-            <h2>#{broken_resources.length} Resources Found with Broken Links</h2>
-            <ul>
-              #{broken_resources.map do |r|
-                "<li>#{r[0].id} #{r[0].title}" +
-                  "<ul>" +
-                    r[1].map do |l|
-                      "<li>#{l}</li>"
-                    end.join("")
-                  + "</ul>"+
-                "</li>"
-              end
-              }
-            </ul>
-          EMAIL_BODY
-        end
-      end
+      send_broken_resources_email(resources)
 
       json({
         msg: "Found ${broken_resources.length} broken resources. Email sent"
