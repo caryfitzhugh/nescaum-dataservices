@@ -311,12 +311,15 @@ class Resource
 
   def get_broken_links(link_cache: {})
     # Find any body links
-    [ self.image,
+    puts "Checking Resoruce's URLs"
+    res = [ self.image,
       self.external_data_links.map {|edl| edl.split("::", 2)[1] },
       URI.extract(self.content, ["http", "https"])
     ].flatten.compact.reject do |link|
-      check_url!(link )
+      check_url!(link)
     end
+    puts "Cheked - " , res
+    res
   end
 
   def to_resource
