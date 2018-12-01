@@ -28,16 +28,21 @@ Capybara.ignore_hidden_elements = false
 Capybara.default_max_wait_time = 30
 
 def capybara_session(reset=false)
-  puts "Creating Capybara session"
   session = Capybara.current_session
   begin
     yield session
   ensure
     Capybara.reset_sessions!
+    session.driver.quit()
   end
+
 end
 
 def check_url!(url, allowed_redirects=5)
+   check_url_without_browser!(url) or check_url_with_phantomjs!(url)
+end
+
+def check_url_with_phantomjs!(url, allowed_redirects=5)
   puts "Checking on #{url} url..."
   result = false
   begin
