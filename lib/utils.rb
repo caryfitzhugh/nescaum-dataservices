@@ -5,9 +5,15 @@ require 'capybara/poltergeist'
 
 def check_url!(url, allowed_redirects=5)
     puts "Checking on #{url} url..."
-    session = Capybara::Session.new(:poltergeist)
-    session.visit(url)
-    return session.status_code == 200
+    begin
+      session = Capybara::Session.new(:poltergeist)
+      session.visit(url)
+      return session.status_code == 200
+    rescue Exception => e
+       puts "Error"
+       puts e
+       return false
+    end
 end
 
 def check_url_without_browser!(uri, allowed_redirects=5)
