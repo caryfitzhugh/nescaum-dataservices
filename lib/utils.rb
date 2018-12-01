@@ -42,11 +42,13 @@ def capybara_session(reset=false)
 end
 
 def check_url!(url, allowed_redirects=5)
-   check_url_without_browser!(url) or check_url_with_phantomjs!(url)
+   puts "Checking on #{url} url..."
+   res = check_url_without_browser!(url) or check_url_with_phantomjs!(url)
+   puts "#{url} => #{res}"
+   res
 end
 
 def check_url_with_phantomjs!(url, allowed_redirects=5)
-  puts "Checking on #{url} url..."
   result = false
   begin
     capybara_session() do |session|
@@ -58,12 +60,10 @@ def check_url_with_phantomjs!(url, allowed_redirects=5)
       puts e
       result = false
   end
-  puts "#{url} => #{result}"
   result
 end
 
 def check_url_without_browser!(uri, allowed_redirects=5)
-  puts "Checking on #{uri} url..."
   begin
     url = URI.parse(uri)
 
