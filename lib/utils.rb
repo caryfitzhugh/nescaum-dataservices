@@ -5,17 +5,18 @@ require 'capybara/poltergeist'
 
 Capybara.register_driver :poltergeist do |app|
   options = {
-    # debug: true,
+    debug: true,
+    js_errors: false,
     timeout: 30,
     window_size: [1280, 1440],
     # port: 44678+ENV['TEST_ENV_NUMBER'].to_i,
-    phantomjs_options: [
+    phantomjs_option: [
       '--proxy-type=none',
       '--load-images=no',
       '--ignore-ssl-errors=yes',
       '--ssl-protocol=any',
       '--web-security=false',
-      # '--debug=true'
+      '--debug=true'
     ]
   }
   Capybara::Poltergeist::Driver.new(app, options)
@@ -24,22 +25,33 @@ end
 Capybara.javascript_driver = :poltergeist
 Capybara.ignore_hidden_elements = false
 Capybara.default_max_wait_time = 30
+CAPY_SESSION = nil
 
+def capybara_session(reset=false)
+  puts "Creating Capybara session"
+  session = Capybara::Session.new(:poltergeist)
+  begin
+    yield session
+  ensure
+    Capybara.reset_sessions!
+  end
+end
 
 def check_url!(url, allowed_redirects=5)
-    puts "Checking on #{url} url..."
-    result = false
-    begin
-      session = Capybara::Session.new(:poltergeist)
+  puts "Checking on #{url} url..."
+  result = false
+  begin
+    capybara_session() do |session|
       session.visit(url)
       result = session.status_code == 200
-    rescue Exception => e
-       puts "Error"
-       puts e
-       result = false
     end
-    puts "#{url} => #{result}"
-    result
+  rescue Exception => e
+      puts "Error"
+      puts e
+      result = false
+  end
+  puts "#{url} => #{result}"
+  result
 end
 
 def check_url_without_browser!(uri, allowed_redirects=5)
