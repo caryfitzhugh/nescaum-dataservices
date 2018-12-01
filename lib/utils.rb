@@ -3,6 +3,29 @@ require 'net/http'
 require 'uri'
 require 'capybara/poltergeist'
 
+Capybara.register_driver :poltergeist do |app|
+  options = {
+    # debug: true,
+    timeout: 30,
+    window_size: [1280, 1440],
+    # port: 44678+ENV['TEST_ENV_NUMBER'].to_i,
+    phantomjs_options: [
+      '--proxy-type=none',
+      '--load-images=no',
+      '--ignore-ssl-errors=yes',
+      '--ssl-protocol=any',
+      '--web-security=false',
+      # '--debug=true'
+    ]
+  }
+  Capybara::Poltergeist::Driver.new(app, options)
+end
+
+Capybara.javascript_driver = :poltergeist
+Capybara.ignore_hidden_elements = false
+Capybara.default_max_wait_time = 30
+
+
 def check_url!(url, allowed_redirects=5)
     puts "Checking on #{url} url..."
     begin
