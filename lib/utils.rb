@@ -31,13 +31,12 @@ def capybara_session(reset=false)
   session = Capybara.current_session
   Capybara.current_session.driver.add_header('User-Agent',
       'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36')
-
   begin
     yield session
+  rescue Exception => e
+    puts(e)
   ensure
     Capybara.reset_sessions!
-    session.driver.quit()
-    sleep 1
   end
 end
 
@@ -64,6 +63,7 @@ def check_url_with_phantomjs!(url, allowed_redirects=5)
 end
 
 def check_url_without_browser!(uri, allowed_redirects=5)
+  puts("check w/o browser")
   begin
     url = URI.parse(uri)
 
