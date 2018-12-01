@@ -2,6 +2,10 @@ require 'aws-sdk'
 
 HOST = 'nescaum-ccsc-dataservices.com'
 
+def _curation_link(id)
+  "https://repository.nescaum-ccsc-dataservices.com/curation/index.html#/resources/#{id}"
+end
+
 def send_broken_resources_email(resources)
   link_cache = {}
   broken_resources = resources.map do |r|
@@ -15,13 +19,15 @@ def send_broken_resources_email(resources)
       body += "<h2>#{broken_resources.length} Resources Found with Broken Links</h2>"
       body += "<ul>"
       body += broken_resources.map do |r|
-                "<li>#{r[0].id} #{r[0].title}" +
-                  "<ul>" +
-                    r[1].map do |l|
-                      "<li>#{l}</li>"
-                    end.join("")
-                  + "</ul>"+
-                "</li>"
+                link = "<li>"
+                link += "<a href='#{_curation_link(r[0].id)}'>#{r[0].title}</a>"
+                link +=  "<ul>"
+                link +=  r[1].map do |l|
+                           "<li>#{l}</li>"
+                         end.join("")
+                link += "</ul>"
+                link += "</li>"
+                link
               end.join("\n")
       body += "</ul>"
       body

@@ -1,8 +1,16 @@
 require 'ostruct'
 require 'net/http'
 require 'uri'
+require 'capybara/poltergeist'
 
-def check_url!(uri, allowed_redirects=5)
+def check_url!(url, allowed_redirects=5)
+    puts "Checking on #{url} url..."
+    session = Capybara::Session.new(:poltergeist)
+    session.visit(url)
+    return session.status_code == 200
+end
+
+def check_url_without_browser!(uri, allowed_redirects=5)
   puts "Checking on #{uri} url..."
   begin
     url = URI.parse(uri)
