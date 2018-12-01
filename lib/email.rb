@@ -11,21 +11,20 @@ def send_broken_resources_email(resources)
 
   CONFIG.emails.broken_links.each do |to|
     send_alert_email(to, "#{broken_resources.length} Broken-Link Resources") do
-      <<-EMAIL_BODY
-        <h2>#{broken_resources.length} Resources Found with Broken Links</h2>
-        <ul>
-          #{broken_resources.map do |r|
-            "<li>#{r[0].id} #{r[0].title}" +
-              "<ul>" +
-                r[1].map do |l|
-                  "<li>#{l}</li>"
-                end.join("")
-              + "</ul>"+
-            "</li>"
-          end
-          }
-        </ul>
-      EMAIL_BODY
+      body = ""
+      body += "<h2>#{broken_resources.length} Resources Found with Broken Links</h2>"
+      body += "<ul>"
+      body += broken_resources.map do |r|
+                "<li>#{r[0].id} #{r[0].title}" +
+                  "<ul>" +
+                    r[1].map do |l|
+                      "<li>#{l}</li>"
+                    end.join("")
+                  + "</ul>"+
+                "</li>"
+              end.join("\n")
+      body += "</ul>"
+      body
     end
   end
 end
@@ -61,7 +60,7 @@ def _send_email(subject:,
 
   # Try to send the email.
   begin
-    text = html.gsub(/<\/?[^>]*>/, ' ').gsub(/\n\n+/, '\n').gsub(/^\n|\n$/, ' ').squish
+    text = html.gsub(/<\/?[^>]*>/, ' ').gsub(/\n\n+/, '\n').gsub(/^\n|\n$/, ' ').squeeze.strip
     # Provide the contents of the email.
     resp = ses.send_email({
       destination: {
