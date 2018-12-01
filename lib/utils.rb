@@ -28,15 +28,18 @@ Capybara.default_max_wait_time = 30
 
 def check_url!(url, allowed_redirects=5)
     puts "Checking on #{url} url..."
+    result = false
     begin
       session = Capybara::Session.new(:poltergeist)
       session.visit(url)
-      return session.status_code == 200
+      result = session.status_code == 200
     rescue Exception => e
        puts "Error"
        puts e
-       return false
+       result = false
     end
+    puts "#{url} => #{result}"
+    result
 end
 
 def check_url_without_browser!(uri, allowed_redirects=5)

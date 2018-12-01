@@ -297,6 +297,14 @@ namespace :rdf do
   end
 end
 
+namespace :housekeeping do
+  task :run_broken_link_checks do |t, args|
+    resources = Resource.all
+
+    send_broken_resources_email(resources)
+  end
+end
+
 namespace :cs do
   task :delete_from_cs do |t, args|
     to_remove = []
