@@ -29,13 +29,16 @@ Capybara.default_max_wait_time = 30
 
 def capybara_session(reset=false)
   session = Capybara.current_session
+  Capybara.current_session.driver.add_header('User-Agent',
+      'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36')
+
   begin
     yield session
   ensure
     Capybara.reset_sessions!
     session.driver.quit()
+    sleep 1
   end
-
 end
 
 def check_url!(url, allowed_redirects=5)
