@@ -42,8 +42,12 @@ end
 
 def check_url!(url, allowed_redirects=5)
    puts "Checking on #{url} url..."
-   res = check_url_without_browser!(url) or check_url_with_phantomjs!(url)
-   puts "#{url} => #{res}"
+   res = false
+   begin
+      res = check_url_without_browser!(url) or check_url_with_phantomjs!(url)
+   ensure
+      puts "#{url} => #{res}"
+   end
    res
 end
 
