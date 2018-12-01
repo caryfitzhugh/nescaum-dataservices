@@ -103,7 +103,8 @@ def check_url_without_browser!(uri, allowed_redirects=20)
     puts "socket error: " + uri
     false
   rescue Exception => e
-    puts "error: " + uri + ' ' + e
+    puts "error: " + uri
+    puts e.backtrace
     false
   end
   false
