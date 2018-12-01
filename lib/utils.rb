@@ -48,6 +48,7 @@ def check_url!(url, allowed_redirects=5)
    ensure
       puts "#{url} => #{res}"
    end
+   STDOUT.flush
    res
 end
 
@@ -66,7 +67,7 @@ def check_url_with_phantomjs!(url, allowed_redirects=5)
   result
 end
 
-def check_url_without_browser!(uri, allowed_redirects=5)
+def check_url_without_browser!(uri, allowed_redirects=20)
   puts("check w/o browser")
   begin
     url = URI.parse(uri)
@@ -77,12 +78,11 @@ def check_url_without_browser!(uri, allowed_redirects=5)
                       :open_timeout => 15,
                       :use_ssl => (url.scheme == "https")) do |http|
 
-        request = Net::HTTP::Get.new url
         path = url.path
         if path == ''
             path = "/"
         end
-        response = http.request_head path # Net::HTTPResponse object
+        response = http.request_get path # Net::HTTPResponse object
 
         if response.kind_of?(Net::HTTPRedirection)
           url.merge(URI.parse(response['location']))
