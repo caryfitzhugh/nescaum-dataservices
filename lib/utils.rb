@@ -53,6 +53,7 @@ def check_url!(url, allowed_redirects=5)
 end
 
 def check_url_with_phantomjs!(url, allowed_redirects=5)
+  puts("check w/ browser")
   result = false
   begin
     capybara_session() do |session|
