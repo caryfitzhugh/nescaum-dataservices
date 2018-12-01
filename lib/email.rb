@@ -30,7 +30,7 @@ def send_broken_resources_email(resources)
   end
 end
 
-def send_alert_email(to, subject, html)
+def send_alert_email(to, subject)
   body = yield
   # Replace sender@example.com with your "From" address.
   # This address must be verified with Amazon SES.
@@ -51,7 +51,6 @@ end
 def _send_email(subject:,
                 recipient:,
                 sender:,
-                text:,
                 html: )
   awsregion = "us-east-1"
 
@@ -62,6 +61,7 @@ def _send_email(subject:,
 
   # Try to send the email.
   begin
+    text = html.gsub(/<\/?[^>]*>/, ' ').gsub(/\n\n+/, '\n').gsub(/^\n|\n$/, ' ').squish
     # Provide the contents of the email.
     resp = ses.send_email({
       destination: {
@@ -73,11 +73,11 @@ def _send_email(subject:,
         body: {
           html: {
             charset: encoding,
-            data: html || "<h1>#{subject}</h1><p>#{text}</p>",
+            data: html
           },
           text: {
             charset: encoding,
-            data: text,
+            data: text
           },
         },
         subject: {
