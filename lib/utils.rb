@@ -22,14 +22,14 @@ Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, options)
 end
 
+Capybara.default_driver = :poltergeist
 Capybara.javascript_driver = :poltergeist
 Capybara.ignore_hidden_elements = false
 Capybara.default_max_wait_time = 30
-CAPY_SESSION = nil
 
 def capybara_session(reset=false)
   puts "Creating Capybara session"
-  session = Capybara::Session.new(:poltergeist)
+  session = Capybara.current_session
   begin
     yield session
   ensure
