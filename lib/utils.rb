@@ -86,7 +86,7 @@ def check_url_without_browser!(uri, allowed_redirects=20)
         response = http.request_get path # Net::HTTPResponse object
 
         if response.kind_of?(Net::HTTPRedirection)
-          url.merge(URI.parse(response['location']))
+          url = url.merge(URI.parse(response['location']))
         else
           return response.kind_of?(Net::HTTPSuccess)
         end

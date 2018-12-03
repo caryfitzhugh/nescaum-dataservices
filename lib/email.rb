@@ -8,28 +8,30 @@ end
 
 def send_broken_resources_email(resources)
   link_cache = {}
-  broken_resources = resources.map do |r|
+  broken_resources = resources.map_with_index do |r, i|
+      puts "Checking #{i} / #{resources.length} (#{r.id})"
       [r, r.get_broken_links(link_cache: link_cache)]
   end.reject {|r| r[1].empty? }
 
+  body = ""
+  body += "<h2>#{broken_resources.length} Resources Found with Broken Links</h2>"
+  body += "<ul>"
+  body += broken_resources.map do |r|
+            link = "<li>"
+            link += "<a href='#{_curation_link(r[0].id)}'>#{r[0].title}</a>"
+            link +=  "<ul>"
+            link +=  r[1].map do |l|
+                        "<li>#{l}</li>"
+                      end.join("")
+            link += "</ul>"
+            link += "</li>"
+            link
+          end.join("\n")
+  body += "</ul>"
+  body
 
   CONFIG.emails.broken_links.each do |to|
     send_alert_email(to, "#{broken_resources.length} Broken-Link Resources") do
-      body = ""
-      body += "<h2>#{broken_resources.length} Resources Found with Broken Links</h2>"
-      body += "<ul>"
-      body += broken_resources.map do |r|
-                link = "<li>"
-                link += "<a href='#{_curation_link(r[0].id)}'>#{r[0].title}</a>"
-                link +=  "<ul>"
-                link +=  r[1].map do |l|
-                           "<li>#{l}</li>"
-                         end.join("")
-                link += "</ul>"
-                link += "</li>"
-                link
-              end.join("\n")
-      body += "</ul>"
       body
     end
   end
