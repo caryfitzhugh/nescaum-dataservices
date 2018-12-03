@@ -8,7 +8,7 @@ end
 
 def send_broken_resources_email(resources)
   link_cache = {}
-  broken_resources = resources.map_with_index do |r, i|
+  broken_resources = resources.each_with_index.map do |r, i|
       puts "Checking #{i} / #{resources.length} (#{r.id})"
       [r, r.get_broken_links(link_cache: link_cache)]
   end.reject {|r| r[1].empty? }
