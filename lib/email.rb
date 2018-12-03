@@ -9,8 +9,10 @@ end
 def send_broken_resources_email(resources)
   link_cache = {}
   broken_resources = resources.each_with_index.map do |r, i|
-      puts "Checking #{i} / #{resources.length} (#{r.id})"
-      [r, r.get_broken_links(link_cache: link_cache)]
+      puts "\n\nChecking #{i} / #{resources.length} (#{r.id})"
+      broken = r.get_broken_links(link_cache: link_cache)
+      puts "#{broken}"
+      [r, broken]
   end.reject {|r| r[1].empty? }
 
   body = ""
