@@ -316,9 +316,9 @@ class Resource
       URI.extract(self.content, ["http", "https"])
     ].flatten.compact.reject do |link|
       if link_cache.has_key?(link)
-        return link_cache[link]
+        link_cache[link]
       else
-        return link_cache[link] = check_url!(link)
+        link_cache[link] = check_url!(link)
       end
     end
     res

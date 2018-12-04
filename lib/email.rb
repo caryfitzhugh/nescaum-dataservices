@@ -10,8 +10,10 @@ def send_broken_resources_email(resources)
   link_cache = {}
   broken_resources = resources.each_with_index.map do |r, i|
       puts "\n\nChecking #{i} / #{resources.length} (#{r.id})"
+      STDOUT.flush
       broken = r.get_broken_links(link_cache: link_cache)
       puts "#{broken}"
+      STDOUT.flush
       [r, broken]
   end.reject {|r| r[1].empty? }
 
@@ -30,9 +32,16 @@ def send_broken_resources_email(resources)
             link
           end.join("\n")
   body += "</ul>"
-  body
+  puts
+  puts
+  puts
+  puts body
+  puts
+  puts
+  puts
 
   CONFIG.emails.broken_links.each do |to|
+    puts "Sending to #{to}"
     send_alert_email(to, "#{broken_resources.length} Broken-Link Resources") do
       body
     end
