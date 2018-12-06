@@ -3,6 +3,8 @@ require 'net/http'
 require 'selenium-webdriver'
 require 'browsermob/proxy'
 
+Selenium::WebDriver::Chrome.driver_path = '/opt/chromedriver/chromedriver'
+
 def with_proxy()
   server = BrowserMob::Proxy::Server.new('/opt/browsermob/browsermob-proxy-2.1.4/bin/browsermob-proxy', log: true)
   proxy = nil
