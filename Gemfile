@@ -18,8 +18,8 @@ gem 'rgeo'
 gem 'inquirer', :git => "https://github.com/brbrady/inquirer.rb.git", :ref => "master"
 gem 'aws-sdk'
 gem 'sinatra-cross_origin'
-gem 'poltergeist'
-gem 'phantomjs'
+gem 'selenium-webdriver'
+gem 'browsermob-proxy'
 
 group :development do
   gem "rdf"

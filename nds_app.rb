@@ -27,6 +27,7 @@ require 'app/controllers/users_controller'
 require 'app/helpers'
 
 require 'lib/cloudsearch'
+require 'lib/url'
 
 set :logger, Logger.new(STDOUT)
 set :views, Proc.new { File.join(root, "app", "views") }
