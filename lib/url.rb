@@ -34,13 +34,15 @@ def with_browser()
       options.add_argument('--disable-gpu')
       options.add_argument('--no-sandbox')
       options.add_argument('--disable-dev-shm-usage')
-      with_proxy() do |proxy, caps|
-        driver = Selenium::WebDriver.for :chrome, options: options, desired_capabilities: caps
-        yield driver, proxy
-      end
+      #with_proxy() do |proxy, caps|
+      #driver = Selenium::WebDriver.for :chrome, options: options, desired_capabilities: caps
+      driver = Selenium::WebDriver.for :chrome, options: options
+      yield driver
+      #end
     rescue Exception => e
       puts "error"
       puts e
+      puts e.backtrace
     ensure
       driver.quit() if driver
     end
@@ -62,25 +64,26 @@ def check_url_with_browser!(url)
   puts("check w/ browser")
   result = false
   begin
-    with_browser() do |browser, proxy|
-      proxy.new_har
+    with_browser() do |browser|
       browser.get(url)
-
       puts browser.title
-      puts proxy.har.entries.first.response.status
 
-      # If there is no title
-      # of the response is 404
-      is404 = browser.title.empty? ||
-              browser.title =~ /404/ ||
-              browser.title =~ /Not Found/i ||
-              proxy.har.entries.first.response.status == 404
+      is404 = true
+
+      5.times do
+        is404 = browser.title.empty? ||
+                browser.title =~ /404/ ||
+                browser.title =~ /Not Found/i
+        break if !browser.title.empty?
+        sleep(1)
+      end
 
       result = !is404
     end
   rescue Exception => e
       puts "Error"
       puts e
+      puts e.backtrace
       result = false
   end
   result
@@ -122,6 +125,7 @@ def check_url_without_browser!(uri, allowed_redirects=20)
     false
   rescue Exception => e
     puts "error: " + uri
+    puts e
     puts e.backtrace
     false
   end
