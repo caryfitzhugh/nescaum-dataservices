@@ -89,7 +89,7 @@ def check_url_with_browser!(url)
   result
 end
 
-def check_url_without_browser!(uri, allowed_redirects=20)
+def check_url_without_browser!(uri, allowed_redirects: 20)
   puts("check w/o browser")
   begin
     url = URI.parse(uri)
