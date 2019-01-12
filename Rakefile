@@ -303,6 +303,15 @@ namespace :housekeeping do
 
     send_broken_resources_email(resources)
   end
+
+  task :email_feedback_records do |t, args|
+    feedbacks = Feedback.all
+
+    if feedbacks.length > 0
+      send_feedback_email(feedbacks)
+      feedbacks.map(&:delete)
+    end
+  end
 end
 
 namespace :cs do
