@@ -8,8 +8,14 @@ class Feedback
   property :phone, String, length: 128
   property :comment, String, length: 1024
   property :contact, Boolean
+  property :sent, Boolean, default: false
 
   def to_resource
     self.attributes
+  end
+
+  def mark_sent!
+    self.sent = true
+    self.save!
   end
 end

@@ -305,11 +305,11 @@ namespace :housekeeping do
   end
 
   task :email_feedback_records do |t, args|
-    feedbacks = Feedback.all
+    feedbacks = Feedback.where(sent: false)
 
     if feedbacks.length > 0
       send_feedback_email(feedbacks)
-      feedbacks.map(&:delete)
+      feedbacks.map(&:mark_sent!)
     end
   end
 end
