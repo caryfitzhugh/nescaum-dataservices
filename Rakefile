@@ -305,7 +305,7 @@ namespace :housekeeping do
   end
 
   task :email_feedback_records do |t, args|
-    feedbacks = Feedback.where(sent: false)
+    feedbacks = Feedback.all(sent: false)
 
     if feedbacks.length > 0
       send_feedback_email(feedbacks)
