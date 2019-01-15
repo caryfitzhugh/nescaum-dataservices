@@ -91,7 +91,8 @@ module Controllers
         sort_by_center_lng: {type: String, description: "Lng of center to sort on", example:" -71.9443"},
         published_on_end: {type: String, example: Date.today.to_s},
         published_on_start: {type: String, example: Date.today.to_s},
-        filters: {type: "SearchFilters", description: "The filters used in this search"}
+        filters: {type: "SearchFilters", description: "The filters used in this search"},
+        sort_by: { type: String, description: "How to sort (oldest, newest, relevance) -- default is relevance"}
       }
     }
 
@@ -124,6 +125,7 @@ module Controllers
                 "bounding_box": ["SW, NE list of lng, lat pairs, separated by , (leaflet.toBBoxString())", :query, false, String],
                 "sort_by_center_lat": ["Latitude of center point to sort results against", :query, false, String],
                 "sort_by_center_lng": ["Longitude of center point to sort results against", :query, false, String],
+                "sort_by": ["How to sort (oldest, newest, relevance) -- default is relevance", :query, false, String]
                 "published_on_end": ["Limit to resources publish dates to <= this publish end date", :query, false, String, :format => :date],
                 "published_on_start": ["Limit to resources publish dates to >= this publish start date", :query, false, String, :format => :date],
                 "geofocuses": ["Geofocuses to filter resources on, split by ','", :query, false, String]
@@ -141,6 +143,7 @@ module Controllers
       query = params[:query]
       geofocuses = split_multiples((params[:geofocuses] || "")).map(&:to_i)
       filters = {}
+      sort_by = params[:sort_by]
 
       Resource::FACETED_PROPERTIES.each do |name|
         filters[name] = split_multiples(params[name]) if params[name]
@@ -160,6 +163,7 @@ module Controllers
                                filters: filters,
                                page: page,
                                sort_by_center: sort_by_center,
+                               sort_by: sort_by,
                                geofocuses: geofocuses,
                                bounding_box: bbox,
                                per_page: per_page,

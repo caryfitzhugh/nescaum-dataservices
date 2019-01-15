@@ -160,6 +160,7 @@ class Resource
                   geofocuses: [],
                   page:1,
                   per_page:100,
+                  sort_by: nil,
                   pub_dates: [nil,nil],
                   score_weight: 1,
                   distance_weight: 3)
@@ -203,7 +204,11 @@ class Resource
       })
       args[:return] = "docid,score"
       args[:sort] = "score desc"
-
+      if sort_by == "oldest"
+        args[:sort] = "pubstart asc"
+      elsif sort_by == 'newest'
+        args[:sort] = "pubstart desc"
+      end
     elsif bounding_box
       sw_lng = bounding_box[0]
       sw_lat = bounding_box[1]
