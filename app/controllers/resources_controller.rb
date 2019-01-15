@@ -125,7 +125,7 @@ module Controllers
                 "bounding_box": ["SW, NE list of lng, lat pairs, separated by , (leaflet.toBBoxString())", :query, false, String],
                 "sort_by_center_lat": ["Latitude of center point to sort results against", :query, false, String],
                 "sort_by_center_lng": ["Longitude of center point to sort results against", :query, false, String],
-                "sort_by": ["How to sort (oldest, newest, relevance) -- default is relevance", :query, false, String]
+                "sort_by": ["How to sort (oldest, newest, relevance) -- default is relevance", :query, false, String],
                 "published_on_end": ["Limit to resources publish dates to <= this publish end date", :query, false, String, :format => :date],
                 "published_on_start": ["Limit to resources publish dates to >= this publish start date", :query, false, String, :format => :date],
                 "geofocuses": ["Geofocuses to filter resources on, split by ','", :query, false, String]
