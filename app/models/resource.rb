@@ -229,13 +229,15 @@ class Resource
       centroid = GeoRuby::SimpleFeatures::Point.from_hex_ewkb(bbox_attrs.centroid)
 
       area_delta = "((area - #{bbox_attrs.area})/(abs(area - #{bbox_attrs.area}) + 100))"
+      not_greater_than_limit = "area <= #{bbox_attrs.area} ? 1 : 0";
       distance = "(haversin(#{centroid.lat}, #{centroid.lng}, centroid.latitude, centroid.longitude))"
       bbox_score = "#{distance} * (#{area_delta} + 0.01)"
       args[:expr] = JSON.generate({
-        "score" => "(1000 - _score) * #{score_weight} - ((#{bbox_score}) * #{distance_weight})"
+        "score" => "(1000 - _score) * #{score_weight} - ((#{bbox_score}) * #{distance_weight})",
+        "not_greater_than_limit": not_greater_than_limit
       })
       args[:return] = "docid,score"
-      args[:sort] = "score desc"
+      args[:sort] = "not_greater_than_limit desc, score desc"
     else
 
       args[:return] = "docid"
