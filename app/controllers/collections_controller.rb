@@ -48,7 +48,7 @@ module Controllers
               responses: standard_errors( 200 => ["CollectionIndex"]),
               parameters: {
                 "page": ["Page of records to return", :query, false, Integer, :minimum => 1],
-                "per_page": ["Number of records to return", :query, false, Integer, {:minimum => 1, :maximum => 100}],
+                "per_page": ["Number of records to return", :query, false, Integer, {:minimum => 1, :maximum => 500}],
               },
               tags: ["Collection", "Public"]
 
