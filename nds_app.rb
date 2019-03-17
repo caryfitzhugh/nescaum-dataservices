@@ -20,6 +20,7 @@ require 'app/controllers/feedback_controller'
 require 'app/controllers/geofocus_controller'
 require 'app/controllers/housekeeping_controller'
 require 'app/controllers/map_states_controller'
+require 'app/controllers/u_mass_climate_data_controller'
 require 'app/controllers/resources_controller'
 require 'app/controllers/suggestions_controller'
 require 'app/controllers/users_controller'
@@ -79,6 +80,7 @@ class NDSApp < Sinatra::Application
   use Controllers::SuggestionsController
   use Controllers::UsersController
   use Controllers::MapStatesController
+  use Controllers::UMassClimateDataController
 
   get "/", :no_swagger => true do
     redirect '/index.html'
