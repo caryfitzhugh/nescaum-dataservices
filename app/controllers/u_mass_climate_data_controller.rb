@@ -20,7 +20,7 @@ module Controllers
                      templt0
                      templt32)
 
-    type 'UMASSProjectedDataFeaturePropertyValue', {
+    type 'UMassProjectedDataFeaturePropertyValue', {
       properties: {
         year: { type: Integer, description: "Year"},
         delta_low: { type: Float},
@@ -28,40 +28,40 @@ module Controllers
       }
     }
 
-    type 'UMASSProjectedDataFeaturePropertyDetail', {
+    type 'UMassProjectedDataFeaturePropertyDetail', {
       properties: {
         season: { type: String, description: "Season"},
-        values: { type: ["UMASSProjectedDataFeaturePropertyValue"]},
+        values: { type: ["UMassProjectedDataFeaturePropertyValue"]},
       }
     }
 
-    type 'UMASSProjectedDataFeatureProperties', {
+    type 'UMassProjectedDataFeatureProperties', {
       properties: {
         variable_name: { type: String, description: "Variable of data: " + VARIABLE_NAMES.to_json},
         geomtype: { type: String, description: "Geometry type [basin, county]"},
         name: { type: String, description: "Data description"},
         uid: { type: String, description: "UID of data location"},
-        data: { type: ['UMASSProjectedDataFeaturePropertyDetail'], description: "The Data"}
+        data: { type: ['UMassProjectedDataFeaturePropertyDetail'], description: "The Data"}
       }
     }
 
-    type 'UMASSProjectedDataFeature', {
+    type 'UMassProjectedDataFeature', {
       properties: {
         type: { type: String, description: "type of feature"},
         geometry: { type: String, description: "Geojson of the feature"},
-        properties: { type: "UMASSProjectedDataFeatureProperties"},
+        properties: { type: "UMassProjectedDataFeatureProperties"},
       }
     }
 
-    type 'UMASSProjectedDataGeoJSON', {
+    type 'UMassProjectedDataGeoJSON', {
       properties: {
         type: { type: String, description: "Type of GeoJSON"},
-        features: { type: ["UMASSProjectedDataFeature"], description: "Features"}
+        features: { type: ["UMassProjectedDataFeature"], description: "Features"}
       }
     }
 
     endpoint description: "Get Projected UMass Data",
-              responses: standard_errors( 200 => "UMASSProjectedDataGeoJSON"),
+              responses: standard_errors( 200 => "UMassProjectedDataGeoJSON"),
               parameters: {
                 "variable_name"  => ["Parameter to return (mint, maxt, etc.)", :query, false, String],
                 "geomtype"  => ["Geometry type to return (basin/county)", :query, false, String],
@@ -72,7 +72,7 @@ module Controllers
     get "/umass/projected/?" do
       cross_origin
 
-      features = UMASSData.projected(params['variable_name'],
+      features = UMassClimateData.projected(params['variable_name'],
                                       params['geojson'] =~ /true/i,
                                       params['geomtype'])
       json({
