@@ -90,8 +90,8 @@ class UMassClimateData
                   baseline: datum['baseline'].to_f,
                   values: datum['values'].map {|value|
                                   { year: value['year'].to_i,
-                                    range_low:  value['range_low'].to_f,
-                                    range_high: value['range_high'].to_f,
+                                    range_low:  value['range_low'].split("to").map(&:to_f),
+                                    range_high: value['range_high'].split("to").map(&:to_f),
                                     delta_low: value['delta_low'].to_f,
                                     delta_high: value['delta_high'].to_f}}}}}}
 
