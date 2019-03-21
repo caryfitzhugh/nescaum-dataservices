@@ -45,7 +45,7 @@ class UMassClimateData
                     variable_name: res.variable_name,
                     uid: res.uid,
                     data: JSON.parse(res.data).map {|datum|
-                      {season: datum['season'],
+                      {season: datum['season'].downcase,
                        values: datum['values'].map {|value|
                                       { year: value['year'].to_i,
                                         data_value: value['data_value'].to_f}}}}}}
@@ -86,7 +86,7 @@ class UMassClimateData
             variable_name: res.variable_name,
             uid: res.uid,
             data: JSON.parse(res.data).map {|datum|
-                  {season: datum['season'],
+                 {season: datum['season'].downcase,
                   baseline: datum['baseline'].to_f,
                   values: datum['values'].map {|value|
                                   { year: value['year'].to_i,
