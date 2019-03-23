@@ -56,8 +56,7 @@ class UMassClimateData
         result
       end
   end
-
-  def self.projected(variable_name, include_geojson, geomtype)
+    def self.projected(variable_name, include_geojson, geomtype)
       adapter = DataMapper.repository(:geoserver).adapter
       fields = ['geomtype','uid','variable_name','data', 'name']
       if include_geojson
@@ -78,6 +77,19 @@ class UMassClimateData
       sql += ' WHERE ' + wheres.join(" AND ")
 
       adapter.select(sql, *vars).map do |res|
+        data = {}
+
+        JSON.parse(res.data).each do |datum|
+          data[datum['season'].downcase] ||= {'season' => datum['season'].downcase, 'baseline' =>  datum['baseline'], 'values' => []}
+          data[datum['season'].downcase]['values' ]+= (datum['values'].map do |value|
+             { year: value['year'].to_i,
+               range_low:  value['range_low'].split("to").map(&:to_f),
+               range_high: value['range_high'].split("to").map(&:to_f),
+               delta_low: value['delta_low'].to_f,
+               delta_high: value['delta_high'].to_f}
+          end)
+        end
+
         result = {type: "Feature",
           geometry: nil,
           properties: {
@@ -85,15 +97,8 @@ class UMassClimateData
             name: res.name,
             variable_name: res.variable_name,
             uid: res.uid,
-            data: JSON.parse(res.data).map {|datum|
-                 {season: datum['season'].downcase,
-                  baseline: datum['baseline'].to_f,
-                  values: datum['values'].map {|value|
-                                  { year: value['year'].to_i,
-                                    range_low:  value['range_low'].split("to").map(&:to_f),
-                                    range_high: value['range_high'].split("to").map(&:to_f),
-                                    delta_low: value['delta_low'].to_f,
-                                    delta_high: value['delta_high'].to_f}}}}}}
+            data: data.values
+          }}
 
         if include_geojson
           result[:geometry] = JSON.parse(res.geom)
