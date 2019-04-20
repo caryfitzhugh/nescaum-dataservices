@@ -2,7 +2,7 @@ require 'dm-postgis'
 require 'georuby'
 require 'geo_ruby/geojson'
 
-class UMassClimateData
+class UMassClimateData30yr
   include DataMapper::Resource
   def self.default_repository_name
     :geoserver
