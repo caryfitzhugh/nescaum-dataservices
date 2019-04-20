@@ -24,15 +24,15 @@ class UMassClimateData5yr
     :geoserver
   end
 
-  property :year, Integer
-  property :variable_name, String
-  property :season, String
-  property :scenario, String
+  property :year, Integer, :key => true
+  property :variable_name, String, :key => true
+  property :season, String, :key => true
+  property :scenario, String, :key => true
   property :min, Float
   property :med, Float
   property :max, Float
-  property :area_type, String
-  property :area_name, String
+  property :area_type, String, :key => true
+  property :area_name, String, :key => true
 
   def self.get(area_type, season, variable_name)
     # (ma always I guess)

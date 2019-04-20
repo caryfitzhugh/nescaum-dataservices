@@ -80,6 +80,11 @@ module Controllers
       })
     end
 
+    type 'UMassDatagrapherData', {
+      properties: {
+      }
+    }
+
     endpoint description: "Get 5Yr Observed and Projected UMass Data",
               responses: standard_errors( 200 => "UMassDatagrapherData"),
               parameters: {
