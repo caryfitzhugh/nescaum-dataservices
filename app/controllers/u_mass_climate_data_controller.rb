@@ -114,7 +114,7 @@ module Controllers
         years[rec['year']].tap do |res|
           res['year'] = rec['year']
           res['area_type'] = params['area_type']
-          res['season'] = params['season'],
+          res['season'] = params['season']
           res['variable_name'] = params['variable_name']
 
           # For each scenario - add.
