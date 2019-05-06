@@ -40,6 +40,11 @@ class Resource
   property :updated_at, DateTime
   property :internal_id, String, unique: true
 
+  validates_primitive_type_of :published_on_end,
+    :published_on_start,
+    :created_at,
+    :updated_at
+
   has n, :geofocus_resources
   has n, :geofocuses, through: :geofocus_resources
 
