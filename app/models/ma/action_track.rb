@@ -2,35 +2,37 @@ require 'dm-postgis'
 
 class MA::ActionTrack
   include DataMapper::Resource
+  property :id, Serial
 
   # Action title: unique name
   property :title, String, :unique => true
   # Action description: unique description
   property :description, String
   # Executive Office - drop down
-  has 1, :action_track_exec_office, "MA::ActionTrackExecOffice"
+  has 1, :action_track_exec_office, MA::ActionTrackExecOffice
   # Lead Agency - drop down
-  has 1, :action_track_lead_agency, "MA::ActionTrackLeadAgency"
+  has 1, :action_track_lead_agency, MA::ActionTrackLeadAgency
   # Partner(s) - unique fill ahead
-  has n, :action_track_partner, "MA::ActionTrackPartner"
+  has n, :action_track_partner, MA::ActionTrackPartner
   # Agency Priority Score - drop down
-  has 1, :action_track_agency_priority, "MA::ActionTrackPriority"
+  has 1, :action_track_agency_priority, MA::ActionTrackAgencyPriority
   # Possible Funding Source(s) - unique - fill ahead
-  has n, :action_track_funding_source, "MA::ActionTrackFundingSource"
+  has n, :action_track_funding_source, MA::ActionTrackFundingSource
   # SHMCAP Goal(s) - drop down
-  has n, :action_track_shmcap_goal, "MA::ActionTrackShmcapGoal"
+  has n, :action_track_shmcap_goal, MA::ActionTrackShmcapGoal
   # Primary Climate Change Interactions - drop down
-  has n, :action_track_primary_climate_interactions
+  has n, :action_track_primary_climate_interaction, MA::ActionTrackPrimaryClimateInteraction
+
   # Completion Timeframe - unique - month/year -need start and end
   property :start_on, Date
   property :end_on, Date
 
   # Hazards - TBD
-  has n, :action_track_hazard
+  # has n, :action_track_hazard
   # Sectors - TBD
-  has n, :action_track_sector
+  # has n, :action_track_sector
   # Actions - TBD
-  has n, :action_track_action
+  # has n, :action_track_action
   # Benefits - TBD
-  has n, :action_track_benefit
+  # has n, :action_track_benefit
 end
