@@ -4,4 +4,7 @@ require 'bundler'
 Bundler.require
 
 require './nds_app'
-run NDSApp
+
+map '/' do
+  run NDSApp
+end

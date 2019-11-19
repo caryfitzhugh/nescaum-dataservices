@@ -18,3 +18,9 @@ bundle exec irb
 ```
 
 Then you should have the full access to the app.
+
+## Dev server
+```
+bundle install
+bundle exec rackup
+```

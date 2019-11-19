@@ -56,6 +56,9 @@ class UMassClimateData
         result
       end
   end
+  # => ["growdegdays", "tempgt100", "maxtemp", "heatdegdays", "precipgt2", "precip", "consdrydays", "tempgt95",
+  #     "mintemp", "avgtemp", "templt0", "precipgt4", "cooldegdays", "tempgt90", "templt32", "precipgt1"]
+
   def self.projected(variable_name, include_geojson, geomtype)
     adapter = DataMapper.repository(:geoserver).adapter
     fields = ['geomtype','uid','variable_name','data', 'name']

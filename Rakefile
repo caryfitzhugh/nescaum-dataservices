@@ -2,6 +2,23 @@ require './nds_app'
 require 'inquirer'
 
 namespace :db do
+  task :dump_resources, [:outfile] do |t, args|
+    require "csv"
+
+    CSV.open(args.outfile, "wb") do |f|
+      f << ["Title", "Authors", "Publishers", "Content Type", "Geographic Focuses", "Weblinks"]
+      Resource.all.each do |r|
+        f << [ r.title,
+               r.author,
+               r.resource_authors.map {|ra| ra.value }.join("\n"),
+               r.resource_publishers.map {|rp| rp.value }.join("\n"),
+               r.resource_content_types.map {|rct| rct.value }.join("\n"),
+               r.geofocuses.map {|g| g.name }.join("\n"),
+               r.external_data_links.join("\n")]
+      end
+    end
+  end
+
   task :seed do
     ResourceStrategy.all.each {|rs| rs.value=rs.value.downcase; rs.save }
     [
