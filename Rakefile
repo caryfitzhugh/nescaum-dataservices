@@ -8,13 +8,13 @@ namespace :db do
     CSV.open(args.outfile, "wb") do |f|
       f << ["Title", "Authors", "Publishers", "Content Type", "Geographic Focuses", "Weblinks"]
       Resource.all.each do |r|
+        puts "Dumping - " + r.id.to_s
         f << [ r.title,
-               r.author,
-               r.resource_authors.map {|ra| ra.value }.join("\n"),
-               r.resource_publishers.map {|rp| rp.value }.join("\n"),
-               r.resource_content_types.map {|rct| rct.value }.join("\n"),
-               r.geofocuses.map {|g| g.name }.join("\n"),
-               r.external_data_links.join("\n")]
+               r.resource_authors.map {|ra| ra.value rescue nil }.compact.join("\n"),
+               r.resource_publishers.map {|rp| rp.value rescue nil }.compact.join("\n"),
+               r.resource_content_types.map {|rct| rct.value rescue nil }.compact.join("\n"),
+               r.geofocuses.map {|g| g.name rescue nil }.compact.join("\n"),
+               r.external_data_links.compact.join("\n")]
       end
     end
   end
