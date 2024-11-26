@@ -228,7 +228,7 @@ GEM
       rack
     rack-test (0.7.0)
       rack (>= 1.0, < 3)
-    rake (12.0.0)
+    rake (12.3.3)
     rdf (2.2.6)
       hamster (~> 3.0)
       link_header (~> 0.0, >= 0.0.8)
